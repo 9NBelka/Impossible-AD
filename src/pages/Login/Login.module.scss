@@ -1,0 +1,98 @@
+.loginPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginContainer {
+  width: 100%;
+  max-width: 448px; // 28rem
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.loginTitle {
+  font-size: 1.875rem; // 30px
+  font-weight: 700;
+  text-align: center;
+  color: #1f2937; // Темно-серый
+  margin-bottom: 2rem;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.875rem; // 14px
+  font-weight: 500;
+  color: #4b5563; // Серый
+}
+
+.formInput {
+  margin-top: 0.25rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db; // Светло-серая граница
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:focus {
+    border-color: #3b82f6; // Синий
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); // Светло-синий фокус
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #9ca3af; // Светло-серый placeholder
+  }
+}
+
+.formError {
+  color: #dc2626; // Красный
+  font-size: 0.875rem; // 14px
+  margin-top: 0.25rem;
+
+  &--center {
+    text-align: center;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #2563eb; // Синий
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #1d4ed8; // Темно-синий
+  }
+
+  &:disabled {
+    background-color: #93c5fd; // Светло-синий
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,298 @@
+.services {
+  padding: 3.5vw 0;
+  background: var(--main-page-color-white);
+
+  & .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60vw;
+    margin: 0 auto;
+  }
+
+  & .titleServicesBlocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h2 {
+      font-size: 1.8vw;
+      color: var(--main-page-color-blue);
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-bold);
+    }
+
+    & .sectionSubtitle {
+      font-size: 0.75vw;
+      color: var(--main-page-color-lightGrey);
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-normal);
+      font-weight: var(--font-weight-regular);
+      margin-top: 0.5vw;
+    }
+  }
+
+  & .servicesBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1vw;
+    margin-top: 2vw;
+
+    & .serviceCard {
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      background: var(--main-page-color-white);
+      border-radius: 0.8vw;
+      padding: 1.25vw;
+      box-shadow: 0 0.02vw 1vw rgba(0, 0, 0, 0.08);
+      border: 0.01vw solid var(--main-page-color-light-lightGrey);
+      transition: all 0.3s ease;
+      position: relative;
+
+      &:hover {
+        transform: translateY(-0.25vw);
+        box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.12);
+      }
+
+      &.featured {
+        border: 0.1vw solid var(--main-page-color-accent-orange);
+      }
+
+      & .additionalService {
+        position: absolute;
+        top: -0.7vw;
+        right: 0.75vw;
+        background: var(--main-page-color-accent-orange);
+        color: var(--main-page-color-white);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: 600;
+        padding: 0.3vw 0.55vw;
+        border-radius: 1vw;
+        font-size: 0.55vw;
+      }
+
+      & .serviceIcon {
+        font-size: 1.5vw;
+      }
+
+      & h3 {
+        font-size: 1vw;
+        color: var(--main-page-color-blue);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: 600;
+        margin-top: 1vw;
+      }
+
+      & p {
+        font-size: 0.58vw;
+        color: var(--main-page-color-darkGrey);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-regular);
+        margin-top: 1vw;
+      }
+
+      & ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-top: 1vw;
+
+        & li {
+          display: flex;
+          flex-direction: row;
+          gap: 0.4vw;
+          align-items: center;
+          padding: 0.25vw 0;
+          position: relative;
+
+          & .serviceListText {
+            font-size: 0.55vw;
+            color: var(--main-page-color-darkGrey);
+            font-family: var(--font-Inter);
+            line-height: var(--font-lineh-normal);
+            font-weight: var(--font-weight-regular);
+          }
+
+          & .iconArrow {
+            fill: var(--main-page-color-accent-orange);
+            width: 0.6vw;
+            height: 0.6vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .services {
+    padding: 5vw 0;
+
+    & .container {
+      max-width: 80vw;
+    }
+
+    & .titleServicesBlocks {
+      & h2 {
+        font-size: 3vw;
+      }
+
+      & .sectionSubtitle {
+        font-size: 1.6vw;
+        margin-top: 0.75vw;
+      }
+    }
+
+    & .servicesBlock {
+      flex-wrap: wrap;
+      gap: 3vw;
+      margin-top: 3vw;
+
+      & .serviceCard {
+        width: 48%;
+        border-radius: 1.5vw;
+        padding: 2.5vw;
+        box-shadow: 0 0.02vw 1vw rgba(0, 0, 0, 0.08);
+        border: 0.01vw solid var(--main-page-color-light-lightGrey);
+
+        &:hover {
+          transform: translateY(0vw);
+          box-shadow: 0 0vw 0vw rgba(0, 0, 0, 0.12);
+        }
+
+        &.featured {
+          border: 0.1vw solid var(--main-page-color-accent-orange);
+        }
+
+        & .additionalService {
+          top: -1.6vw;
+          right: 1.5vw;
+          padding: 0.5vw 1.5vw;
+          border-radius: 3vw;
+          font-size: 1.5vw;
+        }
+
+        & .serviceIcon {
+          display: none;
+          font-size: 3vw;
+        }
+
+        & h3 {
+          font-size: 2vw;
+          margin-top: 0vw;
+        }
+
+        & p {
+          font-size: 1.6vw;
+          margin-top: 1vw;
+        }
+
+        & ul {
+          margin-top: 1vw;
+
+          & li {
+            gap: 1vw;
+            padding: 0.75vw 0;
+
+            &:last-child {
+              padding-bottom: 0;
+            }
+
+            & .serviceListText {
+              font-size: 1.4vw;
+            }
+
+            & .iconArrow {
+              width: 1.8vw;
+              height: 1.8vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .services {
+    padding: 10vw 0;
+
+    & .container {
+      max-width: 87vw;
+    }
+
+    & .titleServicesBlocks {
+      & h2 {
+        text-align: center;
+        font-size: 4.6vw;
+      }
+
+      & .sectionSubtitle {
+        text-align: center;
+        font-size: 3.6vw;
+        margin-top: 1.5vw;
+      }
+    }
+
+    & .servicesBlock {
+      flex-wrap: wrap;
+      gap: 6vw;
+      margin-top: 5vw;
+
+      & .serviceCard {
+        width: 100%;
+        border-radius: 2.5vw;
+        padding: 5.5vw 4vw;
+        box-shadow: 0 0.02vw 1vw rgba(0, 0, 0, 0.08);
+        border: 0.01vw solid var(--main-page-color-light-lightGrey);
+
+        &.featured {
+          border: 0.1vw solid var(--main-page-color-accent-orange);
+        }
+
+        & .additionalService {
+          top: -3.5vw;
+          right: 2vw;
+          padding: 1vw 4vw;
+          border-radius: 5vw;
+          font-size: 3.4vw;
+        }
+
+        & h3 {
+          font-size: 4vw;
+          margin-top: 0vw;
+        }
+
+        & p {
+          font-size: 3.6vw;
+          margin-top: 2vw;
+        }
+
+        & ul {
+          margin-top: 2vw;
+
+          & li {
+            gap: 2vw;
+            padding: 1vw 0;
+
+            & .serviceListText {
+              font-size: 3.4vw;
+            }
+
+            & .iconArrow {
+              width: 3vw;
+              height: 3vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}

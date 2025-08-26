@@ -1,0 +1,190 @@
+.benefits {
+  padding: 3.5vw 0;
+  background: var(--main-page-color-background-light);
+
+  & .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60vw;
+    margin: 0 auto;
+  }
+
+  & .benefitsContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  & .benefitsText h2 {
+    font-size: 1.5vw;
+    color: var(--main-page-color-blue);
+    font-family: var(--font-Inter);
+    line-height: var(--font-lineh-normal);
+    font-weight: var(--font-weight-bold);
+  }
+
+  & .benefitItem {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5vw;
+    gap: 0.2vw;
+
+    & h4 {
+      font-size: 0.75vw;
+      color: var(--main-page-color-darkGrey);
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-normal);
+      font-weight: var(--font-weight-bold);
+    }
+
+    & p {
+      font-size: 0.65vw;
+      color: var(--main-page-color-lightGrey);
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-big);
+      font-weight: var(--font-weight-regular);
+    }
+  }
+
+  & .benefitsStats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+
+    & .statItem {
+      text-align: center;
+      padding: 1.25vw;
+      background: white;
+      border-radius: 0.8vw;
+      box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.1);
+
+      & .statNumber {
+        font-size: 1.9vw;
+        color: var(--main-page-color-accent-orange);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-big);
+        font-weight: var(--font-weight-bold);
+      }
+
+      & .statLabel {
+        font-size: 0.6vw;
+        color: var(--main-page-color-lightGrey);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-big);
+        font-weight: var(--font-weight-regular);
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .benefits {
+    padding: 5vw 0;
+
+    & .container {
+      max-width: 80vw;
+    }
+
+    & .benefitsContent {
+      flex-direction: column;
+    }
+
+    & .benefitsText h2 {
+      font-size: 3vw;
+    }
+
+    & .benefitItem {
+      margin-top: 1.5vw;
+      gap: 0.5vw;
+
+      & h4 {
+        font-size: 2vw;
+      }
+
+      & p {
+        font-size: 1.6vw;
+      }
+    }
+
+    & .benefitsStats {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      gap: 2vw;
+      margin-top: 1.5vw;
+
+      & .statItem {
+        width: 33.33%;
+        padding: 1.25vw;
+        border-radius: 1.5vw;
+        box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.2);
+
+        & .statNumber {
+          font-size: 3vw;
+        }
+
+        & .statLabel {
+          font-size: 1.6vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .benefits {
+    padding: 10vw 0;
+
+    & .container {
+      max-width: 87vw;
+    }
+
+    & .benefitsContent {
+      flex-direction: column;
+    }
+
+    & .benefitsText h2 {
+      font-size: 4.6vw;
+    }
+
+    & .benefitItem {
+      margin-top: 5vw;
+      gap: 1vw;
+
+      & h4 {
+        font-size: 3.6vw;
+      }
+
+      & p {
+        font-size: 3.6vw;
+      }
+    }
+
+    & .benefitsStats {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 4vw;
+      margin-top: 5vw;
+
+      & .statItem {
+        width: 100%;
+        padding: 3vw;
+        border-radius: 2.5vw;
+        box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.2);
+
+        & .statNumber {
+          font-size: 7vw;
+        }
+
+        & .statLabel {
+          font-size: 3.6vw;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* overflow: hidden; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+:root {
+  --font-Jakarta: 'Mulish';
+  --font-Inter: 'Inter';
+  --font-lineh-small: 1em;
+  --font-lineh-small2: 1.2em;
+  --font-lineh-normal: 1.4em;
+  --font-lineh-big: 1.7em;
+
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --color-white: white;
+  --color-black: #000000;
+  --color-blue: #0075ff;
+  --color-darkBlue: #1a1f37;
+  --color-gray: #a0aec0;
+  --color-grayOpacity20: rgba(160, 174, 192, 0.2);
+  --color-lightGreen: #01b574;
+  --color-orange: #dd9819;
+  --color-red: rgb(160, 18, 18);
+
+  /* styles for Main Page */
+  --main-page-color-white: white;
+  --main-page-color-light-lightGrey: #e5e7eb;
+  --main-page-color-background-light: #f8fafc;
+  --main-page-color-blue: #1e3a8a;
+  --main-page-color-lightBlue: #3b82f6;
+  --main-page-color-lightGrey: #6b7280;
+  --main-page-color-darkGrey: #1f2937;
+  --main-page-color-success-green: #10b981;
+  --main-page-color-accent-orange: #f97316;
+}

@@ -1,0 +1,241 @@
+.contact {
+  padding: 3.5vw 0;
+  background: var(--main-page-color-white);
+
+  & .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60vw;
+    margin: 0 auto;
+  }
+
+  & h2 {
+    text-align: center;
+    font-size: 1.8vw;
+    color: var(--main-page-color-blue);
+    font-family: var(--font-Inter);
+    line-height: var(--font-lineh-normal);
+    font-weight: var(--font-weight-bold);
+  }
+
+  & .sectionSubtitle {
+    text-align: center;
+    font-size: 0.75vw;
+    color: var(--main-page-color-lightGrey);
+    font-family: var(--font-Inter);
+    line-height: var(--font-lineh-normal);
+    font-weight: var(--font-weight-regular);
+    margin-top: 0.5vw;
+  }
+
+  & .contactContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2vw;
+  }
+
+  & .contactInfo {
+    display: flex;
+    flex-direction: column;
+    & h3 {
+      font-size: 1vw;
+      color: var(--main-page-color-blue);
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-normal);
+      font-weight: var(--font-weight-bold);
+    }
+
+    & .contactItem {
+      margin-top: 1vw;
+
+      & .contactItemTitleMini {
+        font-size: 0.65vw;
+        color: var(--main-page-color-darkGrey);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-bold);
+        margin-top: 1vw;
+      }
+
+      & .contactItemTextMini {
+        font-size: 0.6vw;
+        color: var(--main-page-color-darkGrey);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-regular);
+        margin-top: 0.25vw;
+      }
+    }
+
+    & .trustBadges {
+      display: flex;
+      flex-direction: column;
+      gap: 1vw;
+      margin-top: 2vw;
+
+      & .badge {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.25vw;
+        background: #eff3f7;
+        padding: 0.5vw 0.7vw;
+        border-radius: 0.4vw;
+
+        & p {
+          font-size: 0.65vw;
+          color: var(--main-page-color-success-green);
+          font-family: var(--font-Inter);
+          line-height: var(--font-lineh-normal);
+          font-weight: var(--font-weight-regular);
+        }
+
+        & .iconBadge {
+          fill: var(--main-page-color-success-green);
+          width: 0.75vw;
+          height: 0.75vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact {
+    padding: 5vw 0;
+
+    & .container {
+      max-width: 80vw;
+    }
+
+    & h2 {
+      font-size: 3vw;
+    }
+
+    & .sectionSubtitle {
+      font-size: 1.6vw;
+      margin-top: 0.75vw;
+    }
+
+    & .contactContent {
+      flex-direction: column;
+      margin-top: 2vw;
+    }
+
+    & .contactInfo {
+      & h3 {
+        font-size: 2vw;
+      }
+
+      & .contactItem {
+        margin-top: 1vw;
+
+        & .contactItemTitleMini {
+          font-size: 1.6vw;
+          margin-top: 1vw;
+        }
+
+        & .contactItemTextMini {
+          font-size: 1.6vw;
+          margin-top: 0.5vw;
+        }
+      }
+
+      & .trustBadges {
+        flex-direction: row;
+        gap: 2.5vw;
+        margin-top: 2vw;
+
+        & .badge {
+          justify-content: center;
+          width: 33.33%;
+          gap: 0.75vw;
+          padding: 1.5vw 1vw;
+          border-radius: 1vw;
+
+          & p {
+            font-size: 1.6vw;
+          }
+
+          & .iconBadge {
+            width: 2vw;
+            height: 2vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .contact {
+    padding: 10vw 0;
+
+    & .container {
+      max-width: 87vw;
+    }
+
+    & h2 {
+      font-size: 4.6vw;
+    }
+
+    & .sectionSubtitle {
+      font-size: 3.6vw;
+      margin-top: 1.5vw;
+    }
+
+    & .contactContent {
+      flex-direction: column;
+      margin-top: 5vw;
+    }
+
+    & .contactInfo {
+      & h3 {
+        font-size: 3.6vw;
+      }
+
+      & .contactItem {
+        margin-top: 1vw;
+
+        & .contactItemTitleMini {
+          font-size: 3.6vw;
+          margin-top: 1vw;
+        }
+
+        & .contactItemTextMini {
+          font-size: 3.6vw;
+          margin-top: 1vw;
+        }
+      }
+
+      & .trustBadges {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3vw;
+        margin-top: 5vw;
+
+        & .badge {
+          justify-content: center;
+          width: 100%;
+          gap: 1vw;
+          padding: 2.5vw 1vw;
+          border-radius: 1.5vw;
+
+          & p {
+            font-size: 3.6vw;
+          }
+
+          & .iconBadge {
+            width: 3.5vw;
+            height: 3.5vw;
+          }
+        }
+      }
+    }
+  }
+}

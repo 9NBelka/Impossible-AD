@@ -1,0 +1,284 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
+import {
+  fetchTasks,
+  fetchUsers,
+  addTask,
+  editTask,
+  deleteTask,
+  moveTask,
+  reorderTasks,
+} from '../../../store/slices/trelloTableSlicee';
+import scss from './TrelloTable.module.scss';
+import clsx from 'clsx';
+import {
+  BsCheckSquareFill,
+  BsExclamationSquareFill,
+  BsFillCheckSquareFill,
+  BsPlus,
+  BsPlusSquareFill,
+  BsQuestionSquareFill,
+} from 'react-icons/bs';
+
+const columns = [
+  { id: 'todo', title: 'К выполнению', icon: <BsPlusSquareFill /> },
+  { id: 'inprogress', title: 'Делается', icon: <BsQuestionSquareFill /> },
+  { id: 'review', title: 'На проверке', icon: <BsExclamationSquareFill /> },
+  { id: 'done', title: 'Сделано', icon: <BsCheckSquareFill /> },
+];
+
+const priorityOptions = [
+  { value: 'low', label: 'Low' },
+  { value: 'medium', label: 'Medium' },
+  { value: 'high', label: 'High' },
+  { value: 'critical', label: 'Critical' },
+];
+
+const TrelloTable = () => {
+  const dispatch = useDispatch();
+  const { tasks, users, loading, error } = useSelector((state) => state.trelloTable);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [currentTask, setCurrentTask] = useState({
+    title: '',
+    description: '',
+    assignedUserId: '',
+    status: 'todo',
+    priority: 'low',
+    order: 0,
+  });
+  const [selectedColumn, setSelectedColumn] = useState('todo');
+
+  useEffect(() => {
+    dispatch(fetchTasks());
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  const getTasksByColumn = (columnId) =>
+    tasks.filter((task) => task.status === columnId).sort((a, b) => a.order - b.order); // Sort by order
+
+  const handleDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+    if (!destination) return;
+
+    const sourceColumn = source.droppableId;
+    const destColumn = destination.droppableId;
+    const sourceTasks = getTasksByColumn(sourceColumn);
+
+    if (sourceColumn === destColumn) {
+      // Reordering within the same column
+      const newOrder = [...sourceTasks];
+      const [movedTask] = newOrder.splice(source.index, 1);
+      newOrder.splice(destination.index, 0, movedTask);
+
+      const updatedTasks = newOrder.map((task, index) => ({
+        id: task.id,
+        order: index,
+      }));
+
+      dispatch(reorderTasks({ columnId: sourceColumn, updatedTasks }));
+    } else {
+      // Moving between columns
+      dispatch(moveTask({ taskId: draggableId, newStatus: destColumn }));
+
+      // Update order in the destination column
+      const destTasks = getTasksByColumn(destColumn);
+      const newDestTasks = [...destTasks, sourceTasks[source.index]].sort(
+        (a, b) => a.order - b.order,
+      );
+      const updatedDestTasks = newDestTasks.map((task, index) => ({
+        id: task.id,
+        order: index,
+      }));
+
+      dispatch(reorderTasks({ columnId: destColumn, updatedTasks: updatedDestTasks }));
+    }
+  };
+
+  const handleAdd = (columnId) => {
+    setIsEdit(false);
+    setCurrentTask({
+      title: '',
+      description: '',
+      assignedUserId: '',
+      status: columnId,
+      priority: 'low',
+      order: getTasksByColumn(columnId).length, // Set order to end of column
+    });
+    setSelectedColumn(columnId);
+    setModalOpen(true);
+  };
+
+  const handleEdit = (task) => {
+    setIsEdit(true);
+    setCurrentTask({ ...task });
+    setModalOpen(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isEdit) {
+      dispatch(
+        editTask({
+          taskId: currentTask.id,
+          updates: {
+            title: currentTask.title,
+            description: currentTask.description,
+            assignedUserId: currentTask.assignedUserId,
+            priority: currentTask.priority,
+          },
+        }),
+      );
+    } else {
+      dispatch(
+        addTask({
+          title: currentTask.title,
+          description: currentTask.description,
+          assignedUserId: currentTask.assignedUserId,
+          status: selectedColumn,
+          priority: currentTask.priority,
+          order: currentTask.order,
+        }),
+      );
+    }
+    setModalOpen(false);
+  };
+
+  const handleDelete = (taskId) => {
+    if (window.confirm('Удалить задачу?')) {
+      const task = tasks.find((t) => t.id === taskId);
+      dispatch(deleteTask(taskId));
+      // Reorder remaining tasks in the column
+      const columnId = task.status;
+      const remainingTasks = getTasksByColumn(columnId).filter((t) => t.id !== taskId);
+      const updatedTasks = remainingTasks.map((task, index) => ({
+        id: task.id,
+        order: index,
+      }));
+      dispatch(reorderTasks({ columnId, updatedTasks }));
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCurrentTask((prev) => ({ ...prev, [name]: value }));
+  };
+
+  if (loading) return <div>Загрузка...</div>;
+  if (error) return <div>Ошибка: {error}</div>;
+
+  return (
+    <div className={scss.trelloTable}>
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <div className={scss.board}>
+          {columns.map((column) => (
+            <div key={column.id} className={scss.boardColumn}>
+              <h2 className={scss.boardTitle}>
+                {column.title}
+                {column.icon}
+              </h2>
+              <Droppable droppableId={column.id}>
+                {(provided) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    className={scss.droppableArea}>
+                    {getTasksByColumn(column.id).map((task, index) => (
+                      <Draggable key={task.id} draggableId={task.id} index={index}>
+                        {(provided) => (
+                          <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className={clsx(
+                              scss.card,
+                              task.priority === 'low' && scss.priorityLow,
+                              task.priority === 'medium' && scss.priorityMedium,
+                              task.priority === 'high' && scss.priorityHigh,
+                              task.priority === 'critical' && scss.priorityCritical,
+                            )}>
+                            <h3 className={scss.cardTitle}>{task.title}</h3>
+                            <p className={scss.cardDescription}>{task.description}</p>
+                            <p className={scss.cardName}>
+                              Назначено:{' '}
+                              {users.find((u) => u.id === task.assignedUserId)?.name || 'Никто'}
+                            </p>
+                            <p className={scss.cardPriority}>
+                              Приоритет:{' '}
+                              {priorityOptions.find((p) => p.value === task.priority)?.label ||
+                                'Неизвестно'}
+                            </p>
+                            <p className={scss.cardDateCreate}>
+                              Создано:{' '}
+                              {task.createdAt?.toDate
+                                ? task.createdAt.toDate().toLocaleString()
+                                : 'Неизвестно'}
+                            </p>
+                            <button onClick={() => handleEdit(task)}>Редактировать</button>
+                            <button onClick={() => handleDelete(task.id)}>Удалить</button>
+                          </div>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+              <button onClick={() => handleAdd(column.id)} className={scss.buttonAddCard}>
+                <BsPlus className={scss.buttonAddCardIcon} />
+                Добавить задачу
+              </button>
+            </div>
+          ))}
+        </div>
+      </DragDropContext>
+
+      {modalOpen && (
+        <div className='modal'>
+          <form onSubmit={handleSubmit}>
+            <input
+              type='text'
+              name='title'
+              value={currentTask.title}
+              onChange={handleChange}
+              placeholder='Название'
+              required
+            />
+            <textarea
+              name='description'
+              value={currentTask.description}
+              onChange={handleChange}
+              placeholder='Описание'
+              required
+            />
+            <select
+              name='assignedUserId'
+              value={currentTask.assignedUserId}
+              onChange={handleChange}>
+              <option value=''>Никто</option>
+              {users.map((user) => (
+                <option key={user.id} value={user.id}>
+                  {user.name}
+                </option>
+              ))}
+            </select>
+            <select name='priority' value={currentTask.priority} onChange={handleChange}>
+              {priorityOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <button type='submit'>{isEdit ? 'Сохранить' : 'Создать'}</button>
+            <button type='button' onClick={() => setModalOpen(false)}>
+              Отмена
+            </button>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default TrelloTable;

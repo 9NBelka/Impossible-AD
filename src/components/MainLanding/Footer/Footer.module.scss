@@ -1,0 +1,223 @@
+.footer {
+  background: var(--main-page-color-blue);
+  color: white;
+  padding: 3.5vw 0 0.5vw;
+  padding-bottom: 0;
+
+  & .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 60vw;
+    margin: 0 auto;
+  }
+
+  & .footerContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5vw;
+
+    & .footerSectionBlock {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      flex-direction: row;
+    }
+
+    & .footerSection {
+      display: flex;
+      flex-direction: column;
+      width: 33%;
+
+      & ul {
+        list-style-type: none;
+        margin-top: 0.75vw;
+
+        & a {
+          text-decoration: none;
+
+          li {
+            display: flex;
+            font-size: 0.6vw;
+            color: #cecece;
+            font-family: var(--font-Inter);
+            line-height: var(--font-lineh-big);
+            font-weight: var(--font-weight-regular);
+            text-decoration: none;
+            margin-top: 0.25vw;
+            transition: color 0.3s ease;
+
+            &:first-child {
+              margin-top: 0;
+            }
+
+            &:hover {
+              color: white;
+            }
+          }
+        }
+      }
+
+      & h3,
+      & h4 {
+        font-size: 0.75vw;
+        color: white;
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-big);
+        font-weight: var(--font-weight-regular);
+      }
+
+      & p {
+        display: flex;
+        font-size: 0.6vw;
+        color: #cecece;
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-big);
+        font-weight: var(--font-weight-regular);
+        margin-top: 0.75vw;
+      }
+    }
+  }
+
+  .footerBottom {
+    display: flex;
+    justify-content: center;
+    border-top: 0.01vw solid #94a3b8;
+    padding: 1vw 0;
+    margin-top: 3vw;
+
+    & p {
+      display: flex;
+      font-size: 0.6vw;
+      color: #94a3b8;
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-big);
+      font-weight: var(--font-weight-regular);
+      border-right: 0.07vw solid #94a3b86e;
+      padding: 0 0.75vw;
+
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 5vw 0vw;
+
+    & .container {
+      max-width: 80vw;
+    }
+
+    & .footerContent {
+      flex-direction: column;
+      gap: 1.5vw;
+
+      & .footerSectionBlock {
+        display: flex;
+        flex-direction: row;
+      }
+
+      & .footerSection {
+        width: 100%;
+
+        & ul {
+          margin-top: 1vw;
+
+          & a {
+            li {
+              font-size: 1.6vw;
+              margin-top: 0vw;
+            }
+          }
+        }
+
+        & h3,
+        & h4 {
+          font-size: 2vw;
+        }
+
+        & p {
+          font-size: 1.6vw;
+          margin-top: 0vw;
+        }
+      }
+    }
+
+    .footerBottom {
+      border-top: 0.05vw solid #94a3b8;
+      padding: 1vw 0;
+      margin-top: 3vw;
+
+      & p {
+        font-size: 1.6vw;
+        border-right: 0.07vw solid #94a3b86e;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 10vw 0vw;
+
+    & .container {
+      max-width: 87vw;
+    }
+
+    & .footerContent {
+      flex-direction: column;
+      gap: 5vw;
+
+      & .footerSectionBlock {
+        display: flex;
+        flex-direction: column;
+        gap: 7vw;
+      }
+
+      & .footerSection {
+        width: 100%;
+
+        & ul {
+          margin-top: 2vw;
+
+          & a {
+            li {
+              font-size: 3.6vw;
+              margin-top: 1vw;
+
+              &:first-child {
+                margin-top: 1vw;
+              }
+            }
+          }
+        }
+
+        & h3,
+        & h4 {
+          font-size: 4.5vw;
+        }
+
+        & p {
+          font-size: 3.6vw;
+          margin-top: 0vw;
+        }
+      }
+    }
+
+    .footerBottom {
+      border-top: 0.1vw solid #94a3b8;
+      padding: 3vw 0;
+      margin-top: 5vw;
+
+      & p {
+        font-size: 3.6vw;
+        border-right: 0.1vw solid #94a3b86e;
+      }
+    }
+  }
+}

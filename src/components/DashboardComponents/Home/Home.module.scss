@@ -1,0 +1,22 @@
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5vw;
+
+  h2 {
+    font-size: 1vw;
+    color: var(--color-white);
+    font-family: var(--font-Jakarta);
+    line-height: var(--font-lineh-small);
+    font-weight: var(--font-weight-bold);
+  }
+
+  p {
+    font-size: 0.75vw;
+    color: var(--color-white);
+    font-family: var(--font-Jakarta);
+    line-height: var(--font-lineh-small);
+    font-weight: var(--font-weight-normal);
+    margin-top: 0.5vw;
+  }
+}
