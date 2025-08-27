@@ -1,54 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import scss from './Clients.module.scss';
-import clsx from 'clsx';
-import {
-  BsCheckCircleFill,
-  BsChevronDown,
-  BsFacebook,
-  BsFillInfoCircleFill,
-  BsGearFill,
-  BsGlobe,
-  BsInstagram,
-  BsPlusCircleFill,
-} from 'react-icons/bs';
+import { BsPlusCircleFill } from 'react-icons/bs';
 import {
   fetchClients,
   addClient,
   updateClient,
   deleteClient,
 } from '../../../store/slices/clientsSlice';
-
-// Custom Select Component
-const CustomSelect = ({ value, onChange, options, placeholder = 'Select...' }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleSelect = (option) => {
-    onChange(option);
-    setIsOpen(false);
-  };
-
-  return (
-    <div className={scss.customSelect}>
-      <div className={scss.customSelectTrigger} onClick={() => setIsOpen(!isOpen)}>
-        <span>{value || placeholder}</span>
-        <BsChevronDown className={scss.customSelectArrow} />
-      </div>
-      {isOpen && (
-        <div className={scss.customSelectOptions}>
-          {options.map((option, index) => (
-            <div
-              key={`${option}-${index}`} // Use option and index to ensure uniqueness
-              className={scss.customSelectOption}
-              onClick={() => handleSelect(option)}>
-              {option || placeholder} {/* Display placeholder for empty option */}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
+import ClientsFilterAndSearch from './ClientsFilterAndSearch/ClientsFilterAndSearch';
+import ClientsPaginationControls from './ClientsPaginationControls/ClientsPaginationControls';
+import ClientsAddOrEditPopUp from './ClientsAddOrEditPopUp/ClientsAddOrEditPopUp';
+import ClientsViewDetailsPopUp from './ClientsViewDetailsPopUp/ClientsViewDetailsPopUp';
+import ClientsTablesUsers from './ClientsTablesUsers/ClientsTablesUsers';
 
 // Helper function to format ISO date to DD.MM.YYYY HH:MM
 const formatDateTime = (isoDate) => {
@@ -80,8 +44,9 @@ export default function Clients() {
   const [currentPage, setCurrentPage] = useState(1);
   const clientsPerPage = 10;
 
-  // Modal state
-  const [modalType, setModalType] = useState(null);
+  // Modal states
+  const [modalType, setModalType] = useState(null); // For add/edit modal
+  const [viewClientId, setViewClientId] = useState(null); // For view details modal
   const [formData, setFormData] = useState({});
   const [editingId, setEditingId] = useState(null);
 
@@ -175,10 +140,15 @@ export default function Clients() {
     setModalType('edit');
   };
 
+  const openViewModal = (clientId) => {
+    setViewClientId(clientId);
+  };
+
   const closeModal = () => {
     setModalType(null);
     setFormData({});
     setEditingId(null);
+    setViewClientId(null);
   };
 
   const handleSave = () => {
@@ -191,7 +161,7 @@ export default function Clients() {
   };
 
   const handleDelete = (id) => {
-    if (window.confirm('Are you sure you want to delete this client?')) {
+    if (window.confirm('Вы уверены, что хотите удалить этого клиента?')) {
       dispatch(deleteClient(id));
     }
   };
@@ -245,7 +215,7 @@ export default function Clients() {
       hasPayments: '',
     });
     setSearchTerm('');
-    setCurrentPage(1); // Reset to first page when filters are cleared
+    setCurrentPage(1);
   };
 
   if (status === 'loading') return <div>Loading...</div>;
@@ -262,320 +232,56 @@ export default function Clients() {
           </button>
         </div>
 
-        {/* Search and Filter Controls */}
-        <div className={scss.searchAndFilter}>
-          <div className={scss.filterButtons}>
-            <CustomSelect
-              value={filters.plan}
-              onChange={(value) => setFilters({ ...filters, plan: value })}
-              options={[
-                '', // Added empty option for "no filter"
-                'Реклама в социальных сетях',
-                'Реклама на веб-сайтах',
-                'SEO оптимизация',
-                'Индивидуальные лендинг-страницы',
-                'Полный маркетинговый пакет',
-              ]}
-              placeholder='Filter by Plan'
-            />
-            <CustomSelect
-              value={filters.status}
-              onChange={(value) => setFilters({ ...filters, status: value })}
-              options={['', 'Завершенный', 'В процессе', 'Отмененный', 'В обработке']}
-              placeholder='Filter by Status'
-            />
-            <CustomSelect
-              value={filters.dateRange}
-              onChange={(value) => setFilters({ ...filters, dateRange: value })}
-              options={['', 'за сегодня', 'за неделю', 'за месяц']}
-              placeholder='Filter by Date'
-            />
-            <CustomSelect
-              value={filters.hasPayments}
-              onChange={(value) => setFilters({ ...filters, hasPayments: value })}
-              options={['', 'оплаты', 'без оплаты']}
-              placeholder='Filter by Payments'
-            />
-            <button className={scss.resetButton} onClick={resetFilters}>
-              Reset Filters
-            </button>
-          </div>
-          <input
-            type='text'
-            placeholder='Search by Name or Email'
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className={scss.searchInput}
-          />
-        </div>
+        <ClientsFilterAndSearch
+          filters={filters}
+          setFilters={setFilters}
+          resetFilters={resetFilters}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
 
-        <table className={scss.tableUsers}>
-          <thead>
-            <tr className={scss.tableTitles}>
-              <th>client</th>
-              <th>links</th>
-              <th>plan</th>
-              <th>payment</th>
-              <th>STATUS</th>
-              <th>Date Create</th>
-              <th>ACTION</th>
-            </tr>
-          </thead>
+        <ClientsTablesUsers
+          currentClients={currentClients}
+          openViewModal={openViewModal}
+          togglePayments={togglePayments}
+          formatDateTime={formatDateTime}
+          openEditModal={openEditModal}
+          handleDelete={handleDelete}
+          openPayments={openPayments}
+          localPayments={localPayments}
+          handleChangeDate={handleChangeDate}
+          handleChangeAmount={handleChangeAmount}
+          handleDeletePayment={handleDeletePayment}
+          newDate={newDate}
+          setNewDate={setNewDate}
+          newAmount={newAmount}
+          setNewAmount={setNewAmount}
+          handleAddPayment={handleAddPayment}
+          handleSavePayments={handleSavePayments}
+          closeMiniTable={closeMiniTable}
+        />
 
-          {currentClients.map((client) => (
-            <tbody key={client.id}>
-              <tr className={scss.tableRow}>
-                <td className={scss.tableWidthNameAndEmail}>
-                  <span className={scss.tableName}>{client.name}</span>
-                  <br />
-                  <span className={scss.tableEmail}>{client.email}</span>
-                </td>
-                <td>
-                  <div className={scss.socialIcons}>
-                    {client.website && (
-                      <a href={client.website} target='_blank' rel='noopener noreferrer'>
-                        <BsGlobe className={scss.socialIcon} />
-                      </a>
-                    )}
-                    {client.instagram && (
-                      <a href={client.instagram} target='_blank' rel='noopener noreferrer'>
-                        <BsInstagram className={scss.socialIcon} />
-                      </a>
-                    )}
-                    {client.facebook && (
-                      <a href={client.facebook} target='_blank' rel='noopener noreferrer'>
-                        <BsFacebook className={scss.socialIcon} />
-                      </a>
-                    )}
-                  </div>
-                </td>
-                <td className={scss.tablePlan}>
-                  <ul>
-                    {client.plan && <li>{client.plan}</li>}
-                    {client.serviceE && <li>{client.serviceE}</li>}
-                  </ul>
-                </td>
-                <td className={scss.tablePayment}>
-                  <button
-                    className={scss.tablePaymentButton}
-                    onClick={() => togglePayments(client.id)}>
-                    Payment
-                  </button>
-                </td>
-                <td>
-                  <span
-                    className={clsx(
-                      scss.tableStatus,
-                      client.status === 'Завершенный' && scss.greenStatus,
-                      client.status === 'В процессе' && scss.orangeStatus,
-                      client.status === 'Отмененный' && scss.redStatus,
-                      client.status === 'В обработке' && scss.blueStatus,
-                    )}>
-                    {client.status}
-                  </span>
-                </td>
-                <td className={scss.tableDate}>{formatDateTime(client.dateCreate)}</td>
-                <td>
-                  <div className={scss.tableActionBlock}>
-                    <button className={scss.tableEditButton} onClick={() => openEditModal(client)}>
-                      Edit
-                    </button>
-                    <button
-                      className={clsx(scss.tableEditButton, scss.tableDeleteButton)}
-                      onClick={() => handleDelete(client.id)}>
-                      Delete
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              {openPayments === client.id && (
-                <tr>
-                  <td colSpan='7'>
-                    <div className={scss.paymentMiniTable}>
-                      <h4 className={scss.miniTableTitleName}>Payments for {client.name}</h4>
-                      <table>
-                        <thead>
-                          <tr className={scss.paymentMiniTitles}>
-                            <th>Date</th>
-                            <th>Amount</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {localPayments.map((payment, index) => (
-                            <tr key={index} className={scss.miniTableRow}>
-                              <td>
-                                <input
-                                  type='date'
-                                  value={payment.date}
-                                  onChange={handleChangeDate(index)}
-                                  className={scss.miniTableModalInput}
-                                />
-                              </td>
-                              <td>
-                                <input
-                                  type='number'
-                                  value={payment.amount}
-                                  onChange={handleChangeAmount(index)}
-                                  className={scss.miniTableModalInput}
-                                />
-                              </td>
-                              <td>
-                                <button
-                                  onClick={() => handleDeletePayment(index)}
-                                  className={scss.miniTableDeleteButton}>
-                                  Delete
-                                </button>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                      <div>
-                        <input
-                          type='date'
-                          placeholder='New Date'
-                          value={newDate}
-                          onChange={(e) => setNewDate(e.target.value)}
-                          className={scss.miniTableModalInputNew}
-                        />
-                        <input
-                          type='number'
-                          placeholder='New Amount'
-                          value={newAmount}
-                          onChange={(e) => setNewAmount(e.target.value)}
-                          className={scss.miniTableModalInputNew}
-                        />
-                        <button onClick={handleAddPayment} className={scss.miniTableAddPayment}>
-                          Add Payment
-                        </button>
-                      </div>
-                      <div className={scss.miniTableButtonsSaveAndCancel}>
-                        <button
-                          onClick={handleSavePayments}
-                          className={scss.miniTableSaveChangeButton}>
-                          Save Changes
-                        </button>
-                        <button onClick={closeMiniTable} className={scss.miniTableSaveCancel}>
-                          Cancel
-                        </button>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          ))}
-        </table>
-
-        {/* Pagination Controls */}
-        <div className={scss.pagination}>
-          <button
-            className={scss.paginationButton}
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}>
-            Previous
-          </button>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index + 1}
-              className={clsx(
-                scss.paginationButton,
-                currentPage === index + 1 && scss.paginationButtonActive,
-              )}
-              onClick={() => handlePageChange(index + 1)}>
-              {index + 1}
-            </button>
-          ))}
-          <button
-            className={scss.paginationButton}
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}>
-            Next
-          </button>
-        </div>
+        <ClientsPaginationControls
+          handlePageChange={handlePageChange}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
       </div>
 
-      {/* Modal Popup */}
-      {modalType && (
-        <div className={scss.modalOverlay} onClick={closeModal}>
-          <div className={scss.modalContent} onClick={(e) => e.stopPropagation()}>
-            <h3>{modalType === 'add' ? 'Add Client' : 'Edit Client'}</h3>
-            <div className={scss.modalForm}>
-              <div className={scss.modalInputAndIconBlock}>
-                <input
-                  className={scss.modalInput}
-                  placeholder='Name'
-                  value={formData.name || ''}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                />
-              </div>
-              <div className={scss.modalInputAndIconBlock}>
-                <input
-                  className={scss.modalInput}
-                  placeholder='Email'
-                  value={formData.email || ''}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                />
-              </div>
-              <CustomSelect
-                value={formData.plan}
-                onChange={(value) => setFormData({ ...formData, plan: value })}
-                options={[
-                  '',
-                  'Реклама в социальных сетях',
-                  'Реклама на веб-сайтах',
-                  'SEO оптимизация',
-                  'Индивидуальные лендинг-страницы',
-                  'Полный маркетинговый пакет',
-                ]}
-                placeholder='Select Plan'
-              />
-              <div className={scss.modalInputAndIconBlock}>
-                <BsGlobe className={scss.modalInputIcon} />
-                <input
-                  className={scss.modalInput}
-                  placeholder='Website'
-                  value={formData.website || ''}
-                  onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                />
-              </div>
-              <div className={scss.modalInputAndIconBlock}>
-                <BsInstagram className={scss.modalInputIcon} />
-                <input
-                  className={scss.modalInput}
-                  placeholder='Instagram'
-                  value={formData.instagram || ''}
-                  onChange={(e) => setFormData({ ...formData, instagram: e.target.value })}
-                />
-              </div>
-              <div className={scss.modalInputAndIconBlock}>
-                <BsFacebook className={scss.modalInputIcon} />
-                <input
-                  className={scss.modalInput}
-                  placeholder='Facebook'
-                  value={formData.facebook || ''}
-                  onChange={(e) => setFormData({ ...formData, facebook: e.target.value })}
-                />
-              </div>
-              <CustomSelect
-                value={formData.status}
-                onChange={(value) => setFormData({ ...formData, status: value })}
-                options={['', 'Завершенный', 'В процессе', 'Отмененный', 'В обработке']}
-                placeholder='Select Status'
-              />
-              <div className={scss.modalButtons}>
-                <button className={scss.modalSaveButton} onClick={handleSave}>
-                  Save
-                </button>
-                <button className={scss.modalCancelButton} onClick={closeModal}>
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <ClientsAddOrEditPopUp
+        modalType={modalType}
+        closeModal={closeModal}
+        formData={formData}
+        setFormData={setFormData}
+        handleSave={handleSave}
+      />
+
+      <ClientsViewDetailsPopUp
+        viewClientId={viewClientId}
+        closeModal={closeModal}
+        clients={clients}
+        formatDateTime={formatDateTime}
+      />
     </div>
   );
 }

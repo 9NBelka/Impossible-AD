@@ -1,0 +1,133 @@
+.paymentMiniTable {
+  padding: 1vw 0;
+  & .paymentMiniTitles {
+    & th {
+      text-align: left;
+      font-size: 0.55vw;
+      color: var(--color-gray);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-bold);
+      opacity: 0.65;
+      text-transform: uppercase;
+      padding: 0.75vw 0;
+    }
+  }
+
+  & .miniTableRow {
+    border-top: 0.01vw solid var(--color-grayOpacity20);
+
+    & td {
+      font-size: 0.75vw;
+      color: var(--color-white);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      padding: 0.75vw 0vw;
+      padding-top: 0;
+      padding-right: 1.5vw;
+      vertical-align: middle;
+    }
+
+    & .miniTableDeleteButton {
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.6vw;
+      color: var(--color-red);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-normal);
+      padding: 0;
+    }
+
+    & .miniTableModalInput {
+      width: 7vw;
+      padding: 0.4vw 0.75vw;
+      border-radius: 0.5vw;
+      border: 0.05vw solid var(--color-grayOpacity20);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--color-white);
+      font-size: 0.65vw;
+      font-family: var(--font-Jakarta);
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-blue);
+      }
+    }
+  }
+
+  & .miniTableModalInputNew {
+    width: 7vw;
+    padding: 0.4vw 0.75vw;
+    border-radius: 0.5vw;
+    border: 0.05vw solid var(--color-grayOpacity20);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    font-size: 0.65vw;
+    font-family: var(--font-Jakarta);
+    margin-right: 1.5vw;
+
+    &::placeholder {
+      color: var(--color-white);
+      font-size: 0.65vw;
+      font-family: var(--font-Jakarta);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-blue);
+    }
+  }
+
+  & .miniTableAddPayment {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-size: 0.6vw;
+    color: var(--color-lightGreen);
+    font-family: var(--font-Jakarta);
+    line-height: var(--font-lineh-small);
+    font-weight: var(--font-weight-normal);
+    padding: 0;
+  }
+
+  & .miniTableButtonsSaveAndCancel {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    padding-top: 1vw;
+
+    & .miniTableSaveChangeButton {
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.6vw;
+      color: var(--color-lightGreen);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-normal);
+      padding: 0;
+    }
+
+    & .miniTableSaveCancel {
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.6vw;
+      color: var(--color-red);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-normal);
+      padding: 0;
+    }
+  }
+
+  & .miniTableTitleName {
+    font-size: 0.65vw;
+    color: var(--color-white);
+    font-family: var(--font-Jakarta);
+    line-height: var(--font-lineh-small);
+    font-weight: var(--font-weight-bold);
+  }
+}

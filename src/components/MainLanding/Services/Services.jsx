@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import scss from './Services.module.scss';
-import { BsArrowRight } from 'react-icons/bs';
+import { BsArrowRight, BsGraphUpArrow } from 'react-icons/bs';
+import { FcGlobe, FcPositiveDynamic, FcSurvey, FcTabletAndroid } from 'react-icons/fc';
 
 export default function Services() {
   return (
@@ -15,7 +16,9 @@ export default function Services() {
 
         <div className={scss.servicesBlock}>
           <div className={scss.serviceCard}>
-            <div className={scss.serviceIcon}>📱</div>
+            <div className={scss.serviceIcon}>
+              <FcTabletAndroid />
+            </div>
             <h3>Реклама в социальных сетях</h3>
             <p>
               Стратегические кампании в Facebook, Instagram, LinkedIn и других платформах для
@@ -42,7 +45,9 @@ export default function Services() {
           </div>
 
           <div className={scss.serviceCard}>
-            <div className={scss.serviceIcon}>🌐</div>
+            <div className={scss.serviceIcon}>
+              <FcGlobe />
+            </div>
             <h3>Реклама на веб-сайтах</h3>
             <p>
               Медийная реклама и ретаргетинговые кампании для привлечения качественного трафика на
@@ -69,8 +74,10 @@ export default function Services() {
           </div>
 
           <div className={scss.serviceCard}>
-            <div className={scss.serviceIcon}>🔍</div>
-            <h3>SEO оптимизация</h3>
+            <div className={scss.serviceIcon}>
+              <FcPositiveDynamic />
+            </div>
+            <h3>Google ADs</h3>
             <p>
               Улучшите позиции в поисковых системах и органическую видимость с помощью наших
               комплексных SEO стратегий.
@@ -96,8 +103,10 @@ export default function Services() {
           </div>
 
           <div className={clsx(scss.serviceCard, scss.featured)}>
-            <div className={scss.serviceIcon}>📄</div>
-            <h3>Индивидуальные лендинг-страницы</h3>
+            <div className={scss.serviceIcon}>
+              <FcSurvey />
+            </div>
+            <h3>Индивидуальные продающие лендинг-страницы</h3>
             <p>
               Высококонверсионные лендинг-страницы, разработанные специально для ваших кампаний и
               целевой аудитории.

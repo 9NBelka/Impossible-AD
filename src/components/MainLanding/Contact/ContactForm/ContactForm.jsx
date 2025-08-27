@@ -65,7 +65,6 @@ export default function ContactForm({
           <option value='Комплексная услуга'>Комплексная услуга</option>
           <option value='Реклама в социальных сетях'>Реклама в социальных сетях</option>
           <option value='Реклама на веб-сайтах'>Реклама на веб-сайтах</option>
-          <option value='SEO оптимизация'>SEO оптимизация</option>
           <option value='Индивидуальные лендинг-страницы'>Индивидуальные лендинг-страницы</option>
           <option value='Полный маркетинговый пакет'>Полный маркетинговый пакет</option>
           <option value='Я не определился, хочу консультацию'>
@@ -80,7 +79,6 @@ export default function ContactForm({
                 <option value=''>Выберите услугу</option>
                 <option value='Реклама в социальных сетях'>Реклама в социальных сетях</option>
                 <option value='Реклама на веб-сайтах'>Реклама на веб-сайтах</option>
-                <option value='SEO оптимизация'>SEO оптимизация</option>
                 <option value='Индивидуальные лендинг-страницы'>
                   Индивидуальные лендинг-страницы
                 </option>

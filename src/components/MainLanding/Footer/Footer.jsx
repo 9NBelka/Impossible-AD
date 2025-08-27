@@ -20,7 +20,7 @@ export default function Footer() {
                   <li>Реклама на веб-сайтах</li>
                 </a>
                 <a href='#'>
-                  <li>SEO оптимизация</li>
+                  <li>Google ADs</li>
                 </a>
                 <a href='#'>
                   <li>Лендинг-страницы</li>

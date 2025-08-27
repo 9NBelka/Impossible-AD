@@ -1,0 +1,137 @@
+.tableUsers {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 1vw;
+  margin-top: 1.5vw;
+
+  & .tableTitles {
+    & th {
+      text-align: left;
+      font-size: 0.55vw;
+      color: var(--color-gray);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-bold);
+      opacity: 0.65;
+      text-transform: uppercase;
+      padding: 0.75vw 0;
+    }
+  }
+
+  & .tableRow {
+    border-top: 0.01vw solid var(--color-grayOpacity20);
+
+    & .tableWidthNameAndEmail {
+      width: 16vw;
+    }
+
+    & td {
+      font-size: 0.75vw;
+      color: var(--color-white);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      padding: 0.75vw 0;
+      vertical-align: middle;
+
+      & .tableName {
+        font-weight: var(--font-weight-bold);
+        overflow-wrap: break-word;
+        cursor: pointer;
+      }
+
+      & .tableEmail {
+        font-size: 0.6vw;
+        color: #a0a0a0;
+      }
+
+      &.tablePlan {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.6vw;
+      }
+
+      &.tablePayment {
+        & .tablePaymentButton {
+          border: 0;
+          background: none;
+          font-size: 0.6vw;
+          color: var(--color-white);
+          font-family: var(--font-Jakarta);
+          line-height: var(--font-lineh-small);
+          cursor: pointer;
+        }
+      }
+    }
+
+    /* Social Icons Styles */
+    & .socialIcons {
+      display: flex;
+      gap: 0.6vw;
+      align-items: center;
+
+      & .socialIcon {
+        width: 0.8vw;
+        height: 0.8vw;
+        fill: var(--color-white); /* Adjust color as needed */
+        cursor: pointer;
+      }
+    }
+
+    & .tableStatus {
+      padding: 0.25vw 0.6vw;
+      border-radius: 0.5vw;
+      font-size: 0.6vw;
+      color: var(--color-white);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-bold);
+
+      &.greenStatus {
+        background-color: var(--color-lightGreen);
+      }
+
+      &.orangeStatus {
+        background-color: var(--color-orange);
+      }
+
+      &.redStatus {
+        background-color: var(--color-red);
+      }
+
+      &.blueStatus {
+        background-color: var(--color-blue);
+      }
+    }
+
+    & .tableDate {
+      font-size: 0.6vw;
+      color: var(--color-white);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-normal);
+    }
+
+    & .tableActionBlock {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5vw;
+
+      & .tableEditButton {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font-size: 0.6vw;
+        color: var(--color-gray);
+        font-family: var(--font-Jakarta);
+        line-height: var(--font-lineh-small);
+        font-weight: var(--font-weight-normal);
+        padding: 0;
+
+        &.tableDeleteButton {
+          color: var(--color-red);
+        }
+      }
+    }
+  }
+}
