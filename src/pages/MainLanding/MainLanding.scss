@@ -1,15 +1,3 @@
-// Variables
-$primary-blue: #1e3a8a;
-$secondary-blue: #3b82f6;
-$accent-orange: #f97316;
-$success-green: #10b981;
-$text-dark: #1f2937;
-$text-light: #6b7280;
-$background-light: #f8fafc;
-$white: #ffffff;
-$border-light: #e5e7eb;
-
-// Reset and base styles
 * {
   margin: 0;
   padding: 0;
@@ -17,10 +5,7 @@ $border-light: #e5e7eb;
 }
 
 body {
-  // font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  // line-height: 1.6;
-  // color: $text-dark;
-  background-color: $white;
+  background-color: var(--main-page-color-white);
 }
 
 .appa {
@@ -36,11 +21,143 @@ body {
     align-items: center;
     position: fixed;
     bottom: 0%;
-    right: 3.5%;
+    right: -3.3%;
     z-index: 9999;
-    background-color: #10b981;
-    width: 8vw;
-    height: auto;
+    transform: scale(0) translateY(10vw) translateX(0vw);
+    transition: transform 0.5s ease-in-out;
+
+    &.active {
+      transform: scale(1) translateY(-5vw) translateX(-5vw);
+    }
+  }
+
+  & .floatingButton {
+    position: fixed;
+    bottom: 3%;
+    right: 1.5%;
+    width: 2.5vw;
+    height: 2.5vw;
+    background-color: var(--main-page-color-success-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation: float 3s infinite;
+    z-index: 1000;
+
+    & .floatingButtonIcon {
+      width: 1.1vw;
+      height: 1.1vw;
+
+      &.buttonX {
+        width: 0.9vw;
+        height: 0.9vw;
+        fill: var(--main-page-color-white);
+      }
+    }
+  }
+
+  @keyframes float {
+    0% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.67);
+    }
+    70% {
+      box-shadow: 0 0 0 0.75vw rgba(16, 185, 129, 0.27);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.17);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .appa {
+    & .chatBot {
+      bottom: 0%;
+      right: -3.3%;
+      z-index: 9999;
+      transform: scale(0) translateY(10vw) translateX(0vw);
+
+      &.active {
+        transform: scale(1) translateY(-120px) translateX(-35px);
+      }
+    }
+
+    & .floatingButton {
+      bottom: 3%;
+      right: 1.5%;
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+
+      & .floatingButtonIcon {
+        width: 35px;
+        height: 35px;
+
+        &.buttonX {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    @keyframes float {
+      0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.67);
+      }
+      70% {
+        box-shadow: 0 0 0 2vw rgba(16, 185, 129, 0.27);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.17);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .appa {
+    & .chatBot {
+      bottom: 0%;
+      right: -3.3%;
+      z-index: 9999;
+      transform: scale(0) translateY(10vw) translateX(0vw);
+
+      &.active {
+        transform: scale(1) translateY(-120px) translateX(-35px);
+      }
+    }
+
+    & .floatingButton {
+      bottom: 3%;
+      right: 1.5%;
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+
+      & .floatingButtonIcon {
+        width: 35px;
+        height: 35px;
+
+        &.buttonX {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    @keyframes float {
+      0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.67);
+      }
+      70% {
+        box-shadow: 0 0 0 2vw rgba(16, 185, 129, 0.27);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.17);
+      }
+    }
   }
 }
 
@@ -51,67 +168,4 @@ body {
   align-items: center;
   max-width: 60vw;
   margin: 0 auto;
-}
-
-// Responsive Design
-@media (max-width: 768px) {
-  .header .nav {
-    display: none;
-  }
-
-  .hero {
-    .container {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
-    .hero-content h1 {
-      font-size: 2.5rem;
-    }
-  }
-
-  .benefits-content {
-    grid-template-columns: 1fr;
-
-    .benefits-stats {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .contact-content {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-form .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-
-  .hero {
-    padding: 100px 0 60px;
-
-    .hero-content h1 {
-      font-size: 2rem;
-    }
-  }
-
-  .services,
-  .benefits,
-  .contact {
-    padding: 60px 0;
-
-    h2 {
-      font-size: 2rem;
-    }
-  }
 }

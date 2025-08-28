@@ -1,0 +1,27 @@
+.iframeChatPosition {
+  position: relative;
+  background-color: 0;
+
+  & .iframeChat {
+    width: 400px;
+    height: 650px;
+    border: 0.1vw solid var(--main-page-color-light-lightGrey);
+    border-radius: 0.8vw;
+
+    p {
+      font-size: 1vw !important;
+    }
+  }
+
+  & .blockWhite {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 2.3%;
+    left: 35%;
+    width: 120px;
+    height: 15px;
+    background-color: #f0f5ff;
+    // background-color: #4f7cd6;
+  }
+}
