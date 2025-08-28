@@ -9,6 +9,7 @@ export default function ClientsAddOrEditPopUp({
   setFormData,
   handleSave,
 }) {
+  let clientAddOrEdit = true;
   return (
     <>
       {modalType && (
@@ -44,6 +45,7 @@ export default function ClientsAddOrEditPopUp({
                   'Полный маркетинговый пакет',
                 ]}
                 placeholder='Select Plan'
+                clientAddOrEdit={clientAddOrEdit}
               />
               <div className={scss.modalInputAndIconBlock}>
                 <BsGlobe className={scss.modalInputIcon} />
@@ -77,6 +79,7 @@ export default function ClientsAddOrEditPopUp({
                 onChange={(value) => setFormData({ ...formData, status: value })}
                 options={['', 'Завершенный', 'В процессе', 'Отмененный', 'В обработке']}
                 placeholder='Select Status'
+                clientAddOrEdit={clientAddOrEdit}
               />
               <div className={scss.modalButtons}>
                 <button className={scss.modalSaveButton} onClick={handleSave}>

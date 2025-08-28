@@ -58,6 +58,12 @@ p {
   --color-orange: #dd9819;
   --color-red: rgb(160, 18, 18);
 
+  --color-dashboard-background: #121212;
+  --color-dashboard-background-block: #1f1f1f;
+  --color-dashboard-background-buttons: #444444;
+  --color-dashboard-background-icon: #121212;
+  --color-dashboard-border-buttons: rgba(160, 174, 192, 0.15);
+
   /* styles for Main Page */
   --main-page-color-white: white;
   --main-page-color-light-lightGrey: #e5e7eb;

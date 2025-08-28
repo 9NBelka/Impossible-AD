@@ -8,30 +8,31 @@
 
 .paginationButton {
   background: none;
-  border: 0.05vw solid var(--color-grayOpacity20);
+  border: 0.05vw solid var(--color-white);
   border-radius: 0.5vw;
-  padding: 0.5vw 1vw;
+  padding: 0.5vw 0.75vw;
   font-size: 0.6vw;
-  color: var(--color-gray);
+  color: var(--color-white);
   font-family: var(--font-Jakarta);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: var(--color-blue);
-    color: var(--color-blue);
+    opacity: 0.55;
   }
 
   &:disabled {
+    opacity: 1;
     color: var(--color-grayOpacity20);
     cursor: not-allowed;
     border-color: var(--color-grayOpacity20);
   }
-}
 
-.paginationButtonActive {
-  background-color: var(--color-blue);
-  color: var(--color-white);
-  border-color: var(--color-blue);
+  &.paginationButtonActive {
+    background-color: var(--color-dashboard-background-buttons);
+    color: var(--color-white);
+    border-color: var(--color-dashboard-border-buttons);
+    opacity: 1;
+  }
 }

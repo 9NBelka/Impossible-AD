@@ -1,6 +1,10 @@
 .customSelect {
   position: relative;
-  width: 10vw;
+  width: 13vw;
+
+  &.customSelectAddOrEdit {
+    width: 100%;
+  }
 
   & .customSelectTrigger {
     display: flex;
@@ -8,22 +12,18 @@
     gap: 0.5vw;
     padding: 0.5vw;
     border-radius: 0.5vw;
-    border: 0.05vw solid var(--color-grayOpacity20);
-    background: rgba(255, 255, 255, 0.1);
+    border: 0.1vw solid var(--color-dashboard-border-buttons);
+    background: var(--color-dashboard-background-buttons);
     color: var(--color-white);
     font-size: 0.7vw;
     font-family: var(--font-Jakarta);
     cursor: pointer;
-
-    &:hover {
-      border-color: var(--color-blue);
-    }
   }
 
   & .customSelectArrow {
     width: 0.7vw;
     height: 0.7vw;
-    fill: var(--color-gray);
+    fill: var(--color-white);
     margin-left: auto;
     transition: transform 0.2s ease;
   }
@@ -37,9 +37,9 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: linear-gradient(127.09deg, rgba(6, 11, 40, 1), rgba(10, 14, 35, 0.9));
+    background: var(--color-dashboard-background-buttons);
     border-radius: 0.5vw;
-    border: 0.05vw solid var(--color-grayOpacity20);
+    border: 0.1vw solid var(--color-dashboard-border-buttons);
     z-index: 10;
     margin-top: 0.2vw;
     max-height: 15vw;

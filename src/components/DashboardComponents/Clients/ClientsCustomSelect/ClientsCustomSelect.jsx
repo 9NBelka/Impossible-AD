@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import scss from './ClientsCustomSelect.module.scss';
 import { BsChevronDown } from 'react-icons/bs';
+import clsx from 'clsx';
 
 export default function ClientsCustomSelect({
   value,
   onChange,
   options,
   placeholder = 'Select...',
+  clientAddOrEdit,
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,7 +18,7 @@ export default function ClientsCustomSelect({
   };
 
   return (
-    <div className={scss.customSelect}>
+    <div className={clsx(scss.customSelect, clientAddOrEdit && scss.customSelectAddOrEdit)}>
       <div className={scss.customSelectTrigger} onClick={() => setIsOpen(!isOpen)}>
         <span>{value || placeholder}</span>
         <BsChevronDown className={scss.customSelectArrow} />

@@ -12,7 +12,7 @@
 }
 
 .modalContent {
-  background: linear-gradient(127.09deg, rgba(6, 11, 40, 1) 19.41%, rgba(10, 14, 35, 0.9) 76.65%);
+  background: var(--color-dashboard-background-block);
   border-radius: 1vw;
   padding: 1.5vw;
   width: 30vw;
@@ -35,100 +35,6 @@
       flex-direction: row;
       align-items: center;
       gap: 0.5vw;
-
-      & .modalInputIcon {
-        width: 1vw;
-        height: 1vw;
-        fill: var(--color-gray);
-      }
-    }
-
-    & .modalInput {
-      width: 100%;
-      padding: 0.5vw;
-      border-radius: 0.5vw;
-      border: 0.05vw solid var(--color-grayOpacity20);
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--color-white);
-      font-size: 0.7vw;
-      font-family: var(--font-Jakarta);
-
-      &:focus {
-        outline: none;
-        border-color: var(--color-blue);
-      }
-    }
-
-    & .customSelect {
-      position: relative;
-      width: 100%;
-
-      & .customSelectTrigger {
-        display: flex;
-        align-items: center;
-        gap: 0.5vw;
-        padding: 0.5vw;
-        border-radius: 0.5vw;
-        border: 0.05vw solid var(--color-grayOpacity20);
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--color-white);
-        font-size: 0.7vw;
-        font-family: var(--font-Jakarta);
-        cursor: pointer;
-
-        &:hover {
-          border-color: var(--color-blue);
-        }
-      }
-
-      & .customSelectIcon {
-        display: flex;
-        align-items: center;
-
-        & svg {
-          width: 1vw;
-          height: 1vw;
-          fill: var(--color-gray);
-        }
-      }
-
-      & .customSelectArrow {
-        width: 0.7vw;
-        height: 0.7vw;
-        fill: var(--color-gray);
-        margin-left: auto;
-        transition: transform 0.2s ease;
-      }
-
-      & .customSelectTrigger.open .customSelectArrow {
-        transform: rotate(180deg);
-      }
-
-      & .customSelectOptions {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: linear-gradient(127.09deg, rgba(6, 11, 40, 1), rgba(10, 14, 35, 0.9));
-        border-radius: 0.5vw;
-        border: 0.05vw solid var(--color-grayOpacity20);
-        z-index: 10;
-        margin-top: 0.2vw;
-        max-height: 10vw;
-        overflow-y: auto;
-      }
-
-      & .customSelectOption {
-        padding: 0.5vw;
-        font-size: 0.7vw;
-        color: var(--color-white);
-        font-family: var(--font-Jakarta);
-        cursor: pointer;
-
-        &:hover {
-          background: rgba(255, 255, 255, 0.1);
-        }
-      }
     }
 
     & .modalButtons {
@@ -136,25 +42,13 @@
       justify-content: flex-end;
       gap: 0.5vw;
 
-      & .modalSaveButton {
-        background-color: var(--color-blue);
-        border: 0;
+      & .modalCancelButton {
+        background: none;
+        border: 0.05vw solid var(--color-white);
         border-radius: 0.5vw;
         padding: 0.5vw 1vw;
         font-size: 0.6vw;
         color: var(--color-white);
-        font-family: var(--font-Jakarta);
-        font-weight: var(--font-weight-bold);
-        cursor: pointer;
-      }
-
-      & .modalCancelButton {
-        background: none;
-        border: 0.05vw solid var(--color-gray);
-        border-radius: 0.5vw;
-        padding: 0.5vw 1vw;
-        font-size: 0.6vw;
-        color: var(--color-gray);
         font-family: var(--font-Jakarta);
         font-weight: var(--font-weight-bold);
         cursor: pointer;

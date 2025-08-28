@@ -1,10 +1,11 @@
 // Clients.module.scss (add these styles below .tableUsersMain)
 .searchAndFilter {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5vw;
-  margin-bottom: 1vw;
   align-items: center;
+  margin-top: 1vw;
 }
 
 .filterButtons {
@@ -19,39 +20,37 @@
 
   & .resetButton {
     background: none;
-    border: 0.05vw solid var(--color-gray);
+    border: 0.05vw solid var(--color-white);
     border-radius: 0.5vw;
     padding: 0.5vw 1vw;
     font-size: 0.6vw;
-    color: var(--color-gray);
+    color: var(--color-white);
     font-family: var(--font-Jakarta);
     font-weight: var(--font-weight-bold);
     cursor: pointer;
     transition: all 0.2s ease;
 
     &:hover {
-      border-color: var(--color-blue);
-      color: var(--color-blue);
+      opacity: 0.55;
     }
   }
 }
 
 .searchInput {
   width: 15vw;
-  padding: 0.5vw;
+  padding: 0.5vw 0.75vw;
   border-radius: 0.5vw;
-  border: 0.05vw solid var(--color-grayOpacity20);
-  background: rgba(255, 255, 255, 0.1);
+  border: 0.1vw solid var(--color-dashboard-border-buttons);
+  background: var(--color-dashboard-background-buttons);
   color: var(--color-white);
   font-size: 0.7vw;
   font-family: var(--font-Jakarta);
 
   &:focus {
     outline: none;
-    border-color: var(--color-blue);
   }
 
   &::placeholder {
-    color: var(--color-gray);
+    color: var(--color-white);
   }
 }
