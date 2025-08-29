@@ -1,19 +1,20 @@
-// src/App.jsx
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.scss';
-import Home from './components/DashboardComponents/Home/Home';
-import Clients from './components/DashboardComponents/Clients/Clients';
-import Sidebar from './components/DashboardComponents/Sidebar/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase';
 import { clearUser, setError, checkAuthState } from './store/slices/authSlice';
 import { useEffect } from 'react';
-import LoginForm from './pages/Login/Login';
-import RegisterForm from './pages/Register/Register';
-import MainLanding from './pages/MainLanding/MainLanding';
+import React, { Suspense, lazy } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import TrelloTable from './components/DashboardComponents/TrelloTable/TrelloTable';
+import MainLanding from './pages/MainLanding/MainLanding';
+// const MainLanding = lazy(() => import('./pages/MainLanding/MainLanding'));
+const LoginForm = lazy(() => import('./pages/Login/Login'));
+const RegisterForm = lazy(() => import('./pages/Register/Register'));
+const Home = lazy(() => import('./components/DashboardComponents/Home/Home'));
+const Clients = lazy(() => import('./components/DashboardComponents/Clients/Clients'));
+const Sidebar = lazy(() => import('./components/DashboardComponents/Sidebar/Sidebar'));
+const TrelloTable = lazy(() => import('./components/DashboardComponents/TrelloTable/TrelloTable'));
 
 export default function App() {
   const { loading, error } = useSelector((state) => state.auth);
@@ -39,54 +40,55 @@ export default function App() {
 
   return (
     <div>
-      <Routes>
-        {/* Публичные */}
-        <Route path='/' element={<MainLanding />} />
-        <Route path='/login' element={<LoginForm />} />
-        <Route path='/register' element={<RegisterForm />} />
-        {/* Приватные */}
-        <Route
-          path='/home'
-          element={
-            <PrivateRoute roles={['admin', 'moderator']}>
-              <div className='app'>
-                <Sidebar onSignOut={handleSignOut} />
-                <div className='main-content'>
-                  <Home />
+      <Suspense fallback={<div className='loading'>Загрузка...</div>}>
+        <Routes>
+          {/* Публичные */}
+          <Route path='/' element={<MainLanding />} />
+          <Route path='/login' element={<LoginForm />} />
+          <Route path='/register' element={<RegisterForm />} />
+          {/* Приватные */}
+          <Route
+            path='/home'
+            element={
+              <PrivateRoute roles={['admin', 'moderator']}>
+                <div className='app'>
+                  <Sidebar onSignOut={handleSignOut} />
+                  <div className='main-content'>
+                    <Home />
+                  </div>
                 </div>
-              </div>
-            </PrivateRoute>
-          }
-        />
-
-        <Route
-          path='/clients'
-          element={
-            <PrivateRoute roles={['admin', 'moderator']}>
-              <div className='app'>
-                <Sidebar onSignOut={handleSignOut} />
-                <div className='main-content'>
-                  <Clients />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='/clients'
+            element={
+              <PrivateRoute roles={['admin', 'moderator']}>
+                <div className='app'>
+                  <Sidebar onSignOut={handleSignOut} />
+                  <div className='main-content'>
+                    <Clients />
+                  </div>
                 </div>
-              </div>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path='/trello-table'
-          element={
-            <PrivateRoute roles={['admin', 'moderator']}>
-              <div className='app'>
-                <Sidebar onSignOut={handleSignOut} />
-                <div className='main-content'>
-                  <TrelloTable />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path='/trello-table'
+            element={
+              <PrivateRoute roles={['admin', 'moderator']}>
+                <div className='app'>
+                  <Sidebar onSignOut={handleSignOut} />
+                  <div className='main-content'>
+                    <TrelloTable />
+                  </div>
                 </div>
-              </div>
-            </PrivateRoute>
-          }
-        />
-        <Route path='*' element={<MainLanding />} />
-      </Routes>
+              </PrivateRoute>
+            }
+          />
+          <Route path='*' element={<MainLanding />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
