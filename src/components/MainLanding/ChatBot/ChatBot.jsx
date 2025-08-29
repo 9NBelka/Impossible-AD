@@ -8,8 +8,8 @@ export default memo(function ChatBot() {
         src='https://interfaces.zapier.com/embed/chatbot/cmepsdf0a004878k51tyv3aln'
         allow='clipboard-write *'
         className={scss.iframeChat}
-        loading='lazy' // Отложенная загрузка iframe
-        title='Zapier Chatbot' // Добавлено для доступности
+        loading='lazy'
+        title='Zapier Chatbot'
       />
       <div className={scss.blockWhite}></div>
     </div>
