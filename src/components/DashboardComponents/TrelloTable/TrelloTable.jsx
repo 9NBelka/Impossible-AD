@@ -20,6 +20,7 @@ import {
   BsPlusSquareFill,
   BsQuestionSquareFill,
 } from 'react-icons/bs';
+import TrelloTablePopUp from './TrelloTablePopUp/TrelloTablePopUp';
 
 const columns = [
   { id: 'todo', title: 'К выполнению', icon: <BsPlusSquareFill /> },
@@ -234,49 +235,16 @@ const TrelloTable = () => {
         </div>
       </DragDropContext>
 
-      {modalOpen && (
-        <div className='modal'>
-          <form onSubmit={handleSubmit}>
-            <input
-              type='text'
-              name='title'
-              value={currentTask.title}
-              onChange={handleChange}
-              placeholder='Название'
-              required
-            />
-            <textarea
-              name='description'
-              value={currentTask.description}
-              onChange={handleChange}
-              placeholder='Описание'
-              required
-            />
-            <select
-              name='assignedUserId'
-              value={currentTask.assignedUserId}
-              onChange={handleChange}>
-              <option value=''>Никто</option>
-              {users.map((user) => (
-                <option key={user.id} value={user.id}>
-                  {user.name}
-                </option>
-              ))}
-            </select>
-            <select name='priority' value={currentTask.priority} onChange={handleChange}>
-              {priorityOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <button type='submit'>{isEdit ? 'Сохранить' : 'Создать'}</button>
-            <button type='button' onClick={() => setModalOpen(false)}>
-              Отмена
-            </button>
-          </form>
-        </div>
-      )}
+      <TrelloTablePopUp
+        modalOpen={modalOpen}
+        handleSubmit={handleSubmit}
+        currentTask={currentTask}
+        handleChange={handleChange}
+        users={users}
+        priorityOptions={priorityOptions}
+        isEdit={isEdit}
+        setModalOpen={setModalOpen}
+      />
     </div>
   );
 };

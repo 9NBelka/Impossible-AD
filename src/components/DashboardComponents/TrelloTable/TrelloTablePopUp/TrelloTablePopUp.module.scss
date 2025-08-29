@@ -1,0 +1,100 @@
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modalContent {
+  background: var(--color-dashboard-background-block);
+  border-radius: 1vw;
+  padding: 1.5vw;
+  width: 30vw;
+  color: var(--color-white);
+  font-family: var(--font-Jakarta);
+
+  & h3 {
+    font-size: 1vw;
+    margin-bottom: 1vw;
+    font-weight: var(--font-weight-bold);
+  }
+
+  & .modalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+
+    & .modalInputAndIconBlock {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5vw;
+
+      & .modalInputIcon {
+        width: 1vw;
+        height: 1vw;
+        fill: var(--color-white);
+      }
+    }
+
+    & .modalInput {
+      display: flex;
+      width: 100%;
+      padding: 0.5vw;
+      border-radius: 0.5vw;
+      border: 0.05vw solid var(--color-grayOpacity20);
+      background: var(--color-dashboard-background-buttons);
+      color: var(--color-white);
+      font-size: 0.7vw;
+      font-family: var(--font-Jakarta);
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-white);
+      }
+
+      &.modalTextarea {
+        display: flex;
+        resize: vertical;
+        min-height: 5vw;
+      }
+    }
+
+    & .modalButtons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5vw;
+
+      & .modalSaveButton {
+        background-color: var(--color-dashboard-background-buttons);
+        border: 0.1vw solid var(--color-dashboard-border-buttons);
+        border-radius: 0.5vw;
+        padding: 0.5vw 1vw;
+        font-size: 0.6vw;
+        color: var(--color-white);
+        font-family: var(--font-Jakarta);
+        font-weight: var(--font-weight-bold);
+        cursor: pointer;
+      }
+
+      & .modalCancelButton {
+        background: none;
+        border: 0.05vw solid var(--color-white);
+        border-radius: 0.5vw;
+        padding: 0.5vw 1vw;
+        font-size: 0.6vw;
+        color: var(--color-white);
+        font-family: var(--font-Jakarta);
+        font-weight: var(--font-weight-bold);
+        cursor: pointer;
+      }
+    }
+  }
+}

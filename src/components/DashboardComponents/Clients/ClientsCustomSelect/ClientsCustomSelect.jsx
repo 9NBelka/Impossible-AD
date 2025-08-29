@@ -27,10 +27,10 @@ export default function ClientsCustomSelect({
         <div className={scss.customSelectOptions}>
           {options.map((option, index) => (
             <div
-              key={`${option}-${index}`} // Use option and index to ensure uniqueness
+              key={`${option}-${index}`}
               className={scss.customSelectOption}
               onClick={() => handleSelect(option)}>
-              {option || placeholder} {/* Display placeholder for empty option */}
+              {option || placeholder}
             </div>
           ))}
         </div>

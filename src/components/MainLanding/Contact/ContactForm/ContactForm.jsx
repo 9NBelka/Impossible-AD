@@ -120,7 +120,7 @@ export default function ContactForm({
         type='submit'
         className={clsx(scss.submitButton, isSubmitting && scss.submitting)}
         disabled={isSubmitting}>
-        {isSubmitting ? 'Отправка...' : 'Отправить запрос'}
+        {isSubmitting ? 'Отправка...' : 'Получить бесплатную консультацию'}
       </button>
 
       {submitMessage && (
