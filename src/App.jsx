@@ -6,15 +6,15 @@ import { auth } from './firebase';
 import { clearUser, setError, checkAuthState } from './store/slices/authSlice';
 import { useEffect } from 'react';
 import React, { Suspense, lazy } from 'react';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import MainLanding from './pages/MainLanding/MainLanding';
-// const MainLanding = lazy(() => import('./pages/MainLanding/MainLanding'));
+
+const MainLanding = lazy(() => import('./pages/MainLanding/MainLanding'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
 const RegisterForm = lazy(() => import('./pages/Register/Register'));
 const Home = lazy(() => import('./components/DashboardComponents/Home/Home'));
 const Clients = lazy(() => import('./components/DashboardComponents/Clients/Clients'));
 const Sidebar = lazy(() => import('./components/DashboardComponents/Sidebar/Sidebar'));
 const TrelloTable = lazy(() => import('./components/DashboardComponents/TrelloTable/TrelloTable'));
+const PrivateRoute = lazy(() => import('./components/PrivateRoute/PrivateRoute'));
 
 export default function App() {
   const { loading, error } = useSelector((state) => state.auth);
@@ -42,11 +42,9 @@ export default function App() {
     <div>
       <Suspense fallback={<div className='loading'>Загрузка...</div>}>
         <Routes>
-          {/* Публичные */}
           <Route path='/' element={<MainLanding />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<RegisterForm />} />
-          {/* Приватные */}
           <Route
             path='/home'
             element={
