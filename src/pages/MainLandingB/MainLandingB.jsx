@@ -1,5 +1,6 @@
 import BenefitsB from '../../components/MainLandingB/BenefitsB/BenefitsB';
 import Cases from '../../components/MainLandingB/Cases/Cases';
+import ContactB from '../../components/MainLandingB/ContactB/ContactB';
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
 import HeroScreenB from '../../components/MainLandingB/HeroScreenB/HeroScreenB';
@@ -15,7 +16,7 @@ export default function MainLandingB() {
       <BenefitsB />
       <Cases />
       <Process />
-      {/* <Contact /> */}
+      <ContactB />
       <FooterB />
     </div>
   );

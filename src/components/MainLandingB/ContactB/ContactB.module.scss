@@ -51,7 +51,7 @@
     }
 
     & .contactItem {
-      background: #eff3f7;
+      background: var(--main-page-b-color-white);
       display: flex;
       flex-direction: row;
       margin-top: 1vw;
@@ -59,6 +59,12 @@
       padding: 0.75vw;
       gap: 0.75vw;
       border: 0.1vw solid #e2e8f0;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        background: #f8fafc;
+        transform: translateY(-0.1vw);
+      }
 
       & .contactIcon {
         width: 1vw;

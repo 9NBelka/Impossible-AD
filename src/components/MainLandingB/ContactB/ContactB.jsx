@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addClient } from '../../../store/slices/clientsSlice';
 import { addContactForm } from '../../../store/slices/contactFormSlice';
-import scss from './Contact.module.scss';
+import scss from './ContactB.module.scss';
 import { BsChat, BsCheck2, BsClock, BsEnvelope, BsTelephone } from 'react-icons/bs';
-import ContactForm from './ContactForm/ContactForm';
+import ContactFormB from './ContactFormB/ContactFormB';
 
-export default function Contact() {
+export default function ContactB() {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: '',
@@ -92,7 +92,7 @@ export default function Contact() {
   };
 
   return (
-    <section id='contact' className={scss.contact}>
+    <section id='contacts' className={scss.contact}>
       <div className={scss.container}>
         <h2>Готовы усилить свое цифровое присутствие?</h2>
         <p className={scss.sectionSubtitle}>
@@ -132,7 +132,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <ContactForm
+          <ContactFormB
             handleSubmit={handleSubmit}
             formData={formData}
             handleInputChange={handleInputChange}
