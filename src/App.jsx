@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import React, { Suspense, lazy } from 'react';
 import MainLandingB from './pages/MainLandingB/MainLandingB';
 
-const MainLanding = lazy(() => import('./pages/MainLanding/MainLanding'));
+const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
 const RegisterForm = lazy(() => import('./pages/Register/Register'));
 const Home = lazy(() => import('./components/DashboardComponents/Home/Home'));
@@ -24,7 +24,35 @@ export default function App() {
 
   useEffect(() => {
     dispatch(checkAuthState());
-  }, [dispatch]);
+
+    const currentPath = window.location.pathname;
+    const storedVersion = localStorage.getItem('abVersion');
+
+    // Список страниц, где работает только A/B логика
+    const abPaths = ['/a', '/b', '/'];
+
+    if (abPaths.includes(currentPath)) {
+      if (!storedVersion) {
+        // Если версии нет, определяем её
+        if (currentPath === '/a') {
+          localStorage.setItem('abVersion', 'A');
+        } else if (currentPath === '/b') {
+          localStorage.setItem('abVersion', 'B');
+        } else {
+          // Если зашёл на "/" — назначаем A по умолчанию
+          localStorage.setItem('abVersion', 'B');
+          navigate('/', { replace: true });
+        }
+      } else {
+        // Если версия уже есть
+        if (storedVersion === 'A' && currentPath !== '/a') {
+          navigate('/a', { replace: true });
+        } else if (storedVersion === 'B' && currentPath !== '/b') {
+          navigate('/b', { replace: true });
+        }
+      }
+    }
+  }, [dispatch, navigate]);
 
   const handleSignOut = async () => {
     try {
@@ -43,7 +71,8 @@ export default function App() {
     <div>
       <Suspense fallback={<div className='loading'>Загрузка...</div>}>
         <Routes>
-          <Route path='/' element={<MainLanding />} />
+          <Route path='/' element={<MainLandingB />} />
+          <Route path='/a' element={<MainLandingA />} />
           <Route path='/b' element={<MainLandingB />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<RegisterForm />} />
@@ -86,7 +115,12 @@ export default function App() {
               </PrivateRoute>
             }
           />
-          <Route path='*' element={<MainLanding />} />
+          <Route
+            path='*'
+            element={
+              localStorage.getItem('abVersion') === 'B' ? <MainLandingB /> : <MainLandingA />
+            }
+          />
         </Routes>
       </Suspense>
     </div>

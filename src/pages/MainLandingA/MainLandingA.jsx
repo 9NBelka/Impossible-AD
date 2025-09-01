@@ -1,10 +1,11 @@
-import './MainLanding.scss';
+import './MainLandingA.scss';
 import Header from '../../components/MainLanding/Header/Header';
 import HeroScreen from '../../components/MainLanding/HeroScreen/HeroScreen';
 import Services from '../../components/MainLanding/Services/Services';
 import React, { Suspense, useCallback, useState, memo } from 'react';
 import { BsXLg } from 'react-icons/bs';
 import { FcSms } from 'react-icons/fc';
+import TrustedScreen from '../../components/TrustedScreen/TrustedScreen';
 
 const ChatBot = React.lazy(() => import('../../components/MainLanding/ChatBot/ChatBot'));
 const Benefits = React.lazy(() => import('../../components/MainLanding/Benefits/Benefits'));
@@ -21,10 +22,13 @@ export default function MainLanding() {
     setIsChatOpen((prev) => !prev);
   }, []);
 
+  let MainLandingA = true;
+
   return (
     <div className='appa'>
       <Header />
       <HeroScreen />
+      <TrustedScreen MainLandingA={MainLandingA} />
       <Services />
       <Suspense fallback={<div aria-live='polite'>Загрузка...</div>}>
         <div className={`chatBot ${isChatOpen ? 'active' : ''}`}>

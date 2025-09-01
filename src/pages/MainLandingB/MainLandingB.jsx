@@ -6,12 +6,14 @@ import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
 import HeroScreenB from '../../components/MainLandingB/HeroScreenB/HeroScreenB';
 import Process from '../../components/MainLandingB/Process/Process';
 import ServicesB from '../../components/MainLandingB/ServicesB/ServicesB';
+import TrustedScreen from '../../components/TrustedScreen/TrustedScreen';
 
 export default function MainLandingB() {
   return (
     <div className='min-h-screen'>
       <HeaderB />
       <HeroScreenB />
+      <TrustedScreen />
       <ServicesB />
       <BenefitsB />
       <Cases />
