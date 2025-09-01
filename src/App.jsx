@@ -6,6 +6,7 @@ import { auth } from './firebase';
 import { clearUser, setError, checkAuthState } from './store/slices/authSlice';
 import { useEffect } from 'react';
 import React, { Suspense, lazy } from 'react';
+import MainLandingB from './pages/MainLandingB/MainLandingB';
 
 const MainLanding = lazy(() => import('./pages/MainLanding/MainLanding'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -43,6 +44,7 @@ export default function App() {
       <Suspense fallback={<div className='loading'>Загрузка...</div>}>
         <Routes>
           <Route path='/' element={<MainLanding />} />
+          <Route path='/b' element={<MainLandingB />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<RegisterForm />} />
           <Route
