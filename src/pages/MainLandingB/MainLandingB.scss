@@ -1,0 +1,141 @@
+.chatBot {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0%;
+  right: -3.3%;
+  z-index: 9999;
+  transform: scale(0) translateY(10vw) translateX(0vw);
+  transition: transform 0.5s ease-in-out;
+
+  &.active {
+    transform: scale(1) translateY(-5vw) translateX(-5vw);
+  }
+}
+
+.floatingButton {
+  position: fixed;
+  bottom: 3%;
+  right: 1.5%;
+  width: 2.5vw;
+  height: 2.5vw;
+  background-color: var(--main-page-color-success-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: float 3s infinite;
+  z-index: 1000;
+
+  & .floatingButtonIcon {
+    width: 1.1vw;
+    height: 1.1vw;
+
+    &.buttonX {
+      width: 0.9vw;
+      height: 0.9vw;
+      fill: var(--main-page-color-white);
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.67);
+  }
+  70% {
+    box-shadow: 0 0 0 0.75vw rgba(16, 185, 129, 0.27);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.17);
+  }
+}
+
+@media (max-width: 1024px) {
+  .chatBot {
+    bottom: 0%;
+    right: -3.3%;
+    z-index: 9999;
+    transform: scale(0) translateY(10vw) translateX(0vw);
+
+    &.active {
+      transform: scale(1) translateY(-120px) translateX(-35px);
+    }
+  }
+
+  .floatingButton {
+    bottom: 3%;
+    right: 1.5%;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+
+    & .floatingButtonIcon {
+      width: 35px;
+      height: 35px;
+
+      &.buttonX {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  @keyframes float {
+    0% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.67);
+    }
+    70% {
+      box-shadow: 0 0 0 2vw rgba(16, 185, 129, 0.27);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.17);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .chatBot {
+    bottom: 0%;
+    right: -3.3%;
+    z-index: 9999;
+    transform: scale(0) translateY(10vw) translateX(0vw);
+
+    &.active {
+      transform: scale(1) translateY(-100px) translateX(-30px);
+    }
+  }
+
+  .floatingButton {
+    bottom: 4%;
+    right: 4%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    & .floatingButtonIcon {
+      width: 23px;
+      height: 23px;
+
+      &.buttonX {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  @keyframes float {
+    0% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.67);
+    }
+    70% {
+      box-shadow: 0 0 0 3vw rgba(16, 185, 129, 0.27);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.17);
+    }
+  }
+}
