@@ -18,13 +18,18 @@ export default function ContactFormForDownload() {
     const data = { name, email };
 
     try {
-      await fetch('https://hook.eu2.make.com/d1ylv3c1bgtgog8tn970gyv7jidg8iw9', {
+      const response = await fetch('https://hook.eu2.make.com/d1ylv3c1bgtgog8tn970gyv7jidg8iw9', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
       window.location.href = '/thanks';
     } catch (error) {
       console.error('Error sending data:', error);
