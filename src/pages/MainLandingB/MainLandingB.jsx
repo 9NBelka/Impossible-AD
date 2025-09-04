@@ -25,9 +25,13 @@ export default function MainLandingB() {
       <HeroScreenB />
       <TrustedScreen />
       <ServicesB />
-      <div className={`chatBot ${isChatOpen ? 'active' : ''}`}>
+      {/* <div className={`chatBot ${isChatOpen ? 'active' : ''}`}>
         <ChatBot isChatOpen={isChatOpen} />
-      </div>
+      </div> */}
+      <script
+        src='https://cdn.pulse.is/livechat/loader.js'
+        data-live-chat-id='68b9856b3e0f26e6880d9815'
+        async></script>
       <BenefitsB />
       <Cases />
       <Process />

@@ -79,7 +79,7 @@ export default function App() {
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<RegisterForm />} />
           <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
-          <Route path='/chat' element={<Chat />} />
+          {/* <Route path='/chat' element={<Chat />} /> */}
           <Route
             path='/home'
             element={
