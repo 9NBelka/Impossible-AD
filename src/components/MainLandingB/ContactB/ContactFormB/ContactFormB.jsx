@@ -13,7 +13,7 @@ export default function ContactFormB({
       <div className={scss.formRow}>
         <div className={scss.formGroup}>
           <label className={scss.formInputNoneMarg}>
-            Полное имя <span className={scss.importantText}>*</span>
+            Ім’я <span className={scss.importantText}>*</span>
           </label>
           <input
             type='text'
@@ -25,7 +25,7 @@ export default function ContactFormB({
         </div>
         <div className={scss.formGroup}>
           <label className={clsx(scss.formInputNoneMarg, scss.formInputYepMarg)}>
-            Email адрес <span className={scss.importantText}>*</span>
+            Пошта <span className={scss.importantText}>*</span>
           </label>
           <input
             type='email'
@@ -39,12 +39,12 @@ export default function ContactFormB({
 
       <div className={scss.formRow}>
         <div className={scss.formGroup}>
-          <label>Название компании (опционально)</label>
+          <label>Назва компанії (опціонально)</label>
           <input type='text' name='company' value={formData.company} onChange={handleInputChange} />
         </div>
         <div className={scss.formGroup}>
           <label>
-            Номер телефона <span className={scss.importantText}>*</span>
+            Телефон <span className={scss.importantText}>*</span>
           </label>
           <input
             type='tel'
@@ -58,10 +58,10 @@ export default function ContactFormB({
 
       <div className={scss.formGroup}>
         <label>
-          Интересующая услуга <span className={scss.importantText}>*</span>
+          Послуга, що цікавить <span className={scss.importantText}>*</span>
         </label>
         <select name='service' value={formData.service} onChange={handleInputChange} required>
-          <option value=''>Выберите услугу</option>
+          <option value=''>Виберіть послугу</option>
           <option value='Комплексная услуга'>Комплексная услуга</option>
           <option value='Реклама в социальных сетях'>Реклама в социальных сетях</option>
           <option value='Реклама на веб-сайтах'>Реклама на веб-сайтах</option>
@@ -87,13 +87,13 @@ export default function ContactFormB({
             </div> */}
 
       <div className={scss.formGroup}>
-        <label>Расскажите о вашем проекте (опционально)</label>
+        <label>Розкажіть про ваш проект (опціонально)</label>
         <textarea
           name='message'
           value={formData.message}
           onChange={handleInputChange}
           rows='4'
-          placeholder='Опишите ваши цели, целевую аудиторию и то, как выглядит успех для вашего бизнеса...'></textarea>
+          placeholder='Опишіть ваші цілі, цільову аудиторію та те, як виглядає успіх для вашого бізнесу.'></textarea>
       </div>
 
       <div className={clsx(scss.formGroup, scss.checkboxGroup)}>
@@ -107,11 +107,10 @@ export default function ContactFormB({
           />
           <span className={scss.checkmark}></span>
           <span className={scss.checkmarkText}>
-            Я согласен на обработку моих персональных данных в соответствии с
+            Я згоден на обробку моїх персональних даних відповідно до
             <a href='#' className={scss.privacyLink}>
-              Политикой конфиденциальности
+              Політики конфіденційності
             </a>
-            и согласен на контакт по моему запросу.
           </span>
         </label>
       </div>
@@ -120,14 +119,14 @@ export default function ContactFormB({
         type='submit'
         className={clsx(scss.submitButton, isSubmitting && scss.submitting)}
         disabled={isSubmitting}>
-        {isSubmitting ? 'Отправка...' : 'Получить бесплатную консультацию'}
+        {isSubmitting ? 'Відправка...' : 'Отримати безкоштовну консультацію'}
       </button>
 
       {submitMessage && (
         <div
           className={clsx(
             scss.submitMessage,
-            submitMessage.includes('Спасибо') ? scss.success : scss.error,
+            submitMessage.includes('Дякуємо!') ? scss.success : scss.error,
           )}>
           {submitMessage}
         </div>

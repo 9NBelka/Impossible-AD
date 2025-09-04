@@ -12,18 +12,21 @@ export default function ServicesB() {
       description:
         'Налаштування та ведення рекламних кампаній з акцентом на продажі та мінімізацію вартості ліда.',
       features: ['Пошукова реклама', 'Медійна реклама', 'YouTube Ads', 'Shopping кампанії'],
+      linkToPage: '/google-ads',
     },
     {
       icon: <BsCode className={scss.cardIcon} />,
       title: 'Веб-розробка',
       description: 'Розробка сайтів від лендінгів і сайтів-візиток до інтернет-магазинів.',
       features: ['Лендінги', 'Корпоративні сайти', 'Інтернет-магазини', 'Web додатки'],
+      linkToPage: '/google-ads',
     },
     {
       icon: <BsLightningCharge className={scss.cardIcon} />,
       title: 'Бізнес-івтоматизація',
       description: 'Інтеграція AI- та Zapier-рішень для автоматизації бізнес-процесів.',
       features: ['AI чат-боти', 'CRM інтеграції', 'Email автоматизація', 'Workflow оптимізація'],
+      linkToPage: '/google-ads',
     },
     {
       icon: <BsBarChart className={scss.cardIcon} />,
@@ -35,6 +38,7 @@ export default function ServicesB() {
         'A/B тестування',
         'Звіти з рекомендаціями',
       ],
+      linkToPage: '/google-ads',
     },
     {
       icon: <BsGlobe className={scss.cardIcon} />,
@@ -42,6 +46,7 @@ export default function ServicesB() {
       description:
         'Оцінка юзабіліті, швидкості, SEO + покрокові рекомендації для підвищення конверсії.',
       features: ['SEO аналіз', 'UX/UI аудит', 'Технічна оптимізація', 'Конверсійний аналіз'],
+      linkToPage: '/google-ads',
     },
   ];
 
@@ -64,7 +69,9 @@ export default function ServicesB() {
                   <li key={featureIndex}>{feature}</li>
                 ))}
               </ul>
-              <button className={scss.learnMore}>Детальніше</button>
+              <a href={service.linkToPage}>
+                <button className={scss.learnMore}>Детальніше</button>
+              </a>
             </div>
           ))}
         </div>

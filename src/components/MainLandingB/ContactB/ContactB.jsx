@@ -32,7 +32,7 @@ export default function ContactB() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.gdprConsent) {
-      setSubmitMessage('Пожалуйста, примите политику конфиденциальности для продолжения.');
+      setSubmitMessage('Будь ласка, ухваліть політику конфіденційності для продовження.');
       return;
     }
 
@@ -70,7 +70,7 @@ export default function ContactB() {
       // Dispatch to add to 'contactform' collection
       await dispatch(addContactForm(contactFormData)).unwrap();
 
-      setSubmitMessage('Спасибо! Мы свяжемся с вами в течение 24 часов.');
+      setSubmitMessage('Дякуємо! Ми зв`яжемося з вами протягом 24 годин.');
       setFormData({
         name: '',
         email: '',
@@ -81,7 +81,7 @@ export default function ContactB() {
         gdprConsent: false,
       });
     } catch (error) {
-      setSubmitMessage('Ошибка при отправке формы. Пожалуйста, попробуйте позже.');
+      setSubmitMessage('Помилка при надсиланні форми. Будь ласка, спробуйте пізніше.');
       console.error('Form submission error:', error);
     } finally {
       setIsSubmitting(false);
@@ -91,9 +91,10 @@ export default function ContactB() {
   return (
     <section id='contacts' className={scss.contact}>
       <div className={scss.container}>
-        <h2>Готовы усилить свое цифровое присутствие?</h2>
+        <h2>Чи готові посилити свою цифрову присутність?</h2>
         <p className={scss.sectionSubtitle}>
-          Свяжитесь с нами для бесплатной консультации и индивидуальной стратегии для вашего бизнеса
+          Зв'яжіться з нами для безкоштовної консультації та індивідуальної стратегії для вашого
+          бізнесу
         </p>
 
         <div className={scss.contactContent}>

@@ -8,7 +8,9 @@ import { useEffect } from 'react';
 import React, { Suspense, lazy } from 'react';
 import MainLandingB from './pages/MainLandingB/MainLandingB';
 import ThanksPageOnFormDownload from './pages/ThanksPageOnFormDownload/ThanksPageOnFormDownload';
-import Chat from './pages/Chat/Chat';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import GoogleAds from './pages/GoogleAds/GoogleAds';
+// import Chat from './pages/Chat/Chat';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -79,6 +81,8 @@ export default function App() {
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<RegisterForm />} />
           <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
+          <Route path='/google-ads' element={<GoogleAds />} />
+          <Route path='*' element={<NotFoundPage />} />
           {/* <Route path='/chat' element={<Chat />} /> */}
           <Route
             path='/home'

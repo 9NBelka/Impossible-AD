@@ -110,18 +110,28 @@ p {
   --main-page-b-color-white3: #f8fafc;
   --main-page-b-color-white4: #e2e8f0;
   --main-page-b-color-white5: #e0f2fe;
+  --main-page-b-color-white6: #fcfcfd;
   --main-page-b-color-white-opacity95: rgba(255, 255, 255, 0.95);
   --main-page-b-color-white-opacity98: rgba(255, 255, 255, 0.98);
   --main-page-b-color-darkGrey: #1e293b;
   --main-page-b-color-lightBlue: #3b82f6;
   --main-page-b-color-lightBlue2: #4b78f4;
+  --main-page-b-color-lightBlue3: #0068f01a;
+  --main-page-b-color-blue1: #0068f0;
+  --main-page-b-color-blue2: #2463eb;
   --main-page-b-color-hashtag: #6366f1;
   --main-page-b-color-light-lightBlue: #64748b;
   --main-page-b-color-light-lightBlue2: #475569;
   --main-page-b-color-light-lightBlue3: #bae6fd;
   --main-page-b-color-light-lightBlue4: #94a3b8;
+  --main-page-b-color-light-lightBlue5: #dbeafe;
   --main-page-b-color-green: #10b981;
+  --main-page-b-color-green2: #16a249;
+  --main-page-b-color-green3: #15803d;
+  --main-page-b-color-lightGreen: #f0fdf4;
+  --main-page-b-color-lightGreen2: #dcfce7;
   --main-page-b-color-red: #ef4444;
+  --main-page-b-color-lightRed: #fef2f2;
 
   --main-page-b-color-blue: #1e3a8a;
 

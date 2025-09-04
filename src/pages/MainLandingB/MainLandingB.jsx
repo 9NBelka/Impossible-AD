@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+// import { useCallback, useState } from 'react';
 import BenefitsB from '../../components/MainLandingB/BenefitsB/BenefitsB';
 import Cases from '../../components/MainLandingB/Cases/Cases';
 import ContactB from '../../components/MainLandingB/ContactB/ContactB';
@@ -8,17 +8,17 @@ import HeroScreenB from '../../components/MainLandingB/HeroScreenB/HeroScreenB';
 import Process from '../../components/MainLandingB/Process/Process';
 import ServicesB from '../../components/MainLandingB/ServicesB/ServicesB';
 import TrustedScreen from '../../components/TrustedScreen/TrustedScreen';
-import { BsXLg } from 'react-icons/bs';
-import { FcSms } from 'react-icons/fc';
-import ChatBot from '../../components/MainLanding/ChatBot/ChatBot';
+// import { BsXLg } from 'react-icons/bs';
+// import { FcSms } from 'react-icons/fc';
+// import ChatBot from '../../components/MainLanding/ChatBot/ChatBot';
 import './MainLandingB.scss';
 
 export default function MainLandingB() {
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  // const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const handleChatToggle = useCallback(() => {
-    setIsChatOpen((prev) => !prev);
-  }, []);
+  // const handleChatToggle = useCallback(() => {
+  //   setIsChatOpen((prev) => !prev);
+  // }, []);
   return (
     <div className='min-h-screen'>
       <HeaderB />
@@ -37,13 +37,13 @@ export default function MainLandingB() {
       <Process />
       <ContactB />
       <FooterB />
-      <div className='floatingButton' onClick={handleChatToggle}>
+      {/* <div className='floatingButton' onClick={handleChatToggle}>
         {isChatOpen ? (
           <BsXLg className='floatingButtonIcon buttonX' />
         ) : (
           <FcSms className='floatingButtonIcon' />
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

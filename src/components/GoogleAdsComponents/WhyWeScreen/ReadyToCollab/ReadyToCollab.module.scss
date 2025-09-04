@@ -1,0 +1,149 @@
+.readyToCollab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  background-color: #0068f00d;
+  padding: 2vw 1.5vw;
+  border-radius: 1vw;
+  margin-top: 2vw;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-0.2vw);
+    box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.1);
+  }
+
+  & .readyToCollabTitle {
+    font-size: 1.3vw;
+    color: var(--main-page-b-color-darkGrey);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-normal);
+  }
+
+  & .readyToCollabDescription {
+    font-size: 0.85vw;
+    color: var(--main-page-b-color-light-lightBlue);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-big);
+    margin-top: 0.8vw;
+  }
+
+  & .iconAndTextBlocks {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    margin-top: 0.8vw;
+
+    & .iconAndTextBlockBackground {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background: var(--main-page-b-color-lightGreen2);
+      padding: 0.2vw 0.5vw;
+      border-radius: 2vw;
+      gap: 0.2vw;
+
+      & .iconCheck {
+        width: 1vw;
+        height: 1vw;
+        color: var(--main-page-b-color-green3);
+      }
+
+      & p {
+        font-size: 0.75vw;
+        color: var(--main-page-b-color-green3);
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--font-lineh-big);
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .readyToCollab {
+    width: 100%;
+    padding: 4vw 3vw;
+    border-radius: 1.5vw;
+    margin-top: 3vw;
+
+    &:hover {
+      transform: translateY(0vw);
+      box-shadow: 0 0vw 0vw rgba(0, 0, 0, 0.1);
+    }
+
+    & .readyToCollabTitle {
+      font-size: 2.8vw;
+    }
+
+    & .readyToCollabDescription {
+      font-size: 1.8vw;
+      margin-top: 2.5vw;
+    }
+
+    & .iconAndTextBlocks {
+      gap: 2.5vw;
+      margin-top: 2.5vw;
+
+      & .iconAndTextBlockBackground {
+        padding: 0.4vw 1vw;
+        border-radius: 3vw;
+        gap: 0.5vw;
+
+        & .iconCheck {
+          width: 2.2vw;
+          height: 2.2vw;
+        }
+
+        & p {
+          font-size: 1.7vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .readyToCollab {
+    width: 100%;
+    padding: 7vw 3vw;
+    border-radius: 3vw;
+    margin-top: 7vw;
+
+    & .readyToCollabTitle {
+      font-size: 6vw;
+    }
+
+    & .readyToCollabDescription {
+      width: 70%;
+      font-size: 3.6vw;
+      margin-top: 3vw;
+      text-align: center;
+    }
+
+    & .iconAndTextBlocks {
+      gap: 4vw;
+      margin-top: 4vw;
+
+      & .iconAndTextBlockBackground {
+        flex-direction: column;
+        padding: 1vw 5vw;
+        border-radius: 6.5vw;
+        gap: 0.25vw;
+
+        & .iconCheck {
+          width: 5vw;
+          height: 5vw;
+        }
+
+        & p {
+          font-size: 3.2vw;
+        }
+      }
+    }
+  }
+}

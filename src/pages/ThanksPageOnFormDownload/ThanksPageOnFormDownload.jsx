@@ -3,6 +3,8 @@ import scss from './ThanksPageOnFormDownload.module.scss';
 import { useState } from 'react';
 import { addContactForm } from '../../store/slices/contactFormSlice';
 import { useDispatch } from 'react-redux';
+import ThanksPageContactForm from './ThanksPageContactForm/ThanksPageContactForm';
+import { BsArrowLeftShort } from 'react-icons/bs';
 
 export default function ThanksPageOnFormDownload() {
   const dispatch = useDispatch();
@@ -28,7 +30,7 @@ export default function ThanksPageOnFormDownload() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.gdprConsent) {
-      setSubmitMessage('Пожалуйста, примите политику конфиденциальности для продолжения.');
+      setSubmitMessage('Будь ласка, ухваліть політику конфіденційності для продовження.');
       return;
     }
 
@@ -50,7 +52,7 @@ export default function ThanksPageOnFormDownload() {
       // Dispatch to add to 'contactform' collection
       await dispatch(addContactForm(contactFormData)).unwrap();
 
-      setSubmitMessage('Спасибо! Мы свяжемся с вами в течение 24 часов.');
+      setSubmitMessage('Дякуємо! Ми зв`яжемося з вами протягом 24 годин.');
       setFormData({
         name: '',
         email: '',
@@ -58,7 +60,7 @@ export default function ThanksPageOnFormDownload() {
         gdprConsent: false,
       });
     } catch (error) {
-      setSubmitMessage('Ошибка при отправке формы. Пожалуйста, попробуйте позже.');
+      setSubmitMessage('Помилка при надсиланні форми. Будь ласка, спробуйте пізніше.');
       console.error('Form submission error:', error);
     } finally {
       setIsSubmitting(false);
@@ -74,7 +76,9 @@ export default function ThanksPageOnFormDownload() {
       <div className={scss.container}>
         <div className={scss.thanksPageBlock}>
           <img src='/images/imageForThanksPageDownload.png' alt='imageForThanksPageDownload' />
-          <h2>🎉 Дякуємо, ваш чек-лист вже у вас!</h2>
+          <h2>
+            <span>🎉</span> Дякуємо, ваш чек-лист вже у вас!
+          </h2>
           <p className={scss.thanksPageDescriptionOrange}>
             Нема листа? Перевірте Вхідні → Промоакції/Спам/Усі листи.
           </p>
@@ -97,91 +101,19 @@ export default function ThanksPageOnFormDownload() {
             підкажемо, як це виправити.
           </p>
 
-          <form className={scss.contactForm} onSubmit={handleSubmit}>
-            <div className={scss.formRow}>
-              <div className={scss.formGroup}>
-                <label className={scss.formInputNoneMarg}>
-                  Полное имя <span className={scss.importantText}>*</span>
-                </label>
-                <input
-                  type='text'
-                  name='name'
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className={scss.formGroup}>
-                <label className={clsx(scss.formInputNoneMarg, scss.formInputYepMarg)}>
-                  Email адрес <span className={scss.importantText}>*</span>
-                </label>
-                <input
-                  type='email'
-                  name='email'
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className={scss.formRow}>
-              <div className={scss.formGroup}>
-                <label>
-                  Номер телефона <span className={scss.importantText}>*</span>
-                </label>
-                <input
-                  type='tel'
-                  name='phone'
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className={clsx(scss.formGroup, scss.checkboxGroup)}>
-              <label className={scss.checkboxLabel}>
-                <input
-                  type='checkbox'
-                  name='gdprConsent'
-                  checked={formData.gdprConsent}
-                  onChange={handleInputChange}
-                  required
-                />
-                <span className={scss.checkmark}></span>
-                <span className={scss.checkmarkText}>
-                  Я согласен на обработку моих персональных данных в соответствии с
-                  <a href='#' className={scss.privacyLink}>
-                    Политикой конфиденциальности
-                  </a>
-                </span>
-              </label>
-            </div>
-
-            <button
-              type='submit'
-              className={clsx(scss.submitButton, isSubmitting && scss.submitting)}
-              disabled={isSubmitting}>
-              {isSubmitting ? 'Отправка...' : 'Получить бесплатную консультацию'}
-            </button>
-
-            {submitMessage && (
-              <div
-                className={clsx(
-                  scss.submitMessage,
-                  submitMessage.includes('Спасибо') ? scss.success : scss.error,
-                )}>
-                {submitMessage}
-              </div>
-            )}
-          </form>
+          <ThanksPageContactForm
+            handleSubmit={handleSubmit}
+            formData={formData}
+            handleInputChange={handleInputChange}
+            isSubmitting={isSubmitting}
+            submitMessage={submitMessage}
+          />
         </div>
-
-        <button onClick={handleBack} className={scss.backButton}>
-          Назад
-        </button>
       </div>
+      <button onClick={handleBack} className={scss.backButton}>
+        <BsArrowLeftShort className={scss.iconBack} />
+        Повернутись
+      </button>
     </div>
   );
 }

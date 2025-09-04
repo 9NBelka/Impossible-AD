@@ -1,11 +1,12 @@
-import { BsDownload } from 'react-icons/bs';
-import scss from './ContactFormForDownload.module.scss';
+import { BsSearch } from 'react-icons/bs';
+import scss from './GoogleAuditFormScreen.module.scss';
 import { useState } from 'react';
 import clsx from 'clsx';
 
-export default function ContactFormForDownload() {
+export default function GoogleAuditFormScreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [formData, setFormData] = useState({ gdprConsent: false });
 
   const handleInputChange = (e) => {
@@ -15,7 +16,7 @@ export default function ContactFormForDownload() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { name, email };
+    const data = { name, email, phone };
 
     try {
       const response = await fetch('https://hook.eu2.make.com/d1ylv3c1bgtgog8tn970gyv7jidg8iw9', {
@@ -39,12 +40,9 @@ export default function ContactFormForDownload() {
   return (
     <div className={scss.formForDownload}>
       <div className={scss.container}>
-        <h2>Перевір свою рекламу самостійно</h2>
-        <p>Завантаж безкоштовний покроковий Чек-лист </p>
+        <h2>Замовити аудит Google Ads</h2>
+        <p>Замовляй аудит та отримай Результат за 72 години </p>
         <form onSubmit={handleSubmit} className={scss.formMainBlock}>
-          <div className={scss.formImageBlock}>
-            <img src='/images/formaImage1.jpg' />
-          </div>
           <div className={scss.formInputsAndCheckoutBlock}>
             <div className={scss.formInputsAndCheckout}>
               <div className={scss.formGroup}>
@@ -71,9 +69,21 @@ export default function ContactFormForDownload() {
                   required
                 />
               </div>
+              <div className={scss.formGroup}>
+                <label>
+                  Телефон <span className={scss.importantText}>*</span>
+                </label>
+                <input
+                  type='phone'
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className={scss.input}
+                  required
+                />
+              </div>
               <button type='submit' className={scss.button}>
-                <BsDownload className={scss.buttonIconDownload} />
-                Завантажити PDF
+                <BsSearch className={scss.buttonIconDownload} />
+                Замовити аудит Google Ads
               </button>
             </div>
             <div className={clsx(scss.formGroup, scss.checkboxGroup)}>
