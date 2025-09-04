@@ -7,6 +7,7 @@ import { clearUser, setError, checkAuthState } from './store/slices/authSlice';
 import { useEffect } from 'react';
 import React, { Suspense, lazy } from 'react';
 import MainLandingB from './pages/MainLandingB/MainLandingB';
+import ThanksPageOnFormDownload from './pages/ThanksPageOnFormDownload/ThanksPageOnFormDownload';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -76,6 +77,7 @@ export default function App() {
           <Route path='/b' element={<MainLandingB />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<RegisterForm />} />
+          <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
           <Route
             path='/home'
             element={

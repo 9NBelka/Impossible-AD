@@ -1,0 +1,59 @@
+.backgroundBlock {
+  background-color: #fef7ec;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 50vw;
+  margin: 0 auto;
+}
+
+.thanksPageBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.1vw;
+  color: var(--main-page-b-color-darkGrey);
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-lineh-normal);
+}
+
+.thanksPageDescriptionOrange {
+  color: #ff814f;
+  font-size: 0.85vw;
+  margin: 0 auto;
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-lineh-big);
+  margin-top: 0.5vw;
+
+  &.thanksPageDescription {
+    color: #64748b;
+    margin-top: 1.5vw;
+  }
+
+  &.noMarg {
+    margin: 0;
+  }
+}
+
+.button {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #357abd;
+  }
+}

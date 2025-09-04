@@ -2,6 +2,7 @@ import React from 'react';
 // import { Search, Code, Zap, BarChart, Globe } from 'lucide-react';
 import scss from './ServicesB.module.scss';
 import { BsBarChart, BsCode, BsGlobe, BsLightningCharge, BsSearch } from 'react-icons/bs';
+import ContactFormForDownload from './ContactFormForDownload/ContactFormForDownload';
 
 export default function ServicesB() {
   const services = [
@@ -68,6 +69,7 @@ export default function ServicesB() {
           ))}
         </div>
       </div>
+      <ContactFormForDownload />
     </section>
   );
 }
