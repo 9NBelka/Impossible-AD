@@ -16,7 +16,7 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
     console.log('Переменные окружения:', {
       TELEGRAM_TOKEN,
       TELEGRAM_CHAT_ID,
-      env: process.env, // Логируем весь process.env для диагностики
+      env: process.env,
     });
 
     if (!TELEGRAM_TOKEN || !TELEGRAM_CHAT_ID) {
@@ -52,14 +52,24 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
       }
     }
 
+    // Определяем заголовок в зависимости от source
+    const formSource =
+      newFormData.source === 'thanks' ? 'страницы Благодарности' : 'Главной страницы';
+
+    // Формируем сообщение, исключая поля, которых нет в форме благодарности
     const message = `
-*Новая заявка из контактной формы!*
+*Новая заявка из контактной формы ${formSource}!*
 *Имя*: ${newFormData.name || 'Не указано'}
 *Email*: ${newFormData.email || 'Не указано'}
-*Компания*: ${newFormData.company || 'Не указано'}
+${
+  newFormData.source !== 'thanks'
+    ? `*Компания*: ${newFormData.company || 'Не указано'}\n*Сообщение*: ${
+        newFormData.message || 'Не указано'
+      }\n`
+    : ''
+}
 *Телефон*: ${newFormData.phone || 'Не указано'}
 *Услуга*: ${newFormData.plan || 'Не указано'}
-*Сообщение*: ${newFormData.message || 'Не указано'}
 *Дата*: ${formattedDate}
 *Статус*: ${newFormData.status || 'В обработке'}
 `;

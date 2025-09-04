@@ -42,6 +42,9 @@ export default function ThanksPageOnFormDownload() {
         email: formData.email,
         name: formData.name,
         phone: formData.phone,
+        source: 'thanks', // Add source to indicate thanks page form
+        status: 'В обработке',
+        plan: 'Чек-лист PDF', // Add plan to indicate the form purpose
       };
 
       // Dispatch to add to 'contactform' collection

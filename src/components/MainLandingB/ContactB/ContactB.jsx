@@ -1,4 +1,3 @@
-// src/components/Contact.jsx (updated)
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addClient } from '../../../store/slices/clientsSlice';
@@ -15,7 +14,6 @@ export default function ContactB() {
     company: '',
     phone: '',
     service: '',
-    // serviceE: '',
     message: '',
     gdprConsent: false,
   });
@@ -44,7 +42,7 @@ export default function ContactB() {
     try {
       const dateCreate = new Date().toISOString();
       const status = 'В обработке';
-      const plan = formData.service || formData.serviceE; // Use service or serviceE as plan; fallback to first if both present
+      const plan = formData.service;
 
       // Prepare data for both collections
       const clientData = {
@@ -60,10 +58,10 @@ export default function ContactB() {
         name: formData.name,
         plan,
         status,
-        company: formData.company, // Include additional fields as needed
+        company: formData.company,
         phone: formData.phone,
         message: formData.message,
-        // serviceE: formData.serviceE,
+        source: 'main', // Add source to indicate main page form
       };
 
       // Dispatch to add to 'clients' collection
@@ -79,7 +77,6 @@ export default function ContactB() {
         company: '',
         phone: '',
         service: '',
-        // serviceE: '',
         message: '',
         gdprConsent: false,
       });
