@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import React, { Suspense, lazy } from 'react';
 import MainLandingB from './pages/MainLandingB/MainLandingB';
 import ThanksPageOnFormDownload from './pages/ThanksPageOnFormDownload/ThanksPageOnFormDownload';
+import Chat from './pages/Chat/Chat';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -78,6 +79,7 @@ export default function App() {
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<RegisterForm />} />
           <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
+          <Route path='/chat' element={<Chat />} />
           <Route
             path='/home'
             element={
