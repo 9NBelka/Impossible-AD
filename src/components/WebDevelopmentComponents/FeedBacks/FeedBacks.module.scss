@@ -1,0 +1,249 @@
+.feedBacksScreen {
+  background: var(--main-page-b-color-white);
+  padding: 5vw 0;
+}
+
+@media (max-width: 1024px) {
+  .feedBacksScreen {
+    padding: 7vw 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .feedBacksScreen {
+    padding: 14vw 0;
+  }
+}
+
+.container {
+  max-width: 70vw;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 90vw;
+  }
+}
+
+.header {
+  text-align: center;
+
+  h2 {
+    font-size: 1.8vw;
+    color: var(--main-page-b-color-darkGrey);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small2);
+  }
+
+  p {
+    font-size: 0.85vw;
+    margin: 0 auto;
+    color: var(--main-page-b-color-light-lightBlue);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-big);
+    margin-top: 1vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    text-align: center;
+
+    h2 {
+      font-size: 3.6vw;
+    }
+
+    p {
+      font-size: 1.8vw;
+      margin-top: 1vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    h2 {
+      font-size: 7.5vw;
+    }
+
+    p {
+      font-size: 3.6vw;
+      margin-top: 3vw;
+    }
+  }
+}
+
+.testimonials {
+  margin-top: 3vw;
+}
+
+@media (max-width: 1024px) {
+  .testimonials {
+    margin-top: 5vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonials {
+    margin-top: 7vw;
+  }
+}
+
+.testimonialsGrid {
+  display: flex;
+  flex-direction: row;
+  gap: 1.6vw;
+  margin-top: 1.6vw;
+}
+
+@media (max-width: 1024px) {
+  .testimonialsGrid {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2vw;
+    margin-top: 3.2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonialsGrid {
+    gap: 4vw;
+    margin-top: 5vw;
+  }
+}
+
+.testimonialCard {
+  width: 31.75%;
+  background: var(--main-page-b-color-white);
+  padding: 1.6vw;
+  border-radius: 0.8vw;
+  box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 0.1vw solid var(--main-page-b-color-white4);
+  position: relative;
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: 0.8vw;
+    left: 1.2vw;
+    font-size: 2.4vw;
+    color: var(--main-page-b-color-white4);
+    font-family: serif;
+    line-height: 1;
+  }
+
+  &:hover {
+    transform: translateY(-0.2vw);
+    box-shadow: 0 0.6vw 1.5vw rgba(0, 0, 0, 0.12);
+  }
+
+  p {
+    font-size: 0.8vw;
+    color: var(--main-page-b-color-light-lightBlue2);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-normal);
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 1024px) {
+  .testimonialCard {
+    width: 48.8%;
+    background: var(--main-page-b-color-white);
+    padding: 3vw;
+    border-radius: 1.5vw;
+    box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
+
+    &:hover {
+      transform: translateY(0vw);
+      box-shadow: 0 0vw 0vw rgba(0, 0, 0, 0.12);
+    }
+
+    p {
+      font-size: 1.8vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonialCard {
+    width: 100%;
+    padding: 5vw;
+    border-radius: 3vw;
+    box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
+
+    p {
+      font-size: 3.6vw;
+    }
+  }
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  color: var(--main-page-b-color-light-lightBlue2);
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-smallStrong);
+  line-height: var(--font-lineh-normal);
+  margin-top: 1vw;
+
+  div {
+    strong {
+      display: block;
+      font-size: 0.8vw;
+      color: var(--main-page-b-color-darkGrey);
+    }
+
+    span {
+      font-size: 0.7vw;
+      color: var(--main-page-b-color-light-lightBlue);
+      font-weight: var(--font-weight-smallStrong);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .author {
+    margin-top: 2vw;
+
+    div {
+      strong {
+        font-size: 1.8vw;
+      }
+
+      span {
+        font-size: 1.6vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .author {
+    margin-top: 3vw;
+
+    div {
+      strong {
+        font-size: 3.6vw;
+      }
+
+      span {
+        font-size: 3.2vw;
+      }
+    }
+  }
+}

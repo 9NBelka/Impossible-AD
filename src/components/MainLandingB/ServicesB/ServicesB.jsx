@@ -19,7 +19,7 @@ export default function ServicesB() {
       title: 'Веб-розробка',
       description: 'Розробка сайтів від лендінгів і сайтів-візиток до інтернет-магазинів.',
       features: ['Лендінги', 'Корпоративні сайти', 'Інтернет-магазини', 'Web додатки'],
-      linkToPage: '/google-ads',
+      linkToPage: '/web-development',
     },
     {
       icon: <BsLightningCharge className={scss.cardIcon} />,

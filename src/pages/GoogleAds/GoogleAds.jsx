@@ -1,4 +1,5 @@
 import DecideProblemsScreen from '../../components/GoogleAdsComponents/DecideProblemsScreen/DecideProblemsScreen';
+import FooterContactForm from '../../components/GoogleAdsComponents/FooterContactForm/FooterContactForm';
 import GoogleAuditFormScreen from '../../components/GoogleAdsComponents/GoogleAuditFormScreen/GoogleAuditFormScreen';
 import GuaranteesScreen from '../../components/GoogleAdsComponents/GuaranteesScreen/GuaranteesScreen';
 import HeroScreen from '../../components/GoogleAdsComponents/HeroScreen/HeroScreen';
@@ -15,6 +16,7 @@ export default function GoogleAds() {
       <GoogleAuditFormScreen />
       <GuaranteesScreen />
       <WhyWeScreen />
+      <FooterContactForm />
     </div>
   );
 }

@@ -53,8 +53,17 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
     }
 
     // Определяем заголовок в зависимости от source
-    const formSource =
-      newFormData.source === 'thanks' ? 'страницы Благодарности' : 'Главной страницы';
+    let formSource;
+    switch (newFormData.source) {
+      case 'thanks':
+        formSource = 'страницы Благодарности';
+        break;
+      case 'googleAds':
+        formSource = 'GoogleAds';
+        break;
+      default:
+        formSource = 'Главной страницы';
+    }
 
     // Формируем сообщение, исключая поля, которых нет в форме благодарности
     const message = `
@@ -62,7 +71,7 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
 *Имя*: ${newFormData.name || 'Не указано'}
 *Email*: ${newFormData.email || 'Не указано'}
 ${
-  newFormData.source !== 'thanks'
+  newFormData.source == 'Главной страницы'
     ? `*Компания*: ${newFormData.company || 'Не указано'}\n*Сообщение*: ${
         newFormData.message || 'Не указано'
       }\n`

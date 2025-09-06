@@ -114,9 +114,12 @@ p {
   --main-page-b-color-white-opacity95: rgba(255, 255, 255, 0.95);
   --main-page-b-color-white-opacity98: rgba(255, 255, 255, 0.98);
   --main-page-b-color-darkGrey: #1e293b;
+  --main-page-b-color-darkGrey2: #1d2530;
+  --main-page-b-color-grey: #e1e7ef4d;
   --main-page-b-color-lightBlue: #3b82f6;
   --main-page-b-color-lightBlue2: #4b78f4;
   --main-page-b-color-lightBlue3: #0068f01a;
+  --main-page-b-color-lightBlue4: #61a6fa;
   --main-page-b-color-blue1: #0068f0;
   --main-page-b-color-blue2: #2463eb;
   --main-page-b-color-hashtag: #6366f1;
