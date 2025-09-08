@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import HeroScreen from '../../components/GoogleAdsComponents/HeroScreen/HeroScreen';
 import scss from './GoogleAds.module.scss';
+import WhyWeScreen from '../../components/GoogleAdsComponents/WhyWeScreen/WhyWeScreen';
+import WhyImpossibleAD from '../../components/GoogleAdsComponents/WhyImpossibleAD/WhyImpossibleAD';
+import CasesScreen from '../../components/GoogleAdsComponents/CasesScreen/CasesScreen';
+import GoogleAdsFormScreen from '../../components/GoogleAdsComponents/GoogleAdsFormScreen/GoogleAdsFormScreen';
+import CostScreen from '../../components/GoogleAdsComponents/CostScreen/CostScreen';
 
 export default function GoogleAds() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,6 +30,11 @@ export default function GoogleAds() {
   return (
     <div>
       <HeroScreen scrollToSection={scrollToSection} />
+      <WhyWeScreen />
+      <CasesScreen />
+      <GoogleAdsFormScreen />
+      <CostScreen scrollToSection={scrollToSection} />
+      <WhyImpossibleAD />
     </div>
   );
 }
