@@ -1,27 +1,7 @@
 import scss from './HeroScreen.module.scss';
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
 
-export default function HeroScreen() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 200);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
+export default function HeroScreen({ scrollToSection }) {
   return (
     <section className={scss.hero} id='hero'>
       <div className={scss.background}>
@@ -47,7 +27,7 @@ export default function HeroScreen() {
               </button>
               <button
                 className={clsx(scss.ctaButton, scss.whiteButton)}
-                onClick={() => scrollToSection('casesAndResults')}>
+                onClick={() => scrollToSection('cases')}>
                 Показати кейси
               </button>
             </div>

@@ -10,7 +10,7 @@ import scss from './YouKnowScreen.module.scss';
 export default function YouKnowScreen() {
   const textKnow = [
     {
-      icon: <BsExclamationCircle DownArrow className={scss.cardIcon} />,
+      icon: <BsExclamationCircle className={scss.cardIcon} />,
       title: 'Губляються заявки',
       description: 'Клієнти залишають контакти, але вони втрачаються між різними каналами',
     },

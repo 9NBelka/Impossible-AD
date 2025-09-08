@@ -30,8 +30,8 @@ export default function FooterContactForm() {
       name,
       email,
       phone,
-      plan: 'Разработка сайта',
-      source: 'webdevelopment',
+      plan: 'Автоматизация',
+      source: 'businessAutomation',
       dateCreate: new Date().toISOString(),
       status: 'В обробці',
     };
@@ -54,9 +54,12 @@ export default function FooterContactForm() {
       <div className={scss.container}>
         <div className={scss.contentFlexRow}>
           <div className={scss.content}>
-            <h1 className={scss.title}>Ваш сайт має продавати. Давайте створимо його разом 🚀</h1>
+            <h1 className={scss.title}>
+              Автоматизація — це не майбутнє, це ваша{' '}
+              <span className={scss.brand}>конкурентна перевага</span> вже сьогодні
+            </h1>
             <p className={scss.subtitle}>
-              Залиште заявку — і протягом 24 год отримаєте перший план рішення для вашого бізнесу.
+              Поки ваші конкуренти витрачають час на рутину, ви будете масштабувати бізнес
             </p>
           </div>
 

@@ -116,7 +116,9 @@ p {
   --main-page-b-color-white-opacity98: rgba(255, 255, 255, 0.98);
   --main-page-b-color-darkGrey: #1e293b;
   --main-page-b-color-darkGrey2: #1d2530;
+  --main-page-b-color-darkGrey3: #1d2025;
   --main-page-b-color-grey: #e1e7ef4d;
+  --main-page-b-color-lightGrey: #6b7280;
   --main-page-b-color-lightBlue: #3b82f6;
   --main-page-b-color-lightBlue2: #4b78f4;
   --main-page-b-color-lightBlue3: #0068f01a;
@@ -140,6 +142,4 @@ p {
   --main-page-b-color-lightRed: #fef2f2;
 
   --main-page-b-color-blue: #1e3a8a;
-
-  --main-page-b-color-lightGrey: #6b7280;
 }

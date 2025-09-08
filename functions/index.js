@@ -56,34 +56,39 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
     let formSource;
     switch (newFormData.source) {
       case 'thanks':
-        formSource = 'страницы Благодарности';
+        formSource = 'страница Благодарности';
         break;
       case 'googleAds':
-        formSource = 'GoogleAds';
+        formSource = 'страница GoogleAds';
         break;
       case 'webdevelopment':
-        formSource = 'Веб-разработки';
+        formSource = 'страница Веб-разработки';
+        break;
+      case 'businessAutomation':
+        formSource = 'страница Автоматизации';
         break;
       default:
-        formSource = 'Главной страницы';
+        formSource = 'Главная страница';
     }
 
     // Формируем сообщение, исключая поля, которых нет в форме благодарности
     const message = `
-*Новая заявка из контактной формы ${formSource}!*
-*Имя*: ${newFormData.name || 'Не указано'}
-*Email*: ${newFormData.email || 'Не указано'}
+🔥 *Новая заявка!* 🔥
+Источник: ${formSource}
+
+👤 *Имя*: ${newFormData.name || '❌ Не указано'}
+📧 *Email*: ${newFormData.email || '❌ Не указано'}
 ${
   newFormData.source == 'Главной страницы'
-    ? `*Компания*: ${newFormData.company || 'Не указано'}\n*Сообщение*: ${
-        newFormData.message || 'Не указано'
+    ? `🏢 *Компания*: ${newFormData.company || '❌ Не указано'}\n💬 *Сообщение*: ${
+        newFormData.message || '❌ Не указано'
       }\n`
     : ''
 }
-*Телефон*: ${newFormData.phone || 'Не указано'}
-*Услуга*: ${newFormData.plan || 'Не указано'}
-*Дата*: ${formattedDate}
-*Статус*: ${newFormData.status || 'В обработке'}
+📱 *Телефон*: ${newFormData.phone || '❌ Не указано'}
+⚙️ *Услуга*: ${newFormData.plan || '❌ Не указано'}
+📅 *Дата*: ${formattedDate}
+⏳ *Статус*: ${newFormData.status || 'В обработке'}
 `;
 
     try {
