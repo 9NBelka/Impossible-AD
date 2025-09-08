@@ -48,8 +48,8 @@ export default function FooterContactForm() {
       name,
       email,
       phone,
-      plan: 'google Ads',
-      source: 'googleAds', // Updated to reflect GoogleAds page
+      plan: 'google Ads Audit',
+      source: 'googleAdsAudit', // Updated to reflect GoogleAds page
       dateCreate: new Date().toISOString(),
       status: 'В обробці',
     };

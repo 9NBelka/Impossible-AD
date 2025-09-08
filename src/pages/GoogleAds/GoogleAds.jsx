@@ -1,22 +1,30 @@
-import DecideProblemsScreen from '../../components/GoogleAdsComponents/DecideProblemsScreen/DecideProblemsScreen';
-import FooterContactForm from '../../components/GoogleAdsComponents/FooterContactForm/FooterContactForm';
-import GoogleAuditFormScreen from '../../components/GoogleAdsComponents/GoogleAuditFormScreen/GoogleAuditFormScreen';
-import GuaranteesScreen from '../../components/GoogleAdsComponents/GuaranteesScreen/GuaranteesScreen';
+import { useEffect, useState } from 'react';
 import HeroScreen from '../../components/GoogleAdsComponents/HeroScreen/HeroScreen';
-import ProblemsScreen from '../../components/GoogleAdsComponents/ProblemsScreen/ProblemsScreen';
-import WhyWeScreen from '../../components/GoogleAdsComponents/WhyWeScreen/WhyWeScreen';
 import scss from './GoogleAds.module.scss';
 
 export default function GoogleAds() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
   return (
     <div>
-      <HeroScreen />
-      <ProblemsScreen />
-      <DecideProblemsScreen />
-      <GoogleAuditFormScreen />
-      <GuaranteesScreen />
-      <WhyWeScreen />
-      <FooterContactForm />
+      <HeroScreen scrollToSection={scrollToSection} />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import GoogleAds from './pages/GoogleAds/GoogleAds';
 import WebDevelopment from './pages/WebDevelopment/WebDevelopment';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import BusinessAutomation from './pages/BusinessAutomation/BusinessAutomation';
+import GoogleAdsAudit from './pages/GoogleAdsAudit/GoogleAdsAudit';
 // import Chat from './pages/Chat/Chat';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
@@ -85,6 +86,7 @@ export default function App() {
           <Route path='/register' element={<RegisterForm />} />
           <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+          <Route path='/google-ads-audit' element={<GoogleAdsAudit />} />
           <Route path='/google-ads' element={<GoogleAds />} />
           <Route path='/web-development' element={<WebDevelopment />} />
           <Route path='/business-automation' element={<BusinessAutomation />} />

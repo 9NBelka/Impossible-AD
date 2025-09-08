@@ -12,7 +12,7 @@ export default function ServicesB() {
       description:
         'Налаштування та ведення рекламних кампаній з акцентом на продажі та мінімізацію вартості ліда.',
       features: ['Пошукова реклама', 'Медійна реклама', 'YouTube Ads', 'Shopping кампанії'],
-      linkToPage: '/google-ads',
+      linkToPage: '/google-ads-audit',
     },
     {
       icon: <BsCode className={scss.cardIcon} />,
