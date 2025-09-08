@@ -1,6 +1,7 @@
 import AboutUs from '../../components/WebDevelopmentComponents/AboutUs/AboutUs';
 import CasesAndResults from '../../components/WebDevelopmentComponents/CasesAndResults/CasesAndResults';
 import FeedBacks from '../../components/WebDevelopmentComponents/FeedBacks/FeedBacks';
+import FooterContactForm from '../../components/WebDevelopmentComponents/FooterContactForm/FooterContactForm';
 import GuaranteesScreen from '../../components/WebDevelopmentComponents/GuaranteesScreen/GuaranteesScreen';
 import HeroScreen from '../../components/WebDevelopmentComponents/HeroScreen/HeroScreen';
 import OurApproach from '../../components/WebDevelopmentComponents/OurApproach/OurApproach';
@@ -19,6 +20,7 @@ export default function WebDevelopment() {
       <CasesAndResults />
       <FeedBacks />
       <AboutUs />
+      <FooterContactForm />
     </div>
   );
 }

@@ -10,12 +10,16 @@ export default function TrustedScreen({ right, MainLandingA }) {
       '/images/unitTestLogoCube.png',
       '/images/adressabblesLogoCube.png',
       '/images/ecsLogoCube.png',
+      '/images/crmMech.png',
+      '/images/logo_kyiv_term.png',
 
       '/images/arhitectureLogoCube.png',
       '/images/teamLeadLogoCube.png',
       '/images/unitTestLogoCube.png',
       '/images/adressabblesLogoCube.png',
       '/images/ecsLogoCube.png',
+      '/images/crmMech.png',
+      '/images/logo_kyiv_term.png',
     ],
   };
 

@@ -1,7 +1,28 @@
 import { BsArrowRightShort, BsGraphUpArrow } from 'react-icons/bs';
 import scss from './HeroScreen.module.scss';
+import { useEffect, useState } from 'react';
 
 export default function HeroScreen() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <section className={scss.hero} id='hero'>
       <div className={scss.container}>
@@ -13,7 +34,7 @@ export default function HeroScreen() {
               ROI
             </p>
             <div className={scss.buttonAndTextBlock}>
-              <button className={scss.buttonHeroBlock}>
+              <button className={scss.buttonHeroBlock} onClick={() => scrollToSection('contacts')}>
                 Замовити аудит Google Ads <BsArrowRightShort className={scss.buttonIcon} />
               </button>
               <div className={scss.graphAndTextHeroBlock}>

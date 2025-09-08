@@ -61,6 +61,9 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
       case 'googleAds':
         formSource = 'GoogleAds';
         break;
+      case 'webdevelopment':
+        formSource = 'Веб-разработки';
+        break;
       default:
         formSource = 'Главной страницы';
     }

@@ -83,7 +83,7 @@ export default function WebDevelopmentFormScreen() {
               </div>
               <button type='submit' className={scss.button}>
                 <BsSearch className={scss.buttonIconDownload} />
-                Замовити аудит Google Ads
+                Замовити розробку
               </button>
             </div>
             <div className={clsx(scss.formGroup, scss.checkboxGroup)}>
@@ -98,7 +98,7 @@ export default function WebDevelopmentFormScreen() {
                 <span className={scss.checkmark}></span>
                 <span className={scss.checkmarkText}>
                   Я згоден на обробку моїх персональних даних відповідно до
-                  <a href='#' className={scss.privacyLink}>
+                  <a href='/privacy-policy' className={scss.privacyLink} target='_blank'>
                     Політики конфіденційності
                   </a>
                 </span>

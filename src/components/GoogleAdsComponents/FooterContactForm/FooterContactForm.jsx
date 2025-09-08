@@ -68,7 +68,7 @@ export default function FooterContactForm() {
   };
 
   return (
-    <section className={scss.footerContactForm} id='contact'>
+    <section className={scss.footerContactForm} id='contacts'>
       <div className={scss.container}>
         <div className={scss.contentFlexRow}>
           <div className={scss.content}>
@@ -101,6 +101,7 @@ export default function FooterContactForm() {
             </div>
           </div>
           <ContactForm
+            name={name}
             setName={setName}
             email={email}
             setEmail={setEmail}

@@ -88,7 +88,7 @@ export default function ContactFormForDownload() {
                 <span className={scss.checkmark}></span>
                 <span className={scss.checkmarkText}>
                   Я згоден на обробку моїх персональних даних відповідно до
-                  <a href='#' className={scss.privacyLink}>
+                  <a href='/privacy-policy' className={scss.privacyLink} target='_blank'>
                     Політики конфіденційності
                   </a>
                 </span>

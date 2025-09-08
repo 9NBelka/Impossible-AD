@@ -110,7 +110,9 @@ export default function FooterB() {
           </div>
 
           <div className={scss.legal}>
-            <a href='#'>Політика конфіденційності</a>
+            <a href='/privacy-policy' target='_blank'>
+              Політика конфіденційності
+            </a>
             <a href='#'>Умови використання</a>
             <a href='#'>Договір оферти</a>
           </div>

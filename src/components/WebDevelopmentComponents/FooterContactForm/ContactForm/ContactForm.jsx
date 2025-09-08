@@ -3,7 +3,6 @@ import scss from './ContactForm.module.scss';
 import { BsArrowRightShort } from 'react-icons/bs';
 
 export default function ContactForm({
-  name,
   setName,
   email,
   setEmail,
@@ -13,6 +12,7 @@ export default function ContactForm({
   handleInputChange,
   handleSubmit,
   submitMessage,
+  name,
 }) {
   return (
     <div className={scss.formMainBlock}>
@@ -24,8 +24,8 @@ export default function ContactForm({
             </label>
             <input
               type='text'
-              value={name}
               name='name'
+              value={name}
               onChange={(e) => setName(e.target.value)}
               className={scss.input}
               required
@@ -78,7 +78,7 @@ export default function ContactForm({
         </div>
         <div className={scss.blockButtonFlex}>
           <button type='button' onClick={handleSubmit} className={scss.button}>
-            Отримати аудит <BsArrowRightShort className={scss.buttonIconDownload} />
+            Замовити розробку <BsArrowRightShort className={scss.buttonIconDownload} />
           </button>
         </div>
         {submitMessage && (

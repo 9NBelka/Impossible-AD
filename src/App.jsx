@@ -11,6 +11,8 @@ import ThanksPageOnFormDownload from './pages/ThanksPageOnFormDownload/ThanksPag
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import GoogleAds from './pages/GoogleAds/GoogleAds';
 import WebDevelopment from './pages/WebDevelopment/WebDevelopment';
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
+import BusinessAutomation from './pages/BusinessAutomation/BusinessAutomation';
 // import Chat from './pages/Chat/Chat';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
@@ -82,8 +84,10 @@ export default function App() {
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<RegisterForm />} />
           <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path='/google-ads' element={<GoogleAds />} />
           <Route path='/web-development' element={<WebDevelopment />} />
+          <Route path='/business-automation' element={<BusinessAutomation />} />
           <Route path='*' element={<NotFoundPage />} />
           {/* <Route path='/chat' element={<Chat />} /> */}
           <Route

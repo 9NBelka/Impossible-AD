@@ -34,44 +34,29 @@ export default function HeroScreen() {
         <div className={scss.contentFlexRow}>
           <div className={scss.content}>
             <h1 className={scss.title}>
-              Веб-розробка, яка<span className={scss.brand}> працює</span> на ваш бізнес
+              Автоматизуйте бізнес і забудьте про
+              <span className={scss.brand}> хаос у процесах</span>
             </h1>
 
             <p className={scss.subtitle}>
-              Створюємо сайти від швидких лендінгів до масштабних інтернет- магазинів та
-              web-додатків. Орієнтир — продажі, зручність і швидкість роботи.
+              AI + Zapier/Make → єдина система, яка економить час, знижує витрати і підвищує продажі
             </p>
-
             <div className={scss.ctaBlock}>
               <button className={scss.ctaButton} onClick={() => scrollToSection('contacts')}>
-                Отримати консультацію
+                Безкоштовна консультація
               </button>
               <button
                 className={clsx(scss.ctaButton, scss.whiteButton)}
                 onClick={() => scrollToSection('casesAndResults')}>
-                Наші кейси
+                Показати кейси
               </button>
-            </div>
-
-            <div className={scss.stats}>
-              <div className={scss.stat}>
-                <strong>10+</strong>
-                <span>років досвіду</span>
-              </div>
-              <div className={scss.stat}>
-                <strong>30+</strong>
-                <span>інтернет-магазинів</span>
-              </div>
-              <div className={scss.stat}>
-                <strong>100%</strong>
-                <span>задоволених клієнтів</span>
-              </div>
             </div>
           </div>
 
           <div className={scss.graphics}>
             <div className={scss.iconGrid}>
-              <img src='/images/heroBlockWebImage.jpg' />
+              <img className={scss.imgPc} src='/images/automatizationHeroImage.png' />
+              <img className={scss.imgPhone} src='/images/automatizationHeroImage2.jpg' />
             </div>
           </div>
         </div>

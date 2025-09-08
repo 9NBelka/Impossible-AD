@@ -26,7 +26,7 @@ export default function ServicesB() {
       title: 'Бізнес-івтоматизація',
       description: 'Інтеграція AI- та Zapier-рішень для автоматизації бізнес-процесів.',
       features: ['AI чат-боти', 'CRM інтеграції', 'Email автоматизація', 'Workflow оптимізація'],
-      linkToPage: '/google-ads',
+      linkToPage: '/business-automation',
     },
     {
       icon: <BsBarChart className={scss.cardIcon} />,
