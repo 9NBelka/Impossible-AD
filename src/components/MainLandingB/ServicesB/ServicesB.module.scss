@@ -190,6 +190,23 @@
     line-height: var(--font-lineh-normal);
     margin-top: 0.8vw;
   }
+
+  & .cartPrice {
+    text-align: center;
+    font-size: 1.4vw;
+    background: linear-gradient(
+      45deg,
+      var(--main-page-b-color-lightBlue5),
+      var(--main-page-b-color-purple)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-normal);
+    margin-top: 0.8vw;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -217,6 +234,10 @@
       font-size: 1.8vw;
       margin-top: 2vw;
     }
+
+    & .cartPrice {
+      font-size: 3.2vw;
+    }
   }
 }
 
@@ -239,6 +260,11 @@
     & .cartDescription {
       font-size: 3.6vw;
       margin-top: 3vw;
+    }
+
+    & .cartPrice {
+      font-size: 7vw;
+      margin-top: 2vw;
     }
   }
 }
@@ -369,6 +395,6 @@
     padding: 3vw 0vw;
     border-radius: 3vw;
     font-size: 3.6vw;
-    margin-top: 3vw;
+    margin-top: 4vw;
   }
 }

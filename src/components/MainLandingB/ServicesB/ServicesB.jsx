@@ -13,6 +13,7 @@ export default function ServicesB() {
         'Налаштування та ведення рекламних кампаній з акцентом на продажі та мінімізацію вартості ліда.',
       features: ['Пошукова реклама', 'Медійна реклама', 'YouTube Ads', 'Shopping кампанії'],
       linkToPage: '/google-ads-audit',
+      price: 'від 350 €',
     },
     {
       icon: <BsCode className={scss.cardIcon} />,
@@ -20,6 +21,7 @@ export default function ServicesB() {
       description: 'Розробка сайтів від лендінгів і сайтів-візиток до інтернет-магазинів.',
       features: ['Лендінги', 'Корпоративні сайти', 'Інтернет-магазини', 'Web додатки'],
       linkToPage: '/web-development',
+      price: 'від 350 €',
     },
     {
       icon: <BsLightningCharge className={scss.cardIcon} />,
@@ -27,6 +29,7 @@ export default function ServicesB() {
       description: 'Інтеграція AI- та Zapier-рішень для автоматизації бізнес-процесів.',
       features: ['AI чат-боти', 'CRM інтеграції', 'Email автоматизація', 'Workflow оптимізація'],
       linkToPage: '/business-automation',
+      price: 'від 350 €',
     },
     {
       icon: <BsBarChart className={scss.cardIcon} />,
@@ -39,6 +42,7 @@ export default function ServicesB() {
         'Звіти з рекомендаціями',
       ],
       linkToPage: '/google-ads',
+      price: 'від 350 €',
     },
     // {
     //   icon: <BsGlobe className={scss.cardIcon} />,
@@ -69,6 +73,7 @@ export default function ServicesB() {
                   <li key={featureIndex}>{feature}</li>
                 ))}
               </ul>
+              <p className={scss.cartPrice}>{service.price}</p>
               <a href={service.linkToPage}>
                 <button className={scss.learnMore}>Детальніше</button>
               </a>

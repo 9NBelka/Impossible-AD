@@ -14,6 +14,7 @@ import WebDevelopment from './pages/WebDevelopment/WebDevelopment';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import BusinessAutomation from './pages/BusinessAutomation/BusinessAutomation';
 import GoogleAdsAudit from './pages/GoogleAdsAudit/GoogleAdsAudit';
+import CookieConsent from './components/CookieConsent/CookieConsent';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -48,6 +49,7 @@ export default function App() {
 
   return (
     <div>
+      <CookieConsent />
       <Suspense fallback={<div className='loading'>Загрузка...</div>}>
         <Routes>
           {/* Главная страница теперь всегда B */}
