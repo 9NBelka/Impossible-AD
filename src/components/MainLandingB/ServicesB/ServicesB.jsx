@@ -40,14 +40,14 @@ export default function ServicesB() {
       ],
       linkToPage: '/google-ads',
     },
-    {
-      icon: <BsGlobe className={scss.cardIcon} />,
-      title: 'Аудит сайту',
-      description:
-        'Оцінка юзабіліті, швидкості, SEO + покрокові рекомендації для підвищення конверсії.',
-      features: ['SEO аналіз', 'UX/UI аудит', 'Технічна оптимізація', 'Конверсійний аналіз'],
-      linkToPage: '/google-ads',
-    },
+    // {
+    //   icon: <BsGlobe className={scss.cardIcon} />,
+    //   title: 'Аудит сайту',
+    //   description:
+    //     'Оцінка юзабіліті, швидкості, SEO + покрокові рекомендації для підвищення конверсії.',
+    //   features: ['SEO аналіз', 'UX/UI аудит', 'Технічна оптимізація', 'Конверсійний аналіз'],
+    //   linkToPage: '/google-ads',
+    // },
   ];
 
   return (

@@ -6,6 +6,8 @@ import WhyImpossibleAD from '../../components/GoogleAdsComponents/WhyImpossibleA
 import CasesScreen from '../../components/GoogleAdsComponents/CasesScreen/CasesScreen';
 import GoogleAdsFormScreen from '../../components/GoogleAdsComponents/GoogleAdsFormScreen/GoogleAdsFormScreen';
 import CostScreen from '../../components/GoogleAdsComponents/CostScreen/CostScreen';
+import HowToMeWork from '../../components/GoogleAdsComponents/HowToMeWork/HowToMeWork';
+import FooterContactForm from '../../components/GoogleAdsComponents/FooterContactForm/FooterContactForm';
 
 export default function GoogleAds() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,6 +37,8 @@ export default function GoogleAds() {
       <GoogleAdsFormScreen />
       <CostScreen scrollToSection={scrollToSection} />
       <WhyImpossibleAD />
+      <HowToMeWork />
+      <FooterContactForm />
     </div>
   );
 }

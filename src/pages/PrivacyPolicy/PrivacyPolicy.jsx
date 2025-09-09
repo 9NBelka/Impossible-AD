@@ -2,17 +2,13 @@ import { BsArrowLeftShort } from 'react-icons/bs';
 import scss from './PrivacyPolicy.module.scss';
 
 export default function PrivacyPolicy() {
-  const handleBack = () => {
-    window.location.href = '/';
-  };
-
   return (
     <section className={scss.privacyPolicy}>
       <div className={scss.container}>
-        <button onClick={handleBack} className={scss.backButton}>
+        {/* <button onClick={handleBack} className={scss.backButton}>
           <BsArrowLeftShort className={scss.iconBack} />
           Повернутись
-        </button>
+        </button> */}
         <h1 className={scss.title}>Політика конфіденційності</h1>
         <div className={scss.content}>
           <h2 className={scss.sectionTitle}>1. Загальні положення</h2>

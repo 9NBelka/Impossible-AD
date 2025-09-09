@@ -14,7 +14,6 @@ import WebDevelopment from './pages/WebDevelopment/WebDevelopment';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import BusinessAutomation from './pages/BusinessAutomation/BusinessAutomation';
 import GoogleAdsAudit from './pages/GoogleAdsAudit/GoogleAdsAudit';
-// import Chat from './pages/Chat/Chat';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -32,35 +31,7 @@ export default function App() {
 
   useEffect(() => {
     dispatch(checkAuthState());
-
-    const currentPath = window.location.pathname;
-    const storedVersion = localStorage.getItem('abVersion');
-
-    // Список страниц, где работает только A/B логика
-    const abPaths = ['/a', '/b', '/'];
-
-    if (abPaths.includes(currentPath)) {
-      if (!storedVersion) {
-        // Если версии нет, определяем её
-        if (currentPath === '/a') {
-          localStorage.setItem('abVersion', 'A');
-        } else if (currentPath === '/b') {
-          localStorage.setItem('abVersion', 'B');
-        } else {
-          // Если зашёл на "/" — назначаем A по умолчанию
-          localStorage.setItem('abVersion', 'B');
-          navigate('/', { replace: true });
-        }
-      } else {
-        // Если версия уже есть
-        if (storedVersion === 'A' && currentPath !== '/a') {
-          navigate('/a', { replace: true });
-        } else if (storedVersion === 'B' && currentPath !== '/b') {
-          navigate('/b', { replace: true });
-        }
-      }
-    }
-  }, [dispatch, navigate]);
+  }, [dispatch]);
 
   const handleSignOut = async () => {
     try {
@@ -79,9 +50,10 @@ export default function App() {
     <div>
       <Suspense fallback={<div className='loading'>Загрузка...</div>}>
         <Routes>
+          {/* Главная страница теперь всегда B */}
           <Route path='/' element={<MainLandingB />} />
-          <Route path='/a' element={<MainLandingA />} />
-          <Route path='/b' element={<MainLandingB />} />
+          {/* Если нужно, оставь A по прямой ссылке */}
+          {/* <Route path='/a' element={<MainLandingA />} /> */}
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<RegisterForm />} />
           <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
@@ -90,8 +62,8 @@ export default function App() {
           <Route path='/google-ads' element={<GoogleAds />} />
           <Route path='/web-development' element={<WebDevelopment />} />
           <Route path='/business-automation' element={<BusinessAutomation />} />
-          <Route path='*' element={<NotFoundPage />} />
-          {/* <Route path='/chat' element={<Chat />} /> */}
+
+          {/* Дашборд */}
           <Route
             path='/home'
             element={
@@ -131,12 +103,9 @@ export default function App() {
               </PrivateRoute>
             }
           />
-          <Route
-            path='*'
-            element={
-              localStorage.getItem('abVersion') === 'B' ? <MainLandingB /> : <MainLandingA />
-            }
-          />
+
+          {/* Страница 404 */}
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </div>

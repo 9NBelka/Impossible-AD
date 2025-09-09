@@ -3,7 +3,7 @@ import scss from './NotFoundPage.module.scss';
 
 export default function NotFoundPage() {
   const handleBack = () => {
-    window.location.href = '/b';
+    window.location.href = '/';
   };
   return (
     <div className={scss.backgroundBlock}>
