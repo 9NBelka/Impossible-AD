@@ -238,6 +238,10 @@
   }
 }
 
+.challenge:first-child {
+  margin-top: 0;
+}
+
 @media (max-width: 1024px) {
   .challenge,
   .solution {
@@ -249,6 +253,10 @@
     strong {
       margin-bottom: 1vw;
     }
+  }
+
+  .challenge:first-child {
+    margin-top: 3vw;
   }
 }
 
@@ -263,6 +271,10 @@
     strong {
       margin-bottom: 1.5vw;
     }
+  }
+
+  .challenge:first-child {
+    margin-top: 5vw;
   }
 }
 

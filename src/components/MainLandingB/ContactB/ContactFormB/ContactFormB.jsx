@@ -62,13 +62,13 @@ export default function ContactFormB({
         </label>
         <select name='service' value={formData.service} onChange={handleInputChange} required>
           <option value=''>Виберіть послугу</option>
-          <option value='Комплексная услуга'>Комплексная услуга</option>
-          <option value='Реклама в социальных сетях'>Реклама в социальных сетях</option>
-          <option value='Реклама на веб-сайтах'>Реклама на веб-сайтах</option>
-          <option value='Индивидуальные лендинг-страницы'>Индивидуальные лендинг-страницы</option>
-          <option value='Полный маркетинговый пакет'>Полный маркетинговый пакет</option>
-          <option value='Я не определился, хочу консультацию'>
-            Я не определился, хочу консультацию
+          <option value='Комплексна послуга'>Комплексна послуга</option>
+          <option value='Реклама у соціальних мережах'>Реклама у соціальних мережах</option>
+          <option value='Реклама на веб-сторінках'>Реклама на веб-сторінках</option>
+          <option value='Індивідуальні лендінг-сторінки'>Індивідуальні лендінг-сторінки</option>
+          <option value='Повний маркетинговий пакет'>Повний маркетинговий пакет</option>
+          <option value='Я не визначився, хочу консультацію'>
+            Я не визначився, хочу консультацію
           </option>
         </select>
       </div>

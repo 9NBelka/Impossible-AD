@@ -49,6 +49,8 @@
   z-index: 99999;
 
   a {
+    display: flex;
+    align-items: center;
     font-size: 0.85vw;
     color: var(--main-page-b-color-light-lightBlue);
     font-family: var(--font-Inter);
@@ -58,9 +60,20 @@
     transition: color 0.3s ease;
     padding: 0.4vw 0;
     position: relative;
+    gap: 0.25vw;
+
+    & .iconDown {
+      width: 0.75vw;
+      height: 0.75vw;
+      color: var(--main-page-b-color-light-lightBlue);
+    }
 
     &:hover {
       color: #3b82f6;
+
+      & .iconDown {
+        color: #3b82f6;
+      }
     }
 
     &::after {
@@ -109,6 +122,12 @@
     a {
       font-size: 1.8vw;
       padding: 0.75vw 0;
+      gap: 1vw;
+
+      & .iconDown {
+        width: 1.5vw;
+        height: 1.5vw;
+      }
 
       &::after {
         height: 0.25vw;
@@ -144,6 +163,12 @@
       font-weight: var(--font-weight-smallStrong);
       line-height: var(--font-lineh-small);
       padding: 1.2vw 0;
+      gap: 1vw;
+
+      & .iconDown {
+        width: 1.7vw;
+        height: 1.7vw;
+      }
 
       &::after {
         content: '';
@@ -188,6 +213,12 @@
     a {
       font-size: 3.6vw;
       padding: 2vw 0;
+      gap: 1.5vw;
+
+      & .iconDown {
+        width: 3vw;
+        height: 3vw;
+      }
 
       &::after {
         height: 0.5vw;
@@ -271,7 +302,7 @@
 @media (max-width: 1024px) {
   .dropdownMenu {
     top: 0%;
-    left: -470%;
+    left: -347%;
     border-radius: 0.75vw;
     min-width: 30vw;
     padding: 0.5vw 0;
@@ -288,7 +319,7 @@
 @media (max-width: 576px) {
   .dropdownMenu {
     top: 10%;
-    left: -358%;
+    left: -274%;
     border-radius: 1vw;
     min-width: 40vw;
     padding: 0.5vw 0;

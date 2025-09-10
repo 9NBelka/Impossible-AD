@@ -34,7 +34,7 @@ export default function CostScreen({ scrollToSection }) {
               <h3 className={scss.cartTitle}>{promise.title}</h3>
               <p className={scss.cartDescription}>{promise.description}</p>
               <p className={scss.cartPrice}>{promise.price}</p>
-              <button className={scss.button} onClick={() => scrollToSection({})}>
+              <button className={scss.button} onClick={() => scrollToSection(promise.link)}>
                 {index == 0 ? 'Дізнатися більше' : 'Обговорити деталі'}
               </button>
             </div>

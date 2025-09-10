@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import scss from './HeaderB.module.scss';
-import { BsList, BsXLg } from 'react-icons/bs';
+import { BsChevronDown, BsList, BsXLg } from 'react-icons/bs';
 import DiscountBlock from './DiscountBlock/DiscountBlock';
 
 export default function Header({ onHeaderTextLinks }) {
@@ -69,7 +69,9 @@ export default function Header({ onHeaderTextLinks }) {
 
         <nav ref={navRef} className={`${scss.nav} ${isMenuOpen ? scss.navOpen : ''}`}>
           <div className={scss.dropdown} ref={dropdownRef}>
-            <a onClick={() => setIsMenuOpenTwo(!isMenuOpenTwo)}>Послуги</a>
+            <a onClick={() => setIsMenuOpenTwo(!isMenuOpenTwo)}>
+              Послуги <BsChevronDown className={scss.iconDown} />
+            </a>
             {isMenuOpenTwo && (
               <div className={scss.dropdownMenu}>
                 <a href='/google-ads-audit'>Google Ads</a>
