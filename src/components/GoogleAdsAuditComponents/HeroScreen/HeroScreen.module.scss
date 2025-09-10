@@ -5,17 +5,20 @@
     var(--main-page-b-color-lightBlue2)
   );
   padding: 6vw 0;
+  padding-top: 8vw;
 }
 
 @media (max-width: 1024px) {
   .hero {
     padding: 10vw 0;
+    padding-top: 14vw;
   }
 }
 
 @media (max-width: 576px) {
   .hero {
     padding: 20vw 0;
+    padding-top: 26vw;
   }
 }
 

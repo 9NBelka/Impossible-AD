@@ -7,9 +7,10 @@ import ProblemsScreen from '../../components/GoogleAdsAuditComponents/ProblemsSc
 import WhyWeScreen from '../../components/GoogleAdsAuditComponents/WhyWeScreen/WhyWeScreen';
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 import scss from './GoogleAdsAudit.module.scss';
+import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
 
 export default function GoogleAdsAudit() {
-  const onFooterTextLinks = [
+  const onFooterAndHeaderTextLinks = [
     {
       title: 'Проблеми',
       linkToPage: 'problems',
@@ -35,6 +36,7 @@ export default function GoogleAdsAudit() {
 
   return (
     <div>
+      <HeaderB onHeaderTextLinks={onFooterAndHeaderTextLinks} />
       <HeroScreen />
       <ProblemsScreen />
       <DecideProblemsScreen />
@@ -42,7 +44,7 @@ export default function GoogleAdsAudit() {
       <GuaranteesScreen />
       <WhyWeScreen />
       <FooterContactForm />
-      <FooterB onFooterTextLinks={onFooterTextLinks} />
+      <FooterB onFooterTextLinks={onFooterAndHeaderTextLinks} />
     </div>
   );
 }

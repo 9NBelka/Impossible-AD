@@ -20,11 +20,7 @@ export default function MainLandingB() {
   //   setIsChatOpen((prev) => !prev);
   // }, []);
 
-  const onFooterTextLinksMain = [
-    {
-      title: 'Послуги',
-      linkToPage: 'services',
-    },
+  const onFooterAndHeaderTextLinksMain = [
     {
       title: 'Переваги',
       linkToPage: 'benefits',
@@ -45,7 +41,7 @@ export default function MainLandingB() {
 
   return (
     <div className='min-h-screen'>
-      <HeaderB />
+      <HeaderB onHeaderTextLinks={onFooterAndHeaderTextLinksMain} />
       <HeroScreenB />
       <TrustedScreen />
       <ServicesB />
@@ -60,7 +56,7 @@ export default function MainLandingB() {
       <Cases />
       <Process />
       <ContactB />
-      <FooterB onFooterTextLinks={onFooterTextLinksMain} />
+      <FooterB onFooterTextLinks={onFooterAndHeaderTextLinksMain} />
       {/* <div className='floatingButton' onClick={handleChatToggle}>
         {isChatOpen ? (
           <BsXLg className='floatingButtonIcon buttonX' />

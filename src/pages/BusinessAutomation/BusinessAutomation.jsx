@@ -8,9 +8,10 @@ import scss from './BusinessAutomation.module.scss';
 import CasesScreen from '../../components/BusinessAutomationComponents/CasesScreen/CasesScreen';
 import FooterContactForm from '../../components/BusinessAutomationComponents/FooterContactForm/FooterContactForm';
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
+import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
 
 export default function BusinessAutomation() {
-  const onFooterTextLinks = [
+  const onFooterAndHeaderTextLinks = [
     {
       title: 'Проблеми',
       linkToPage: 'problems',
@@ -56,8 +57,10 @@ export default function BusinessAutomation() {
       setIsMenuOpen(false);
     }
   };
+
   return (
     <div>
+      <HeaderB onHeaderTextLinks={onFooterAndHeaderTextLinks} />
       <HeroScreen scrollToSection={scrollToSection} />
       <YouKnowScreen />
       <ProblemsScreen />
@@ -65,7 +68,7 @@ export default function BusinessAutomation() {
       <StartAutoScreen scrollToSection={scrollToSection} />
       <CasesScreen />
       <FooterContactForm />
-      <FooterB onFooterTextLinks={onFooterTextLinks} />
+      <FooterB onFooterTextLinks={onFooterAndHeaderTextLinks} />
     </div>
   );
 }

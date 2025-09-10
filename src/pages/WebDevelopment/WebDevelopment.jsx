@@ -8,10 +8,11 @@ import HeroScreen from '../../components/WebDevelopmentComponents/HeroScreen/Her
 import OurApproach from '../../components/WebDevelopmentComponents/OurApproach/OurApproach';
 import OurSolutions from '../../components/WebDevelopmentComponents/OurSolutions/OurSolutions';
 import WebDevelopmentFormScreen from '../../components/WebDevelopmentComponents/WebDevelopmentFormScreen/WebDevelopmentFormScreen';
+import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
 import scss from './WebDevelopment.module.scss';
 
 export default function WebDevelopment() {
-  const onFooterTextLinks = [
+  const onFooterAndHeaderTextLinks = [
     {
       title: 'Рішення',
       linkToPage: 'solutions',
@@ -40,6 +41,7 @@ export default function WebDevelopment() {
 
   return (
     <div>
+      <HeaderB onHeaderTextLinks={onFooterAndHeaderTextLinks} />
       <HeroScreen />
       <OurSolutions />
       <OurApproach />
@@ -49,7 +51,7 @@ export default function WebDevelopment() {
       <FeedBacks />
       <AboutUs />
       <FooterContactForm />
-      <FooterB onFooterTextLinks={onFooterTextLinks} />
+      <FooterB onFooterTextLinks={onFooterAndHeaderTextLinks} />
     </div>
   );
 }

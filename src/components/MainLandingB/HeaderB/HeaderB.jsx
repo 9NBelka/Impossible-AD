@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import scss from './HeaderB.module.scss';
 import { BsList, BsXLg } from 'react-icons/bs';
+import DiscountBlock from './DiscountBlock/DiscountBlock';
 
-export default function Header() {
+export default function Header({ onHeaderTextLinks }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // бургер
   const [isMenuOpenTwo, setIsMenuOpenTwo] = useState(false); // подменю
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,9 +60,11 @@ export default function Header() {
     <header className={`${scss.header} ${isScrolled ? scss.scrolled : ''}`}>
       <div className={scss.container}>
         <div className={scss.logo}>
-          <span>
-            impossible<strong>AD</strong>
-          </span>
+          <a href='/'>
+            <span>
+              impossible<strong>AD</strong>
+            </span>
+          </a>
         </div>
 
         <nav ref={navRef} className={`${scss.nav} ${isMenuOpen ? scss.navOpen : ''}`}>
@@ -83,9 +86,11 @@ export default function Header() {
             )}
           </div>
 
-          <a onClick={() => scrollToSection('benefits')}>Переваги</a>
-          <a onClick={() => scrollToSection('cases')}>Кейси</a>
-          <a onClick={() => scrollToSection('contacts')}>Контакти</a>
+          {onHeaderTextLinks.map((info, idx) => (
+            <a key={idx} onClick={() => scrollToSection(info.linkToPage)}>
+              {info.title}
+            </a>
+          ))}
         </nav>
 
         <button
@@ -95,6 +100,7 @@ export default function Header() {
           {isMenuOpen ? <BsXLg className={scss.menuIcon} /> : <BsList className={scss.menuIcon} />}
         </button>
       </div>
+      <DiscountBlock />
     </header>
   );
 }

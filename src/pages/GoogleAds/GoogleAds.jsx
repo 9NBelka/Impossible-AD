@@ -9,9 +9,10 @@ import CostScreen from '../../components/GoogleAdsComponents/CostScreen/CostScre
 import HowToMeWork from '../../components/GoogleAdsComponents/HowToMeWork/HowToMeWork';
 import FooterContactForm from '../../components/GoogleAdsComponents/FooterContactForm/FooterContactForm';
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
+import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
 
 export default function GoogleAds() {
-  const onFooterTextLinks = [
+  const onFooterAndHeaderTextLinks = [
     {
       title: 'Комплексний підхід',
       linkToPage: 'whywescreen',
@@ -59,6 +60,7 @@ export default function GoogleAds() {
   };
   return (
     <div>
+      <HeaderB onHeaderTextLinks={onFooterAndHeaderTextLinks} />
       <HeroScreen scrollToSection={scrollToSection} />
       <WhyWeScreen />
       <CasesScreen />
@@ -67,7 +69,7 @@ export default function GoogleAds() {
       <WhyImpossibleAD />
       <HowToMeWork />
       <FooterContactForm />
-      <FooterB onFooterTextLinks={onFooterTextLinks} />
+      <FooterB onFooterTextLinks={onFooterAndHeaderTextLinks} />
     </div>
   );
 }
