@@ -12,6 +12,7 @@ export default function TrustedScreen({ right, MainLandingA }) {
       '/images/ecsLogoCube.png',
       '/images/crmMech.png',
       '/images/logo_kyiv_term.png',
+      '/images/avtosferaLogo.png',
 
       '/images/arhitectureLogoCube.png',
       '/images/teamLeadLogoCube.png',
@@ -20,6 +21,7 @@ export default function TrustedScreen({ right, MainLandingA }) {
       '/images/ecsLogoCube.png',
       '/images/crmMech.png',
       '/images/logo_kyiv_term.png',
+      '/images/avtosferaLogo.png',
     ],
   };
 

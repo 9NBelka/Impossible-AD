@@ -31,7 +31,7 @@ export default function OurSolutions() {
   ];
 
   return (
-    <section className={scss.guaranteesScreen} id='guarantees'>
+    <section className={scss.guaranteesScreen} id='solutions'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Наші рішення</h2>

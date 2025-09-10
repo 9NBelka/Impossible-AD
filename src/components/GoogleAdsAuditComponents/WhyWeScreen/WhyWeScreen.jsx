@@ -28,7 +28,7 @@ export default function WhyWeScreen() {
   ];
 
   return (
-    <section className={scss.decideProblemsScreen} id='decideProblems'>
+    <section className={scss.decideProblemsScreen} id='whywescreen'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Чому обирають ImpossibleAD</h2>

@@ -21,7 +21,7 @@ export default function ProblemsScreen() {
   ];
 
   return (
-    <section className={scss.problemsScreen} id='problems'>
+    <section className={scss.problemsScreen} id='solutions'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Як ми вирішуємо ці проблеми</h2>

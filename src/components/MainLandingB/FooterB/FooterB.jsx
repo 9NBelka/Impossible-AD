@@ -10,7 +10,7 @@ import {
   BsTelephone,
 } from 'react-icons/bs';
 
-export default function FooterB() {
+export default function FooterB({ onFooterTextLinks }) {
   const currentYear = new Date().getFullYear();
 
   const scrollToSection = (sectionId) => {
@@ -39,32 +39,32 @@ export default function FooterB() {
             <div className={scss.linksSection}>
               <h4>Навігація</h4>
               <ul>
-                <li>
-                  <a onClick={() => scrollToSection('services')}>Послуги</a>
-                </li>
-                <li>
-                  <a onClick={() => scrollToSection('benefits')}>Переваги</a>
-                </li>
-                <li>
-                  <a onClick={() => scrollToSection('cases')}>Кейси</a>
-                </li>
-                <li>
-                  <a onClick={() => scrollToSection('process')}>Процес</a>
-                </li>
-                <li>
-                  <a onClick={() => scrollToSection('contacts')}>Контакти</a>
-                </li>
+                {onFooterTextLinks.map((info, idx) => (
+                  <li key={idx}>
+                    <a onClick={() => scrollToSection(info.linkToPage)}>{info.title}</a>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className={scss.servicesSection}>
               <h4>Послуги</h4>
               <ul>
-                <li>Google Ads</li>
-                <li>Веб-розробка</li>
-                <li>Бізнес-автоматизація</li>
-                <li>Аудит реклами</li>
-                <li>Аудит сайту</li>
+                <li>
+                  <a href='/google-ads-audit'>Google Ads</a>
+                </li>
+                <li>
+                  <a href='/web-development'>Веб-розробка</a>
+                </li>
+                <li>
+                  <a href='/business-automation'>Бізнес-автоматизація</a>
+                </li>
+                <li>
+                  <a href='/google-ads'>Аудит реклами</a>
+                </li>
+                {/* <li>
+                  <a href='/google-ads-audit'>Аудит сайту</a>
+                </li> */}
               </ul>
             </div>
 
@@ -113,8 +113,8 @@ export default function FooterB() {
             <a href='/privacy-policy' target='_blank'>
               Політика конфіденційності
             </a>
-            <a href='#'>Умови використання</a>
-            <a href='#'>Договір оферти</a>
+            {/* <a href='#'>Умови використання</a>
+            <a href='#'>Договір оферти</a> */}
           </div>
         </div>
       </div>

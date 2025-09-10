@@ -1,6 +1,11 @@
 .contact {
   padding: 3.5vw 0;
-  background: var(--main-page-color-white);
+  // background: var(--main-page-color-white);
+  background: linear-gradient(
+    135deg,
+    var(--main-page-b-color-blue1),
+    var(--main-page-b-color-lightBlue2)
+  );
 
   & .container {
     display: flex;
@@ -14,7 +19,8 @@
   & h2 {
     text-align: center;
     font-size: 1.8vw;
-    color: var(--main-page-color-blue);
+    // color: var(--main-page-color-blue);
+    color: var(--main-page-b-color-white);
     font-family: var(--font-Inter);
     line-height: var(--font-lineh-normal);
     font-weight: var(--font-weight-bold);
@@ -23,7 +29,8 @@
   & .sectionSubtitle {
     text-align: center;
     font-size: 0.75vw;
-    color: var(--main-page-color-lightGrey);
+    // color: var(--main-page-color-lightGrey);
+    color: var(--main-page-b-color-light-lightBlue5);
     font-family: var(--font-Inter);
     line-height: var(--font-lineh-normal);
     font-weight: var(--font-weight-regular);
@@ -44,49 +51,58 @@
     width: 27%;
     & h3 {
       font-size: 1vw;
-      color: var(--main-page-color-blue);
+      // color: var(--main-page-color-blue);
+      color: var(--main-page-b-color-white);
       font-family: var(--font-Inter);
       line-height: var(--font-lineh-normal);
       font-weight: var(--font-weight-bold);
     }
 
     & .contactItem {
-      background: var(--main-page-b-color-white);
+      // background: var(--main-page-b-color-white);
+      background-color: rgba(255, 255, 255, 0.1019607843);
       display: flex;
       flex-direction: row;
       margin-top: 1vw;
       border-radius: 0.5vw;
       padding: 0.75vw;
       gap: 0.75vw;
-      border: 0.1vw solid #e2e8f0;
+      // border: 0.1vw solid #e2e8f0;
       transition: 0.3s ease-in-out;
 
       &:hover {
-        background: #f8fafc;
+        // background: #f8fafc;
+        background: var(--main-page-color-blue);
         transform: translateY(-0.1vw);
       }
 
       & .contactIcon {
         width: 1vw;
         height: 1vw;
-        color: var(--main-page-color-lightBlue);
+        // color: var(--main-page-color-lightBlue);
+        color: var(--main-page-b-color-white);
+        opacity: 0.7;
       }
 
       & .contactItemTitleMini {
         font-size: 0.65vw;
-        color: var(--main-page-color-darkGrey);
+        // color: var(--main-page-color-darkGrey);
+        color: var(--main-page-b-color-white);
         font-family: var(--font-Inter);
         line-height: var(--font-lineh-normal);
         font-weight: var(--font-weight-bold);
+        opacity: 0.9;
       }
 
       & .contactItemTextMini {
         font-size: 0.6vw;
-        color: #64748b;
+        // color: #64748b;
+        color: var(--main-page-b-color-white);
         font-family: var(--font-Inter);
         line-height: var(--font-lineh-normal);
         font-weight: var(--font-weight-regular);
         margin-top: 0.25vw;
+        opacity: 0.9;
       }
     }
   }

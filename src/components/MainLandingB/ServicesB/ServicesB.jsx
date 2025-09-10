@@ -21,15 +21,15 @@ export default function ServicesB() {
       description: 'Розробка сайтів від лендінгів і сайтів-візиток до інтернет-магазинів.',
       features: ['Лендінги', 'Корпоративні сайти', 'Інтернет-магазини', 'Web додатки'],
       linkToPage: '/web-development',
-      price: 'від 350 €',
+      price: 'від 400 €',
     },
     {
       icon: <BsLightningCharge className={scss.cardIcon} />,
-      title: 'Бізнес-івтоматизація',
+      title: 'Бізнес-автоматизація',
       description: 'Інтеграція AI- та Zapier-рішень для автоматизації бізнес-процесів.',
       features: ['AI чат-боти', 'CRM інтеграції', 'Email автоматизація', 'Workflow оптимізація'],
       linkToPage: '/business-automation',
-      price: 'від 350 €',
+      price: 'від 400 €',
     },
     {
       icon: <BsBarChart className={scss.cardIcon} />,
@@ -42,7 +42,7 @@ export default function ServicesB() {
         'Звіти з рекомендаціями',
       ],
       linkToPage: '/google-ads',
-      price: 'від 350 €',
+      price: 'від 200 €',
     },
     // {
     //   icon: <BsGlobe className={scss.cardIcon} />,

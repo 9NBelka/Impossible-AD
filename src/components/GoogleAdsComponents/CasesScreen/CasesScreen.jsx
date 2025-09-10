@@ -34,7 +34,7 @@ export default function CasesScreen() {
   ];
 
   return (
-    <section className={scss.guaranteesScreen} id='guarantees'>
+    <section className={scss.guaranteesScreen} id='services'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Наші послуги</h2>

@@ -21,7 +21,7 @@ export default function CostScreen({ scrollToSection }) {
   ];
 
   return (
-    <section className={scss.guaranteesScreen} id='promises'>
+    <section className={scss.guaranteesScreen} id='cost'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Вартість</h2>

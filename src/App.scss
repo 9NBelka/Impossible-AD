@@ -36,3 +36,45 @@
     }
   }
 }
+
+.loader-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  div {
+    width: 16px;
+    height: 16px;
+    margin: 6px;
+    border-radius: 50%;
+    background: #4f46e5;
+    animation: bounce 1.2s infinite ease-in-out;
+  }
+
+  div:nth-child(1) {
+    animation-delay: -0.36s;
+  }
+  div:nth-child(2) {
+    animation-delay: -0.24s;
+  }
+  div:nth-child(3) {
+    animation-delay: -0.12s;
+  }
+  div:nth-child(4) {
+    animation-delay: 0;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

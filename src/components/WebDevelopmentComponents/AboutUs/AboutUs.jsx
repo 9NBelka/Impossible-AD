@@ -31,7 +31,7 @@ export default function AboutUs() {
   ];
 
   return (
-    <section className={scss.guaranteesScreen} id='guarantees'>
+    <section className={scss.guaranteesScreen} id='aboutus'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Про нас</h2>

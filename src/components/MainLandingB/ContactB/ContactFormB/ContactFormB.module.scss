@@ -2,8 +2,10 @@
   width: 68%;
   display: flex;
   flex-direction: column;
-  background: var(--main-page-color-white);
+  // background: var(--main-page-color-white);
+  background-color: rgba(255, 255, 255, 0.1019607843);
   padding: 1.5vw;
+  padding-top: 0.5vw;
   border-radius: 0.8vw;
   box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
 
@@ -20,7 +22,8 @@
     & label {
       display: flex;
       font-size: 0.65vw;
-      color: var(--main-page-color-darkGrey);
+      // color: var(--main-page-color-darkGrey);
+      color: var(--main-page-color-white);
       font-family: var(--font-Inter);
       line-height: var(--font-lineh-normal);
       font-weight: var(--font-weight-regular);
@@ -96,12 +99,14 @@
 
   & .submitButton {
     width: 100%;
-    background: linear-gradient(
-      135deg,
-      var(--main-page-b-color-lightBlue),
-      var(--main-page-b-color-hashtag)
-    );
-    color: white;
+    // background: linear-gradient(
+    //   135deg,
+    //   var(--main-page-b-color-lightBlue),
+    //   var(--main-page-b-color-hashtag)
+    // );
+    background: var(--main-page-color-white);
+    // color: white;
+    color: #52535f;
     border: none;
     padding: 0.7vw 1.5vw;
     border-radius: 0.6vw;
@@ -319,7 +324,7 @@
 
     & .submitButton {
       padding: 3vw 3vw;
-      border-radius: 3vw;
+      border-radius: 2vw;
       font-size: 3.6vw;
       margin-top: 3.5vw;
     }

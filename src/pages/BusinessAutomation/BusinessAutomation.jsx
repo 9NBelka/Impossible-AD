@@ -7,8 +7,36 @@ import YouKnowScreen from '../../components/BusinessAutomationComponents/YouKnow
 import scss from './BusinessAutomation.module.scss';
 import CasesScreen from '../../components/BusinessAutomationComponents/CasesScreen/CasesScreen';
 import FooterContactForm from '../../components/BusinessAutomationComponents/FooterContactForm/FooterContactForm';
+import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 
 export default function BusinessAutomation() {
+  const onFooterTextLinks = [
+    {
+      title: 'Проблеми',
+      linkToPage: 'problems',
+    },
+    {
+      title: 'Рішення',
+      linkToPage: 'solutions',
+    },
+    {
+      title: 'Що ви отримаєте',
+      linkToPage: 'promises',
+    },
+    {
+      title: 'Що входить',
+      linkToPage: 'plan',
+    },
+    {
+      title: 'Кейси',
+      linkToPage: 'cases',
+    },
+    {
+      title: 'Контакти',
+      linkToPage: 'contacts',
+    },
+  ];
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -37,6 +65,7 @@ export default function BusinessAutomation() {
       <StartAutoScreen scrollToSection={scrollToSection} />
       <CasesScreen />
       <FooterContactForm />
+      <FooterB onFooterTextLinks={onFooterTextLinks} />
     </div>
   );
 }

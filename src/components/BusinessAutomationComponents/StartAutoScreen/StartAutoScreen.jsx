@@ -22,7 +22,7 @@ export default function StartAutoScreen({ scrollToSection }) {
   ];
 
   return (
-    <section className={scss.guaranteesScreen} id='promises'>
+    <section className={scss.guaranteesScreen} id='plan'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Запускаємо автоматизацію за 14 днів</h2>

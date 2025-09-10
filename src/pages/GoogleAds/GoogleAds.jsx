@@ -8,8 +8,36 @@ import GoogleAdsFormScreen from '../../components/GoogleAdsComponents/GoogleAdsF
 import CostScreen from '../../components/GoogleAdsComponents/CostScreen/CostScreen';
 import HowToMeWork from '../../components/GoogleAdsComponents/HowToMeWork/HowToMeWork';
 import FooterContactForm from '../../components/GoogleAdsComponents/FooterContactForm/FooterContactForm';
+import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 
 export default function GoogleAds() {
+  const onFooterTextLinks = [
+    {
+      title: 'Комплексний підхід',
+      linkToPage: 'whywescreen',
+    },
+    {
+      title: 'Послуги',
+      linkToPage: 'services',
+    },
+    {
+      title: 'Вартість',
+      linkToPage: 'cost',
+    },
+    {
+      title: 'Чому ми?',
+      linkToPage: 'whywescreen2',
+    },
+    {
+      title: 'Рішення',
+      linkToPage: 'solution',
+    },
+    {
+      title: 'Контакти',
+      linkToPage: 'contacts',
+    },
+  ];
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -39,6 +67,7 @@ export default function GoogleAds() {
       <WhyImpossibleAD />
       <HowToMeWork />
       <FooterContactForm />
+      <FooterB onFooterTextLinks={onFooterTextLinks} />
     </div>
   );
 }

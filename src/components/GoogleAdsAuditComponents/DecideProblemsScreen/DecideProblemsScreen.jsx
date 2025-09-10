@@ -29,8 +29,8 @@ export default function DecideProblemsScreen() {
     <section className={scss.decideProblemsScreen} id='decideProblems'>
       <div className={scss.container}>
         <div className={scss.header}>
-          <h2>Знайомі проблеми з Google Ads?</h2>
-          <p>90% бізнесів стикаються з цими труднощами при самостійній роботі з рекламою</p>
+          <h2>Як ми вирішуємо ваші проблеми</h2>
+          <p>Комплексний підхід до налаштування та ведення Google Ads</p>
         </div>
 
         <div className={scss.flexBlock}>

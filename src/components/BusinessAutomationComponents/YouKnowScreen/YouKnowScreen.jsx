@@ -37,7 +37,7 @@ export default function YouKnowScreen() {
   ];
 
   return (
-    <section className={scss.problemsScreen} id='textKnow'>
+    <section className={scss.problemsScreen} id='problems'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Знайомо?</h2>

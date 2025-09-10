@@ -44,7 +44,16 @@ export default function App() {
     }
   };
 
-  if (loading) return <div className='loading'>Загрузка...</div>;
+  if (loading)
+    return (
+      <div className='loader-spinner'>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
+
   if (error) return <div className='error'>Ошибка: {error}</div>;
 
   return (

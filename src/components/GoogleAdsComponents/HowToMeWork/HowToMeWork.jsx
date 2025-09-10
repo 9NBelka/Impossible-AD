@@ -27,7 +27,7 @@ export default function HowToMeWork() {
   ];
 
   return (
-    <section className={scss.guaranteesScreen} id='guarantees'>
+    <section className={scss.guaranteesScreen} id='solution'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Наші рішення</h2>

@@ -26,7 +26,7 @@ export default function OurApproach() {
   ];
 
   return (
-    <section className={scss.guaranteesScreen} id='guarantees'>
+    <section className={scss.guaranteesScreen} id='approach'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Наш підхід</h2>

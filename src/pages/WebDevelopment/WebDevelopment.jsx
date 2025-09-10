@@ -1,3 +1,4 @@
+import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 import AboutUs from '../../components/WebDevelopmentComponents/AboutUs/AboutUs';
 import CasesAndResults from '../../components/WebDevelopmentComponents/CasesAndResults/CasesAndResults';
 import FeedBacks from '../../components/WebDevelopmentComponents/FeedBacks/FeedBacks';
@@ -10,6 +11,33 @@ import WebDevelopmentFormScreen from '../../components/WebDevelopmentComponents/
 import scss from './WebDevelopment.module.scss';
 
 export default function WebDevelopment() {
+  const onFooterTextLinks = [
+    {
+      title: 'Рішення',
+      linkToPage: 'solutions',
+    },
+    {
+      title: 'Підхід',
+      linkToPage: 'approach',
+    },
+    {
+      title: 'Гарантії',
+      linkToPage: 'guarantees',
+    },
+    {
+      title: 'Кейси',
+      linkToPage: 'casesAndResults',
+    },
+    {
+      title: 'О нас',
+      linkToPage: 'aboutus',
+    },
+    {
+      title: 'Контакти',
+      linkToPage: 'contacts',
+    },
+  ];
+
   return (
     <div>
       <HeroScreen />
@@ -21,6 +49,7 @@ export default function WebDevelopment() {
       <FeedBacks />
       <AboutUs />
       <FooterContactForm />
+      <FooterB onFooterTextLinks={onFooterTextLinks} />
     </div>
   );
 }

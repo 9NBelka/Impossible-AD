@@ -213,3 +213,75 @@
     }
   }
 }
+
+/* Контейнер для dropdown */
+.dropdown {
+  display: flex;
+  position: relative;
+
+  a {
+    cursor: pointer;
+  }
+}
+
+/* Выпадающее меню */
+.dropdownMenu {
+  position: absolute;
+  top: 150%;
+  left: 0;
+  background: var(--main-page-b-color-white);
+  box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.1);
+  border-radius: 0.3vw;
+  display: flex;
+  flex-direction: column;
+  min-width: 11vw;
+  padding: 0.25vw 0;
+  z-index: 1001;
+
+  a {
+    padding: 0.7vw 1vw;
+    font-size: 0.8vw;
+    color: var(--main-page-b-color-darkGrey);
+    transition: 0.3s ease;
+
+    &::after {
+      height: 0vw;
+    }
+
+    &:hover {
+      color: var(--main-page-b-color-lightBlue5);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .dropdownMenu {
+    top: 185%;
+    left: -10%;
+    border-radius: 0.75vw;
+    min-width: 24vw;
+    padding: 0.5vw 0;
+
+    a {
+      padding: 1.5vw 2vw;
+      font-size: 1.8vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .dropdownMenu {
+    top: -30%;
+    left: -350%;
+    border-radius: 1vw;
+    min-width: 40vw;
+    padding: 0.5vw 0;
+    border-right: 0.75vw solid var(--main-page-b-color-lightBlue5);
+    box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.5);
+
+    a {
+      padding: 4vw 4vw;
+      font-size: 3.6vw;
+    }
+  }
+}
