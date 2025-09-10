@@ -89,7 +89,7 @@ export default function ContactB() {
   };
 
   return (
-    <section id='contacts' className={scss.contact}>
+    <section className={scss.contact}>
       <div className={scss.container}>
         <h2>Чи готові посилити свою цифрову присутність?</h2>
         <p className={scss.sectionSubtitle}>

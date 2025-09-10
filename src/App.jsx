@@ -34,10 +34,6 @@ export default function App() {
     dispatch(checkAuthState());
   }, [dispatch]);
 
-  useEffect(() => {
-    document.getElementById('contacts').scrollIntoView();
-  }, []);
-
   const handleSignOut = async () => {
     try {
       await signOut(auth);

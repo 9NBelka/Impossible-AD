@@ -1,4 +1,5 @@
 // import { useCallback, useState } from 'react';
+import { useEffect } from 'react';
 import BenefitsB from '../../components/MainLandingB/BenefitsB/BenefitsB';
 import Cases from '../../components/MainLandingB/Cases/Cases';
 import ContactB from '../../components/MainLandingB/ContactB/ContactB';
@@ -12,6 +13,7 @@ import TrustedScreen from '../../components/TrustedScreen/TrustedScreen';
 // import { FcSms } from 'react-icons/fc';
 // import ChatBot from '../../components/MainLanding/ChatBot/ChatBot';
 import './MainLandingB.scss';
+import { useLocation } from 'react-router-dom';
 
 export default function MainLandingB() {
   // const [isChatOpen, setIsChatOpen] = useState(false);
@@ -39,6 +41,18 @@ export default function MainLandingB() {
     },
   ];
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#contacts') {
+      // Прокрутка к элементу или рендеринг компонента
+      const element = document.getElementById('contacts');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <div className='min-h-screen'>
       <HeaderB onHeaderTextLinks={onFooterAndHeaderTextLinksMain} />
@@ -55,7 +69,9 @@ export default function MainLandingB() {
       <BenefitsB />
       <Cases />
       <Process />
-      <ContactB />
+      <section id='contacts'>
+        <ContactB />
+      </section>
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinksMain} />
       {/* <div className='floatingButton' onClick={handleChatToggle}>
         {isChatOpen ? (
