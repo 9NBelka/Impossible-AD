@@ -21,7 +21,7 @@ export default function BenefitsB() {
       icon: <BsBullseye className={scss.cardIcon} />,
       title: 'Фокус на ROI',
       description:
-        'Ми не працюємо заради метрик тщеславства. Наша мета – збільшити ваш прибуток та оптимізувати витрати.',
+        'Ми не працюємо заради метрик. Наша мета – збільшити ваш прибуток та оптимізувати витрати.',
     },
     {
       icon: <BsLightbulb className={scss.cardIcon} />,

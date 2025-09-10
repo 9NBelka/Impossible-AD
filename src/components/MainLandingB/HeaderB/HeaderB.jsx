@@ -75,15 +75,9 @@ export default function Header({ onHeaderTextLinks }) {
             {isMenuOpenTwo && (
               <div className={scss.dropdownMenu}>
                 <a href='/google-ads-audit'>Google Ads</a>
-                <a href='/web-development' onClick={() => scrollToSection('service2')}>
-                  Веб-розробка
-                </a>
-                <a href='/business-automation' onClick={() => scrollToSection('service3')}>
-                  Бізнес-автоматизація
-                </a>
-                <a href='/google-ads' onClick={() => scrollToSection('service3')}>
-                  Аудит реклами
-                </a>
+                <a href='/web-development'>Веб-розробка</a>
+                <a href='/business-automation'>Бізнес-автоматизація</a>
+                <a href='/google-ads'>Аудит реклами</a>
               </div>
             )}
           </div>
@@ -102,7 +96,7 @@ export default function Header({ onHeaderTextLinks }) {
           {isMenuOpen ? <BsXLg className={scss.menuIcon} /> : <BsList className={scss.menuIcon} />}
         </button>
       </div>
-      <DiscountBlock />
+      <DiscountBlock scrollToSection={scrollToSection} />
     </header>
   );
 }
