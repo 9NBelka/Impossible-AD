@@ -8,6 +8,7 @@ import {
   BsInstagram,
   BsTelegram,
   BsTelephone,
+  BsTwitter,
 } from 'react-icons/bs';
 
 export default function FooterB({ onFooterTextLinks }) {
@@ -71,13 +72,13 @@ export default function FooterB({ onFooterTextLinks }) {
             <div className={scss.contactSection}>
               <h4>Контакти</h4>
               <div className={scss.contactList}>
-                <a href='mailto:hello@impossiblead.com' className={scss.contactLink}>
+                <a href='mailto:impossiblead2025@gmail.com' className={scss.contactLink}>
                   <BsEnvelope />
-                  hello@impossiblead.com
+                  impossiblead2025@gmail.com
                 </a>
-                <a href='tel:+380123456789' className={scss.contactLink}>
+                <a href='tel:+380733291216' className={scss.contactLink}>
                   <BsTelephone />
-                  +380 (12) 345-67-89
+                  +380 (73) 329-12-16
                 </a>
                 <a href='https://t.me/impossiblead' className={scss.contactLink}>
                   <BsChat />
@@ -96,6 +97,9 @@ export default function FooterB({ onFooterTextLinks }) {
                   </a>
                   <a href='#' aria-label='Instagram'>
                     <BsInstagram />
+                  </a>
+                  <a href='#' aria-label='Instagram'>
+                    <BsTwitter />
                   </a>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { addContactForm } from '../../store/slices/contactFormSlice';
 import { useDispatch } from 'react-redux';
 import ThanksPageContactForm from './ThanksPageContactForm/ThanksPageContactForm';
-import { BsArrowLeftShort } from 'react-icons/bs';
+import { BsArrowLeftShort, BsBoxArrowInDown } from 'react-icons/bs';
 
 export default function ThanksPageOnFormDownload() {
   const dispatch = useDispatch();
@@ -67,6 +67,17 @@ export default function ThanksPageOnFormDownload() {
     }
   };
 
+  // Function to handle PDF download
+  const handleDownload = () => {
+    const pdfUrl = '/Чек-лист_аудиту_Google_Ads_від_ImpossibleAD.pdf'; // Path to the PDF in the public folder
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'checklist.pdf'; // Name of the file when downloaded
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up
+  };
+
   const handleBack = () => {
     window.history.back();
   };
@@ -79,14 +90,23 @@ export default function ThanksPageOnFormDownload() {
           <h2>
             <span>🎉</span> Дякуємо, ваш чек-лист вже у вас!
           </h2>
-          <p className={scss.thanksPageDescriptionOrange}>
+          {/* <p className={scss.thanksPageDescriptionOrange}>
             Нема листа? Перевірте Вхідні → Промоакції/Спам/Усі листи.
-          </p>
-          <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
+          </p> */}
+          {/* <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
             Ви зробили перший крок до того, щоб зрозуміти, чому Google-реклама може “зливати” бюджет
             і як цього уникнути. Перевірте вашу пошту — ми надіслали чек-лист із покроковими
             інструкціями.
+          </p> */}
+
+          <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
+            Ви зробили перший крок до того, щоб зрозуміти, чому Google-реклама може “зливати” бюджет
+            і як цього уникнути. Натисніть на кнопку "завантажити" щоб отримати ваш чек-лист із
+            покроковими інструкціями.
           </p>
+          <button className={scss.downloadButton} onClick={handleDownload}>
+            Завантажити <BsBoxArrowInDown className={scss.iconDownload} />
+          </button>
           <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
             💡 Порада:
           </p>
@@ -100,7 +120,6 @@ export default function ThanksPageOnFormDownload() {
             консультацію від наших експертів. Ми покажемо, де саме ваш акаунт втрачає гроші, і
             підкажемо, як це виправити.
           </p>
-
           <ThanksPageContactForm
             handleSubmit={handleSubmit}
             formData={formData}

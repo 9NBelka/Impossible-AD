@@ -148,6 +148,7 @@
 .caseHeader {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   & h3 {
     font-size: 1.1vw;
@@ -155,6 +156,7 @@
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-bold);
     line-height: var(--font-lineh-small2);
+    height: 100%;
   }
 
   & .industry {

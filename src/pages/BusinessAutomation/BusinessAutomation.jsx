@@ -9,6 +9,7 @@ import CasesScreen from '../../components/BusinessAutomationComponents/CasesScre
 import FooterContactForm from '../../components/BusinessAutomationComponents/FooterContactForm/FooterContactForm';
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
+import { useLocation } from 'react-router-dom';
 
 export default function BusinessAutomation() {
   const onFooterAndHeaderTextLinks = [
@@ -37,6 +38,18 @@ export default function BusinessAutomation() {
       linkToPage: 'contacts',
     },
   ];
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#contacts') {
+      // Прокрутка к элементу или рендеринг компонента
+      const element = document.getElementById('contacts');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,7 +80,9 @@ export default function BusinessAutomation() {
       <PromisesScreen />
       <StartAutoScreen scrollToSection={scrollToSection} />
       <CasesScreen />
-      <FooterContactForm />
+      <section id='contacts'>
+        <FooterContactForm />
+      </section>
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinks} />
     </div>
   );

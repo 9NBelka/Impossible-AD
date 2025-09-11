@@ -104,14 +104,18 @@ export default function ContactB() {
               <BsEnvelope className={scss.contactIcon} />
               <div>
                 <p className={scss.contactItemTitleMini}>Email</p>
-                <p className={scss.contactItemTextMini}>hello@impossiblead.com</p>
+                <a href='mailto:impossiblead2025@gmail.com' className={scss.contactLink}>
+                  <p className={scss.contactItemTextMini}>impossiblead2025@gmail.com</p>
+                </a>
               </div>
             </div>
             <div className={scss.contactItem}>
               <BsTelephone className={scss.contactIcon} />
               <div>
                 <p className={scss.contactItemTitleMini}>Телефон</p>
-                <p className={scss.contactItemTextMini}>+380 (12) 345-67-89</p>
+                <a href='tel:+380733291216'>
+                  <p className={scss.contactItemTextMini}>+380 (73) 329-12-16</p>
+                </a>
               </div>
             </div>
             <div className={scss.contactItem}>

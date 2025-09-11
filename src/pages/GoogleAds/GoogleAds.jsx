@@ -10,6 +10,7 @@ import HowToMeWork from '../../components/GoogleAdsComponents/HowToMeWork/HowToM
 import FooterContactForm from '../../components/GoogleAdsComponents/FooterContactForm/FooterContactForm';
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
+import { useLocation } from 'react-router-dom';
 
 export default function GoogleAds() {
   const onFooterAndHeaderTextLinks = [
@@ -38,6 +39,18 @@ export default function GoogleAds() {
       linkToPage: 'contacts',
     },
   ];
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#contacts') {
+      // Прокрутка к элементу или рендеринг компонента
+      const element = document.getElementById('contacts');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -68,7 +81,9 @@ export default function GoogleAds() {
       <CostScreen scrollToSection={scrollToSection} />
       <WhyImpossibleAD />
       <HowToMeWork />
-      <FooterContactForm />
+      <section id='contacts'>
+        <FooterContactForm />
+      </section>
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinks} />
     </div>
   );

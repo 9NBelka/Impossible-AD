@@ -10,6 +10,8 @@ import OurSolutions from '../../components/WebDevelopmentComponents/OurSolutions
 import WebDevelopmentFormScreen from '../../components/WebDevelopmentComponents/WebDevelopmentFormScreen/WebDevelopmentFormScreen';
 import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
 import scss from './WebDevelopment.module.scss';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function WebDevelopment() {
   const onFooterAndHeaderTextLinks = [
@@ -39,6 +41,18 @@ export default function WebDevelopment() {
     },
   ];
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#contacts') {
+      // Прокрутка к элементу или рендеринг компонента
+      const element = document.getElementById('contacts');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <div>
       <HeaderB onHeaderTextLinks={onFooterAndHeaderTextLinks} />
@@ -50,7 +64,9 @@ export default function WebDevelopment() {
       <CasesAndResults />
       <FeedBacks />
       <AboutUs />
-      <FooterContactForm />
+      <section id='contacts'>
+        <FooterContactForm />
+      </section>
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinks} />
     </div>
   );

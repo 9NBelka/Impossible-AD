@@ -8,6 +8,8 @@ import WhyWeScreen from '../../components/GoogleAdsAuditComponents/WhyWeScreen/W
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 import scss from './GoogleAdsAudit.module.scss';
 import HeaderB from '../../components/MainLandingB/HeaderB/HeaderB';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function GoogleAdsAudit() {
   const onFooterAndHeaderTextLinks = [
@@ -34,6 +36,18 @@ export default function GoogleAdsAudit() {
     },
   ];
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#contacts') {
+      // Прокрутка к элементу или рендеринг компонента
+      const element = document.getElementById('contacts');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <div>
       <HeaderB onHeaderTextLinks={onFooterAndHeaderTextLinks} />
@@ -43,7 +57,9 @@ export default function GoogleAdsAudit() {
       <GoogleAuditFormScreen />
       <GuaranteesScreen />
       <WhyWeScreen />
-      <FooterContactForm />
+      <section id='contacts'>
+        <FooterContactForm />
+      </section>
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinks} />
     </div>
   );
