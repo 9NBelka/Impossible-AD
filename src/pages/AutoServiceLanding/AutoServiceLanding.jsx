@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import Header from '../../components/AutoServiceLandingComponents/Header/Header';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import HeroScreen from '../../components/AutoServiceLandingComponents/HeroScreen/HeroScreen';
 import WhyWeScreen from '../../components/AutoServiceLandingComponents/WhyWeScreen/WhyWeScreen';
 import OurSolutions from '../../components/AutoServiceLandingComponents/OurSolutions/OurSolutions';
@@ -9,24 +9,27 @@ import CostScreen from '../../components/AutoServiceLandingComponents/CostScreen
 import AskedQuestions from '../../components/AutoServiceLandingComponents/AskedQuestions/AskedQuestions';
 import WeSpeakWithResults from '../../components/AutoServiceLandingComponents/WeSpeakWithResults/WeSpeakWithResults';
 import ContactForm from '../../components/AutoServiceLandingComponents/ContactForm/ContactForm';
+import AutoServiceFormScreen from '../../components/AutoServiceLandingComponents/AutoServiceFormScreen/AutoServiceFormScreen';
+import FooterB from '../../components/MainLandingB/FooterB/FooterB';
+import './AutoServiceLanding.scss';
 
 export default function AutoServiceLanding() {
   const onFooterAndHeaderTextLinksMain = [
     {
       title: 'Які результати?',
-      linkToPage: 'contacts',
+      linkToPage: 'whywescreen',
     },
     {
       title: 'Що входить?',
-      linkToPage: 'contacts',
+      linkToPage: 'solutions',
     },
     {
       title: 'Кроки роботи',
-      linkToPage: 'contacts',
+      linkToPage: 'whatwillyouget',
     },
     {
       title: 'Кейси',
-      linkToPage: 'cases',
+      linkToPage: 'results',
     },
     {
       title: 'Ціна',
@@ -50,17 +53,47 @@ export default function AutoServiceLanding() {
     }
   }, [location]);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // бургер
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <div>
-      <Header onHeaderTextLinks={onFooterAndHeaderTextLinksMain} />
-      <HeroScreen />
+      <Header
+        onHeaderTextLinks={onFooterAndHeaderTextLinksMain}
+        isScrolled={isScrolled}
+        scrollToSection={scrollToSection}
+        setIsMenuOpen={setIsMenuOpen}
+        isMenuOpen={isMenuOpen}
+      />
+      <HeroScreen scrollToSection={scrollToSection} />
       <WhyWeScreen />
       <OurSolutions />
-      <WhatWillYouGet />
+      <AutoServiceFormScreen />
+      <WhatWillYouGet scrollToSection={scrollToSection} />
       <WeSpeakWithResults />
-      <CostScreen />
+      <CostScreen scrollToSection={scrollToSection} />
       <AskedQuestions />
-      <ContactForm />
+      <section id='contacts'>
+        <ContactForm />
+      </section>
+      <FooterB onFooterTextLinks={onFooterAndHeaderTextLinksMain} />
     </div>
   );
 }

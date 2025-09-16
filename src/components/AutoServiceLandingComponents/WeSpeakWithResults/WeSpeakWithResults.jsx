@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 export default function WeSpeakWithResults() {
   return (
-    <section className={scss.problemsScreen} id='askedquestions'>
+    <section className={scss.problemsScreen} id='results'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>📈 Реальний результат</h2>

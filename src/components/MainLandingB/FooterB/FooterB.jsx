@@ -72,7 +72,10 @@ export default function FooterB({ onFooterTextLinks }) {
             <div className={scss.contactSection}>
               <h4>Контакти</h4>
               <div className={scss.contactList}>
-                <a href='mailto:impossiblead2025@gmail.com' className={scss.contactLink}>
+                <a
+                  href='mailto:impossiblead2025@gmail.com'
+                  className={scss.contactLink}
+                  target='_blank'>
                   <BsEnvelope />
                   impossiblead2025@gmail.com
                 </a>
@@ -80,25 +83,25 @@ export default function FooterB({ onFooterTextLinks }) {
                   <BsTelephone />
                   +380 (73) 329-12-16
                 </a>
-                <a href='https://t.me/impossiblead' className={scss.contactLink}>
+                <a href='https://t.me/Impossibleadcom' className={scss.contactLink} target='_blank'>
                   <BsChat />
-                  @impossiblead
+                  @Impossibleadcom
                 </a>
               </div>
 
               <div className={scss.social}>
                 <h5>Соціальні мережі</h5>
                 <div className={scss.socialLinks}>
-                  <a href='#' aria-label='Facebook'>
+                  <a href='#' aria-label='Facebook' target='_blank'>
                     <BsFacebook />
                   </a>
-                  <a href='#' aria-label='Telegram'>
+                  <a href='https://t.me/Impossibleadcom' aria-label='Telegram' target='_blank'>
                     <BsTelegram />
                   </a>
-                  <a href='#' aria-label='Instagram'>
+                  <a href='#' aria-label='Instagram' target='_blank'>
                     <BsInstagram />
                   </a>
-                  <a href='#' aria-label='Instagram'>
+                  <a href='#' aria-label='Instagram' target='_blank'>
                     <BsTwitter />
                   </a>
                 </div>

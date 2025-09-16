@@ -2,9 +2,9 @@ import { BsCalendar4, BsCurrencyEuro, BsExclamationTriangle } from 'react-icons/
 import scss from './CostScreen.module.scss';
 import clsx from 'clsx';
 
-export default function CostScreen() {
+export default function CostScreen({ scrollToSection }) {
   return (
-    <section className={scss.problemsScreen} id='whatwillyouget'>
+    <section className={scss.problemsScreen} id='price'>
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>💵 Скільки це коштує</h2>
@@ -47,7 +47,9 @@ export default function CostScreen() {
               </div>
             </div>
             <div className={scss.blockTextAndButtonBottomSection}>
-              <button className={scss.buttonBottom}>Розпочати зараз</button>
+              <button className={scss.buttonBottom} onClick={() => scrollToSection('contacts')}>
+                Розпочати зараз
+              </button>
             </div>
           </div>
         </div>

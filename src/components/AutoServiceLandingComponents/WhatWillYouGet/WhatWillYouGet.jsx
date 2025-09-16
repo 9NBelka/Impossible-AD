@@ -9,7 +9,7 @@ import {
 } from 'react-icons/bs';
 import scss from './WhatWillYouGet.module.scss';
 
-export default function WhatWillYouGet() {
+export default function WhatWillYouGet({ scrollToSection }) {
   const problems = [
     {
       icon: <BsBullseye className={scss.cardIcon} />,
@@ -61,7 +61,9 @@ export default function WhatWillYouGet() {
 
         <div className={scss.blockTextAndButtonBottomSection}>
           <h4>👉 Усе це входить у пакет. Конкуренти беруть за це окремо.</h4>
-          <button className={scss.buttonBottom}>Замовити пакет</button>
+          <button className={scss.buttonBottom} onClick={() => scrollToSection('contacts')}>
+            Замовити пакет
+          </button>
         </div>
       </div>
     </section>

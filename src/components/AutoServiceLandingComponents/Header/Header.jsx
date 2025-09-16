@@ -2,21 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import scss from './Header.module.scss';
 import { BsChevronDown, BsList, BsXLg } from 'react-icons/bs';
 
-export default function Header({ onHeaderTextLinks }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // бургер
-
-  const [isScrolled, setIsScrolled] = useState(false);
-
+export default function Header({
+  onHeaderTextLinks,
+  isScrolled,
+  scrollToSection,
+  setIsMenuOpen,
+  isMenuOpen,
+}) {
   const navRef = useRef(null); // для бургера
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 200);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Закрытие при клике вне меню и подменю
   useEffect(() => {
@@ -40,14 +33,6 @@ export default function Header({ onHeaderTextLinks }) {
     };
   }, [isMenuOpen]);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
   return (
     <header className={`${scss.header} ${isScrolled ? scss.scrolled : ''}`}>
       <div className={scss.container}>
@@ -67,7 +52,9 @@ export default function Header({ onHeaderTextLinks }) {
         </nav>
 
         <div className={scss.buttonsBlockRow}>
-          <button className={scss.buttonContactWithMe}>Залишити заявку</button>
+          <button className={scss.buttonContactWithMe} onClick={() => scrollToSection('contacts')}>
+            Залишити заявку
+          </button>
 
           <button
             className={scss.menuToggle}

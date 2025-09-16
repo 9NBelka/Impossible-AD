@@ -48,7 +48,7 @@ export default function ContactForm() {
     }
   };
   return (
-    <section className={scss.problemsScreen} id='whatwillyouget'>
+    <section className={scss.problemsScreen}>
       <div className={scss.container}>
         <div className={scss.formMainBlock}>
           <div className={scss.formInputsAndCheckoutBlock}>

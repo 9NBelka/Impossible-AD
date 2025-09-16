@@ -1,13 +1,15 @@
 import clsx from 'clsx';
 import scss from './ThanksPageOnFormDownload.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Додано useEffect
 import { addContactForm } from '../../store/slices/contactFormSlice';
 import { useDispatch } from 'react-redux';
 import ThanksPageContactForm from './ThanksPageContactForm/ThanksPageContactForm';
 import { BsArrowLeftShort, BsBoxArrowInDown } from 'react-icons/bs';
+import { useLocation } from 'react-router-dom'; // Додано для отримання параметрів URL
 
 export default function ThanksPageOnFormDownload() {
   const dispatch = useDispatch();
+  const location = useLocation(); // Отримання поточного URL
 
   const [formData, setFormData] = useState({
     name: '',
@@ -18,6 +20,14 @@ export default function ThanksPageOnFormDownload() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+
+  // Визначення джерела на основі параметра URL
+  const [source, setSource] = useState('default');
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const sourceParam = searchParams.get('source');
+    setSource(sourceParam === 'autoservice' ? 'autoservice' : 'default');
+  }, [location.search]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -44,12 +54,11 @@ export default function ThanksPageOnFormDownload() {
         email: formData.email,
         name: formData.name,
         phone: formData.phone,
-        source: 'thanks', // Add source to indicate thanks page form
+        source: source === 'autoservice' ? 'autoservice' : 'thanks', // Встановлюємо джерело
         status: 'В обработке',
-        plan: 'Чек-лист PDF', // Add plan to indicate the form purpose
+        plan: source === 'autoservice' ? 'Чек-лист STO' : 'Чек-лист PDF', // Різний план
       };
 
-      // Dispatch to add to 'contactform' collection
       await dispatch(addContactForm(contactFormData)).unwrap();
 
       setSubmitMessage('Дякуємо! Ми зв`яжемося з вами протягом 24 годин.');
@@ -67,15 +76,15 @@ export default function ThanksPageOnFormDownload() {
     }
   };
 
-  // Function to handle PDF download
+  // Функція для завантаження PDF залежно від джерела
   const handleDownload = () => {
-    const pdfUrl = '/Чек-лист_аудиту_Google_Ads_від_ImpossibleAD.pdf'; // Path to the PDF in the public folder
+    const pdfUrl = source === 'autoservice' ? '/CheckListSto.pdf' : '/CheckListAudit.pdf';
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'checklist.pdf'; // Name of the file when downloaded
+    link.download = source === 'autoservice' ? 'checklistSto.pdf' : 'checklistAudit.pdf'; // Ім'я файлу
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link); // Clean up
+    document.body.removeChild(link); // Очищення
   };
 
   const handleBack = () => {
@@ -90,15 +99,6 @@ export default function ThanksPageOnFormDownload() {
           <h2>
             <span>🎉</span> Дякуємо, ваш чек-лист вже у вас!
           </h2>
-          {/* <p className={scss.thanksPageDescriptionOrange}>
-            Нема листа? Перевірте Вхідні → Промоакції/Спам/Усі листи.
-          </p> */}
-          {/* <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
-            Ви зробили перший крок до того, щоб зрозуміти, чому Google-реклама може “зливати” бюджет
-            і як цього уникнути. Перевірте вашу пошту — ми надіслали чек-лист із покроковими
-            інструкціями.
-          </p> */}
-
           <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
             Ви зробили перший крок до того, щоб зрозуміти, чому Google-реклама може “зливати” бюджет
             і як цього уникнути. Натисніть на кнопку "завантажити" щоб отримати ваш чек-лист із
