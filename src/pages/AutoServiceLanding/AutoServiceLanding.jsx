@@ -8,7 +8,7 @@ import WhatWillYouGet from '../../components/AutoServiceLandingComponents/WhatWi
 import CostScreen from '../../components/AutoServiceLandingComponents/CostScreen/CostScreen';
 import AskedQuestions from '../../components/AutoServiceLandingComponents/AskedQuestions/AskedQuestions';
 import WeSpeakWithResults from '../../components/AutoServiceLandingComponents/WeSpeakWithResults/WeSpeakWithResults';
-import ContactForm from '../../components/AutoServiceLandingComponents/ContactForm/ContactForm';
+import ContactScreen from '../../components/AutoServiceLandingComponents/ContactScreen/ContactScreen';
 import AutoServiceFormScreen from '../../components/AutoServiceLandingComponents/AutoServiceFormScreen/AutoServiceFormScreen';
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 import './AutoServiceLanding.scss';
@@ -91,7 +91,7 @@ export default function AutoServiceLanding() {
       <CostScreen scrollToSection={scrollToSection} />
       <AskedQuestions />
       <section id='contacts'>
-        <ContactForm />
+        <ContactScreen />
       </section>
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinksMain} />
     </div>

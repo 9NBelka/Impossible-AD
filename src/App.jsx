@@ -98,7 +98,7 @@ export default function App() {
               <Route path='/google-ads' element={<GoogleAds />} />
               <Route path='/web-development' element={<WebDevelopment />} />
               <Route path='/business-automation' element={<BusinessAutomation />} />
-              <Route path='/auto' element={<AutoServiceLanding />} />
+              {/* <Route path='/auto' element={<AutoServiceLanding />} /> */}
               <Route
                 path='/home'
                 element={

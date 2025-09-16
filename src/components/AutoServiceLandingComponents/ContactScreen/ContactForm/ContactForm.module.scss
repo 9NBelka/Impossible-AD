@@ -40,21 +40,23 @@
 }
 
 .formMainBlock {
+  width: 68%;
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 2vw;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.1019607843);
+  padding: 1.5vw;
+  padding-top: 0.5vw;
+  border-radius: 0.8vw;
+  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
 
   & .formInputsAndCheckoutBlock {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
-    border: 0.1vw solid #e5e8eb;
+    width: 100%;
+    // box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
+    // border: 0.1vw solid #e5e8eb;
     margin-top: 0vw;
-    padding: 2vw 1.5vw;
+
     border-radius: 0.5vw;
 
     & .formInputsAndCheckout {
@@ -63,19 +65,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 1vw;
-      margin-top: 2vw;
-    }
-
-    & .header {
-      text-align: center;
-
-      & h2 {
-        font-size: 1.6vw;
-        color: var(--main-page-b-color-darkGrey);
-        font-family: var(--font-Inter);
-        font-weight: var(--font-weight-bold);
-        line-height: var(--font-lineh-small2);
-      }
+      margin-top: 1vw;
     }
   }
 
@@ -109,13 +99,13 @@
 
         & .checkmarkText {
           font-size: 0.6vw;
-          color: var(--main-page-b-color-light-lightBlue);
+          color: var(--main-page-color-white);
           font-family: var(--font-Inter);
           line-height: var(--font-lineh-small);
           font-weight: var(--font-weight-regular);
 
           & .privacyLink {
-            color: var(--main-page-b-color-light-lightBlue);
+            color: var(--main-page-color-white);
             text-decoration: underline;
             padding: 0 0.25vw;
           }
@@ -126,7 +116,7 @@
     & label {
       display: flex;
       font-size: 0.65vw;
-      color: var(--main-page-b-color-light-lightBlue);
+      color: var(--main-page-color-white);
       font-family: var(--font-Inter);
       line-height: var(--font-lineh-normal);
       font-weight: var(--font-weight-regular);
@@ -163,7 +153,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 2vw;
+  margin-top: 1.5vw;
 
   & .button {
     display: flex;
@@ -171,12 +161,12 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--auto-page-lightBlue), var(--auto-page-lightBlue2));
+    background: var(--main-page-color-white);
     border: none;
     padding: 0.7vw 2vw;
     border-radius: 0.6vw;
     font-size: 0.85vw;
-    color: white;
+    color: #52535f;
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-bold);
     line-height: var(--font-lineh-small2);
@@ -188,7 +178,7 @@
     & .buttonIconDownload {
       width: 1.1vw;
       height: 1.1vw;
-      color: white;
+      color: #52535f;
     }
 
     &:hover {
@@ -204,12 +194,15 @@
 
 @media (max-width: 1024px) {
   .formMainBlock {
+    width: 100%;
     margin-top: 3vw;
     gap: 0vw;
+    border-radius: 1.5vw;
+    padding: 4vw 4vw;
+    padding-top: 0;
 
     & .formInputsAndCheckoutBlock {
       width: 100%;
-      padding: 4vw 4vw;
       margin-top: 0vw;
       border-radius: 1vw;
 
@@ -218,11 +211,6 @@
         justify-content: center;
         gap: 3vw;
         margin-top: 4vw;
-      }
-      & .header {
-        & h2 {
-          font-size: 3vw;
-        }
       }
     }
 
@@ -269,6 +257,7 @@
   }
 
   .blockButtonFlex {
+    margin-top: 3vw;
     .button {
       padding: 1.5vw 3vw;
       border-radius: 1vw;
@@ -296,25 +285,22 @@
 
 @media (max-width: 576px) {
   .formMainBlock {
+    border-radius: 3vw;
     margin-top: 7vw;
+    padding: 7vw 6vw;
+    padding-top: 1vw;
+
     & .formInputsAndCheckoutBlock {
       width: 100%;
       margin-top: 0vw;
       align-items: center;
       border-radius: 3vw;
-      padding: 7vw 5vw;
 
       & .formInputsAndCheckout {
         width: 100%;
         flex-direction: column;
         gap: 4vw;
         margin-top: 5vw;
-      }
-
-      & .header {
-        & h2 {
-          font-size: 5vw;
-        }
       }
     }
 
