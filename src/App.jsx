@@ -15,6 +15,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import BusinessAutomation from './pages/BusinessAutomation/BusinessAutomation';
 import GoogleAdsAudit from './pages/GoogleAdsAudit/GoogleAdsAudit';
 import CookieConsent from './components/CookieConsent/CookieConsent';
+import AutoServiceLanding from './pages/AutoServiceLanding/AutoServiceLanding.';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -74,6 +75,7 @@ export default function App() {
           <Route path='/web-development' element={<WebDevelopment />} />
           <Route path='/business-automation' element={<BusinessAutomation />} />
 
+          <Route path='/auto' element={<AutoServiceLanding />} />
           {/* Дашборд */}
           <Route
             path='/home'

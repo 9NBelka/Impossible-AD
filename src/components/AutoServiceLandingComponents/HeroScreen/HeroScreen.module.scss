@@ -1,0 +1,203 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: url(images/backgroundAutoCarHero.jpg) center/cover no-repeat;
+  padding: 8vw 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.8); // белая прозрачность
+    z-index: 1;
+  }
+}
+
+.container {
+  display: flex;
+  max-width: 80vw;
+  margin: 0 auto;
+
+  & .content {
+    width: 65%;
+    z-index: 10;
+
+    & .title {
+      font-size: 2.4vw;
+      color: var(--auto-page-color-darkGrey);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--font-lineh-small2);
+      width: 80%;
+
+      & .brand {
+        color: var(--auto-page-orange);
+      }
+    }
+
+    & .subtitle {
+      font-size: 1vw;
+      color: var(--auto-page-color-darkGrey);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--font-lineh-big);
+      margin-top: 2vw;
+      width: 85%;
+
+      & .brandTwo {
+        color: var(--auto-page-orange);
+        font-size: 1.5vw;
+      }
+    }
+
+    & .ctaBlock {
+      display: flex;
+      flex-direction: row;
+      gap: 1vw;
+      margin-top: 2vw;
+
+      & .ctaButton {
+        background: linear-gradient(
+          135deg,
+          var(--auto-page-lightBlue),
+          var(--auto-page-lightBlue2)
+        );
+        border: none;
+        padding: 0.75vw 5vw;
+        font-size: 1vw;
+        color: var(--main-page-b-color-white);
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-smallStrong);
+        line-height: var(--font-lineh-big);
+        border-radius: 0.35vw;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0.2vw 0.75vw rgba(59, 130, 246, 0.3);
+
+        &:hover {
+          transform: translateY(-0.1vw);
+          box-shadow: 0 0.4vw 1.25vw rgba(59, 130, 246, 0.4);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 100%;
+    padding: 15vw 0;
+    padding-bottom: 6vw;
+  }
+  .container {
+    justify-content: center;
+    max-width: 95vw;
+
+    & .content {
+      width: 80%;
+
+      & .title {
+        text-align: center;
+        width: 100%;
+        font-size: 5vw;
+      }
+
+      & .subtitle {
+        text-align: center;
+        font-size: 2vw;
+        margin-top: 3vw;
+        width: 100%;
+
+        & .brandTwo {
+          font-size: 3vw;
+        }
+      }
+
+      & .ctaBlock {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2.5vw;
+        margin-top: 4vw;
+
+        & .ctaButton {
+          padding: 1.5vw 6vw;
+          font-size: 2vw;
+          border-radius: 1vw;
+          box-shadow: 0 0.2vw 0.75vw rgba(59, 130, 246, 0.3);
+
+          &:hover {
+            box-shadow: 0 0.4vw 1.25vw rgba(59, 130, 246, 0.4);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 20vw 0;
+    padding-bottom: 15vw;
+    padding-top: 30vw;
+
+    &::before {
+      background: rgba(255, 255, 255, 0.85);
+    }
+  }
+  .container {
+    max-width: 90vw;
+
+    & .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 0vw;
+
+      & .title {
+        text-align: center;
+        font-size: 9vw;
+      }
+
+      & .subtitle {
+        text-align: center;
+        font-size: 4.2vw;
+        margin-top: 5vw;
+
+        & .brandTwo {
+          font-size: 5.4vw;
+        }
+      }
+
+      & .ctaBlock {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
+        margin-top: 7vw;
+        gap: 5vw;
+        width: 100%;
+
+        & .ctaButton {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          padding: 3.5vw 7vw;
+          font-size: 3.6vw;
+          border-radius: 3vw;
+          box-shadow: 0 0.2vw 0.75vw rgba(59, 130, 246, 0.3);
+
+          &:hover {
+            box-shadow: 0 0vw 0vw rgba(59, 130, 246, 0.4);
+          }
+        }
+      }
+    }
+  }
+}

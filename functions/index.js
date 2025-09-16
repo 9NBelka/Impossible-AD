@@ -14,20 +14,18 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
   'contactform/{docId}',
   async (event) => {
     console.log('Переменные окружения:', {
-      TELEGRAM_TOKEN,
-      TELEGRAM_CHAT_ID,
-      env: process.env,
+      TELEGRAM_TOKEN: TELEGRAM_TOKEN ? 'Установлен' : 'Не установлен',
+      TELEGRAM_CHAT_ID: TELEGRAM_CHAT_ID ? 'Установлен' : 'Не установлен',
     });
 
     if (!TELEGRAM_TOKEN || !TELEGRAM_CHAT_ID) {
       console.error('Переменные окружения TELEGRAM_TOKEN или TELEGRAM_CHAT_ID не установлены', {
-        TELEGRAM_TOKEN,
-        TELEGRAM_CHAT_ID,
+        TELEGRAM_TOKEN: TELEGRAM_TOKEN ? 'Установлен' : 'Не установлен',
+        TELEGRAM_CHAT_ID: TELEGRAM_CHAT_ID ? 'Установлен' : 'Не установлен',
       });
       return;
     }
 
-    console.log('Функция notifyTelegramOnNewContact вызвана для документа:', event.data.id);
     const newFormData = event.data.data();
     console.log('Данные документа:', newFormData);
 
@@ -37,7 +35,7 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
       try {
         const date = new Date(newFormData.dateCreate);
         formattedDate = date
-          .toLocaleString('ru-UA', {
+          .toLocaleString('uk-UA', {
             day: '2-digit',
             month: '2-digit',
             year: 'numeric',
@@ -70,22 +68,30 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
       case 'businessAutomation':
         formSource = 'страница Автоматизации';
         break;
+      case 'sto':
+        formSource = 'страница СТО';
+        break;
       default:
         formSource = 'Главная страница';
     }
 
-    // Формируем сообщение, исключая поля, которых нет в форме благодарности
+    // Формируем сообщение, исключая поле email для страницы СТО
     const message = `
 🔥 *Новая заявка!* 🔥
 Источник: ${formSource}
 
 👤 *Имя*: ${newFormData.name || '❌ Не указано'}
-📧 *Email*: ${newFormData.email || '❌ Не указано'}
+${newFormData.source !== 'sto' ? `📧 *Email*: ${newFormData.email || '❌ Не указано'}` : ''}
 ${
-  newFormData.source == 'Главной страницы'
+  newFormData.source === 'sto'
+    ? `🚗 *Название СТО*: ${newFormData.companySTO || '❌ Не указано'}`
+    : ''
+}
+${
+  newFormData.source === ''
     ? `🏢 *Компания*: ${newFormData.company || '❌ Не указано'}\n💬 *Сообщение*: ${
         newFormData.message || '❌ Не указано'
-      }\n`
+      }`
     : ''
 }
 📱 *Телефон*: ${newFormData.phone || '❌ Не указано'}

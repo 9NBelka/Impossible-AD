@@ -1,0 +1,376 @@
+.problemsScreen {
+  background: var(--main-page-b-color-white);
+  background: linear-gradient(
+    -90deg,
+    var(--main-page-b-color-white),
+    var(--main-page-b-color-white6)
+  );
+  padding: 5vw 0;
+}
+
+@media (max-width: 1024px) {
+  .problemsScreen {
+    padding: 7vw 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .problemsScreen {
+    padding: 14vw 0;
+  }
+}
+
+.container {
+  max-width: 65vw;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 90vw;
+  }
+}
+
+.header {
+  text-align: center;
+
+  h2 {
+    font-size: 1.8vw;
+    color: var(--main-page-b-color-darkGrey);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small2);
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    text-align: center;
+
+    h2 {
+      font-size: 3.6vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    h2 {
+      font-size: 7.5vw;
+    }
+  }
+}
+
+.mainCostBlockWidth {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3vw;
+}
+
+@media (max-width: 1024px) {
+  .mainCostBlockWidth {
+    margin-top: 5vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .mainCostBlockWidth {
+    margin-top: 10vw;
+  }
+}
+
+.mainCostBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 55%;
+  background: var(--main-page-b-color-white);
+  padding: 2vw 1.5vw;
+  border-radius: 1vw;
+  box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  border: 0.1vw solid var(--auto-page-color-light-lightBlue5);
+  position: relative;
+  overflow: hidden;
+  gap: 1vw;
+}
+
+@media (max-width: 1024px) {
+  .mainCostBlock {
+    width: 100%;
+    padding: 4vw 3vw;
+    border-radius: 1.5vw;
+    gap: 1vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .mainCostBlock {
+    padding: 6vw 4vw;
+    border-radius: 3vw;
+    gap: 3vw;
+  }
+}
+
+.iconAndTextBlockRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1vw;
+
+  &.margTop {
+    margin-top: 1vw;
+  }
+
+  &.backgroundRedExclamation {
+    width: 100%;
+    padding: 1.25vw 1vw;
+    background: var(--auto-page-color-lightRed);
+    border: 0.1vw solid var(--auto-page-color-red);
+    border-radius: 1vw;
+  }
+
+  & .icon {
+    width: 1.3vw;
+    height: 1.3vw;
+    color: var(--auto-page-lightBlue);
+
+    &.calendarIcon {
+      width: 1.3vw;
+      height: 1vw;
+      color: var(--main-page-b-color-green2);
+    }
+
+    &.iconRed {
+      width: 1.3vw;
+      height: 1.1vw;
+      color: var(--main-page-b-color-red);
+    }
+  }
+
+  & .iconAndTextBlockColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+
+    & h5 {
+      font-size: 0.9vw;
+      color: var(--auto-page-color-darkGrey);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--font-lineh-small);
+    }
+
+    & p {
+      font-size: 1.4vw;
+      color: var(--auto-page-lightBlue);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--font-lineh-small);
+    }
+
+    & ul {
+      padding: 0;
+      margin: 0;
+      padding-left: 1vw;
+      margin-top: 0.75vw;
+      & li {
+        font-size: 0.85vw;
+        color: var(--main-page-b-color-light-lightBlue);
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-smallStrong);
+        line-height: var(--font-lineh-big);
+        margin-top: 1vw;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &.miniText {
+          font-size: 0.8vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .iconAndTextBlockRow {
+    gap: 2vw;
+
+    &.margTop {
+      margin-top: 3vw;
+    }
+
+    &.backgroundRedExclamation {
+      width: 100%;
+      padding: 3vw 2vw;
+      border-radius: 1.5vw;
+    }
+
+    & .icon {
+      width: 3.5vw;
+      height: 3.5vw;
+
+      &.calendarIcon {
+        width: 3.5vw;
+        height: 2.8vw;
+      }
+
+      &.iconRed {
+        width: 3.5vw;
+        height: 2.8vw;
+      }
+    }
+
+    & .iconAndTextBlockColumn {
+      gap: 1vw;
+
+      & h5 {
+        font-size: 2vw;
+      }
+
+      & p {
+        font-size: 3vw;
+      }
+
+      & ul {
+        padding-left: 2vw;
+        margin-top: 1.5vw;
+        & li {
+          font-size: 1.8vw;
+          margin-top: 2vw;
+
+          &.miniText {
+            font-size: 1.8vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .iconAndTextBlockRow {
+    gap: 4vw;
+
+    &.margTop {
+      margin-top: 6vw;
+    }
+
+    &.backgroundRedExclamation {
+      padding: 5vw 3vw;
+      border-radius: 3vw;
+    }
+
+    & .icon {
+      width: 6vw;
+      height: 6vw;
+
+      &.calendarIcon {
+        width: 6vw;
+        height: 5vw;
+      }
+
+      &.iconRed {
+        width: 7vw;
+        height: 6vw;
+      }
+    }
+
+    & .iconAndTextBlockColumn {
+      gap: 3vw;
+
+      & h5 {
+        font-size: 3.6vw;
+      }
+
+      & p {
+        font-size: 5.5vw;
+      }
+
+      & ul {
+        padding-left: 4vw;
+        margin-top: 2vw;
+        & li {
+          font-size: 3.6vw;
+          margin-top: 3vw;
+
+          &.miniText {
+            font-size: 3.6vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+.blockTextAndButtonBottomSection {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  margin-top: 2vw;
+
+  .buttonBottom {
+    background: var(--auto-page-orange2);
+    border: none;
+    padding: 0.5vw 1.5vw;
+    font-size: 0.85vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-big);
+    border-radius: 0.5vw;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.2vw 0.75vw rgba(249, 116, 22, 0.3);
+
+    &:hover {
+      transform: translateY(-0.1vw);
+      box-shadow: 0 0.4vw 1.25vw rgba(249, 116, 22, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .blockTextAndButtonBottomSection {
+    margin-top: 2vw;
+
+    & .buttonBottom {
+      padding: 1.25vw 4vw;
+      font-size: 1.8vw;
+      border-radius: 1.25vw;
+      box-shadow: 0 0.2vw 0.75vw rgba(249, 116, 22, 0.3);
+      margin-top: 3vw;
+
+      &:hover {
+        transform: translateY(-0vw);
+        box-shadow: 0 0vw 0vw rgba(249, 116, 22, 0.4);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .blockTextAndButtonBottomSection {
+    & .buttonBottom {
+      padding: 2vw 6vw;
+      font-size: 3.6vw;
+      border-radius: 2vw;
+      box-shadow: 0 0.2vw 0.75vw rgba(249, 116, 22, 0.3);
+      margin-top: 5vw;
+    }
+  }
+}

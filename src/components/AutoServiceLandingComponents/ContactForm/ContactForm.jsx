@@ -1,0 +1,136 @@
+import { useDispatch } from 'react-redux';
+import { addContactForm } from '../../../store/slices/contactFormSlice';
+import scss from './ContactForm.module.scss';
+import { useState } from 'react';
+import clsx from 'clsx';
+import { BsArrowRightShort } from 'react-icons/bs';
+
+export default function ContactForm() {
+  const [name, setName] = useState('');
+  const [companySTO, setCompanySTO] = useState('');
+  const [phone, setPhone] = useState('');
+  const [formData, setFormData] = useState({ gdprConsent: false });
+  const [submitMessage, setSubmitMessage] = useState('');
+  const dispatch = useDispatch();
+
+  const handleInputChange = (e) => {
+    const { name, checked } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: checked }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.gdprConsent) {
+      setSubmitMessage('Будь ласка, погодьтеся з політикою конфіденційності');
+      return;
+    }
+
+    const formPayload = {
+      name,
+      companySTO,
+      phone,
+      plan: 'СТО',
+      source: 'sto',
+      dateCreate: new Date().toISOString(),
+      status: 'В обробці',
+    };
+
+    try {
+      await dispatch(addContactForm(formPayload)).unwrap();
+      setSubmitMessage('Дякуємо! Ваша заявка успішно відправлена.');
+      setName('');
+      setCompanySTO('');
+      setPhone('');
+      setFormData({ gdprConsent: false });
+    } catch (error) {
+      setSubmitMessage('Помилка при відправці заявки. Спробуйте ще раз.');
+      console.error('Form submission error:', error);
+    }
+  };
+  return (
+    <section className={scss.problemsScreen} id='whatwillyouget'>
+      <div className={scss.container}>
+        <div className={scss.formMainBlock}>
+          <div className={scss.formInputsAndCheckoutBlock}>
+            <div className={scss.header}>
+              <h2>Почніть отримувати більше клієнтів уже цього місяця</h2>
+            </div>
+            <div className={scss.formInputsAndCheckout}>
+              <div className={scss.formGroup}>
+                <label>
+                  Ім'я <span className={scss.importantText}>*</span>
+                </label>
+                <input
+                  type='text'
+                  name='name'
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className={scss.input}
+                  required
+                />
+              </div>
+              <div className={scss.formGroup}>
+                <label>
+                  Телефон <span className={scss.importantText}>*</span>
+                </label>
+                <input
+                  type='tel'
+                  name='tel'
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className={scss.input}
+                  required
+                />
+              </div>
+              <div className={scss.formGroup}>
+                <label>
+                  Назва СТО <span className={scss.importantText}>*</span>
+                </label>
+                <input
+                  type='text'
+                  name='companySTO'
+                  value={companySTO}
+                  onChange={(e) => setCompanySTO(e.target.value)}
+                  className={scss.input}
+                  required
+                />
+              </div>
+            </div>
+            <div className={clsx(scss.formGroup, scss.checkboxGroup)}>
+              <label className={scss.checkboxLabel}>
+                <input
+                  type='checkbox'
+                  name='gdprConsent'
+                  checked={formData.gdprConsent}
+                  onChange={handleInputChange}
+                  required
+                />
+                <span className={scss.checkmark}></span>
+                <span className={scss.checkmarkText}>
+                  Я згоден на обробку моїх персональних даних відповідно до
+                  <a href='/privacy-policy' className={scss.privacyLink} target='_blank'>
+                    Політики конфіденційності
+                  </a>
+                </span>
+              </label>
+            </div>
+            <div className={scss.blockButtonFlex}>
+              <button type='button' onClick={handleSubmit} className={scss.button}>
+                Відправити заявку <BsArrowRightShort className={scss.buttonIconDownload} />
+              </button>
+            </div>
+            {submitMessage && (
+              <div
+                className={clsx(
+                  scss.submitMessage,
+                  submitMessage.includes('Дякуємо!') ? scss.success : scss.error,
+                )}>
+                {submitMessage}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
