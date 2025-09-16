@@ -41,8 +41,8 @@ export default function App() {
       await signOut(auth);
       dispatch(clearUser());
       // Редирект на /login, але враховуємо субдомен
-      if (hostname === 'auto.impossiblead.com') {
-        window.location.href = 'https://auto.impossiblead.com/login'; // Примусовий редирект
+      if (hostname === 'autoservice.impossiblead.com') {
+        window.location.href = 'https://autoservice.impossiblead.com/login'; // Примусовий редирект
       } else {
         window.location.href = 'https://impossiblead.com/login'; // Для основного домену
       }
@@ -64,7 +64,7 @@ export default function App() {
   if (error) return <div className='error'>Ошибка: {error}</div>;
 
   // Умовний рендер залежно від субдомену
-  const isAutoSubdomain = hostname === 'auto.impossiblead.com';
+  const isAutoSubdomain = hostname === 'autoservice.impossiblead.com';
 
   return (
     <div>
