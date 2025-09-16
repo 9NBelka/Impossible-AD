@@ -1,4 +1,4 @@
-import { BsCalendar4, BsCurrencyEuro, BsExclamationTriangle } from 'react-icons/bs';
+import { BsCalendar4, BsClockHistory, BsExclamationTriangle } from 'react-icons/bs';
 import scss from './CostScreen.module.scss';
 import clsx from 'clsx';
 
@@ -12,7 +12,7 @@ export default function CostScreen({ scrollToSection }) {
         <div className={scss.mainCostBlockWidth}>
           <div className={scss.mainCostBlock}>
             <div className={scss.iconAndTextBlockRow}>
-              <BsCurrencyEuro className={scss.icon} />
+              <BsClockHistory className={scss.icon} />
               <div className={scss.iconAndTextBlockColumn}>
                 <h5>Наші послуги</h5>
                 <p>300 € на місяць</p>
