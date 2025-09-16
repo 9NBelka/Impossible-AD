@@ -2,12 +2,14 @@ import { BsCheck2All } from 'react-icons/bs';
 import scss from './AutoServiceFormScreen.module.scss';
 import { useState } from 'react';
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom'; // Добавляем useNavigate
 
 export default function AutoServiceFormScreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [formData, setFormData] = useState({ gdprConsent: false });
+  const navigate = useNavigate(); // Инициализируем useNavigate
 
   const handleInputChange = (e) => {
     const { name, checked } = e.target;
@@ -31,7 +33,8 @@ export default function AutoServiceFormScreen() {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      window.location.href = '/thanks-auto-service';
+      // Перенаправление с помощью useNavigate
+      navigate('/thanks-auto-service');
     } catch (error) {
       console.error('Error sending data:', error);
     }
