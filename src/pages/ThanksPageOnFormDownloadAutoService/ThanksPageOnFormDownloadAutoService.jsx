@@ -44,9 +44,9 @@ export default function ThanksPageOnFormDownloadAutoService() {
         email: formData.email,
         name: formData.name,
         phone: formData.phone,
-        source: 'thanks', // Add source to indicate thanks page form
+        source: 'thanks-sto',
         status: 'В обработке',
-        plan: 'Чек-лист СТО PDF', // Add plan to indicate the form purpose
+        plan: 'Чек-лист СТО PDF',
       };
 
       // Dispatch to add to 'contactform' collection
