@@ -31,8 +31,7 @@ export default function AutoServiceFormScreen() {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      // Редирект з параметром source
-      window.location.href = '/thanks?source=autoservice';
+      window.location.href = '/thanks-auto-service';
     } catch (error) {
       console.error('Error sending data:', error);
     }

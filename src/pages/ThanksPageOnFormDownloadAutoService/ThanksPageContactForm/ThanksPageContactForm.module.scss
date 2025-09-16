@@ -1,0 +1,264 @@
+.contactForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5vw;
+
+  & .formRow {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 1vw;
+  }
+
+  & .formGroup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    & label {
+      display: flex;
+      font-size: 0.65vw;
+      color: var(--main-page-color-darkGrey);
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-normal);
+      font-weight: var(--font-weight-regular);
+      margin-top: 1vw;
+
+      & .importantText {
+        color: var(--color-red);
+        padding-left: 0.1vw;
+      }
+    }
+
+    & input {
+      display: flex;
+      width: 100%;
+      padding: 0.75vw 0.75vw;
+      border: 0.05vw solid var(--main-page-color-light-lightGrey);
+      border-radius: 0.6vw;
+      font-size: 0.65vw;
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-normal);
+      font-weight: var(--font-weight-regular);
+      transition: all 0.3s ease;
+      margin-top: 0.25vw;
+
+      &:focus {
+        outline: none;
+        border-color: var(--main-page-color-lightBlue);
+        box-shadow: 0 0 0 0.05vw rgba(59, 130, 246, 0.1);
+      }
+    }
+  }
+
+  & .checkboxGroup {
+    & .checkboxLabel {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.25vw;
+      cursor: pointer;
+      font-size: 0.6vw;
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-normal);
+      font-weight: var(--font-weight-regular);
+
+      & input[type='checkbox'] {
+        width: 0.7vw;
+        height: 0.7vw;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      & .checkmarkText {
+        font-size: 0.6vw;
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-regular);
+
+        & .privacyLink {
+          color: var(--main-page-color-lightBlue);
+          text-decoration: underline;
+          padding: 0 0.25vw;
+        }
+      }
+    }
+  }
+
+  & .submitButton {
+    // width: 40%;
+    background: linear-gradient(
+      135deg,
+      var(--main-page-b-color-lightBlue),
+      var(--main-page-b-color-hashtag)
+    );
+    color: white;
+    border: none;
+    padding: 0.75vw 3vw;
+    border-radius: 0.6vw;
+    font-size: 0.75vw;
+    font-family: var(--font-Inter);
+    line-height: var(--font-lineh-normal);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1vw;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-0.04vw);
+      box-shadow: 0 0.4vw 1.2vw rgba(59, 130, 246, 0.3);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    &.submitting {
+      background: var(--main-page-color-lightGrey);
+    }
+  }
+
+  & .submitMessage {
+    margin-top: 1vw;
+    border-radius: 0.6vw;
+    font-size: 0.7vw;
+    font-family: var(--font-Inter);
+    line-height: var(--font-lineh-normal);
+    font-weight: var(--font-weight-regular);
+
+    &.success {
+      color: #065f46;
+    }
+
+    &.error {
+      color: #991b1b;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .contactForm {
+    padding-top: 3vw;
+
+    & .formRow {
+      flex-direction: column;
+      gap: 1vw;
+    }
+
+    & .formGroup {
+      & label {
+        font-size: 1.8vw;
+        margin-top: 1vw;
+
+        & .importantText {
+          padding-left: 0.5vw;
+        }
+      }
+
+      & input {
+        padding: 1.5vw 1.5vw;
+        border-radius: 1vw;
+        font-size: 1.8vw;
+        margin-top: 0.5vw;
+      }
+    }
+
+    & .checkboxGroup {
+      margin-top: 1vw;
+      & .checkboxLabel {
+        gap: 0.75vw;
+        font-size: 1.8vw;
+
+        & input[type='checkbox'] {
+          width: 2vw;
+          height: 2vw;
+        }
+
+        & .checkmarkText {
+          font-size: 1.8vw;
+          text-align: left;
+
+          & .privacyLink {
+            padding: 0 0.75vw;
+          }
+        }
+      }
+    }
+
+    & .submitButton {
+      padding: 1.5vw 5vw;
+      border-radius: 1vw;
+      font-size: 1.8vw;
+      margin-top: 3vw;
+    }
+
+    & .submitMessage {
+      margin-top: 2vw;
+      font-size: 1.8vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .contactForm {
+    padding-top: 5vw;
+
+    & .formRow {
+      flex-direction: column;
+      gap: 3vw;
+    }
+
+    & .formGroup {
+      & label {
+        font-size: 3.6vw;
+        margin-top: 1vw;
+
+        & .importantText {
+          padding-left: 1vw;
+        }
+      }
+
+      & input {
+        padding: 3vw 3vw;
+        border-radius: 2vw;
+        font-size: 3.6vw;
+        margin-top: 1vw;
+      }
+    }
+
+    & .checkboxGroup {
+      margin-top: 3vw;
+      & .checkboxLabel {
+        gap: 1vw;
+        font-size: 3.6vw;
+
+        & input[type='checkbox'] {
+          width: 4vw;
+          height: 4vw;
+        }
+
+        & .checkmarkText {
+          font-size: 3.6vw;
+
+          & .privacyLink {
+            padding: 0 1.5vw;
+          }
+        }
+      }
+    }
+
+    & .submitButton {
+      padding: 3vw 10vw;
+      border-radius: 2vw;
+      font-size: 3.6vw;
+      margin-top: 5vw;
+    }
+
+    & .submitMessage {
+      margin-top: 5vw;
+      font-size: 3.6vw;
+    }
+  }
+}

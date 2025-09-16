@@ -16,6 +16,7 @@ import BusinessAutomation from './pages/BusinessAutomation/BusinessAutomation';
 import GoogleAdsAudit from './pages/GoogleAdsAudit/GoogleAdsAudit';
 import CookieConsent from './components/CookieConsent/CookieConsent';
 import AutoServiceLanding from './pages/AutoServiceLanding/AutoServiceLanding';
+import ThanksPageOnFormDownloadAutoService from './pages/ThanksPageOnFormDownloadAutoService/ThanksPageOnFormDownloadAutoService';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -78,6 +79,7 @@ export default function App() {
             <Route path='/login' element={<LoginForm />} />
             <Route path='/register' element={<RegisterForm />} />
             <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
+            <Route path='/thanks-auto-service' element={<ThanksPageOnFormDownloadAutoService />} />
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
             <Route path='/google-ads-audit' element={<GoogleAdsAudit />} />
             <Route path='/google-ads' element={<GoogleAds />} />

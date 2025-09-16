@@ -1,12 +1,12 @@
 import clsx from 'clsx';
-import scss from './ThanksPageOnFormDownload.module.scss';
+import scss from './ThanksPageOnFormDownloadAutoService.module.scss';
 import { useState } from 'react';
 import { addContactForm } from '../../store/slices/contactFormSlice';
 import { useDispatch } from 'react-redux';
 import ThanksPageContactForm from './ThanksPageContactForm/ThanksPageContactForm';
 import { BsArrowLeftShort, BsBoxArrowInDown } from 'react-icons/bs';
 
-export default function ThanksPageOnFormDownload() {
+export default function ThanksPageOnFormDownloadAutoService() {
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -46,7 +46,7 @@ export default function ThanksPageOnFormDownload() {
         phone: formData.phone,
         source: 'thanks', // Add source to indicate thanks page form
         status: 'В обработке',
-        plan: 'Чек-лист PDF', // Add plan to indicate the form purpose
+        plan: 'Чек-лист СТО PDF', // Add plan to indicate the form purpose
       };
 
       // Dispatch to add to 'contactform' collection
@@ -69,10 +69,10 @@ export default function ThanksPageOnFormDownload() {
 
   // Function to handle PDF download
   const handleDownload = () => {
-    const pdfUrl = '/CheckListAudit.pdf'; // Path to the PDF in the public folder
+    const pdfUrl = '/CheckListSto.pdf'; // Path to the PDF in the public folder
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'CheckListAudit.pdf'; // Name of the file when downloaded
+    link.download = 'CheckListSto.pdf'; // Name of the file when downloaded
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link); // Clean up
