@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
@@ -29,23 +29,23 @@ const PrivateRoute = lazy(() => import('./components/PrivateRoute/PrivateRoute')
 export default function App() {
   const { loading, error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const location = useLocation();
   const hostname = window.location.hostname;
 
   useEffect(() => {
     dispatch(checkAuthState());
-    // Якщо субдомен auto.impossiblead.com і ми на корені, редіректимо на /auto
-    if (hostname === 'auto.impossiblead.com' && location.pathname === '/') {
-      navigate('/auto');
-    }
-  }, [dispatch, navigate, location.pathname, hostname]);
+  }, [dispatch]);
 
   const handleSignOut = async () => {
     try {
       await signOut(auth);
       dispatch(clearUser());
-      navigate('/login');
+      // Редирект на /login, але враховуємо субдомен
+      if (hostname === 'auto.impossiblead.com') {
+        window.location.href = 'https://auto.impossiblead.com/login'; // Примусовий редирект
+      } else {
+        window.location.href = 'https://impossiblead.com/login'; // Для основного домену
+      }
     } catch (err) {
       dispatch(setError(err.message));
     }
@@ -63,62 +63,68 @@ export default function App() {
 
   if (error) return <div className='error'>Ошибка: {error}</div>;
 
+  // Умовний рендер залежно від субдомену
+  const isAutoSubdomain = hostname === 'auto.impossiblead.com';
+
   return (
     <div>
       <CookieConsent />
       <Suspense fallback={<div className='loading'>Загрузка...</div>}>
-        <Routes>
-          <Route path='/' element={<MainLandingB />} />
-          <Route path='/login' element={<LoginForm />} />
-          <Route path='/register' element={<RegisterForm />} />
-          <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
-          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-          <Route path='/google-ads-audit' element={<GoogleAdsAudit />} />
-          <Route path='/google-ads' element={<GoogleAds />} />
-          <Route path='/web-development' element={<WebDevelopment />} />
-          <Route path='/business-automation' element={<BusinessAutomation />} />
-          <Route path='/auto' element={<AutoServiceLanding />} />
-          <Route
-            path='/home'
-            element={
-              <PrivateRoute roles={['admin', 'moderator']}>
-                <div className='app'>
-                  <Sidebar onSignOut={handleSignOut} />
-                  <div className='main-content'>
-                    <Home />
+        {isAutoSubdomain ? (
+          <AutoServiceLanding /> // Прямий рендер для субдомену
+        ) : (
+          <Routes>
+            <Route path='/' element={<MainLandingB />} />
+            <Route path='/login' element={<LoginForm />} />
+            <Route path='/register' element={<RegisterForm />} />
+            <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
+            <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+            <Route path='/google-ads-audit' element={<GoogleAdsAudit />} />
+            <Route path='/google-ads' element={<GoogleAds />} />
+            <Route path='/web-development' element={<WebDevelopment />} />
+            <Route path='/business-automation' element={<BusinessAutomation />} />
+            <Route
+              path='/home'
+              element={
+                <PrivateRoute roles={['admin', 'moderator']}>
+                  <div className='app'>
+                    <Sidebar onSignOut={handleSignOut} />
+                    <div className='main-content'>
+                      <Home />
+                    </div>
                   </div>
-                </div>
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path='/clients'
-            element={
-              <PrivateRoute roles={['admin', 'moderator']}>
-                <div className='app'>
-                  <Sidebar onSignOut={handleSignOut} />
-                  <div className='main-content'>
-                    <Clients />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='/clients'
+              element={
+                <PrivateRoute roles={['admin', 'moderator']}>
+                  <div className='app'>
+                    <Sidebar onSignOut={handleSignOut} />
+                    <div className='main-content'>
+                      <Clients />
+                    </div>
                   </div>
-                </div>
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path='/trello-table'
-            element={
-              <PrivateRoute roles={['admin', 'moderator']}>
-                <div className='app'>
-                  <Sidebar onSignOut={handleSignOut} />
-                  <div className='main-content'>
-                    <TrelloTable />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='/trello-table'
+              element={
+                <PrivateRoute roles={['admin', 'moderator']}>
+                  <div className='app'>
+                    <Sidebar onSignOut={handleSignOut} />
+                    <div className='main-content'>
+                      <TrelloTable />
+                    </div>
                   </div>
-                </div>
-              </PrivateRoute>
-            }
-          />
-          <Route path='*' element={<NotFoundPage />} />
-        </Routes>
+                </PrivateRoute>
+              }
+            />
+            <Route path='*' element={<NotFoundPage />} />
+          </Routes>
+        )}
       </Suspense>
     </div>
   );
