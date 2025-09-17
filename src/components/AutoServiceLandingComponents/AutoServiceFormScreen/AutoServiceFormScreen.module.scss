@@ -3,7 +3,6 @@
   padding: 0vw 0;
   text-align: center;
   width: 100%;
-  margin-top: 3vw;
   padding: 3vw 0;
 
   & .container {
@@ -171,8 +170,6 @@
 @media (max-width: 1024px) {
   .formForDownload {
     padding: 0vw 0;
-
-    margin-top: 5vw;
     padding: 7vw 0;
 
     & .container {
@@ -272,7 +269,6 @@
 
 @media (max-width: 576px) {
   .formForDownload {
-    margin-top: 7vw;
     padding: 14vw 0;
 
     & .container {

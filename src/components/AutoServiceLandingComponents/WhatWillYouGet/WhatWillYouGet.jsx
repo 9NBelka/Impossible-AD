@@ -32,10 +32,6 @@ export default function WhatWillYouGet({ scrollToSection }) {
       title: 'IP-телефонія з записом дзвінків',
     },
     {
-      icon: <BsChatLeft hat className={scss.cardIcon} />,
-      title: 'Щоденні апдейти у Telegram',
-    },
-    {
       icon: <BsFileEarmarkMedical className={scss.cardIcon} />,
       title: 'Щотижневий короткий звіт з результатами',
     },

@@ -3,14 +3,14 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: url('images/backgroundAutoCarHero.jpg') center/cover no-repeat;
+  background: url('/images/backgroundAutoCarHero.jpg') center/cover no-repeat;
   padding: 8vw 0;
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.8); // белая прозрачность
+    background: rgba(255, 255, 255, 0.82); // белая прозрачность
     z-index: 1;
   }
 }
@@ -21,8 +21,11 @@
   margin: 0 auto;
 
   & .content {
+    display: flex;
+    flex-direction: column;
     width: 65%;
     z-index: 10;
+    margin-left: -2.1vw;
 
     & .title {
       font-size: 2.4vw;
@@ -97,10 +100,12 @@
   }
   .container {
     justify-content: center;
+
     max-width: 95vw;
 
     & .content {
       width: 80%;
+      margin-left: 0;
 
       & .title {
         text-align: center;

@@ -16,7 +16,7 @@ export default function WhyWeScreen() {
     {
       icon: <BsChat className={scss.cardIcon} />,
       title: 'Завжди на зв’язку',
-      description: 'Щодня у Telegram, щотижня — короткий звіт з цифрами.',
+      description: 'Щотижня — короткий звіт з цифрами.',
     },
     {
       icon: <BsShield className={scss.cardIcon} />,

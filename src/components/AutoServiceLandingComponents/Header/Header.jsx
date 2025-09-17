@@ -38,8 +38,9 @@ export default function Header({
       <div className={scss.container}>
         <div className={scss.logo}>
           <a href='/'>
-            <img src='/images/carIconHeader.png' />
-            <span>ImpossibleAD</span>
+            <span>
+              impossible<strong>AD</strong>
+            </span>
           </a>
         </div>
 
