@@ -1,23 +1,24 @@
 import scss from './OurSolutions.module.scss';
 
-import { BsCart, BsCode, BsDisplay, BsGlobe2 } from 'react-icons/bs';
+import { BsGeoAltFill, BsGraphUpArrow } from 'react-icons/bs';
+import { FaCarSide } from 'react-icons/fa';
 
 export default function OurSolutions() {
   const solutions = [
     {
-      icon: <BsDisplay className={scss.cardIcon} />,
+      icon: <BsGeoAltFill className={scss.cardIcon} />,
       title: 'Клієнти щодня шукають «СТО поруч»',
       description: 'Якщо не ви — то ваші конкуренти.',
     },
     {
-      icon: <BsGlobe2 className={scss.cardIcon} />,
+      icon: <BsGraphUpArrow className={scss.cardIcon} />,
       title: 'Реклама дорожчає',
       description: 'Хто запускається сьогодні — платить менше.',
     },
     {
-      icon: <BsCart className={scss.cardIcon} />,
-      title: 'Швидкий старт',
-      description: 'Стартувати можна вже цього тижня.',
+      icon: <FaCarSide className={scss.cardIcon} />,
+      title: 'Миттєва окупність',
+      description: 'Перші клієнти вже в перший тиждень.',
     },
   ];
 
@@ -25,7 +26,7 @@ export default function OurSolutions() {
     <section className={scss.guaranteesScreen} id='solutions'>
       <div className={scss.container}>
         <div className={scss.header}>
-          <h2>⏳ Чому зараз?</h2>
+          <h2>Чому зараз?</h2>
         </div>
 
         <div className={scss.flexBlock}>

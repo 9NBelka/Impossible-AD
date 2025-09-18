@@ -58,9 +58,9 @@ export default function CasesAndResults() {
             </div>
           ))}
         </div>
-        <div className={scss.buttonBlock}>
+        {/* <div className={scss.buttonBlock}>
           <button className={scss.ctaButton}>Дивитися всі кейси</button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

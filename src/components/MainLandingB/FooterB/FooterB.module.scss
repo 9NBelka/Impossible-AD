@@ -444,8 +444,8 @@
 
 .bottom {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: flex-start;
   padding-top: 1.2vw;
   border-top: 0.1vw solid var(--main-page-b-color-light-lightBlue2);
@@ -462,6 +462,7 @@
 
 @media (max-width: 576px) {
   .bottom {
+    flex-direction: column;
     padding-top: 5vw;
     border-top: 0.5vw solid var(--main-page-b-color-light-lightBlue2);
     margin-top: 5vw;
@@ -513,7 +514,7 @@
 .legal {
   display: flex;
   gap: 1.5vw;
-  margin-top: 1vw;
+  margin-top: 0vw;
 
   a {
     text-decoration: none;
@@ -533,7 +534,7 @@
 @media (max-width: 1024px) {
   .legal {
     gap: 5vw;
-    margin-top: 3vw;
+    margin-top: 0vw;
 
     a {
       font-size: 1.8vw;

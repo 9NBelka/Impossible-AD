@@ -7,7 +7,7 @@ export default function WeSpeakWithResults() {
     <section className={scss.problemsScreen} id='results'>
       <div className={scss.container}>
         <div className={scss.header}>
-          <h2>📈 Реальний результат</h2>
+          <h2>Реальний результат</h2>
         </div>
         <div className={scss.caseBlockMain}>
           <div className={scss.caseBlock}>
@@ -38,7 +38,7 @@ export default function WeSpeakWithResults() {
               <ul>
                 <li>Понад 250 користувачів проклали маршрут до СТО за місяць</li>
                 <li>Клієнт отримує стабільний потік звернень: і дзвінки, і заявки</li>
-                <li>Прозорий облік кожного контакту через Binotel</li>
+                <li>Прозорий облік кожного контакту через Апі телефонію</li>
               </ul>
             </div>
           </div>

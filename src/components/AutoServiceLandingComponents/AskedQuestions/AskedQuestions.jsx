@@ -21,7 +21,23 @@ export default function AskedQuestions() {
     },
     {
       question: 'Як я зрозумію, що реклама реально працює?',
-      answer: 'Ми надаємо аналітику для оцінки ефективності.',
+      answer:
+        'Ми підключаємо Binotel Call Tracking. Ви бачите кожен дзвінок і кожну заявку, а ми щомісяця звітуємо про результати.',
+    },
+    {
+      question: 'Чи можна оплатити щомісяця?',
+      answer:
+        'Ні. Ми працюємо тільки пакетами по 3 місяці — це оптимальний термін для стабільних результатів.',
+    },
+    {
+      question: 'А якщо в мене вже є сайт?',
+      answer:
+        'Ми проведемо аудит. Якщо сайт не підходить для реклами — створимо новий у рамках пакету.',
+    },
+    {
+      question: 'Скільки заявок я отримаю?',
+      answer:
+        'Залежить від міста, конкуренції й бюджету. У середньому наші клієнти отримують від 20 до 60 заявок на місяць.',
     },
   ];
 
@@ -29,7 +45,7 @@ export default function AskedQuestions() {
     <section className={scss.problemsScreen} id='askedquestions'>
       <div className={scss.container}>
         <div className={scss.header}>
-          <h2>❓ Часті питання</h2>
+          <h2>Часті питання</h2>
         </div>
         <div className={scss.accordion}>
           {faqs.map((faq, index) => (

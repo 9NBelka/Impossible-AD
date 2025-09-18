@@ -9,6 +9,8 @@ import { addContactForm } from '../../../../store/slices/contactFormSlice';
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [companySTO, setCompanySTO] = useState('');
+  const [site, setSite] = useState('');
+  const [city, setCity] = useState('');
   const [phone, setPhone] = useState('');
   const [formData, setFormData] = useState({ gdprConsent: false });
   const [submitMessage, setSubmitMessage] = useState('');
@@ -30,6 +32,8 @@ export default function ContactForm() {
       name,
       companySTO,
       phone,
+      site,
+      city,
       plan: 'СТО',
       source: 'sto',
       dateCreate: new Date().toISOString(),
@@ -52,6 +56,7 @@ export default function ContactForm() {
     <div className={scss.formMainBlock}>
       <div className={scss.formInputsAndCheckoutBlock}>
         <div className={scss.formInputsAndCheckout}>
+          <p>Якісно заповнені вами поля дають найкращий результат</p>
           <div className={scss.formGroup}>
             <label>
               Ім'я <span className={scss.importantText}>*</span>
@@ -79,14 +84,35 @@ export default function ContactForm() {
             />
           </div>
           <div className={scss.formGroup}>
-            <label>
-              Назва СТО <span className={scss.importantText}>*</span>
-            </label>
+            <label>Місто</label>
+            <input
+              type='text'
+              name='city'
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className={scss.input}
+              required
+            />
+          </div>
+          <div className={scss.formGroup}>
+            <label>Назва СТО</label>
             <input
               type='text'
               name='companySTO'
               value={companySTO}
               onChange={(e) => setCompanySTO(e.target.value)}
+              className={scss.input}
+              required
+            />
+          </div>
+
+          <div className={scss.formGroup}>
+            <label>Ваш сайт (якщо маєте)</label>
+            <input
+              type='text'
+              name='site'
+              value={site}
+              onChange={(e) => setSite(e.target.value)}
               className={scss.input}
               required
             />

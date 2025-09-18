@@ -1,13 +1,14 @@
-import { BsCheck2All } from 'react-icons/bs';
+// import { BsCheck2All } from 'react-icons/bs';
 import scss from './AutoServiceFormScreen.module.scss';
 import { useState } from 'react';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom'; // Добавляем useNavigate
+import { FaFileDownload, FaRegFilePdf } from 'react-icons/fa';
 
 export default function AutoServiceFormScreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  // const [phone, setPhone] = useState('');
   const [formData, setFormData] = useState({ gdprConsent: false });
   const navigate = useNavigate(); // Инициализируем useNavigate
 
@@ -18,7 +19,7 @@ export default function AutoServiceFormScreen() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { name, email, phone };
+    const data = { name, email };
 
     try {
       const response = await fetch('https://hook.eu2.make.com/d1ylv3c1bgtgog8tn970gyv7jidg8iw9', {
@@ -43,11 +44,11 @@ export default function AutoServiceFormScreen() {
   return (
     <div className={scss.formForDownload}>
       <div className={scss.container}>
-        <h2>🎁 Подарунок: чек-лист</h2>
-        <p>
+        <h2>Подарунок: як дзвінок перетворити на заїзд</h2>
+        {/* <p>
           Як зробити так, щоб клієнт після дзвінка реально приїхав. Прості правила для
           адміністратора: що сказати, як записати, як закріпити клієнта.
-        </p>
+        </p> */}
         <form onSubmit={handleSubmit} className={scss.formMainBlock}>
           <div className={scss.formInputsAndCheckoutBlock}>
             <div className={scss.formInputsAndCheckout}>
@@ -75,7 +76,7 @@ export default function AutoServiceFormScreen() {
                   required
                 />
               </div>
-              <div className={scss.formGroup}>
+              {/* <div className={scss.formGroup}>
                 <label>
                   Телефон <span className={scss.importantText}>*</span>
                 </label>
@@ -86,10 +87,10 @@ export default function AutoServiceFormScreen() {
                   className={scss.input}
                   required
                 />
-              </div>
+              </div> */}
               <button type='submit' className={scss.button}>
-                Отримати чек-лист
-                <BsCheck2All className={scss.buttonIconDownload} />
+                Завантажити
+                <FaRegFilePdf className={scss.buttonIconDownload} />
               </button>
             </div>
             <div className={clsx(scss.formGroup, scss.checkboxGroup)}>

@@ -5,6 +5,7 @@
   overflow: hidden;
   background: url('/images/backgroundAutoCarHero.jpg') center/cover no-repeat;
   padding: 8vw 0;
+  min-height: 40vw;
 
   &::before {
     content: '';
@@ -17,15 +18,24 @@
 
 .container {
   display: flex;
-  max-width: 80vw;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 65vw;
   margin: 0 auto;
+
+  & .formComponent {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    z-index: 10;
+  }
 
   & .content {
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 50%;
     z-index: 10;
-    margin-left: -2.1vw;
 
     & .title {
       font-size: 2.4vw;
@@ -62,13 +72,16 @@
       margin-top: 2vw;
 
       & .ctaButton {
+        display: flex;
+        align-items: center;
+        gap: 0.7vw;
         background: linear-gradient(
           135deg,
           var(--auto-page-lightBlue),
           var(--auto-page-lightBlue2)
         );
         border: none;
-        padding: 0.75vw 5vw;
+        padding: 0.75vw 4vw;
         font-size: 1vw;
         color: var(--main-page-b-color-white);
         font-family: var(--font-Inter);
@@ -87,6 +100,12 @@
         &:active {
           transform: translateY(0);
         }
+
+        & .heroArrowIcon {
+          width: 0.8vw;
+          height: 0.8vw;
+          color: white;
+        }
       }
     }
   }
@@ -100,8 +119,13 @@
   }
   .container {
     justify-content: center;
-
+    flex-direction: column;
     max-width: 95vw;
+
+    & .formComponent {
+      width: 80%;
+      margin-top: 5vw;
+    }
 
     & .content {
       width: 80%;
@@ -131,6 +155,7 @@
         margin-top: 4vw;
 
         & .ctaButton {
+          gap: 1.5vw;
           padding: 1.5vw 6vw;
           font-size: 2vw;
           border-radius: 1vw;
@@ -138,6 +163,10 @@
 
           &:hover {
             box-shadow: 0 0.4vw 1.25vw rgba(59, 130, 246, 0.4);
+          }
+          & .heroArrowIcon {
+            width: 1.5vw;
+            height: 1.5vw;
           }
         }
       }
@@ -157,6 +186,11 @@
   }
   .container {
     max-width: 90vw;
+
+    & .formComponent {
+      width: 100%;
+      margin-top: 8vw;
+    }
 
     & .content {
       display: flex;
@@ -190,16 +224,22 @@
         width: 100%;
 
         & .ctaButton {
+          gap: 2.5vw;
           display: flex;
           width: 100%;
           justify-content: center;
           padding: 3.5vw 7vw;
-          font-size: 3.6vw;
+          font-size: 3.8vw;
           border-radius: 3vw;
           box-shadow: 0 0.2vw 0.75vw rgba(59, 130, 246, 0.3);
 
           &:hover {
             box-shadow: 0 0vw 0vw rgba(59, 130, 246, 0.4);
+          }
+
+          & .heroArrowIcon {
+            width: 3vw;
+            height: 3vw;
           }
         }
       }

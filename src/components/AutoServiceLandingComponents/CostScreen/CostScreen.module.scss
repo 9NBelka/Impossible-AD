@@ -88,30 +88,84 @@
   align-items: flex-start;
   width: 55%;
   background: var(--main-page-b-color-white);
-  padding: 2vw 1.5vw;
+  padding: 1vw 1vw;
   border-radius: 1vw;
+  padding-top: 4vw;
   box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease;
   border: 0.1vw solid var(--auto-page-color-light-lightBlue5);
   position: relative;
   overflow: hidden;
   gap: 1vw;
+
+  & .blockWithPrice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0.75vw 0;
+    background: var(--auto-page-lightBlue);
+
+    & p {
+      font-size: 1.2vw;
+      color: var(--main-page-b-color-white);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--font-lineh-small);
+    }
+  }
+
+  & .textDodatok {
+    font-size: 0.65vw;
+    color: var(--main-page-b-color-light-lightBlue);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-small);
+    line-height: var(--font-lineh-small);
+  }
 }
 
 @media (max-width: 1024px) {
   .mainCostBlock {
     width: 100%;
-    padding: 4vw 3vw;
+    padding: 3vw 3vw;
+    padding-top: 11vw;
     border-radius: 1.5vw;
-    gap: 1vw;
+    gap: 3vw;
+
+    & .blockWithPrice {
+      padding: 2.5vw 0;
+
+      & p {
+        font-size: 3vw;
+      }
+    }
+
+    & .textDodatok {
+      font-size: 1.6vw;
+    }
   }
 }
 
 @media (max-width: 576px) {
   .mainCostBlock {
     padding: 6vw 4vw;
+    padding-top: 18vw;
     border-radius: 3vw;
-    gap: 3vw;
+    gap: 5vw;
+
+    & .blockWithPrice {
+      padding: 3.5vw 0;
+
+      & p {
+        font-size: 5.2vw;
+      }
+    }
+
+    & .textDodatok {
+      font-size: 3vw;
+    }
   }
 }
 
@@ -122,7 +176,7 @@
   gap: 1vw;
 
   &.margTop {
-    margin-top: 1vw;
+    margin-top: 0.5vw;
   }
 
   &.backgroundRedExclamation {
@@ -133,28 +187,10 @@
     border-radius: 1vw;
   }
 
-  & .icon {
-    width: 1.3vw;
-    height: 1.3vw;
-    color: var(--auto-page-lightBlue);
-
-    &.calendarIcon {
-      width: 1.3vw;
-      height: 1vw;
-      color: var(--main-page-b-color-green2);
-    }
-
-    &.iconRed {
-      width: 1.3vw;
-      height: 1.1vw;
-      color: var(--main-page-b-color-red);
-    }
-  }
-
   & .iconAndTextBlockColumn {
     display: flex;
     flex-direction: column;
-    gap: 0.5vw;
+    gap: 0.75vw;
 
     & h5 {
       font-size: 0.9vw;
@@ -164,33 +200,20 @@
       line-height: var(--font-lineh-small);
     }
 
-    & p {
-      font-size: 1.4vw;
-      color: var(--auto-page-lightBlue);
-      font-family: var(--font-Inter);
-      font-weight: var(--font-weight-bold);
-      line-height: var(--font-lineh-small);
-    }
-
     & ul {
       padding: 0;
       margin: 0;
       padding-left: 1vw;
-      margin-top: 0.75vw;
       & li {
-        font-size: 0.85vw;
+        font-size: 0.75vw;
         color: var(--main-page-b-color-light-lightBlue);
         font-family: var(--font-Inter);
         font-weight: var(--font-weight-smallStrong);
         line-height: var(--font-lineh-big);
-        margin-top: 1vw;
+        margin-top: 0.25vw;
 
         &:first-child {
           margin-top: 0;
-        }
-
-        &.miniText {
-          font-size: 0.8vw;
         }
       }
     }
@@ -201,33 +224,14 @@
   .iconAndTextBlockRow {
     gap: 2vw;
 
-    &.margTop {
-      margin-top: 3vw;
-    }
-
     &.backgroundRedExclamation {
       width: 100%;
-      padding: 3vw 2vw;
+      padding: 3vw 3vw;
       border-radius: 1.5vw;
     }
 
-    & .icon {
-      width: 3.5vw;
-      height: 3.5vw;
-
-      &.calendarIcon {
-        width: 3.5vw;
-        height: 2.8vw;
-      }
-
-      &.iconRed {
-        width: 3.5vw;
-        height: 2.8vw;
-      }
-    }
-
     & .iconAndTextBlockColumn {
-      gap: 1vw;
+      gap: 1.5vw;
 
       & h5 {
         font-size: 2vw;
@@ -239,14 +243,9 @@
 
       & ul {
         padding-left: 2vw;
-        margin-top: 1.5vw;
         & li {
           font-size: 1.8vw;
-          margin-top: 2vw;
-
-          &.miniText {
-            font-size: 1.8vw;
-          }
+          margin-top: 1vw;
         }
       }
     }
@@ -257,35 +256,16 @@
   .iconAndTextBlockRow {
     gap: 4vw;
 
-    &.margTop {
-      margin-top: 6vw;
-    }
-
     &.backgroundRedExclamation {
-      padding: 5vw 3vw;
+      padding: 5vw 4vw;
       border-radius: 3vw;
-    }
-
-    & .icon {
-      width: 6vw;
-      height: 6vw;
-
-      &.calendarIcon {
-        width: 6vw;
-        height: 5vw;
-      }
-
-      &.iconRed {
-        width: 7vw;
-        height: 6vw;
-      }
     }
 
     & .iconAndTextBlockColumn {
       gap: 3vw;
 
       & h5 {
-        font-size: 3.6vw;
+        font-size: 3.4vw;
       }
 
       & p {
@@ -294,14 +274,10 @@
 
       & ul {
         padding-left: 4vw;
-        margin-top: 2vw;
+        margin-top: 0vw;
         & li {
-          font-size: 3.6vw;
-          margin-top: 3vw;
-
-          &.miniText {
-            font-size: 3.6vw;
-          }
+          font-size: 3.4vw;
+          margin-top: 1.5vw;
         }
       }
     }
@@ -313,7 +289,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: center;
-  margin-top: 2vw;
+  margin-top: 0vw;
 
   .buttonBottom {
     background: var(--auto-page-orange2);
@@ -342,14 +318,14 @@
 
 @media (max-width: 1024px) {
   .blockTextAndButtonBottomSection {
-    margin-top: 2vw;
+    margin-top: 0vw;
 
     & .buttonBottom {
       padding: 1.25vw 4vw;
       font-size: 1.8vw;
       border-radius: 1.25vw;
       box-shadow: 0 0.2vw 0.75vw rgba(249, 116, 22, 0.3);
-      margin-top: 3vw;
+      margin-top: 0vw;
 
       &:hover {
         transform: translateY(-0vw);

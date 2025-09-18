@@ -1,5 +1,7 @@
+import { FaArrowRight } from 'react-icons/fa';
 import scss from './HeroScreen.module.scss';
 import clsx from 'clsx';
+import HeroContactForm from './HeroContactForm/HeroContactForm';
 
 export default function HeroScreen({ scrollToSection }) {
   return (
@@ -16,9 +18,12 @@ export default function HeroScreen({ scrollToSection }) {
           </p>
           <div className={scss.ctaBlock}>
             <button className={scss.ctaButton} onClick={() => scrollToSection('contacts')}>
-              👉 Хочу клієнтів
+              Хочу клієнтів <FaArrowRight className={scss.heroArrowIcon} />
             </button>
           </div>
+        </div>
+        <div className={scss.formComponent}>
+          <HeroContactForm />
         </div>
       </div>
     </section>

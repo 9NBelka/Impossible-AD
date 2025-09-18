@@ -74,34 +74,45 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
       case 'sto':
         formSource = 'страница СТО';
         break;
+      case 'stoHero':
+        formSource = 'страница СТО HeroBlock';
+        break;
       default:
         formSource = 'Главная страница';
     }
 
-    // Формируем сообщение, исключая поле email для страницы СТО
-    const message = `
-🔥 *Новая заявка!* 🔥
-Источник: ${formSource}
+    const messageParts = [
+      `🔥 *Новая заявка!* 🔥`,
+      `Источник: ${formSource}\n`,
+      '',
+      `👤 *Имя*: ${newFormData.name || '❌ Не указано'}`,
+      newFormData.source !== 'sto' && newFormData.source !== 'stoHero'
+        ? `📧 *Email*: ${newFormData.email || '❌ Не указано'}`
+        : null,
+      newFormData.source === 'sto'
+        ? `
+🏢 *Город*: ${newFormData.city || '❌ Не указано'}
+🚗 *Название СТО*: ${newFormData.companySTO || '❌ Не указано'}
+🔗 *Сайт*: ${newFormData.site || '❌ Не указано'}
+`
+        : null,
+      newFormData.source === 'stoHero'
+        ? `🏢 *Город*: ${newFormData.city || '❌ Не указано'}`
+        : null,
+      newFormData.source === ''
+        ? `
+🏢 *Компания*: ${newFormData.company || '❌ Не указано'}
+💬 *Сообщение*: ${newFormData.message || '❌ Не указано'}`
+        : null,
+      '',
+      `📱 *Телефон*: ${newFormData.phone || '❌ Не указано'}`,
+      `⚙️ *Услуга*: ${newFormData.plan || '❌ Не указано'}`,
+      `📅 *Дата*: ${formattedDate}`,
+      `⏳ *Статус*: ${newFormData.status || 'В обработке'}`,
+    ];
 
-👤 *Имя*: ${newFormData.name || '❌ Не указано'}
-${newFormData.source !== 'sto' ? `📧 *Email*: ${newFormData.email || '❌ Не указано'}` : ''}
-${
-  newFormData.source === 'sto'
-    ? `🚗 *Название СТО*: ${newFormData.companySTO || '❌ Не указано'}`
-    : ''
-}
-${
-  newFormData.source === ''
-    ? `🏢 *Компания*: ${newFormData.company || '❌ Не указано'}\n💬 *Сообщение*: ${
-        newFormData.message || '❌ Не указано'
-      }`
-    : ''
-}
-📱 *Телефон*: ${newFormData.phone || '❌ Не указано'}
-⚙️ *Услуга*: ${newFormData.plan || '❌ Не указано'}
-📅 *Дата*: ${formattedDate}
-⏳ *Статус*: ${newFormData.status || 'В обработке'}
-`;
+    // Фильтруем null и пустые строки, объединяем с переносом строк
+    const message = messageParts.filter((part) => part !== null && part.trim() !== '').join('\n');
 
     try {
       const response = await axios.post(

@@ -1,49 +1,16 @@
-.problemsScreen {
-  background: var(--main-page-b-color-white);
-  background: linear-gradient(
-    -90deg,
-    var(--main-page-b-color-white),
-    var(--main-page-b-color-white6)
-  );
-  padding: 2vw 0;
-}
-
-@media (max-width: 1024px) {
-  .problemsScreen {
-    padding: 7vw 0;
-    padding-top: 5vw;
-  }
-}
-
-@media (max-width: 576px) {
-  .problemsScreen {
-    padding: 14vw 0;
-    padding-top: 10vw;
-  }
-}
-
-.container {
-  max-width: 65vw;
-  margin: 0 auto;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    max-width: 95vw;
-  }
-}
-
-@media (max-width: 576px) {
-  .container {
-    max-width: 90vw;
-  }
+.formWidth {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .formMainBlock {
-  width: 68%;
+  width: 75%;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.1019607843);
+  align-items: flex-end;
+  // background-color: rgba(0, 0, 0, 0.212);
+  background: linear-gradient(135deg, var(--auto-page-lightBlue), var(--auto-page-lightBlue2));
   padding: 1.5vw;
   padding-top: 0.5vw;
   border-radius: 0.8vw;
@@ -56,6 +23,7 @@
     // box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
     // border: 0.1vw solid #e5e8eb;
     margin-top: 0vw;
+
     border-radius: 0.5vw;
 
     & .formInputsAndCheckout {
@@ -66,13 +34,12 @@
       gap: 1vw;
       margin-top: 1vw;
 
-      & p {
-        text-align: center;
-        font-size: 0.85vw;
-        color: var(--main-page-color-white);
+      & h3 {
+        font-size: 1.1vw;
+        color: var(--main-page-b-color-white);
         font-family: var(--font-Inter);
-        line-height: var(--font-lineh-normal);
-        font-weight: var(--font-weight-regular);
+        font-weight: var(--font-weight-bold);
+        line-height: var(--font-lineh-small2);
       }
     }
   }
@@ -109,7 +76,7 @@
           font-size: 0.6vw;
           color: var(--main-page-color-white);
           font-family: var(--font-Inter);
-          line-height: var(--font-lineh-small);
+          line-height: var(--font-lineh-normal);
           font-weight: var(--font-weight-regular);
 
           & .privacyLink {
@@ -203,7 +170,6 @@
 @media (max-width: 1024px) {
   .formMainBlock {
     width: 100%;
-    margin-top: 3vw;
     gap: 0vw;
     border-radius: 1.5vw;
     padding: 4vw 4vw;
@@ -220,8 +186,8 @@
         gap: 3vw;
         margin-top: 4vw;
 
-        & p {
-          font-size: 1.8vw;
+        & h3 {
+          font-size: 3vw;
         }
       }
     }
@@ -298,7 +264,6 @@
 @media (max-width: 576px) {
   .formMainBlock {
     border-radius: 3vw;
-    margin-top: 7vw;
     padding: 7vw 6vw;
     padding-top: 1vw;
 
@@ -314,8 +279,8 @@
         gap: 4vw;
         margin-top: 5vw;
 
-        & p {
-          font-size: 3.6vw;
+        & h3 {
+          font-size: 5vw;
         }
       }
     }
@@ -376,8 +341,8 @@
       gap: 2vw;
 
       & .buttonIconDownload {
-        width: 3.5vw;
-        height: 3.5vw;
+        width: 5vw;
+        height: 5vw;
       }
     }
   }
@@ -409,7 +374,7 @@
 
 @media (max-width: 576px) {
   .submitMessage {
-    margin-top: 5vw;
+    margin-top: 8vw;
     font-size: 3.6vw;
   }
 }

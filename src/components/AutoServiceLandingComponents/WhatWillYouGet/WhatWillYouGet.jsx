@@ -41,7 +41,7 @@ export default function WhatWillYouGet({ scrollToSection }) {
     <section className={scss.problemsScreen} id='whatwillyouget'>
       <div className={scss.container}>
         <div className={scss.header}>
-          <h2>🎯 Що ви отримаєте</h2>
+          <h2>Чому саме ми?</h2>
         </div>
 
         <div className={scss.flexBlock}>

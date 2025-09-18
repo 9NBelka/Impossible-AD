@@ -29,7 +29,7 @@ export default function WhyWeScreen() {
     <section className={scss.problemsScreen} id='whywescreen'>
       <div className={scss.container}>
         <div className={scss.header}>
-          <h2>🛠 Чому саме ми?</h2>
+          <h2>Чому саме ми?</h2>
         </div>
 
         <div className={scss.flexBlock}>

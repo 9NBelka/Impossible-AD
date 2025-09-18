@@ -92,7 +92,7 @@ export default function ContactScreen() {
   return (
     <section className={scss.contact}>
       <div className={scss.container}>
-        <h2>Почніть отримувати більше клієнтів уже цього місяця</h2>
+        <h2>Заробляйте ще більше вже цього місяця</h2>
 
         <div className={scss.contactContent}>
           <div className={scss.contactInfo}>
