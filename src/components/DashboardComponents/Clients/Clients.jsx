@@ -76,8 +76,10 @@ export default function Clients() {
   // Filter and search logic
   const filteredClients = clients.filter((client) => {
     const matchesSearch =
-      client.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      client.email.toLowerCase().includes(searchTerm.toLowerCase());
+      client.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      '' ||
+      client.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      '';
 
     const matchesPlan = filters.plan ? client.plan === filters.plan : true;
     const matchesStatus = filters.status ? client.status === filters.status : true;
@@ -109,7 +111,6 @@ export default function Clients() {
     return matchesSearch && matchesPlan && matchesStatus && matchesPayments && matchesDateRange;
   });
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredClients.length / clientsPerPage);
   const indexOfLastClient = currentPage * clientsPerPage;
   const indexOfFirstClient = indexOfLastClient - clientsPerPage;
@@ -129,13 +130,28 @@ export default function Clients() {
       website: '',
       instagram: '',
       facebook: '',
+      city: '',
+      phone: '',
       payments: [],
     });
     setModalType('add');
   };
 
   const openEditModal = (client) => {
-    setFormData({ ...client, payments: client.payments || [] });
+    console.log('Opening edit modal for client:', client); // Debug log
+    setFormData({
+      name: client.name || '',
+      email: client.email || '',
+      status: client.status || 'В процессе',
+      dateCreate: client.dateCreate || new Date().toISOString(),
+      plan: client.plan || '',
+      website: client.website || '',
+      instagram: client.instagram || '',
+      facebook: client.facebook || '',
+      city: client.city || '',
+      phone: client.phone || '',
+      payments: client.payments || [],
+    });
     setEditingId(client.id);
     setModalType('edit');
   };
@@ -151,13 +167,19 @@ export default function Clients() {
     setViewClientId(null);
   };
 
-  const handleSave = () => {
-    if (modalType === 'add') {
-      dispatch(addClient(formData));
-    } else if (modalType === 'edit') {
-      dispatch(updateClient({ id: editingId, data: formData }));
+  const handleSave = async () => {
+    try {
+      console.log('Saving client with ID:', editingId, 'and data:', formData); // Debug log
+      if (modalType === 'add') {
+        await dispatch(addClient(formData)).unwrap();
+      } else if (modalType === 'edit') {
+        await dispatch(updateClient({ id: editingId, data: formData })).unwrap();
+      }
+      closeModal();
+    } catch (error) {
+      console.error('Failed to save client:', error);
+      alert('Ошибка при сохранении клиента: ' + error.message);
     }
-    closeModal();
   };
 
   const handleDelete = (id) => {

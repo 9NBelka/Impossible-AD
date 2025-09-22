@@ -16,6 +16,7 @@ import GoogleAdsAudit from './pages/GoogleAdsAudit/GoogleAdsAudit';
 import CookieConsent from './components/CookieConsent/CookieConsent';
 import AutoServiceLanding from './pages/AutoServiceLanding/AutoServiceLanding';
 import ThanksPageOnFormDownloadAutoService from './pages/ThanksPageOnFormDownloadAutoService/ThanksPageOnFormDownloadAutoService';
+import ContactForms from './components/DashboardComponents/ContactForms/ContactForms';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -125,6 +126,20 @@ export default function App() {
                   </PrivateRoute>
                 }
               />
+              <Route
+                path='/contact-forms'
+                element={
+                  <PrivateRoute roles={['admin', 'moderator']}>
+                    <div className='app'>
+                      <Sidebar onSignOut={handleSignOut} />
+                      <div className='main-content'>
+                        <ContactForms />
+                      </div>
+                    </div>
+                  </PrivateRoute>
+                }
+              />
+
               <Route
                 path='/trello-table'
                 element={

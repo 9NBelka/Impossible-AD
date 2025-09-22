@@ -34,6 +34,12 @@ export default function ClientsViewDetailsPopUp({
                     </span>
                   </div>
                   <div className={scss.modalInputAndIconBlock}>
+                    <strong>City:</strong>
+                    <span>
+                      {clients.find((client) => client.id === viewClientId).city || 'N/A'}
+                    </span>
+                  </div>
+                  <div className={scss.modalInputAndIconBlock}>
                     <strong>Company:</strong>{' '}
                     <span>
                       {clients.find((client) => client.id === viewClientId).company || 'N/A'}

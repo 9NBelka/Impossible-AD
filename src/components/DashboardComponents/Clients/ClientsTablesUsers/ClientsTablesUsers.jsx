@@ -63,12 +63,7 @@ export default function ClientsTablesUsers({
                 )}
               </div>
             </td>
-            <td className={scss.tablePlan}>
-              <ul>
-                {client.plan && <li>{client.plan}</li>}
-                {client.serviceE && <li>{client.serviceE}</li>}
-              </ul>
-            </td>
+            <td className={scss.tablePlan}>{client.plan}</td>
             <td className={scss.tablePayment}>
               <button className={scss.tablePaymentButton} onClick={() => togglePayments(client.id)}>
                 Payment

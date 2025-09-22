@@ -46,7 +46,7 @@
 .nav {
   display: flex;
   gap: 1.75vw;
-  z-index: 99999;
+  z-index: 9998;
 
   a {
     display: flex;
@@ -61,6 +61,22 @@
     padding: 0.4vw 0;
     position: relative;
     gap: 0.25vw;
+
+    &.linkToAuto {
+      border: 0.1vw solid var(--main-page-b-color-lightBlue);
+      padding: 0.5vw 1vw;
+      border-radius: 0.6vw;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        background: var(--main-page-b-color-lightBlue);
+        color: var(--main-page-b-color-white);
+      }
+
+      &:hover::after {
+        display: none;
+      }
+    }
 
     & .iconDown {
       width: 0.75vw;
@@ -123,6 +139,13 @@
       font-size: 1.8vw;
       padding: 0.75vw 0;
       gap: 1vw;
+
+      &.linkToAuto {
+        padding: 1vw 2vw;
+        border-radius: 1vw;
+        background: var(--main-page-b-color-lightBlue);
+        color: var(--main-page-b-color-white);
+      }
 
       & .iconDown {
         width: 1.5vw;
@@ -215,6 +238,11 @@
       padding: 2vw 0;
       gap: 1.5vw;
 
+      &.linkToAuto {
+        padding: 2.2vw 3.5vw;
+        border-radius: 3vw;
+      }
+
       & .iconDown {
         width: 3vw;
         height: 3vw;
@@ -238,7 +266,7 @@
 @media (max-width: 1024px) {
   .menuToggle {
     display: block;
-    z-index: 1001;
+    z-index: 9999;
 
     & .menuIcon {
       width: 2.5vw;
@@ -250,7 +278,6 @@
 @media (max-width: 576px) {
   .menuToggle {
     display: block;
-    z-index: 1001;
 
     & .menuIcon {
       width: 5vw;

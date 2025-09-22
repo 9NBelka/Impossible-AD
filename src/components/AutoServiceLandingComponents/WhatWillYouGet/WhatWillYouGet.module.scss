@@ -264,6 +264,17 @@
     line-height: var(--font-lineh-small2);
   }
 
+  & p {
+    width: 70%;
+    margin-top: 1.5vw;
+    text-align: center;
+    font-size: 0.85vw;
+    color: var(--main-page-b-color-darkGrey);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-normal);
+  }
+
   & .buttonBottom {
     background: var(--auto-page-orange2);
     border: none;
@@ -301,6 +312,12 @@
       font-size: 2.5vw;
     }
 
+    & p {
+      width: 95%;
+      margin-top: 3vw;
+      font-size: 1.8vw;
+    }
+
     & .buttonBottom {
       padding: 1.25vw 4vw;
       font-size: 1.8vw;
@@ -327,6 +344,12 @@
       text-align: center;
       font-size: 4.2vw;
       line-height: var(--font-lineh-normal);
+    }
+
+    & p {
+      width: 100%;
+      margin-top: 5vw;
+      font-size: 3.6vw;
     }
 
     & .buttonBottom {

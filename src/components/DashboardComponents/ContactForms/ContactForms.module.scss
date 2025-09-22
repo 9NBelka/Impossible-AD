@@ -1,0 +1,134 @@
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5vw;
+
+  h2 {
+    font-size: 1vw;
+    color: var(--color-white);
+    font-family: var(--font-Jakarta);
+    line-height: var(--font-lineh-small);
+    font-weight: var(--font-weight-bold);
+    padding-left: 1.2vw;
+  }
+
+  & .tableUsersMain {
+    padding: 1.2vw;
+    background-color: var(--color-dashboard-background-block);
+    border-radius: 1vw;
+    margin-top: 2vw;
+
+    & .tableTitleAndButtonAdd {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      & .tableTitleName {
+        font-size: 0.8vw;
+        color: var(--color-white);
+        font-family: var(--font-Jakarta);
+        line-height: var(--font-lineh-small);
+        font-weight: var(--font-weight-bold);
+      }
+    }
+  }
+}
+
+.tableUsers {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 1vw;
+  margin-top: 1.5vw;
+
+  & .tableTitles {
+    & th {
+      text-align: left;
+      font-size: 0.55vw;
+      color: var(--color-gray);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-bold);
+      opacity: 0.65;
+      text-transform: uppercase;
+      padding: 0.75vw 0;
+    }
+  }
+
+  & .tableRow {
+    border-top: 0.01vw solid var(--color-grayOpacity20);
+
+    & .tableWidthNameAndEmail {
+      width: 16vw;
+    }
+
+    & td {
+      font-size: 0.75vw;
+      color: var(--color-white);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      padding: 0.75vw 0;
+      vertical-align: middle;
+
+      & .tableName {
+        font-weight: var(--font-weight-bold);
+        overflow-wrap: break-word;
+        cursor: pointer;
+      }
+
+      & .tableEmail {
+        font-size: 0.6vw;
+        color: #a0a0a0;
+      }
+    }
+
+    & .tableStatus {
+      padding: 0.25vw 0.6vw;
+      border-radius: 0.5vw;
+      font-size: 0.6vw;
+      color: var(--color-white);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-bold);
+
+      &.blueStatus {
+        background-color: var(--color-blue);
+      }
+
+      &.greenStatus {
+        background-color: var(--color-lightGreen);
+      }
+    }
+
+    & .tableDate {
+      font-size: 0.6vw;
+      color: var(--color-white);
+      font-family: var(--font-Jakarta);
+      line-height: var(--font-lineh-small);
+      font-weight: var(--font-weight-normal);
+    }
+
+    & .tableActionBlock {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5vw;
+
+      & .tableDeleteButton {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font-size: 0.6vw;
+        color: var(--color-red);
+        font-family: var(--font-Jakarta);
+        line-height: var(--font-lineh-small);
+        font-weight: var(--font-weight-normal);
+        padding: 0;
+
+        &.tableEditButton {
+          color: var(--color-gray);
+        }
+      }
+    }
+  }
+}

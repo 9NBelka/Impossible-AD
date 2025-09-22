@@ -29,7 +29,7 @@ export default function Sidebar({ onSignOut }) {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/contact' className={({ isActive }) => isActive && scss.active}>
+          <NavLink to='/contact-forms' className={({ isActive }) => isActive && scss.active}>
             <div className={scss.pointOnListWithIconBlock}>
               <div className={scss.iconBlock}>
                 <BsEnvelopeFill className={scss.icon} />

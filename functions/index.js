@@ -29,7 +29,7 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
     const newFormData = event.data.data();
     console.log('Данные документа:', newFormData);
 
-    // Форматирование даты для Украины (Europe/Kyiv, UTC+3)
+    // Форматирование даты создания (dateCreate)
     let formattedDate = 'Не указано';
     if (newFormData.dateCreate) {
       try {
@@ -37,16 +37,35 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
         formattedDate = date
           .toLocaleString('uk-UA', {
             day: '2-digit',
-            month: '2-digit',
+            month: 'long', // Полное название месяца (например, "вересня")
             year: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
-            second: '2-digit',
             timeZone: 'Europe/Kyiv',
           })
-          .replace(',', '');
+          .replace(/,/, ''); // Убираем запятую после даты
       } catch (error) {
-        console.error('Ошибка форматирования даты:', error.message);
+        console.error('Ошибка форматирования даты создания:', error.message);
+      }
+    }
+
+    // Форматирование даты и времени звонка (dateTime)
+    let callHimOn = 'Не указано';
+    if (newFormData.dateTime) {
+      try {
+        const date = new Date(newFormData.dateTime);
+        callHimOn = date
+          .toLocaleString('uk-UA', {
+            day: '2-digit',
+            month: 'long', // Полное название месяца
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'Europe/Kyiv',
+          })
+          .replace(/,/, ''); // Убираем запятую
+      } catch (error) {
+        console.error('Ошибка форматирования даты звонка:', error.message);
       }
     }
 
@@ -97,7 +116,9 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
 `
         : null,
       newFormData.source === 'stoHero'
-        ? `🏢 *Город*: ${newFormData.city || '❌ Не указано'}`
+        ? `
+🏢 *Город*: ${newFormData.city || '❌ Не указано'} 
+📞 *Позвонить в*: ${callHimOn || '❌ Не указано'}`
         : null,
       newFormData.source === ''
         ? `

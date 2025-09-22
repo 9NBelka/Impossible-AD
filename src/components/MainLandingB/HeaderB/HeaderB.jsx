@@ -87,6 +87,9 @@ export default function Header({ onHeaderTextLinks }) {
               {info.title}
             </a>
           ))}
+          <a href='https://autoservice.impossiblead.com/' className={scss.linkToAuto}>
+            Для автосервісів
+          </a>
         </nav>
 
         <button
