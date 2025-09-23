@@ -12,7 +12,7 @@ export default function CostScreen({ scrollToSection }) {
         <div className={scss.mainCostBlockWidth}>
           <div className={scss.mainCostBlock}>
             <div className={scss.blockWithPrice}>
-              <p>300 € на місяць</p>
+              <p>499 € на місяць</p>
             </div>
             <div className={scss.iconAndTextBlockRow}>
               {/* <BsClockHistory className={scss.icon} /> */}

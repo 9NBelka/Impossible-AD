@@ -113,6 +113,7 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
 🏢 *Город*: ${newFormData.city || '❌ Не указано'}
 🚗 *Название СТО*: ${newFormData.companySTO || '❌ Не указано'}
 🔗 *Сайт*: ${newFormData.site || '❌ Не указано'}
+📞 *Позвонить в*: ${callHimOn || '❌ Не указано'}
 `
         : null,
       newFormData.source === 'stoHero'

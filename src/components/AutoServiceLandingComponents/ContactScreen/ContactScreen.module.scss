@@ -16,7 +16,7 @@
     margin: 0 auto;
   }
 
-  & h2 {
+  & .contactMainTitle {
     text-align: center;
     font-size: 1.8vw;
     // color: var(--main-page-color-blue);
@@ -105,7 +105,7 @@
       max-width: 80vw;
     }
 
-    & h2 {
+    & .contactMainTitle {
       font-size: 3vw;
     }
 
@@ -156,7 +156,7 @@
       max-width: 87vw;
     }
 
-    & h2 {
+    & .contactMainTitle {
       font-size: 4.6vw;
     }
 

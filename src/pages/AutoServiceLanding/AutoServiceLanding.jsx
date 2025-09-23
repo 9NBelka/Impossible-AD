@@ -91,9 +91,9 @@ export default function AutoServiceLanding() {
       <WeSpeakWithResults />
       <CostScreen scrollToSection={scrollToSection} />
       <AskedQuestions />
-      <section id='contacts'>
-        <ContactScreen />
-      </section>
+
+      <ContactScreen />
+
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinksMain} />
       <LiveChatForAuto />
     </div>
