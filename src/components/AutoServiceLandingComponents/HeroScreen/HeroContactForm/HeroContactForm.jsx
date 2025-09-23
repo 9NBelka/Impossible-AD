@@ -77,12 +77,22 @@ export default function HeroContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.gdprConsent) {
-      setSubmitMessage('Будь ласка, погодьтеся з політикою конфіденційності');
+
+    // Проверка обязательных полей
+    if (!name.trim() || !city.trim() || !phone.trim() || !selectedDate) {
+      setSubmitMessage('Будь ласка, заповніть усі обов’язкові поля');
       return;
     }
-    if (!selectedDate) {
-      setSubmitMessage('Будь ласка, оберіть дату та час');
+
+    // Проверка телефона (только цифры, длина 10-12)
+    const phoneRegex = /^[0-9]{10,12}$/;
+    if (!phoneRegex.test(phone)) {
+      setSubmitMessage('Введіть правильний номер телефону (наприклад: 0990915435)');
+      return;
+    }
+
+    if (!formData.gdprConsent) {
+      setSubmitMessage('Будь ласка, погодьтеся з політикою конфіденційності');
       return;
     }
 
@@ -136,7 +146,7 @@ export default function HeroContactForm() {
       <input
         type='text'
         value={value}
-        readOnly // ⬅️ запрет ручного ввода
+        readOnly
         className={scss.input}
         placeholder='Оберіть дату та час'
       />
@@ -171,9 +181,14 @@ export default function HeroContactForm() {
                 type='tel'
                 name='tel'
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => {
+                  // Разрешаем только цифры
+                  const cleaned = e.target.value.replace(/\D/g, '');
+                  setPhone(cleaned);
+                }}
                 className={scss.input}
                 required
+                maxLength={12}
               />
             </div>
             <div className={scss.formGroup}>
@@ -226,7 +241,7 @@ export default function HeroContactForm() {
                   if (isBooked) return scss.bookedTime;
                   return scss.freeTime;
                 }}
-                customInput={<CustomDateInput />} // ⬅️ подключаем кастомный инпут
+                customInput={<CustomDateInput />}
                 required
               />
             </div>

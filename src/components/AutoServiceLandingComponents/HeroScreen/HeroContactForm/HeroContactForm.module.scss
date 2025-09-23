@@ -543,8 +543,10 @@
 
 .calendarIcon {
   position: absolute;
-  right: 12px;
-  font-size: 18px;
+  right: 1vw;
+  width: 0.75vw;
+  height: 0.75vw;
+
   color: #666;
   pointer-events: none; // иконка не перекрывает клик
 }

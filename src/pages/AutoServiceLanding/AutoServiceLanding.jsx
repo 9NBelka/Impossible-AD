@@ -12,6 +12,7 @@ import ContactScreen from '../../components/AutoServiceLandingComponents/Contact
 import AutoServiceFormScreen from '../../components/AutoServiceLandingComponents/AutoServiceFormScreen/AutoServiceFormScreen';
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 import './AutoServiceLanding.scss';
+import LiveChatForAuto from '../../components/LiveChatForAuto/LiveChatForAuto';
 
 export default function AutoServiceLanding() {
   const onFooterAndHeaderTextLinksMain = [
@@ -94,10 +95,7 @@ export default function AutoServiceLanding() {
         <ContactScreen />
       </section>
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinksMain} />
-      <script
-        src='https://cdn.pulse.is/livechat/loader.js'
-        data-live-chat-id='68d283ad174df7ee220ec0e7'
-        async></script>
+      <LiveChatForAuto />
     </div>
   );
 }

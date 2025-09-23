@@ -23,12 +23,10 @@ export default function ContactFormsCalendar() {
   const [gridData, setGridData] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
 
-  // Загружаем слоты из Firestore
   useEffect(() => {
     dispatch(fetchAvailableSlots());
   }, [dispatch]);
 
-  // Синхронизация gridData с Redux
   useEffect(() => {
     if (availableSlots.slots.length > 0) {
       const initialGrid = daysEn.flatMap((day) =>
@@ -99,35 +97,42 @@ export default function ContactFormsCalendar() {
   if (status === 'failed') return <div>Error loading calendar slots</div>;
 
   return (
-    <div className='calendar-grid'>
-      {/* Часы слева */}
-      <div className='hour-labels'>
-        {Array.from({ length: 14 }, (_, i) => 8 + i).map((hour) => (
-          <div key={hour} className='hour-label'>{`${hour}:00`}</div>
-        ))}
+    <div className='calendar-container'>
+      {/* Шапка с временем */}
+      <div className='calendar-header'>
+        <div className='corner-cell'></div>
+        <div className='time-row'>
+          {Array.from({ length: 14 }, (_, i) => 8 + i).map((hour) => (
+            <div key={hour} className='time-header'>{`${hour}:00`}</div>
+          ))}
+        </div>
       </div>
 
-      {/* Сетка с днями и часами */}
-      {daysUa.map((dayUa, index) => {
-        const dayEn = daysEn[index];
-        const isLastDay = index === daysUa.length - 1;
-        return (
-          <div key={dayEn} className={`dayLabel ${isLastDay ? 'lastDayLabel' : ''}`}>
-            {dayUa}
+      {/* Строки с днями */}
+      <div className='calendar-body'>
+        {daysUa.map((dayUa, index) => {
+          const dayEn = daysEn[index];
+          return (
+            <div key={dayEn} className='calendar-row'>
+              <div className='day-label'>{dayUa}</div>
+              <div className='row-cells'>
+                <HourCells
+                  dayEn={dayEn}
+                  timeSlots={timeSlots}
+                  gridData={gridData}
+                  handleMouseDown={handleMouseDown}
+                  handleMouseOver={handleMouseOver}
+                  handleMouseUp={handleMouseUp}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
 
-            <HourCells
-              dayEn={dayEn}
-              timeSlots={timeSlots}
-              gridData={gridData}
-              handleMouseDown={handleMouseDown}
-              handleMouseOver={handleMouseOver}
-              handleMouseUp={handleMouseUp}
-            />
-          </div>
-        );
-      })}
-
-      <button onClick={handleSave}>Save</button>
+      <button className='save-button' onClick={handleSave}>
+        Save
+      </button>
     </div>
   );
 }
