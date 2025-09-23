@@ -1,6 +1,8 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import scss from './HeroContactForm.module.scss';
 import { useState, useEffect } from 'react';
+import React, { forwardRef } from 'react';
+import { BsCalendar } from 'react-icons/bs';
 import clsx from 'clsx';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { addContactForm } from '../../../../store/slices/contactFormSlice';
@@ -9,6 +11,7 @@ import DatePicker from 'react-datepicker';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import 'react-datepicker/dist/react-datepicker.css';
 import { db } from '../../../../firebase';
+import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
 
 export default function HeroContactForm() {
   const [name, setName] = useState('');
@@ -19,8 +22,8 @@ export default function HeroContactForm() {
   const [submitMessage, setSubmitMessage] = useState('');
   const [bookedTimes, setBookedTimes] = useState([]);
   const dispatch = useDispatch();
+  const { availableSlots } = useSelector((state) => state.calendar);
 
-  // Получение занятых временных слотов из Firebase
   useEffect(() => {
     const fetchBookedTimes = async () => {
       try {
@@ -35,23 +38,41 @@ export default function HeroContactForm() {
     fetchBookedTimes();
   }, []);
 
+  useEffect(() => {
+    if (!availableSlots.slots.length) {
+      dispatch(fetchAvailableSlots());
+    }
+  }, [dispatch, availableSlots.slots.length]);
+
   const handleInputChange = (e) => {
     const { name, checked } = e.target;
     setFormData((prev) => ({ ...prev, [name]: checked }));
   };
 
-  // Функция для фильтрации времени
   const filterTimes = (time) => {
-    const selected = new Date(time);
-    return !bookedTimes.some(
-      (booked) =>
-        booked.getTime() === selected.getTime() ||
-        (booked.getDate() === selected.getDate() &&
-          booked.getMonth() === selected.getMonth() &&
-          booked.getFullYear() === selected.getFullYear() &&
-          booked.getHours() === selected.getHours() &&
-          booked.getMinutes() === selected.getMinutes()),
+    const slotHour = time.getHours();
+    const slotMinute = time.getMinutes();
+    const slotDay = time.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+
+    const isAvailable = availableSlots.slots.some(
+      (slot) => slot.day === slotDay && slot.hour === slotHour && slot.minute === slotMinute,
     );
+
+    const isBooked = bookedTimes.some(
+      (booked) =>
+        booked.getFullYear() === time.getFullYear() &&
+        booked.getMonth() === time.getMonth() &&
+        booked.getDate() === time.getDate() &&
+        booked.getHours() === slotHour &&
+        booked.getMinutes() === slotMinute,
+    );
+
+    return isAvailable && !isBooked;
+  };
+
+  const filterDate = (date) => {
+    const day = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+    return availableSlots.slots.some((slot) => slot.day === day);
   };
 
   const handleSubmit = async (e) => {
@@ -103,13 +124,25 @@ export default function HeroContactForm() {
       setPhone('');
       setSelectedDate(null);
       setFormData({ gdprConsent: false });
-      // Обновляем список занятых времен
       setBookedTimes([...bookedTimes, new Date(formPayload.dateTime)]);
     } catch (error) {
       setSubmitMessage('Помилка при відправці заявки. Спробуйте ще раз.');
       console.error('Form submission error:', error);
     }
   };
+
+  const CustomDateInput = forwardRef(({ value, onClick }, ref) => (
+    <div className={scss.customDateInput} onClick={onClick} ref={ref}>
+      <input
+        type='text'
+        value={value}
+        readOnly // ⬅️ запрет ручного ввода
+        className={scss.input}
+        placeholder='Оберіть дату та час'
+      />
+      <BsCalendar className={scss.calendarIcon} />
+    </div>
+  ));
 
   return (
     <div className={scss.formWidth}>
@@ -167,22 +200,33 @@ export default function HeroContactForm() {
                 timeFormat='HH:mm'
                 timeIntervals={15}
                 dateFormat='dd/MM/yyyy HH:mm'
-                className={scss.input}
                 wrapperClassName={scss.datePickerWrapper}
                 minDate={new Date()}
-                filterTime={filterTimes} // Фильтрация занятых времен
+                filterTime={filterTimes}
+                filterDate={filterDate}
                 timeClassName={(time) => {
+                  const slotHour = time.getHours();
+                  const slotDay = time
+                    .toLocaleDateString('en-US', { weekday: 'long' })
+                    .toLowerCase();
+
+                  const isAvailable = availableSlots.slots.some(
+                    (slot) => slot.day === slotDay && slot.hour === slotHour,
+                  );
+
                   const isBooked = bookedTimes.some(
                     (booked) =>
-                      booked.getTime() === time.getTime() ||
-                      (booked.getDate() === time.getDate() &&
-                        booked.getMonth() === time.getMonth() &&
-                        booked.getFullYear() === time.getFullYear() &&
-                        booked.getHours() === time.getHours() &&
-                        booked.getMinutes() === time.getMinutes()),
+                      booked.getFullYear() === time.getFullYear() &&
+                      booked.getMonth() === time.getMonth() &&
+                      booked.getDate() === time.getDate() &&
+                      booked.getHours() === slotHour,
                   );
-                  return isBooked ? scss.bookedTime : '';
+
+                  if (!isAvailable) return scss.unavailableTime;
+                  if (isBooked) return scss.bookedTime;
+                  return scss.freeTime;
                 }}
+                customInput={<CustomDateInput />} // ⬅️ подключаем кастомный инпут
                 required
               />
             </div>

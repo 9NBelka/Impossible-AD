@@ -9,6 +9,7 @@ import {
 import ContactFormsFilterAndSearch from './ContactFormsFilterAndSearch/ContactFormsFilterAndSearch';
 import clsx from 'clsx';
 import ContactFormsPaginationControls from './ContactFormsPaginationControls/ContactFormsPaginationControls';
+import ContactFormsCalendar from './ContactFormsCalendar/ContactFormsCalendar';
 
 const formatDateTime = (isoDate) => {
   if (!isoDate) return '';
@@ -37,7 +38,6 @@ export default function ContactForms() {
   const [currentPage, setCurrentPage] = useState(1);
   const formsPerPage = 10;
 
-  // Filter and search logic
   const filteredForms = forms
     .filter((form) => {
       const matchesSearch =
@@ -79,7 +79,6 @@ export default function ContactForms() {
     }
   };
 
-  // Reset filters
   const resetFilters = () => {
     setFilters({
       status: '',
@@ -164,6 +163,8 @@ export default function ContactForms() {
           totalPages={totalPages}
         />
       </div>
+      <h2>Available Slots Calendar</h2>
+      <ContactFormsCalendar />
     </div>
   );
 }
