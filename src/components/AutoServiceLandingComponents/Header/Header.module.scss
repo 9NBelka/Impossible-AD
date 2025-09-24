@@ -256,6 +256,7 @@
   border-radius: 0.3vw;
   cursor: pointer;
   transition: 0.3s ease;
+  animation: pulse-button-header 2.5s infinite;
 
   &:hover {
     transform: translateY(-0.1vw);
@@ -279,5 +280,18 @@
 @media (max-width: 576px) {
   .buttonContactWithMe {
     display: none;
+  }
+}
+
+@keyframes pulse-button-header {
+  0% {
+    box-shadow: 0 0 0 0px rgba(255, 169, 41, 1);
+  }
+
+  70% {
+    box-shadow: 0 0 0.75vw 0.75vw rgba(81, 203, 238, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0px rgba(81, 203, 238, 0);
   }
 }

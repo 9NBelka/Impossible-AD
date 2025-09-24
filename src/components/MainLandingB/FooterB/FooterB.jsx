@@ -98,12 +98,15 @@ export default function FooterB({ onFooterTextLinks }) {
                   <a href='https://t.me/Impossibleadcom' aria-label='Telegram' target='_blank'>
                     <BsTelegram />
                   </a>
-                  <a href='#' aria-label='Instagram' target='_blank'>
+                  <a
+                    href='https://www.instagram.com/ad_impossible/'
+                    aria-label='Instagram'
+                    target='_blank'>
                     <BsInstagram />
                   </a>
-                  <a href='#' aria-label='Instagram' target='_blank'>
+                  {/* <a href='#' aria-label='Instagram' target='_blank'>
                     <BsTwitter />
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>

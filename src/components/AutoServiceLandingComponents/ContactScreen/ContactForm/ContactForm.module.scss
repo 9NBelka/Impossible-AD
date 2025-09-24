@@ -585,3 +585,114 @@
   color: #666;
   pointer-events: none; // иконка не перекрывает клик
 }
+
+.formAfterMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  & .formAfterBlockForImage {
+    display: flex;
+    width: 7vw;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  & h4 {
+    font-size: 1.2vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    line-height: var(--font-lineh-small);
+    font-weight: var(--font-weight-smallStrong);
+    margin-top: 1vw;
+  }
+
+  & p {
+    font-size: 0.85vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-big);
+    margin-top: 0.5vw;
+  }
+
+  & .linkForInstagram {
+    font-size: 0.75vw;
+    background: var(--auto-page-orange);
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-small);
+    padding: 0.65vw 1vw;
+    border-radius: 0.3vw;
+    margin-top: 1vw;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .formAfterMain {
+    padding-top: 4vw;
+
+    & .formAfterBlockForImage {
+      display: flex;
+      width: 15vw;
+    }
+
+    & h4 {
+      font-size: 2.4vw;
+      margin-top: 2vw;
+    }
+
+    & p {
+      font-size: 1.8vw;
+      margin-top: 1vw;
+    }
+
+    & .linkForInstagram {
+      font-size: 1.75vw;
+      padding: 1.5vw 3vw;
+      border-radius: 1vw;
+      margin-top: 2vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .formAfterMain {
+    padding-top: 7vw;
+
+    & .formAfterBlockForImage {
+      display: flex;
+      width: 30vw;
+    }
+
+    & h4 {
+      font-size: 4vw;
+      margin-top: 5vw;
+    }
+
+    & p {
+      text-align: center;
+      font-size: 3.6vw;
+      margin-top: 2vw;
+      line-height: var(--font-lineh-normal);
+    }
+
+    & .linkForInstagram {
+      text-align: center;
+      font-size: 3.6vw;
+      padding: 2vw 3vw;
+      border-radius: 2vw;
+      margin-top: 5vw;
+      line-height: var(--font-lineh-normal);
+    }
+  }
+}

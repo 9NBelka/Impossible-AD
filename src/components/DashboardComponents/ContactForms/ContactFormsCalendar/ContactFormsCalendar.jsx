@@ -99,39 +99,44 @@ export default function ContactFormsCalendar() {
   return (
     <div className='calendar-container'>
       {/* Шапка с временем */}
-      <div className='calendar-header'>
-        <div className='corner-cell'></div>
-        <div className='time-row'>
-          {Array.from({ length: 14 }, (_, i) => 8 + i).map((hour) => (
-            <div key={hour} className='time-header'>{`${hour}:00`}</div>
-          ))}
+      <h3>Available Slots Calendar</h3>
+      <div className='scrollEffect'>
+        <div className='calendar-header'>
+          <div className='corner-cell'>Дни/часы</div>
+          <div className='time-row'>
+            {Array.from({ length: 14 }, (_, i) => 8 + i).map((hour) => (
+              <div key={hour} className='time-header'>{`${hour}:00`}</div>
+            ))}
+          </div>
+          <div className='corner-cell rightSection'>Дни/часы</div>
+        </div>
+
+        {/* Строки с днями */}
+        <div className='calendar-body'>
+          {daysUa.map((dayUa, index) => {
+            const dayEn = daysEn[index];
+            return (
+              <div key={dayEn} className='calendar-row'>
+                <div className='day-label'>{dayUa}</div>
+                <div className='row-cells'>
+                  <HourCells
+                    dayEn={dayEn}
+                    timeSlots={timeSlots}
+                    gridData={gridData}
+                    handleMouseDown={handleMouseDown}
+                    handleMouseOver={handleMouseOver}
+                    handleMouseUp={handleMouseUp}
+                  />
+                </div>
+                <div className='day-label rightSection'>{dayUa}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {/* Строки с днями */}
-      <div className='calendar-body'>
-        {daysUa.map((dayUa, index) => {
-          const dayEn = daysEn[index];
-          return (
-            <div key={dayEn} className='calendar-row'>
-              <div className='day-label'>{dayUa}</div>
-              <div className='row-cells'>
-                <HourCells
-                  dayEn={dayEn}
-                  timeSlots={timeSlots}
-                  gridData={gridData}
-                  handleMouseDown={handleMouseDown}
-                  handleMouseOver={handleMouseOver}
-                  handleMouseUp={handleMouseUp}
-                />
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
       <button className='save-button' onClick={handleSave}>
-        Save
+        Сохранить изменения
       </button>
     </div>
   );

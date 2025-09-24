@@ -24,8 +24,9 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({ gdprConsent: false });
   const [submitMessage, setSubmitMessage] = useState('');
   const [bookedTimes, setBookedTimes] = useState([]);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false); // Новое состояние для управления видимостью
 
-  // Загружаем занятые времени
+  // Загружаем занятые времена
   useEffect(() => {
     const fetchBookedTimes = async () => {
       try {
@@ -55,7 +56,7 @@ export default function ContactForm() {
   // Разрешаем ввод только цифр в телефон
   const handlePhoneChange = (e) => {
     const cleaned = e.target.value.replace(/\D/g, '');
-    setPhone(cleaned.slice(0, 12)); // макс 12 цифр (как в HeroContactForm)
+    setPhone(cleaned.slice(0, 12));
   };
 
   // Валидация телефона: только цифры, длина 10..12
@@ -125,7 +126,7 @@ export default function ContactForm() {
       source: 'sto',
       dateCreate: new Date().toISOString(),
       dateTime: selectedDate.toISOString(),
-      status: 'В обробці',
+      status: 'В обработке',
     };
 
     try {
@@ -152,7 +153,8 @@ export default function ContactForm() {
         }),
       ).unwrap();
 
-      setSubmitMessage('Дякуємо! Ваша заявка успішно відправлена.');
+      // Устанавливаем состояние для показа блока благодарности
+      setIsFormSubmitted(true);
 
       // Очистка полей
       setName('');
@@ -163,7 +165,7 @@ export default function ContactForm() {
       setSelectedDate(null);
       setFormData({ gdprConsent: false });
 
-      // Обновляем локально bookedTimes, чтобы сразу блокировать выбранный слот
+      // Обновляем локально bookedTimes
       setBookedTimes((prev) => [...prev, new Date(formPayload.dateTime)]);
     } catch (error) {
       console.error('Form submission error:', error);
@@ -186,162 +188,180 @@ export default function ContactForm() {
 
   return (
     <div className={scss.formMainBlock} id='contacts'>
-      <div className={scss.formInputsAndCheckoutBlock}>
-        <form className={scss.formInputsAndCheckout} onSubmit={handleSubmit}>
-          <p>Якісно заповнені вами поля дають найкращий результат</p>
+      {!isFormSubmitted ? (
+        <div className={scss.formInputsAndCheckoutBlock}>
+          <form className={scss.formInputsAndCheckout} onSubmit={handleSubmit}>
+            <p>Якісно заповнені вами поля дають найкращий результат</p>
 
-          <div className={scss.formGroup}>
-            <label>
-              Ім'я <span className={scss.importantText}>*</span>
-            </label>
-            <input
-              type='text'
-              name='name'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className={scss.input}
-              required
-            />
-          </div>
-
-          <div className={scss.formGroup}>
-            <label>
-              Телефон <span className={scss.importantText}>*</span>
-            </label>
-            <input
-              type='tel'
-              name='tel'
-              value={phone}
-              onChange={handlePhoneChange}
-              className={scss.input}
-              required
-              maxLength={12}
-            />
-          </div>
-
-          <div className={scss.formGroup}>
-            <label>
-              Місто <span className={scss.importantText}>*</span>
-            </label>
-            <input
-              type='text'
-              name='city'
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              className={scss.input}
-              required
-            />
-          </div>
-
-          <div className={scss.formGroup}>
-            <label>Назва СТО</label>
-            <input
-              type='text'
-              name='companySTO'
-              value={companySTO}
-              onChange={(e) => setCompanySTO(e.target.value)}
-              className={scss.input}
-              required
-            />
-          </div>
-
-          <div className={scss.formGroup}>
-            <label>Ваш сайт (якщо маєте)</label>
-            <input
-              type='text'
-              name='site'
-              value={site}
-              onChange={(e) => setSite(e.target.value)}
-              className={scss.input}
-              required
-            />
-          </div>
-
-          <div className={scss.formGroup}>
-            <label>
-              Дата та час дзвінка <span className={scss.importantText}>*</span>
-            </label>
-            <DatePicker
-              selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
-              showTimeSelect
-              timeFormat='HH:mm'
-              timeIntervals={15}
-              dateFormat='dd/MM/yyyy HH:mm'
-              wrapperClassName={scss.datePickerWrapper}
-              minDate={new Date()}
-              filterTime={filterTimes}
-              filterDate={filterDate}
-              timeClassName={(time) => {
-                const slotHour = time.getHours();
-                const slotMinute = time.getMinutes();
-                const slotDay = time.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-
-                const isAvailable =
-                  availableSlots?.slots?.some(
-                    (slot) =>
-                      slot.day === slotDay && slot.hour === slotHour && slot.minute === slotMinute,
-                  ) ?? false;
-
-                const isBooked =
-                  bookedTimes?.some(
-                    (booked) =>
-                      booked.getFullYear() === time.getFullYear() &&
-                      booked.getMonth() === time.getMonth() &&
-                      booked.getDate() === time.getDate() &&
-                      booked.getHours() === slotHour &&
-                      booked.getMinutes() === slotMinute,
-                  ) ?? false;
-
-                if (!isAvailable) return scss.unavailableTime;
-                if (isBooked) return scss.bookedTime;
-                return scss.freeTime;
-              }}
-              customInput={<CustomDateInput />}
-              required
-            />
-          </div>
-
-          <div className={clsx(scss.formGroup, scss.checkboxGroup)}>
-            <label className={scss.checkboxLabel}>
+            <div className={scss.formGroup}>
+              <label>
+                Ім'я <span className={scss.importantText}>*</span>
+              </label>
               <input
-                type='checkbox'
-                name='gdprConsent'
-                checked={formData.gdprConsent}
-                onChange={handleInputChange}
+                type='text'
+                name='name'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className={scss.input}
                 required
               />
-              <span className={scss.checkmark}></span>
-              <span className={scss.checkmarkText}>
-                Я згоден на обробку моїх персональних даних відповідно до
-                <a
-                  href='/privacy-policy'
-                  className={scss.privacyLink}
-                  target='_blank'
-                  rel='noreferrer'>
-                  Політики конфіденційності
-                </a>
-              </span>
-            </label>
-          </div>
-
-          <div className={scss.blockButtonFlex}>
-            <button type='submit' className={scss.button}>
-              Відправити заявку <BsArrowRightShort className={scss.buttonIconDownload} />
-            </button>
-          </div>
-
-          {submitMessage && (
-            <div
-              className={clsx(
-                scss.submitMessage,
-                submitMessage.includes('Дякуємо!') ? scss.success : scss.error,
-              )}>
-              {submitMessage}
             </div>
-          )}
-        </form>
-      </div>
+
+            <div className={scss.formGroup}>
+              <label>
+                Телефон <span className={scss.importantText}>*</span>
+              </label>
+              <input
+                type='tel'
+                name='tel'
+                value={phone}
+                onChange={handlePhoneChange}
+                className={scss.input}
+                required
+                maxLength={12}
+              />
+            </div>
+
+            <div className={scss.formGroup}>
+              <label>
+                Місто <span className={scss.importantText}>*</span>
+              </label>
+              <input
+                type='text'
+                name='city'
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                className={scss.input}
+                required
+              />
+            </div>
+
+            <div className={scss.formGroup}>
+              <label>Назва СТО</label>
+              <input
+                type='text'
+                name='companySTO'
+                value={companySTO}
+                onChange={(e) => setCompanySTO(e.target.value)}
+                className={scss.input}
+              />
+            </div>
+
+            <div className={scss.formGroup}>
+              <label>Ваш сайт (якщо маєте)</label>
+              <input
+                type='text'
+                name='site'
+                value={site}
+                onChange={(e) => setSite(e.target.value)}
+                className={scss.input}
+              />
+            </div>
+
+            <div className={scss.formGroup}>
+              <label>
+                Дата та час дзвінка <span className={scss.importantText}>*</span>
+              </label>
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                showTimeSelect
+                timeFormat='HH:mm'
+                timeIntervals={15}
+                dateFormat='dd/MM/yyyy HH:mm'
+                wrapperClassName={scss.datePickerWrapper}
+                minDate={new Date()}
+                filterTime={filterTimes}
+                filterDate={filterDate}
+                timeClassName={(time) => {
+                  const slotHour = time.getHours();
+                  const slotMinute = time.getMinutes();
+                  const slotDay = time
+                    .toLocaleDateString('en-US', { weekday: 'long' })
+                    .toLowerCase();
+
+                  const isAvailable =
+                    availableSlots?.slots?.some(
+                      (slot) =>
+                        slot.day === slotDay &&
+                        slot.hour === slotHour &&
+                        slot.minute === slotMinute,
+                    ) ?? false;
+
+                  const isBooked =
+                    bookedTimes?.some(
+                      (booked) =>
+                        booked.getFullYear() === time.getFullYear() &&
+                        booked.getMonth() === time.getMonth() &&
+                        booked.getDate() === time.getDate() &&
+                        booked.getHours() === slotHour &&
+                        booked.getMinutes() === slotMinute,
+                    ) ?? false;
+
+                  if (!isAvailable) return scss.unavailableTime;
+                  if (isBooked) return scss.bookedTime;
+                  return scss.freeTime;
+                }}
+                customInput={<CustomDateInput />}
+                required
+              />
+            </div>
+
+            <div className={clsx(scss.formGroup, scss.checkboxGroup)}>
+              <label className={scss.checkboxLabel}>
+                <input
+                  type='checkbox'
+                  name='gdprConsent'
+                  checked={formData.gdprConsent}
+                  onChange={handleInputChange}
+                  required
+                />
+                <span className={scss.checkmark}></span>
+                <span className={scss.checkmarkText}>
+                  Я згоден на обробку моїх персональних даних відповідно до
+                  <a
+                    href='/privacy-policy'
+                    className={scss.privacyLink}
+                    target='_blank'
+                    rel='noreferrer'>
+                    Політики конфіденційності
+                  </a>
+                </span>
+              </label>
+            </div>
+
+            <div className={scss.blockButtonFlex}>
+              <button type='submit' className={scss.button}>
+                Відправити заявку <BsArrowRightShort className={scss.buttonIconDownload} />
+              </button>
+            </div>
+
+            {submitMessage && (
+              <div
+                className={clsx(
+                  scss.submitMessage,
+                  submitMessage.includes('Дякуємо!') ? scss.success : scss.error,
+                )}>
+                {submitMessage}
+              </div>
+            )}
+          </form>
+        </div>
+      ) : (
+        <div className={scss.formAfterMain}>
+          <div className={scss.formAfterBlockForImage}>
+            <img src='/images/plane.jpg' />
+          </div>
+          <h4>Дякуємо за вашу заявку!</h4>
+          <p>Ми зв’яжемося з вами найближчим часом для підтвердження.</p>
+          <a
+            className={scss.linkForInstagram}
+            href='https://www.instagram.com/ad_impossible/'
+            target='_blank'>
+            Закулісся та корисні поради у нашому Instagram
+          </a>
+        </div>
+      )}
     </div>
   );
 }

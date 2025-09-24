@@ -1,20 +1,69 @@
 .calendar-container {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   width: 100%;
+  padding: 1.2vw;
+  background-color: var(--color-dashboard-background-block);
+  border-radius: 1vw;
+  margin-top: 2vw;
+
+  & h3 {
+    font-size: 0.8vw;
+    color: var(--color-white);
+    font-family: var(--font-Jakarta);
+    line-height: var(--font-lineh-small);
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+.scrollEffect {
+  overflow: hidden;
+  overflow-x: scroll;
+  margin-top: 1vw;
+  border-radius: 0.5vw;
+  border: 0.1vw solid var(--color-dashboard-border-buttons);
+  padding-bottom: 0.25vw;
+
+  &::-webkit-scrollbar {
+    height: 0.6vw; /* Ширина всего элемента навигации */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #ffffff00; /* Цвет дорожки */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    margin-top: 1vw;
+    background-color: var(--main-page-b-color-light-lightBlue5);
+    border-radius: 1vw; /* Округление бегунка */
+    border: 0.1vw solid var(--color-dashboard-background);
+  }
 }
 
 .calendar-header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #f5f5f5;
   font-weight: bold;
 }
 
 .corner-cell {
-  width: 100px;
-  min-width: 100px;
+  text-align: center;
+  min-width: 5.75vw;
+  font-size: 0.75vw;
+  color: var(--color-white);
+  font-family: var(--font-Jakarta);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-lineh-small);
+  background: var(--color-dashboard-background-buttons);
+  padding: 0.5vw 0;
+  border-bottom: 0.1vw solid #ddd;
+}
+
+.corner-cell.rightSection {
+  border-left: 0.1vw solid #eee;
 }
 
 .time-row {
@@ -23,10 +72,18 @@
 }
 
 .time-header {
+  width: 12vw;
   flex: 1;
   text-align: center;
-  padding: 5px;
-  border-left: 1px solid #ddd;
+  font-size: 0.75vw;
+  color: var(--color-white);
+  font-family: var(--font-Jakarta);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-lineh-small);
+  background: var(--color-dashboard-background-buttons);
+  padding: 0.5vw 0;
+  border-left: 0.1vw solid #ddd;
+  border-bottom: 0.1vw solid #ddd;
 }
 
 .calendar-body {
@@ -38,50 +95,69 @@
 .calendar-row {
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid #eee;
 }
 
 .day-label {
-  width: 100px;
-  min-width: 100px;
+  min-width: 5.75vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fafafa;
-  font-weight: bold;
-  border-right: 1px solid #ddd;
+  font-size: 0.75vw;
+  color: var(--color-white);
+  font-family: var(--font-Jakarta);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-lineh-small);
+  padding: 0.5vw 0;
+  background: var(--color-dashboard-background-buttons);
+  border-bottom: 0.1vw solid #eee;
+}
+
+.day-label.rightSection {
+  border-left: 0.1vw solid #eee;
 }
 
 .row-cells {
   display: flex;
   flex: 1;
   flex-wrap: nowrap;
+  font-size: 0.75vw;
+  color: var(--color-white);
+  font-family: var(--font-Jakarta);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-lineh-small);
+  border-bottom: 0.1vw solid #eee;
 }
 
 .cell {
   flex: 1;
-  border-left: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-left: 0.1vw solid #eee;
   cursor: pointer;
   text-align: center;
-  padding: 5px;
+  width: 3vw;
+  padding: 0.5vw 0vw;
   user-select: none;
 }
 
 .cell.active {
-  background: #4caf50;
-  color: white;
+  background-color: var(--color-blue);
+  color: var(--main-page-b-color-white);
 }
 
 .cell.inactive {
-  background: #fff;
+  background: var(--color-dashboard-background-buttons);
 }
 
 .save-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #4caf50;
+  padding: 0.7vw 0vw;
+  border-radius: 0.5vw;
+  font-size: 0.75vw;
+  color: var(--color-white);
+  font-family: var(--font-Jakarta);
+  line-height: var(--font-lineh-small);
+  font-weight: var(--font-weight-bold);
+  background-color: var(--color-lightGreen);
   color: white;
   border: none;
   cursor: pointer;
+  margin-top: 1vw;
 }

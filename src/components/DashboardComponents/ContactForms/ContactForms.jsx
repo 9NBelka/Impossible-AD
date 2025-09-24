@@ -93,6 +93,7 @@ export default function ContactForms() {
   return (
     <div className={scss.mainBlock}>
       <h2>Contact Forms Table</h2>
+      <ContactFormsCalendar />
       <div className={scss.tableUsersMain}>
         <div className={scss.tableTitleAndButtonAdd}>
           <h3 className={scss.tableTitleName}>Contact Forms table</h3>
@@ -163,8 +164,6 @@ export default function ContactForms() {
           totalPages={totalPages}
         />
       </div>
-      <h2>Available Slots Calendar</h2>
-      <ContactFormsCalendar />
     </div>
   );
 }
