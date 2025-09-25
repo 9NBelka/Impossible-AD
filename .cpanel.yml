@@ -1,0 +1,10 @@
+---
+deployment:
+  tasks:
+    # Укажи путь, куда нужно скопировать финальный билд (dist)
+    - export DEPLOYPATH=/home/hrsyepxx/public_html/
+    # Переходим в репозиторий и выполняем сборку
+    - /usr/bin/npm install
+    - /usr/bin/npm run build
+    # Копируем содержимое dist в публичную папку
+    - /bin/c p -R dist $DEPLOYPATH
