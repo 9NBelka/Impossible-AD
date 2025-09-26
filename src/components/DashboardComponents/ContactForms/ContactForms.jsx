@@ -52,9 +52,9 @@ export default function ContactForms() {
     })
     .sort((a, b) => {
       if (filters.sortByDate === 'новые') {
-        return new Date(b.dateTime) - new Date(a.dateTime);
+        return new Date(b.dateCreate) - new Date(a.dateCreate); // Sort by dateCreate, newest first
       } else {
-        return new Date(a.dateTime) - new Date(b.dateTime);
+        return new Date(a.dateCreate) - new Date(b.dateCreate); // Sort by dateCreate, oldest first
       }
     });
 
@@ -93,7 +93,7 @@ export default function ContactForms() {
   return (
     <div className={scss.mainBlock}>
       <h2>Contact Forms Table</h2>
-      <ContactFormsCalendar />
+      <ContactFormsCalendar forms={forms} />
       <div className={scss.tableUsersMain}>
         <div className={scss.tableTitleAndButtonAdd}>
           <h3 className={scss.tableTitleName}>Contact Forms table</h3>

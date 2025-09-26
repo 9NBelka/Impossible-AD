@@ -147,6 +147,11 @@
   background: var(--color-dashboard-background-buttons);
 }
 
+.cell.booked {
+  opacity: 0.5;
+  color: #ff4d4d; /* White text for contrast */
+}
+
 .save-button {
   padding: 0.7vw 0vw;
   border-radius: 0.5vw;

@@ -5,15 +5,16 @@ import { BsArrowRightShort, BsCalendar } from 'react-icons/bs';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import scss from './ContactForm.module.scss';
-import { addContactForm } from '../../../../store/slices/contactFormSlice';
-import { addAppointment } from '../../../../store/slices/appointmentsSlice';
+import { addContactForm, fetchContactForms } from '../../../../store/slices/contactFormSlice'; // Added fetchContactForms import
 import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../../firebase';
+import { getAuth } from 'firebase/auth'; // Import Firebase Auth for debugging
 
 export default function ContactForm() {
   const dispatch = useDispatch();
   const { availableSlots } = useSelector((state) => state.calendar);
+  const { forms, status: contactFormStatus } = useSelector((state) => state.contactForm); // Added status for loading check
 
   const [name, setName] = useState('');
   const [companySTO, setCompanySTO] = useState('');
@@ -24,24 +25,23 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({ gdprConsent: false });
   const [submitMessage, setSubmitMessage] = useState('');
   const [bookedTimes, setBookedTimes] = useState([]);
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false); // Новое состояние для управления видимостью
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  // Загружаем занятые времена
+  // Fetch contact forms on mount
   useEffect(() => {
-    const fetchBookedTimes = async () => {
-      try {
-        const q = query(collection(db, 'appointments'));
-        const querySnapshot = await getDocs(q);
-        const booked = querySnapshot.docs.map((doc) => new Date(doc.data().dateTime));
-        setBookedTimes(booked);
-      } catch (err) {
-        console.error('Error fetching booked times:', err);
-      }
-    };
-    fetchBookedTimes();
-  }, []);
+    dispatch(fetchContactForms());
+  }, [dispatch]);
 
-  // Подгружаем слоты (если ещё не загружены)
+  // Derive booked times from Redux forms
+  useEffect(() => {
+    if (contactFormStatus === 'succeeded') {
+      const booked = forms.filter((form) => form.dateTime).map((form) => new Date(form.dateTime));
+
+      setBookedTimes(booked);
+    }
+  }, [forms, contactFormStatus]);
+
+  // Load available slots if not already loaded
   useEffect(() => {
     if (!availableSlots?.slots?.length) {
       dispatch(fetchAvailableSlots());
@@ -53,25 +53,24 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: checked }));
   };
 
-  // Разрешаем ввод только цифр в телефон
+  // Validate and handle phone input
   const handlePhoneChange = (e) => {
     const cleaned = e.target.value.replace(/\D/g, '');
     setPhone(cleaned.slice(0, 12));
   };
 
-  // Валидация телефона: только цифры, длина 10..12
   const validatePhone = (phone) => {
     const phoneRegex = /^[0-9]{10,12}$/;
     return phoneRegex.test(phone);
   };
 
-  // Фильтр дат — только дни с доступными слотами
+  // Filter dates to only show days with available slots (weekday-based, since slots are recurring)
   const filterDate = (date) => {
     const day = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
     return availableSlots?.slots?.some((slot) => slot.day === day) ?? false;
   };
 
-  // Фильтр времени — учитываем hour + minute и занятые слоты
+  // Filter times to only show available and non-booked slots
   const filterTimes = (time) => {
     const slotHour = time.getHours();
     const slotMinute = time.getMinutes();
@@ -99,13 +98,13 @@ export default function ContactForm() {
     e.preventDefault();
     setSubmitMessage('');
 
-    // Проверка обязательных полей
+    // Validate required fields
     if (!name.trim() || !city.trim() || !phone.trim() || !selectedDate) {
       setSubmitMessage('Будь ласка, заповніть усі обов’язкові поля');
       return;
     }
 
-    // Валидация телефона
+    // Validate phone
     if (!validatePhone(phone)) {
       setSubmitMessage('Введіть правильний номер телефону (наприклад: 380123456789)');
       return;
@@ -130,9 +129,12 @@ export default function ContactForm() {
     };
 
     try {
-      // Двойная проверка на уже забронированное время
+      // Log authentication state for debugging
+      const auth = getAuth();
+
+      // Check if the selected time is already booked
       const q = query(
-        collection(db, 'appointments'),
+        collection(db, 'contactform'), // Fixed collection name to match slice and rules
         where('dateTime', '==', formPayload.dateTime),
       );
       const querySnapshot = await getDocs(q);
@@ -141,22 +143,15 @@ export default function ContactForm() {
         return;
       }
 
-      // Сохраняем контактную форму
-      const contactResult = await dispatch(addContactForm(formPayload)).unwrap();
+      await dispatch(addContactForm(formPayload)).unwrap();
 
-      // Создаём appointment
-      await dispatch(
-        addAppointment({
-          dateTime: formPayload.dateTime,
-          contactFormId: contactResult.id,
-          status: 'booked',
-        }),
-      ).unwrap();
+      // Update bookedTimes locally
+      setBookedTimes((prev) => [...prev, new Date(formPayload.dateTime)]);
 
-      // Устанавливаем состояние для показа блока благодарности
+      // Show thank-you message
       setIsFormSubmitted(true);
 
-      // Очистка полей
+      // Clear form
       setName('');
       setCompanySTO('');
       setSite('');
@@ -164,9 +159,6 @@ export default function ContactForm() {
       setPhone('');
       setSelectedDate(null);
       setFormData({ gdprConsent: false });
-
-      // Обновляем локально bookedTimes
-      setBookedTimes((prev) => [...prev, new Date(formPayload.dateTime)]);
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitMessage('Помилка при відправці заявки. Спробуйте ще раз.');
@@ -185,6 +177,11 @@ export default function ContactForm() {
       <BsCalendar className={scss.calendarIcon} />
     </div>
   ));
+
+  // Show loading if contact forms are loading
+  if (contactFormStatus === 'loading') {
+    return <div>Завантаження доступних часів...</div>;
+  }
 
   return (
     <div className={scss.formMainBlock} id='contacts'>
@@ -298,8 +295,8 @@ export default function ContactForm() {
                         booked.getMinutes() === slotMinute,
                     ) ?? false;
 
+                  if (isBooked) return scss.bookedTime; // Booked times gray/unselectable
                   if (!isAvailable) return scss.unavailableTime;
-                  if (isBooked) return scss.bookedTime;
                   return scss.freeTime;
                 }}
                 customInput={<CustomDateInput />}

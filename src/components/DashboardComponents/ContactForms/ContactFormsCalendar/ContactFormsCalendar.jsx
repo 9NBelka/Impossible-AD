@@ -16,12 +16,57 @@ const timeSlots = Array.from({ length: 14 * 4 }, (_, i) => {
   return { hour, minute };
 });
 
-export default function ContactFormsCalendar() {
+export default function ContactFormsCalendar({ forms }) {
   const dispatch = useDispatch();
   const { availableSlots, status } = useSelector((state) => state.calendar);
 
   const [gridData, setGridData] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
+  const [weekDates, setWeekDates] = useState([]);
+
+  // Function to calculate dates for the current week
+  const getWeekDates = () => {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 (Sunday) to 6 (Saturday)
+    const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // Adjust to get Monday
+    const monday = new Date(today);
+    monday.setDate(today.getDate() + mondayOffset);
+    monday.setHours(0, 0, 0, 0); // Reset time for comparison
+
+    // Check if current date is past Sunday of the displayed week
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+    if (today > sunday) {
+      monday.setDate(monday.getDate() + 7); // Move to next week
+    }
+
+    // Generate dates for the week
+    const dates = [];
+    const displayDates = [];
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + i);
+      dates.push(new Date(date)); // Store full Date object for comparison
+      displayDates.push(date.toLocaleDateString('uk-UA', { day: '2-digit', month: '2-digit' }));
+    }
+    return { dates, displayDates };
+  };
+
+  useEffect(() => {
+    // Set initial week dates
+    const { displayDates } = getWeekDates();
+    setWeekDates(displayDates);
+
+    // Optional: Set up interval to check for week change (runs daily)
+    const interval = setInterval(() => {
+      const { displayDates } = getWeekDates();
+      if (displayDates[0] !== weekDates[0]) {
+        setWeekDates(displayDates);
+      }
+    }, 24 * 60 * 60 * 1000); // Check once a day
+
+    return () => clearInterval(interval);
+  }, [weekDates]);
 
   useEffect(() => {
     dispatch(fetchAvailableSlots());
@@ -93,6 +138,9 @@ export default function ContactFormsCalendar() {
     dispatch(saveAvailableSlots(slots));
   };
 
+  // Get full Date objects for week dates for comparison
+  const { dates: fullWeekDates } = getWeekDates();
+
   if (status === 'loading') return <div>Loading...</div>;
   if (status === 'failed') return <div>Error loading calendar slots</div>;
 
@@ -115,9 +163,10 @@ export default function ContactFormsCalendar() {
         <div className='calendar-body'>
           {daysUa.map((dayUa, index) => {
             const dayEn = daysEn[index];
+            const date = weekDates[index] || ''; // Get display date
             return (
               <div key={dayEn} className='calendar-row'>
-                <div className='day-label'>{dayUa}</div>
+                <div className='day-label'>{`${dayUa} ${date}`}</div>
                 <div className='row-cells'>
                   <HourCells
                     dayEn={dayEn}
@@ -126,9 +175,11 @@ export default function ContactFormsCalendar() {
                     handleMouseDown={handleMouseDown}
                     handleMouseOver={handleMouseOver}
                     handleMouseUp={handleMouseUp}
+                    bookedSlots={forms} // Pass forms as bookedSlots
+                    weekDate={fullWeekDates[index]} // Pass full Date object for the day
                   />
                 </div>
-                <div className='day-label rightSection'>{dayUa}</div>
+                <div className='day-label rightSection'>{`${dayUa} ${date}`}</div>
               </div>
             );
           })}

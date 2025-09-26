@@ -1,19 +1,22 @@
+import React, { useState, useEffect, forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import scss from './HeroContactForm.module.scss';
-import { useState, useEffect } from 'react';
-import React, { forwardRef } from 'react';
-import { BsCalendar } from 'react-icons/bs';
 import clsx from 'clsx';
-import { BsArrowRightShort } from 'react-icons/bs';
-import { addContactForm } from '../../../../store/slices/contactFormSlice';
-import { addAppointment } from '../../../../store/slices/appointmentsSlice';
+import { BsArrowRightShort, BsCalendar } from 'react-icons/bs';
 import DatePicker from 'react-datepicker';
-import { collection, getDocs, query, where } from 'firebase/firestore';
 import 'react-datepicker/dist/react-datepicker.css';
-import { db } from '../../../../firebase';
+import scss from './HeroContactForm.module.scss';
+import { addContactForm, fetchContactForms } from '../../../../store/slices/contactFormSlice';
+
 import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../../../firebase';
+import { getAuth } from 'firebase/auth'; // Import for debugging, optional
 
 export default function HeroContactForm() {
+  const dispatch = useDispatch();
+  const { availableSlots } = useSelector((state) => state.calendar);
+  const { forms, status: contactFormStatus } = useSelector((state) => state.contactForm); // Assuming forms includes appointments data
+
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
   const [phone, setPhone] = useState('');
@@ -21,72 +24,86 @@ export default function HeroContactForm() {
   const [formData, setFormData] = useState({ gdprConsent: false });
   const [submitMessage, setSubmitMessage] = useState('');
   const [bookedTimes, setBookedTimes] = useState([]);
-  const dispatch = useDispatch();
-  const { availableSlots } = useSelector((state) => state.calendar);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
+  // Fetch contact forms (including appointments) on mount
   useEffect(() => {
-    const fetchBookedTimes = async () => {
-      try {
-        const q = query(collection(db, 'appointments'));
-        const querySnapshot = await getDocs(q);
-        const booked = querySnapshot.docs.map((doc) => new Date(doc.data().dateTime));
-        setBookedTimes(booked);
-      } catch (error) {
-        console.error('Error fetching booked times:', error);
-      }
-    };
-    fetchBookedTimes();
-  }, []);
+    dispatch(fetchContactForms());
+  }, [dispatch]);
 
+  // Derive booked times from Redux forms
   useEffect(() => {
-    if (!availableSlots.slots.length) {
+    if (contactFormStatus === 'succeeded') {
+      const booked = forms.filter((form) => form.dateTime).map((form) => new Date(form.dateTime));
+      setBookedTimes(booked);
+    }
+  }, [forms, contactFormStatus]);
+
+  // Load available slots if not already loaded
+  useEffect(() => {
+    if (!availableSlots?.slots?.length) {
       dispatch(fetchAvailableSlots());
     }
-  }, [dispatch, availableSlots.slots.length]);
+  }, [dispatch, availableSlots?.slots?.length]);
 
   const handleInputChange = (e) => {
     const { name, checked } = e.target;
     setFormData((prev) => ({ ...prev, [name]: checked }));
   };
 
+  // Validate and handle phone input
+  const handlePhoneChange = (e) => {
+    const cleaned = e.target.value.replace(/\D/g, '');
+    setPhone(cleaned.slice(0, 12));
+  };
+
+  const validatePhone = (phone) => {
+    const phoneRegex = /^[0-9]{10,12}$/;
+    return phoneRegex.test(phone);
+  };
+
+  // Filter dates to only show days with available slots
+  const filterDate = (date) => {
+    const day = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+    return availableSlots?.slots?.some((slot) => slot.day === day) ?? false;
+  };
+
+  // Filter times to only show available and non-booked slots
   const filterTimes = (time) => {
     const slotHour = time.getHours();
     const slotMinute = time.getMinutes();
     const slotDay = time.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
 
-    const isAvailable = availableSlots.slots.some(
-      (slot) => slot.day === slotDay && slot.hour === slotHour && slot.minute === slotMinute,
-    );
+    const isAvailable =
+      availableSlots?.slots?.some(
+        (slot) => slot.day === slotDay && slot.hour === slotHour && slot.minute === slotMinute,
+      ) ?? false;
 
-    const isBooked = bookedTimes.some(
-      (booked) =>
-        booked.getFullYear() === time.getFullYear() &&
-        booked.getMonth() === time.getMonth() &&
-        booked.getDate() === time.getDate() &&
-        booked.getHours() === slotHour &&
-        booked.getMinutes() === slotMinute,
-    );
+    const isBooked =
+      bookedTimes?.some(
+        (booked) =>
+          booked.getFullYear() === time.getFullYear() &&
+          booked.getMonth() === time.getMonth() &&
+          booked.getDate() === time.getDate() &&
+          booked.getHours() === slotHour &&
+          booked.getMinutes() === slotMinute,
+      ) ?? false;
 
     return isAvailable && !isBooked;
   };
 
-  const filterDate = (date) => {
-    const day = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-    return availableSlots.slots.some((slot) => slot.day === day);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitMessage('');
 
-    // Проверка обязательных полей
+    // Validate required fields
     if (!name.trim() || !city.trim() || !phone.trim() || !selectedDate) {
       setSubmitMessage('Будь ласка, заповніть усі обов’язкові поля');
       return;
     }
 
-    // Проверка телефона (только цифры, длина 10-12)
-    const phoneRegex = /^[0-9]{10,12}$/;
-    if (!phoneRegex.test(phone)) {
+    // Validate phone
+    if (!validatePhone(phone)) {
       setSubmitMessage('Введіть правильний номер телефону (наприклад: 0990915435)');
       return;
     }
@@ -102,12 +119,13 @@ export default function HeroContactForm() {
       city,
       plan: 'СТО Hero',
       source: 'stoHero',
-      dateTime: selectedDate.toISOString(),
       dateCreate: new Date().toISOString(),
+      dateTime: selectedDate.toISOString(),
       status: 'В обработке',
     };
 
     try {
+      // Check if the selected time is already booked
       const q = query(
         collection(db, 'appointments'),
         where('dateTime', '==', formPayload.dateTime),
@@ -118,26 +136,23 @@ export default function HeroContactForm() {
         return;
       }
 
-      const contactResult = await dispatch(addContactForm(formPayload)).unwrap();
+      // Update bookedTimes locally
+      setBookedTimes((prev) => [...prev, new Date(formPayload.dateTime)]);
 
-      await dispatch(
-        addAppointment({
-          dateTime: formPayload.dateTime,
-          contactFormId: contactResult.id,
-          status: 'booked',
-        }),
-      ).unwrap();
-
+      // Show thank-you message
       setSubmitMessage('Дякуємо! Ваша заявка успішно відправлена.');
       setName('');
       setCity('');
       setPhone('');
       setSelectedDate(null);
       setFormData({ gdprConsent: false });
-      setBookedTimes([...bookedTimes, new Date(formPayload.dateTime)]);
+      setIsFormSubmitted(true);
+
+      // Optional: Reset submission state after delay
+      setTimeout(() => setIsFormSubmitted(false), 5000);
     } catch (error) {
-      setSubmitMessage('Помилка при відправці заявки. Спробуйте ще раз.');
       console.error('Form submission error:', error);
+      setSubmitMessage('Помилка при відправці заявки. Спробуйте ще раз.');
     }
   };
 
@@ -153,6 +168,11 @@ export default function HeroContactForm() {
       <BsCalendar className={scss.calendarIcon} />
     </div>
   ));
+
+  // Show loading if contact forms are loading
+  if (contactFormStatus === 'loading') {
+    return <div>Завантаження доступних часів...</div>;
+  }
 
   return (
     <div className={scss.formWidth}>
@@ -181,11 +201,7 @@ export default function HeroContactForm() {
                 type='tel'
                 name='tel'
                 value={phone}
-                onChange={(e) => {
-                  // Разрешаем только цифры
-                  const cleaned = e.target.value.replace(/\D/g, '');
-                  setPhone(cleaned);
-                }}
+                onChange={handlePhoneChange}
                 className={scss.input}
                 required
                 maxLength={12}
@@ -221,24 +237,31 @@ export default function HeroContactForm() {
                 filterDate={filterDate}
                 timeClassName={(time) => {
                   const slotHour = time.getHours();
+                  const slotMinute = time.getMinutes();
                   const slotDay = time
                     .toLocaleDateString('en-US', { weekday: 'long' })
                     .toLowerCase();
 
-                  const isAvailable = availableSlots.slots.some(
-                    (slot) => slot.day === slotDay && slot.hour === slotHour,
-                  );
+                  const isAvailable =
+                    availableSlots?.slots?.some(
+                      (slot) =>
+                        slot.day === slotDay &&
+                        slot.hour === slotHour &&
+                        slot.minute === slotMinute,
+                    ) ?? false;
 
-                  const isBooked = bookedTimes.some(
-                    (booked) =>
-                      booked.getFullYear() === time.getFullYear() &&
-                      booked.getMonth() === time.getMonth() &&
-                      booked.getDate() === time.getDate() &&
-                      booked.getHours() === slotHour,
-                  );
+                  const isBooked =
+                    bookedTimes?.some(
+                      (booked) =>
+                        booked.getFullYear() === time.getFullYear() &&
+                        booked.getMonth() === time.getMonth() &&
+                        booked.getDate() === time.getDate() &&
+                        booked.getHours() === slotHour &&
+                        booked.getMinutes() === slotMinute,
+                    ) ?? false;
 
+                  if (isBooked) return scss.bookedTime; // Grayed out
                   if (!isAvailable) return scss.unavailableTime;
-                  if (isBooked) return scss.bookedTime;
                   return scss.freeTime;
                 }}
                 customInput={<CustomDateInput />}
