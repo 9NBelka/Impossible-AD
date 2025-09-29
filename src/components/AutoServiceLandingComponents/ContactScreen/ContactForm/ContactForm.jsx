@@ -347,7 +347,7 @@ export default function ContactForm() {
       ) : (
         <div className={scss.formAfterMain}>
           <div className={scss.formAfterBlockForImage}>
-            <img src='/images/plane.jpg' />
+            <img src='/images/Email-send.png' />
           </div>
           <h4>Дякуємо за вашу заявку!</h4>
           <p>Ми зв’яжемося з вами найближчим часом для підтвердження.</p>
