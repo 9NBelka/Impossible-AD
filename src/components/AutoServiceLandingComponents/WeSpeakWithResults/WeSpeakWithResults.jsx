@@ -60,14 +60,14 @@ export default function WeSpeakWithResults() {
             <div className={scss.infoBlockList}>
               <div className={scss.infoIconAndText}>
                 {/* <BsTelephone className={scss.infoIcon} /> */}
-                <p>Працуючи з нами:</p>
+                <p>Працюючи з нами:</p>
               </div>
 
               <ul>
                 <li>Стабільний потік звернень від нових клієнтів</li>
                 <li>Нові клієнти вже в перший тиждень співпраці</li>
                 <li>
-                  Всіма налаштуваннями аналітикою і маркетингом займаємось ми, ви тільки
+                  Всіма налаштуваннями, аналітикою і маркетингом займаємось ми, ви тільки
                   відповідаєте на дзвінки
                 </li>
               </ul>
