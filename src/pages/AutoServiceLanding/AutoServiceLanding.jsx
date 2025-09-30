@@ -18,19 +18,15 @@ export default function AutoServiceLanding() {
   const onFooterAndHeaderTextLinksMain = [
     {
       title: 'Які результати?',
-      linkToPage: 'whywescreen',
+      linkToPage: 'results',
     },
     {
-      title: 'Що входить?',
-      linkToPage: 'solutions',
-    },
-    {
-      title: 'Кроки роботи',
+      title: 'Чому саме ми?',
       linkToPage: 'whatwillyouget',
     },
     {
-      title: 'Кейси',
-      linkToPage: 'results',
+      title: 'Чому зараз?',
+      linkToPage: 'solutions',
     },
     {
       title: 'Ціна',
@@ -84,18 +80,18 @@ export default function AutoServiceLanding() {
         isMenuOpen={isMenuOpen}
       />
       <HeroScreen scrollToSection={scrollToSection} />
+      <WeSpeakWithResults />
       <WhatWillYouGet scrollToSection={scrollToSection} />
       {/* <WhyWeScreen /> */}
       <OurSolutions />
       <AutoServiceFormScreen />
-      <WeSpeakWithResults />
+
       <CostScreen scrollToSection={scrollToSection} />
       <AskedQuestions />
 
       <ContactScreen />
 
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinksMain} />
-      <LiveChatForAuto />
     </div>
   );
 }

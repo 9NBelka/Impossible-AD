@@ -92,7 +92,7 @@ export default function ContactScreen() {
   return (
     <section className={scss.contact}>
       <div className={scss.container}>
-        <h2 className={scss.contactMainTitle}>Заробляйте ще більше вже цього місяця</h2>
+        <h2 className={scss.contactMainTitle}>Хочу клієнтів</h2>
 
         <div className={scss.contactContent}>
           <div className={scss.contactInfo}>
@@ -110,8 +110,8 @@ export default function ContactScreen() {
               <BsTelephone className={scss.contactIcon} />
               <div>
                 <p className={scss.contactItemTitleMini}>Телефон</p>
-                <a href='tel:+380733291216'>
-                  <p className={scss.contactItemTextMini}>+380 (73) 329-12-16</p>
+                <a href='tel:+380685504202'>
+                  <p className={scss.contactItemTextMini}>+380 (68) 550-42-02</p>
                 </a>
               </div>
             </div>

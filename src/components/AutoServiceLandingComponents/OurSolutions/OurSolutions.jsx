@@ -3,6 +3,7 @@ import scss from './OurSolutions.module.scss';
 
 import { BsGeoAltFill, BsGraphUpArrow } from 'react-icons/bs';
 import { FaCarSide } from 'react-icons/fa';
+import clsx from 'clsx';
 
 export default function OurSolutions() {
   const [zoomedImage, setZoomedImage] = useState(null);
@@ -21,19 +22,20 @@ export default function OurSolutions() {
     {
       icon: <BsGeoAltFill className={scss.cardIcon} />,
       title: 'Клієнти щодня шукають «СТО поруч»',
+      subTitle: 'а скільки з цих клієнтів ваших?',
       description: 'Якщо не ви — то ваші конкуренти.',
       image: '/images/screen-google-search.jpg',
     },
-    {
-      icon: <BsGraphUpArrow className={scss.cardIcon} />,
-      title: 'Реклама дорожчає',
-      description: 'Хто запускається сьогодні — платить менше.',
-    },
-    {
-      icon: <FaCarSide className={scss.cardIcon} />,
-      title: 'Миттєва окупність',
-      description: 'Перші клієнти вже в перший тиждень.',
-    },
+    // {
+    //   icon: <BsGraphUpArrow className={scss.cardIcon} />,
+    //   title: 'Реклама дорожчає',
+    //   description: 'Хто запускається сьогодні — платить менше.',
+    // },
+    // {
+    //   icon: <FaCarSide className={scss.cardIcon} />,
+    //   title: 'Миттєва окупність',
+    //   description: 'Перші клієнти вже в перший тиждень.',
+    // },
   ];
 
   return (
@@ -45,10 +47,19 @@ export default function OurSolutions() {
 
         <div className={scss.flexBlock}>
           {solutions.map((problem, index) => (
-            <div key={index} className={scss.card}>
-              <div className={scss.cardIconBlock}>{problem.icon}</div>
-              <h3 className={scss.cartTitle}>{problem.title}</h3>
-              <p className={scss.cartDescription}>{problem.description}</p>
+            <div key={index} className={clsx(scss.card, index == 0)}>
+              <div className={scss.cardRow}>
+                <div className={scss.titleAndSubTitleBlockColumn}>
+                  <div className={scss.titleAndSubTitleBlock}>
+                    <h3 className={scss.cartTitle}>{problem.title}</h3>
+                  </div>
+                  <div className={scss.cardIconBlock}>{problem.icon}</div>
+                  <div className={scss.titleAndSubTitleBlockTwo}>
+                    <p className={scss.cartDescription}>{problem.subTitle}</p>
+                  </div>
+                </div>
+                {/* <p className={scss.cartDescription}>{problem.description}</p> */}
+              </div>
               {problem.image && (
                 <img
                   src={problem.image}
@@ -68,9 +79,9 @@ export default function OurSolutions() {
           </div>
         )}
 
-        <div className={scss.buttonBottomSection}>
+        {/* <div className={scss.buttonBottomSection}>
           <button className={scss.buttonBottom}>Дізнатись більше</button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

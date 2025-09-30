@@ -1,6 +1,5 @@
 .contact {
-  padding: 3.5vw 0;
-  // background: var(--main-page-color-white);
+  padding: 2vw 0;
   background: linear-gradient(
     135deg,
     var(--main-page-b-color-blue1),
@@ -99,7 +98,7 @@
 
 @media (max-width: 1024px) {
   .contact {
-    padding: 5vw 0;
+    padding: 4vw 0;
 
     & .container {
       max-width: 80vw;
@@ -112,45 +111,18 @@
     & .contactContent {
       align-items: center;
       flex-direction: column;
-      margin-top: 2vw;
+      margin-top: 0vw;
     }
 
     & .contactInfo {
-      width: 55%;
-      gap: 1vw;
-
-      & h3 {
-        text-align: center;
-        font-size: 2.4vw;
-      }
-
-      & .contactItem {
-        padding: 2vw;
-        margin-top: 1vw;
-        border-radius: 1.5vw;
-        gap: 2vw;
-
-        & .contactIcon {
-          width: 2.5vw;
-          height: 2.5vw;
-        }
-
-        & .contactItemTitleMini {
-          font-size: 1.6vw;
-        }
-
-        & .contactItemTextMini {
-          font-size: 1.6vw;
-          margin-top: 0.5vw;
-        }
-      }
+      display: none;
     }
   }
 }
 
 @media (max-width: 576px) {
   .contact {
-    padding: 10vw 0;
+    padding: 5vw 0;
 
     & .container {
       max-width: 87vw;
@@ -162,36 +134,6 @@
 
     & .contactContent {
       flex-direction: column;
-      margin-top: 5vw;
-    }
-
-    & .contactInfo {
-      width: 100%;
-      gap: 2vw;
-      & h3 {
-        font-size: 4.2vw;
-      }
-
-      & .contactItem {
-        gap: 3vw;
-        padding: 3vw;
-        margin-top: 1vw;
-        border-radius: 3vw;
-
-        & .contactIcon {
-          width: 4.5vw;
-          height: 4.5vw;
-        }
-
-        & .contactItemTitleMini {
-          font-size: 3.6vw;
-        }
-
-        & .contactItemTextMini {
-          font-size: 3.6vw;
-          margin-top: 1vw;
-        }
-      }
     }
   }
 }

@@ -3,7 +3,7 @@
   padding: 0vw 0;
   text-align: center;
   width: 100%;
-  padding: 3vw 0;
+  padding: 2.2vw 0;
 
   & .container {
     max-width: 65vw;
@@ -17,6 +17,17 @@
     font-weight: var(--font-weight-bold);
     line-height: var(--font-lineh-small);
     margin: 0;
+  }
+
+  & .subTitle {
+    display: flex;
+    justify-content: center;
+    font-size: 1vw;
+    color: #f8cb2f;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small);
+    margin-top: 0.5vw;
   }
 
   & p {
@@ -53,7 +64,7 @@
     & .formGroup {
       display: flex;
       flex-direction: column;
-      width: 35%;
+      width: 34%;
 
       &.checkboxGroup {
         flex-direction: row;
@@ -136,9 +147,9 @@
     justify-content: flex-end;
     align-items: center;
     height: 100%;
-    background: var(--main-page-b-color-white);
+    background: #f8cb2f;
     border: none;
-    padding: 0.7vw 1vw;
+    padding: 0.7vw 2vw;
     border-radius: 0.6vw;
     font-size: 0.85vw;
     color: #52535f;
@@ -170,7 +181,7 @@
 @media (max-width: 1024px) {
   .formForDownload {
     padding: 0vw 0;
-    padding: 7vw 0;
+    padding: 4vw 0;
 
     & .container {
       max-width: 95vw;
@@ -178,6 +189,11 @@
 
     & h2 {
       font-size: 3.6vw;
+    }
+
+    & .subTitle {
+      font-size: 2.6vw;
+      margin-top: 1.5vw;
     }
 
     & p {
@@ -269,7 +285,7 @@
 
 @media (max-width: 576px) {
   .formForDownload {
-    padding: 14vw 0;
+    padding: 8vw 0;
 
     & .container {
       max-width: 90vw;
@@ -277,6 +293,11 @@
 
     & h2 {
       font-size: 8vw;
+    }
+
+    & .subTitle {
+      font-size: 4.6vw;
+      margin-top: 5vw;
     }
 
     & p {
@@ -294,7 +315,7 @@
           width: 100%;
           flex-direction: column;
           gap: 4vw;
-          margin-top: 7vw;
+          margin-top: 3vw;
         }
       }
 
@@ -315,6 +336,8 @@
             }
 
             & .checkmarkText {
+              width: 100%;
+              flex-direction: column;
               font-size: 3.6vw;
 
               & .privacyLink {

@@ -91,7 +91,7 @@
         flex-direction: row;
         align-items: center;
         gap: 0.25vw;
-        margin-top: 1.5vw;
+        margin-top: 0.5vw;
         cursor: pointer;
         font-size: 0.6vw;
         font-family: var(--font-Inter);
@@ -161,7 +161,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 1.5vw;
+  margin-top: 0.5vw;
 
   & .button {
     display: flex;
@@ -231,7 +231,7 @@
         & .checkboxLabel {
           align-items: center;
           gap: 0.75vw;
-          margin-top: 3vw;
+          margin-top: 0vw;
           font-size: 1.8vw;
           text-align: left;
 
@@ -269,9 +269,9 @@
   }
 
   .blockButtonFlex {
-    margin-top: 3vw;
+    margin-top: 0vw;
     .button {
-      padding: 1.5vw 3vw;
+      padding: 1.7vw 3vw;
       border-radius: 1vw;
       font-size: 1.8vw;
       box-shadow: 0 0.2vw 0.75vw rgba(59, 130, 246, 0.3);
@@ -298,7 +298,7 @@
 @media (max-width: 576px) {
   .formMainBlock {
     border-radius: 3vw;
-    margin-top: 7vw;
+    margin-top: 5vw;
     padding: 7vw 6vw;
     padding-top: 1vw;
 

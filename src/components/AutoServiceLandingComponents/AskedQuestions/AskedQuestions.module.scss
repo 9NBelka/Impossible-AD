@@ -1,17 +1,17 @@
 .problemsScreen {
   background: var(--main-page-b-color-white3);
-  padding: 5vw 0;
+  padding: 2vw 0;
 }
 
 @media (max-width: 1024px) {
   .problemsScreen {
-    padding: 7vw 0;
+    padding: 4vw 0;
   }
 }
 
 @media (max-width: 576px) {
   .problemsScreen {
-    padding: 14vw 0;
+    padding: 5vw 0;
   }
 }
 
@@ -68,20 +68,20 @@
   align-items: center;
   overflow: hidden;
   gap: 1vw;
-  margin-top: 3vw;
+  margin-top: 2vw;
 }
 
 @media (max-width: 1024px) {
   .accordion {
     gap: 2vw;
-    margin-top: 5vw;
+    margin-top: 4vw;
   }
 }
 
 @media (max-width: 576px) {
   .accordion {
     gap: 4vw;
-    margin-top: 10vw;
+    margin-top: 5vw;
   }
 }
 

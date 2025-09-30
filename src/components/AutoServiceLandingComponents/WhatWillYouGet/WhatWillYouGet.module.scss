@@ -1,18 +1,17 @@
 .problemsScreen {
   background: var(--main-page-b-color-white);
-
-  padding: 5vw 0;
+  padding: 2vw 0;
 }
 
 @media (max-width: 1024px) {
   .problemsScreen {
-    padding: 7vw 0;
+    padding: 4vw 0;
   }
 }
 
 @media (max-width: 576px) {
   .problemsScreen {
-    padding: 14vw 0;
+    padding: 5vw 0;
   }
 }
 
@@ -37,8 +36,8 @@
   text-align: center;
 
   h2 {
-    font-size: 1.8vw;
-    color: var(--main-page-b-color-darkGrey);
+    font-size: 2.4vw;
+    color: var(--main-page-b-color-lightBlue);
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-bold);
     line-height: var(--font-lineh-small2);
@@ -68,14 +67,14 @@
   // justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.5vw;
-  margin-top: 3vw;
+  margin-top: 2vw;
 }
 
 @media (max-width: 1024px) {
   .flexBlock {
     justify-content: space-between;
     gap: 2vw;
-    margin-top: 5vw;
+    margin-top: 4vw;
   }
 }
 
@@ -83,7 +82,7 @@
   .flexBlock {
     justify-content: space-between;
     gap: 5vw;
-    margin-top: 10vw;
+    margin-top: 5vw;
   }
 }
 
@@ -91,8 +90,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 31.79%;
-  height: 100%;
+  width: 48%;
+  // height: 100%;
   background: var(--main-page-b-color-white);
   padding: 1.25vw 1.25vw;
   border-radius: 1vw;
@@ -119,7 +118,7 @@
     left: 0;
     right: 0;
     height: 0.2vw;
-    background: var(--main-page-b-color-green2);
+    background: var(--auto-page-lightBlue);
     transform: scaleX(0);
     transition: transform 0.4s ease;
   }
@@ -135,7 +134,7 @@
     & .cardIconBlock {
       display: flex;
       transform: scale(1.05);
-      background: var(--main-page-b-color-green2);
+      background: var(--auto-page-lightBlue);
       color: var(--main-page-b-color-white);
 
       & svg {
@@ -150,11 +149,12 @@
     width: 80%;
 
     & .cartTitle {
-      font-size: 0.85vw;
+      font-size: 1vw;
       color: var(--main-page-b-color-darkGrey);
       font-family: var(--font-Inter);
       font-weight: var(--font-weight-smallStrong);
       line-height: var(--font-lineh-normal);
+      width: 60%;
     }
   }
 
@@ -184,6 +184,7 @@
       width: 80%;
 
       & .cartTitle {
+        width: auto;
         font-size: 2vw;
       }
     }
@@ -220,7 +221,7 @@
 .cardIconBlock {
   width: 3vw;
   height: 3vw;
-  background: var(--main-page-b-color-lightGreen);
+  background: #006eff23;
   border-radius: 0.8vw;
   display: flex;
   align-items: center;
@@ -230,7 +231,7 @@
   & .cardIcon {
     width: 1.2vw;
     height: 1.2vw;
-    color: var(--main-page-b-color-green2);
+    color: var(--main-page-b-color-lightBlue);
     transition: all 0.3s ease;
   }
 }
@@ -266,9 +267,15 @@
   flex-direction: column;
   align-items: center;
   box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.1);
-  padding: 2.5vw 0vw;
+  padding: 2vw 0vw;
   border-radius: 1vw;
   margin-top: 3vw;
+
+  & .blockTextAndButtonBottomSectionBigText {
+    font-size: 2.8vw;
+    color: var(--main-page-b-color-lightBlue);
+    margin-top: 0;
+  }
 
   & h4 {
     font-size: 1.1vw;
@@ -276,6 +283,7 @@
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-bold);
     line-height: var(--font-lineh-small2);
+    margin-top: 0.5vw;
   }
 
   & p {
@@ -322,8 +330,15 @@
     border-radius: 1.5vw;
     margin-top: 5vw;
 
+    & .blockTextAndButtonBottomSectionBigText {
+      font-size: 5vw;
+      color: var(--main-page-b-color-lightBlue);
+      margin-top: 0;
+    }
+
     & h4 {
       font-size: 2.5vw;
+      margin-top: 1vw;
     }
 
     & p {
@@ -379,24 +394,30 @@
 .imageContainer {
   display: flex;
   flex-direction: column;
+  height: 16vw;
+  overflow: hidden;
   gap: 0.5vw;
 }
 
 @media (max-width: 1024px) {
   .imageContainer {
     gap: 2vw;
+    height: 24vw;
   }
 }
 
 @media (max-width: 576px) {
   .imageContainer {
     gap: 5vw;
+    height: 48vw;
   }
 }
 
 .cardImage {
   width: 100%;
   height: auto;
+  object-fit: cover;
+  object-position: center;
   cursor: pointer;
   transition: 0.3s ease;
 }

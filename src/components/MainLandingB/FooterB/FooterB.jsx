@@ -79,9 +79,9 @@ export default function FooterB({ onFooterTextLinks }) {
                   <BsEnvelope />
                   impossiblead2025@gmail.com
                 </a>
-                <a href='tel:+380733291216' className={scss.contactLink}>
+                <a href='tel:+380685504202' className={scss.contactLink}>
                   <BsTelephone />
-                  +380 (73) 329-12-16
+                  +380 (68) 550-42-02
                 </a>
                 <a href='https://t.me/Impossibleadcom' className={scss.contactLink} target='_blank'>
                   <BsChat />

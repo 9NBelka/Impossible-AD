@@ -12,15 +12,18 @@ export default function CostScreen({ scrollToSection }) {
         <div className={scss.mainCostBlockWidth}>
           <div className={scss.mainCostBlock}>
             <div className={scss.blockWithPrice}>
-              <p>499 € на місяць</p>
+              <p>499 € у місяць</p>
+            </div>
+            <div className={scss.blockWithPriceTwo}>
+              <p>349 € з 4 місяця</p>
             </div>
             <div className={scss.iconAndTextBlockRow}>
               {/* <BsClockHistory className={scss.icon} /> */}
               <div className={scss.iconAndTextBlockColumn}>
                 <h5>Наші послуги</h5>
                 <ul>
-                  <li>250 нових клієнтів за 3 місяці</li>
-                  <li>Ціна дзвінка — не дорожче 5$</li>
+                  <li>300 нових клієнтів за 3 місяці</li>
+                  <li>Ціна дзвінка — не дорожче 200 грн.</li>
                   <li>Робочий сайт для вашого СТО</li>
                   <li>Telegram-бот для заявок</li>
                   <li>IP-телефонія з записом дзвінків</li>
@@ -39,7 +42,7 @@ export default function CostScreen({ scrollToSection }) {
                 </ul>
               </div>
             </div>
-            <p className={scss.textDodatok}>* додатково сплачується бюджет на рекламу</p>
+            {/* <p className={scss.textDodatok}>* додатково сплачується бюджет на рекламу</p> */}
             <div
               className={clsx(
                 scss.iconAndTextBlockRow,

@@ -25,29 +25,25 @@ export default function WhatWillYouGet({ scrollToSection }) {
 
   const problems = [
     {
-      icon: <BsBullseye className={scss.cardIcon} />,
-      title: '250 гарантованих клієнтів не дорожче 5$',
-      image: '/images/excel-table1.jpg',
-      imageTwo: '/images/excel-table2.jpg',
-    },
-    {
       icon: <BsGlobe2 className={scss.cardIcon} />,
-      title: 'Робочий сайт для вашого СТО',
+      title: 'Новий налаштований сайт для швидкого старту',
       image: '/images/screenshot-heroScreen-example.png',
     },
     {
-      icon: <BsRobot className={scss.cardIcon} />,
-      title: 'Telegram-бот для заявок',
-      image: '/images/screenshot-bot-on-telegram.png',
+      icon: <BsTelephone className={scss.cardIcon} />,
+      title: 'Підключимо IP-телефонію до рекламних компаній',
+      image: '/images/screen-binotella-table.jpg',
     },
     {
-      icon: <BsTelephone className={scss.cardIcon} />,
-      title: 'IP-телефонія з записом дзвінків',
-      image: '/images/screen-binotella-table.jpg',
+      icon: <BsRobot className={scss.cardIcon} />,
+      title: 'Підключимо Telegram-бот до сайту',
+      image: '/images/screenshot-bot-on-telegram.png',
     },
     {
       icon: <BsFileEarmarkMedical className={scss.cardIcon} />,
       title: 'Щотижневий короткий звіт з результатами',
+      image: '/images/excel-table1.jpg',
+      imageTwo: '/images/excel-table2.jpg',
     },
   ];
 
@@ -97,7 +93,10 @@ export default function WhatWillYouGet({ scrollToSection }) {
         )}
 
         <div className={scss.blockTextAndButtonBottomSection}>
-          <h4>👉 Усе це входить у пакет. Конкуренти беруть за це окремо.</h4>
+          <h4 className={scss.blockTextAndButtonBottomSectionBigText}>
+            👉 Усе це входить у пакет.
+          </h4>
+          <h4>Конкуренти беруть за це окремо.</h4>
           <p>
             Представники Google відзначили, що наші рекламні кампанії для СТО налаштовані на
             професійному рівні. Це означає: ви отримуєте якісну рекламу за стандартами Google

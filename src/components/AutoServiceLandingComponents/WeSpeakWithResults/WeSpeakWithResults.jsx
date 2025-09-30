@@ -1,7 +1,7 @@
 import { BsArrowUpRight, BsPeople, BsPlay, BsTelephone } from 'react-icons/bs';
 import scss from './WeSpeakWithResults.module.scss';
-import clsx from 'clsx';
 import { useState, useRef } from 'react';
+import { LiaAwardSolid } from 'react-icons/lia';
 
 export default function WeSpeakWithResults() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -18,13 +18,15 @@ export default function WeSpeakWithResults() {
   return (
     <section className={scss.problemsScreen} id='results'>
       <div className={scss.container}>
-        <div className={scss.header}>
+        {/* <div className={scss.header}>
           <h2>Реальний результат</h2>
-        </div>
+        </div> */}
         <div className={scss.caseBlockMain}>
           <div className={scss.caseBlock}>
-            <h3 className={scss.caseBlockTitle}>📹 Кейс просування СТО в Україні</h3>
-            <p className={scss.caseBlockText}>Зростання кількості клієнтів на 72% за 3 місяці</p>
+            <h3 className={scss.caseBlockTitle}>
+              <LiaAwardSolid className={scss.icon} /> Наші результати
+            </h3>
+            {/* <p className={scss.caseBlockText}>Зростання кількості клієнтів на 72% за 3 місяці </p> */}
             <div className={scss.videoWrapper}>
               <video
                 ref={videoRef}
@@ -45,25 +47,29 @@ export default function WeSpeakWithResults() {
           <div className={scss.infoBlock}>
             <div className={scss.infoBlockRow}>
               <div className={scss.infoBlockColumn}>
-                <BsArrowUpRight className={scss.infoIconTop} />
-                <h4>від 1€</h4>
-                <p>Вартість ліда</p>
+                {/* <BsArrowUpRight className={scss.infoIconTop} /> */}
+                <h4>Від 47.59 грн.</h4>
+                <p>Звернення клієнта</p>
               </div>
               <div className={scss.infoBlockColumn}>
-                <BsPeople className={clsx(scss.infoIconTop, scss.blueIcon)} />
-                <h4 className={scss.blueText}>250+</h4>
-                <p>Маршрутів на місяць</p>
+                {/* <BsPeople className={clsx(scss.infoIconTop, scss.blueIcon)} /> */}
+                <h4 className={scss.blueText}>Більше 170</h4>
+                <p>Клієнтів у місяць</p>
               </div>
             </div>
             <div className={scss.infoBlockList}>
               <div className={scss.infoIconAndText}>
-                <BsTelephone className={scss.infoIcon} />
-                <p>Результат на 4-му місяці:</p>
+                {/* <BsTelephone className={scss.infoIcon} /> */}
+                <p>Працуючи з нами:</p>
               </div>
+
               <ul>
-                <li>Понад 250 користувачів проклали маршрут до СТО за місяць</li>
-                <li>Клієнт отримує стабільний потік звернень: і дзвінки, і заявки</li>
-                <li>Прозорий облік кожного контакту через Апі телефонію</li>
+                <li>Стабільний потік звернень від нових клієнтів</li>
+                <li>Нові клієнти вже в перший тиждень співпраці</li>
+                <li>
+                  Всіма налаштуваннями аналітикою і маркетингом займаємось ми, ви тільки
+                  відповідаєте на дзвінки
+                </li>
               </ul>
             </div>
           </div>

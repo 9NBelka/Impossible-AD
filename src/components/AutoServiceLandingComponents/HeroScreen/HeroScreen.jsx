@@ -1,30 +1,31 @@
 import { FaArrowRight } from 'react-icons/fa';
 import scss from './HeroScreen.module.scss';
-import clsx from 'clsx';
-import HeroContactForm from './HeroContactForm/HeroContactForm';
 
 export default function HeroScreen({ scrollToSection }) {
+  //tf просто 100
   return (
     <section className={scss.hero} id='hero'>
       <div className={scss.container}>
         <div className={scss.content}>
           <h1 className={scss.title}>
-            <span className={scss.brand}> 250</span> нових клієнтів за 3 місяці — або повернемо
-            гроші.
+            <span className={scss.wordBeforeSto}>від</span>
+            <span className={scss.brand}>100</span>
+            <p className={scss.subtitleMain}>клієнтів у місяць</p>
           </h1>
+          {/* <h1 className={scss.title}>клієнтів у місяць</h1> */}
 
-          <p className={scss.subtitle}>
-            Вартість дзвінка — не більше <span className={scss.brandTwo}>200грн.</span>
-          </p>
           <div className={scss.ctaBlock}>
+            <p className={scss.subtitle}>
+              <span className={scss.brandTwo}> або повернемо гроші </span>
+            </p>
             <button className={scss.ctaButton} onClick={() => scrollToSection('contacts')}>
-              Хочу клієнтів <FaArrowRight className={scss.heroArrowIcon} />
+              Згоден <FaArrowRight className={scss.heroArrowIcon} />
             </button>
           </div>
         </div>
-        <div className={scss.formComponent}>
+        {/* <div className={scss.formComponent}>
           <HeroContactForm />
-        </div>
+        </div> */}
       </div>
     </section>
   );

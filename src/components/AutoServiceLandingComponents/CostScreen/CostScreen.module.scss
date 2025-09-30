@@ -1,18 +1,17 @@
 .problemsScreen {
   background: var(--main-page-b-color-white);
-
-  padding: 5vw 0;
+  padding: 2vw 0;
 }
 
 @media (max-width: 1024px) {
   .problemsScreen {
-    padding: 7vw 0;
+    padding: 4vw 0;
   }
 }
 
 @media (max-width: 576px) {
   .problemsScreen {
-    padding: 14vw 0;
+    padding: 5vw 0;
   }
 }
 
@@ -67,18 +66,18 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 3vw;
+  margin-top: 2vw;
 }
 
 @media (max-width: 1024px) {
   .mainCostBlockWidth {
-    margin-top: 5vw;
+    margin-top: 4vw;
   }
 }
 
 @media (max-width: 576px) {
   .mainCostBlockWidth {
-    margin-top: 10vw;
+    margin-top: 5vw;
   }
 }
 
@@ -90,7 +89,7 @@
   background: var(--main-page-b-color-white);
   padding: 1vw 1vw;
   border-radius: 1vw;
-  padding-top: 4vw;
+  padding-top: 6.6vw;
   box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease;
   border: 0.1vw solid var(--auto-page-color-light-lightBlue5);
@@ -101,6 +100,25 @@
   & .blockWithPrice {
     position: absolute;
     top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0.75vw 0;
+    background: var(--auto-page-lightBlue);
+
+    & p {
+      font-size: 1.2vw;
+      color: var(--main-page-b-color-white);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--font-lineh-small);
+    }
+  }
+
+  & .blockWithPriceTwo {
+    position: absolute;
+    top: 8%;
     left: 0;
     display: flex;
     width: 100%;
@@ -130,11 +148,20 @@
   .mainCostBlock {
     width: 100%;
     padding: 3vw 3vw;
-    padding-top: 11vw;
+    padding-top: 21vw;
     border-radius: 1.5vw;
     gap: 3vw;
 
     & .blockWithPrice {
+      padding: 2.5vw 0;
+
+      & p {
+        font-size: 3vw;
+      }
+    }
+
+    & .blockWithPriceTwo {
+      top: 10.5%;
       padding: 2.5vw 0;
 
       & p {
@@ -151,7 +178,7 @@
 @media (max-width: 576px) {
   .mainCostBlock {
     padding: 6vw 4vw;
-    padding-top: 18vw;
+    padding-top: 27vw;
     border-radius: 3vw;
     gap: 5vw;
 
@@ -160,6 +187,15 @@
 
       & p {
         font-size: 5.2vw;
+      }
+    }
+
+    & .blockWithPriceTwo {
+      top: 8%;
+      padding: 2vw 0;
+
+      & p {
+        font-size: 4vw;
       }
     }
 
