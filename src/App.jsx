@@ -17,6 +17,7 @@ import CookieConsent from './components/CookieConsent/CookieConsent';
 import AutoServiceLanding from './pages/AutoServiceLanding/AutoServiceLanding';
 import ThanksPageOnFormDownloadAutoService from './pages/ThanksPageOnFormDownloadAutoService/ThanksPageOnFormDownloadAutoService';
 import ContactForms from './components/DashboardComponents/ContactForms/ContactForms';
+import TemplateSto from './pages/Templates/TemplateSto/TemplateSto';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -76,6 +77,7 @@ export default function App() {
           {isAutoSubdomain ? (
             <>
               <Route path='/' element={<AutoServiceLanding />} />
+              <Route path='/templateSto' element={<TemplateSto />} />
               <Route
                 path='/thanks-auto-service'
                 element={<ThanksPageOnFormDownloadAutoService />}
@@ -100,6 +102,7 @@ export default function App() {
               <Route path='/web-development' element={<WebDevelopment />} />
               <Route path='/business-automation' element={<BusinessAutomation />} />
               <Route path='/auto' element={<AutoServiceLanding />} />
+              <Route path='/templateSto' element={<TemplateSto />} />
               <Route
                 path='/home'
                 element={

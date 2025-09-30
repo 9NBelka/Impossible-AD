@@ -6,16 +6,14 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import scss from './HeroContactForm.module.scss';
 import { addContactForm, fetchContactForms } from '../../../../store/slices/contactFormSlice';
-
 import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../../firebase';
-import { getAuth } from 'firebase/auth'; // Import for debugging, optional
 
 export default function HeroContactForm() {
   const dispatch = useDispatch();
   const { availableSlots } = useSelector((state) => state.calendar);
-  const { forms, status: contactFormStatus } = useSelector((state) => state.contactForm); // Assuming forms includes appointments data
+  const { forms, status: contactFormStatus } = useSelector((state) => state.contactForm);
 
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
@@ -127,7 +125,7 @@ export default function HeroContactForm() {
     try {
       // Check if the selected time is already booked
       const q = query(
-        collection(db, 'appointments'),
+        collection(db, 'contactform'), // Updated to match ContactForm collection name
         where('dateTime', '==', formPayload.dateTime),
       );
       const querySnapshot = await getDocs(q);
@@ -136,20 +134,21 @@ export default function HeroContactForm() {
         return;
       }
 
+      // Submit form to Firebase
+      await dispatch(addContactForm(formPayload)).unwrap();
+
       // Update bookedTimes locally
       setBookedTimes((prev) => [...prev, new Date(formPayload.dateTime)]);
 
       // Show thank-you message
-      setSubmitMessage('Дякуємо! Ваша заявка успішно відправлена.');
+      setIsFormSubmitted(true);
+
+      // Clear form
       setName('');
       setCity('');
       setPhone('');
       setSelectedDate(null);
       setFormData({ gdprConsent: false });
-      setIsFormSubmitted(true);
-
-      // Optional: Reset submission state after delay
-      setTimeout(() => setIsFormSubmitted(false), 5000);
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitMessage('Помилка при відправці заявки. Спробуйте ще раз.');
@@ -169,139 +168,151 @@ export default function HeroContactForm() {
     </div>
   ));
 
-  // Show loading if contact forms are loading
-  if (contactFormStatus === 'loading') {
-    return <div>Завантаження доступних часів...</div>;
-  }
-
   return (
     <div className={scss.formWidth}>
       <div className={scss.formMainBlock}>
-        <div className={scss.formInputsAndCheckoutBlock}>
-          <div className={scss.formInputsAndCheckout}>
-            <h3>Потрібні кліенти?</h3>
-            <div className={scss.formGroup}>
-              <label>
-                Ім'я <span className={scss.importantText}>*</span>
-              </label>
-              <input
-                type='text'
-                name='name'
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className={scss.input}
-                required
-              />
-            </div>
-            <div className={scss.formGroup}>
-              <label>
-                Телефон <span className={scss.importantText}>*</span>
-              </label>
-              <input
-                type='tel'
-                name='tel'
-                value={phone}
-                onChange={handlePhoneChange}
-                className={scss.input}
-                required
-                maxLength={12}
-              />
-            </div>
-            <div className={scss.formGroup}>
-              <label>
-                Місто <span className={scss.importantText}>*</span>
-              </label>
-              <input
-                type='text'
-                name='city'
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                className={scss.input}
-                required
-              />
-            </div>
-            <div className={scss.formGroup}>
-              <label>
-                Дата та час дзвінка <span className={scss.importantText}>*</span>
-              </label>
-              <DatePicker
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                showTimeSelect
-                timeFormat='HH:mm'
-                timeIntervals={15}
-                dateFormat='dd/MM/yyyy HH:mm'
-                wrapperClassName={scss.datePickerWrapper}
-                minDate={new Date()}
-                filterTime={filterTimes}
-                filterDate={filterDate}
-                timeClassName={(time) => {
-                  const slotHour = time.getHours();
-                  const slotMinute = time.getMinutes();
-                  const slotDay = time
-                    .toLocaleDateString('en-US', { weekday: 'long' })
-                    .toLowerCase();
+        {!isFormSubmitted ? (
+          <div className={scss.formInputsAndCheckoutBlock}>
+            <div className={scss.formInputsAndCheckout}>
+              <h3>Потрібні кліенти?</h3>
+              <div className={scss.formGroup}>
+                <label>
+                  Ім'я <span className={scss.importantText}>*</span>
+                </label>
+                <input
+                  type='text'
+                  name='name'
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className={scss.input}
+                  required
+                />
+              </div>
+              <div className={scss.formGroup}>
+                <label>
+                  Телефон <span className={scss.importantText}>*</span>
+                </label>
+                <input
+                  type='tel'
+                  name='tel'
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  className={scss.input}
+                  required
+                  maxLength={12}
+                />
+              </div>
+              <div className={scss.formGroup}>
+                <label>
+                  Місто <span className={scss.importantText}>*</span>
+                </label>
+                <input
+                  type='text'
+                  name='city'
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  className={scss.input}
+                  required
+                />
+              </div>
+              <div className={scss.formGroup}>
+                <label>
+                  Дата та час дзвінка <span className={scss.importantText}>*</span>
+                </label>
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  showTimeSelect
+                  timeFormat='HH:mm'
+                  timeIntervals={15}
+                  dateFormat='dd/MM/yyyy HH:mm'
+                  wrapperClassName={scss.datePickerWrapper}
+                  minDate={new Date()}
+                  filterTime={filterTimes}
+                  filterDate={filterDate}
+                  timeClassName={(time) => {
+                    const slotHour = time.getHours();
+                    const slotMinute = time.getMinutes();
+                    const slotDay = time
+                      .toLocaleDateString('en-US', { weekday: 'long' })
+                      .toLowerCase();
 
-                  const isAvailable =
-                    availableSlots?.slots?.some(
-                      (slot) =>
-                        slot.day === slotDay &&
-                        slot.hour === slotHour &&
-                        slot.minute === slotMinute,
-                    ) ?? false;
+                    const isAvailable =
+                      availableSlots?.slots?.some(
+                        (slot) =>
+                          slot.day === slotDay &&
+                          slot.hour === slotHour &&
+                          slot.minute === slotMinute,
+                      ) ?? false;
 
-                  const isBooked =
-                    bookedTimes?.some(
-                      (booked) =>
-                        booked.getFullYear() === time.getFullYear() &&
-                        booked.getMonth() === time.getMonth() &&
-                        booked.getDate() === time.getDate() &&
-                        booked.getHours() === slotHour &&
-                        booked.getMinutes() === slotMinute,
-                    ) ?? false;
+                    const isBooked =
+                      bookedTimes?.some(
+                        (booked) =>
+                          booked.getFullYear() === time.getFullYear() &&
+                          booked.getMonth() === time.getMonth() &&
+                          booked.getDate() === time.getDate() &&
+                          booked.getHours() === slotHour &&
+                          booked.getMinutes() === slotMinute,
+                      ) ?? false;
 
-                  if (isBooked) return scss.bookedTime; // Grayed out
-                  if (!isAvailable) return scss.unavailableTime;
-                  return scss.freeTime;
-                }}
-                customInput={<CustomDateInput />}
-                required
-              />
+                    if (isBooked) return scss.bookedTime; // Grayed out
+                    if (!isAvailable) return scss.unavailableTime;
+                    return scss.freeTime;
+                  }}
+                  customInput={<CustomDateInput />}
+                  required
+                />
+              </div>
+              <div className={clsx(scss.formGroup, scss.checkboxGroup)}>
+                <label className={scss.checkboxLabel}>
+                  <input
+                    type='checkbox'
+                    name='gdprConsent'
+                    checked={formData.gdprConsent}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <span className={scss.checkmark}></span>
+                  <span className={scss.checkmarkText}>
+                    Я згоден на обробку моїх персональних даних відповідно до
+                    <a href='/privacy-policy' className={scss.privacyLink} target='_blank'>
+                      Політики конфіденційності
+                    </a>
+                  </span>
+                </label>
+              </div>
+              <div className={scss.blockButtonFlex}>
+                <button type='button' onClick={handleSubmit} className={scss.button}>
+                  Відправити заявку <BsArrowRightShort className={scss.buttonIconDownload} />
+                </button>
+              </div>
+              {submitMessage && (
+                <div
+                  className={clsx(
+                    scss.submitMessage,
+                    submitMessage.includes('Дякуємо!') ? scss.success : scss.error,
+                  )}>
+                  {submitMessage}
+                </div>
+              )}
             </div>
           </div>
-          <div className={clsx(scss.formGroup, scss.checkboxGroup)}>
-            <label className={scss.checkboxLabel}>
-              <input
-                type='checkbox'
-                name='gdprConsent'
-                checked={formData.gdprConsent}
-                onChange={handleInputChange}
-                required
-              />
-              <span className={scss.checkmark}></span>
-              <span className={scss.checkmarkText}>
-                Я згоден на обробку моїх персональних даних відповідно до
-                <a href='/privacy-policy' className={scss.privacyLink} target='_blank'>
-                  Політики конфіденційності
-                </a>
-              </span>
-            </label>
-          </div>
-          <div className={scss.blockButtonFlex}>
-            <button type='button' onClick={handleSubmit} className={scss.button}>
-              Відправити заявку <BsArrowRightShort className={scss.buttonIconDownload} />
-            </button>
-          </div>
-          {submitMessage && (
-            <div
-              className={clsx(
-                scss.submitMessage,
-                submitMessage.includes('Дякуємо!') ? scss.success : scss.error,
-              )}>
-              {submitMessage}
+        ) : (
+          <div className={scss.formAfterMain}>
+            <div className={scss.formAfterBlockForImage}>
+              <img src='/images/Email-send.png' alt='Дякуємо за заявку' />
             </div>
-          )}
-        </div>
+            <h4>Дякуємо за вашу заявку!</h4>
+            <p>Ми зв’яжемося з вами найближчим часом для підтвердження.</p>
+            <a
+              className={scss.linkForInstagram}
+              href='https://www.instagram.com/ad_impossible/'
+              target='_blank'
+              rel='noreferrer'>
+              Закулісся та корисні поради у нашому Instagram
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

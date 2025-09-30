@@ -96,7 +96,7 @@
   align-items: center;
   width: 50%;
   background: linear-gradient(135deg, #066ff91a, #ffa9291a);
-  padding: 2vw 0;
+  padding: 1.5vw 1.5vw;
   border-radius: 0.5vw;
 
   & .iconBlockPlay {
@@ -121,7 +121,6 @@
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-bold);
     line-height: var(--font-lineh-small);
-    margin-top: 1.5vw;
   }
 
   & .caseBlockText {
@@ -130,7 +129,7 @@
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-smallStrong);
     line-height: var(--font-lineh-big);
-    margin-top: 1vw;
+    margin-top: 0.5vw;
   }
 }
 
@@ -138,7 +137,7 @@
   .caseBlock {
     height: 100%;
     width: 100%;
-    padding: 4vw 0;
+    padding: 3vw 3vw;
     border-radius: 1.5vw;
 
     & .iconBlockPlay {
@@ -153,19 +152,18 @@
 
     & .caseBlockTitle {
       font-size: 2.4vw;
-      margin-top: 3vw;
     }
 
     & .caseBlockText {
       font-size: 1.8vw;
-      margin-top: 2vw;
+      margin-top: 1vw;
     }
   }
 }
 
 @media (max-width: 576px) {
   .caseBlock {
-    padding: 6vw 4vw;
+    padding: 5vw 4vw;
     border-radius: 3vw;
 
     & .iconBlockPlay {
@@ -180,10 +178,10 @@
 
     & .caseBlockTitle {
       font-size: 4vw;
-      margin-top: 5vw;
     }
 
     & .caseBlockText {
+      width: 80%;
       font-size: 3.6vw;
       text-align: center;
       margin-top: 3vw;
@@ -416,4 +414,76 @@
       }
     }
   }
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 1vw;
+  border-radius: 0.5vw;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5vw;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Затемнение */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0.5vw;
+}
+
+@media (max-width: 1024px) {
+  .videoWrapper {
+    margin-top: 2vw;
+    border-radius: 1vw;
+  }
+
+  .video {
+    border-radius: 1vw;
+  }
+
+  .videoOverlay {
+    border-radius: 1vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .videoWrapper {
+    margin-top: 3vw;
+    border-radius: 2vw;
+  }
+
+  .video {
+    border-radius: 2vw;
+  }
+
+  .videoOverlay {
+    border-radius: 2vw;
+  }
+}
+
+.iconBlockPlay {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconPlay {
+  font-size: 48px;
+  color: #000;
 }

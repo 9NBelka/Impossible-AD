@@ -9,7 +9,6 @@ import { addContactForm, fetchContactForms } from '../../../../store/slices/cont
 import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../../firebase';
-import { getAuth } from 'firebase/auth'; // Import Firebase Auth for debugging
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -129,9 +128,6 @@ export default function ContactForm() {
     };
 
     try {
-      // Log authentication state for debugging
-      const auth = getAuth();
-
       // Check if the selected time is already booked
       const q = query(
         collection(db, 'contactform'), // Fixed collection name to match slice and rules

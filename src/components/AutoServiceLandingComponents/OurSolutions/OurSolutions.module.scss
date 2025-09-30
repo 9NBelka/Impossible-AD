@@ -92,6 +92,7 @@
   flex-direction: column;
   align-items: center;
   width: 32%;
+  height: 100%;
   background: var(--main-page-b-color-white);
   padding: 1vw 1vw;
   border-radius: 1vw;
@@ -126,6 +127,10 @@
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-regular);
     line-height: var(--font-lineh-big);
+  }
+
+  & .cardImage {
+    width: 100%;
   }
 }
 
@@ -273,4 +278,32 @@
       margin-top: 5vw;
     }
   }
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.zoomOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.zoomedImage {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 0.5vw;
 }

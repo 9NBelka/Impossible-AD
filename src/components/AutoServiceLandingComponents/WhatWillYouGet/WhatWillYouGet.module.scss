@@ -89,9 +89,10 @@
 
 .card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   width: 31.79%;
+  height: 100%;
   background: var(--main-page-b-color-white);
   padding: 1.25vw 1.25vw;
   border-radius: 1vw;
@@ -101,6 +102,15 @@
   position: relative;
   overflow: hidden;
   gap: 1vw;
+
+  & .cardRow {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1vw;
+  }
 
   &::before {
     content: '';
@@ -146,6 +156,10 @@
       font-weight: var(--font-weight-smallStrong);
       line-height: var(--font-lineh-normal);
     }
+  }
+
+  & img {
+    width: 100%;
   }
 }
 
@@ -360,4 +374,50 @@
       margin-top: 5vw;
     }
   }
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+}
+
+@media (max-width: 1024px) {
+  .imageContainer {
+    gap: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .imageContainer {
+    gap: 5vw;
+  }
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.zoomOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.zoomedImage {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 0.5vw;
 }
