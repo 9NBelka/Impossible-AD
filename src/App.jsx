@@ -92,10 +92,10 @@ export default function App() {
               <Route path='/login' element={<LoginForm />} />
               <Route path='/register' element={<RegisterForm />} />
               <Route path='/thanks' element={<ThanksPageOnFormDownload />} />
-              {/* <Route
+              <Route
                 path='/thanks-auto-service'
                 element={<ThanksPageOnFormDownloadAutoService />}
-              /> */}
+              />
               <Route path='/privacy-policy' element={<PrivacyPolicy />} />
               <Route path='/google-ads-audit' element={<GoogleAdsAudit />} />
               <Route path='/google-ads' element={<GoogleAds />} />

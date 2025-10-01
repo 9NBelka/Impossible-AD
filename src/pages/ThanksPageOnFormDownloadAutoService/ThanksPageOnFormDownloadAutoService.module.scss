@@ -89,16 +89,23 @@
   align-items: center;
 
   & img {
-    width: 25vw;
+    width: 28vw;
   }
 
   & h2 {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     font-size: 2.1vw;
     color: var(--main-page-b-color-darkGrey);
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-bold);
     line-height: var(--font-lineh-normal);
+
+    & .titleBig {
+      font-size: 4vw;
+      line-height: var(--font-lineh-normal);
+    }
   }
 
   & .thanksPageDescriptionOrange {
@@ -123,12 +130,14 @@
   & .downloadButton {
     display: flex;
     align-items: center;
-    background: linear-gradient(
-      135deg,
-      var(--main-page-b-color-lightBlue),
-      var(--main-page-b-color-hashtag)
-    );
+    // background: linear-gradient(
+    //   135deg,
+    //   var(--main-page-b-color-lightBlue),
+    //   var(--main-page-b-color-hashtag)
+    // );
+    background: rgb(248, 203, 47);
     color: var(--main-page-b-color-white);
+    // color: var(--main-page-color-lightGrey);
     border: none;
     padding: 0.75vw 3vw;
     border-radius: 0.6vw;
@@ -161,10 +170,10 @@
       background: var(--main-page-color-lightGrey);
     }
 
-    &.downloadButtonYellow {
-      background: rgb(248, 203, 47);
-      color: var(--main-page-color-lightGrey);
-    }
+    // &.downloadButtonYellow {
+    //   background: rgb(248, 203, 47);
+    //   color: var(--main-page-color-lightGrey);
+    // }
   }
 }
 

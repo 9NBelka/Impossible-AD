@@ -34,7 +34,16 @@ export default function AutoServiceFormScreen() {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      // Перенаправление с помощью useNavigate
+      // 1. Скачивание PDF
+      const pdfUrl = '/CheckListSto.pdf'; // Положи файл в public/
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = 'CheckListSto.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // 2. Перенаправление
       navigate('/thanks-auto-service');
     } catch (error) {
       console.error('Error sending data:', error);

@@ -16,7 +16,6 @@ export default function ThanksPageOnFormDownloadAutoService() {
     gdprConsent: false,
   });
 
-  const [yellowButton, setYellowButton] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
@@ -77,7 +76,6 @@ export default function ThanksPageOnFormDownloadAutoService() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link); // Clean up
-    setYellowButton(true);
   };
 
   const handleBack = () => {
@@ -90,7 +88,8 @@ export default function ThanksPageOnFormDownloadAutoService() {
         <div className={scss.thanksPageBlock}>
           <img src='/images/imageForThanksPageDownload.png' alt='imageForThanksPageDownload' />
           <h2>
-            <span>🎉</span> Дякуємо! Натисніть кнопку завантажити - і зроби її жовтою
+            <span className={scss.titleBig}>🎉 Дякуємо!</span>
+            {/* <span>Натисніть кнопку завантажити</span> */}
           </h2>
 
           {/* <p className={scss.thanksPageDescriptionOrange}>
@@ -106,11 +105,9 @@ export default function ThanksPageOnFormDownloadAutoService() {
             і як цього уникнути. Натисніть на кнопку "завантажити" щоб отримати ваш чек-лист із
             покроковими інструкціями.
           </p> */}
-          <button
-            className={clsx(scss.downloadButton, yellowButton && scss.downloadButtonYellow)}
-            onClick={handleDownload}>
+          {/* <button className={scss.downloadButton} onClick={handleDownload}>
             Завантажити <BsBoxArrowInDown className={scss.iconDownload} />
-          </button>
+          </button> */}
           {/* <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
             💡 Порада:
           </p>
