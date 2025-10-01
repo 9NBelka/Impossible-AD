@@ -88,7 +88,7 @@ export default function ThanksPageOnFormDownloadAutoService() {
         <div className={scss.thanksPageBlock}>
           <img src='/images/imageForThanksPageDownload.png' alt='imageForThanksPageDownload' />
           <h2>
-            <span>🎉</span> Дякуємо, ваш чек-лист вже у вас!
+            <span>🎉</span> Дякуємо! Натисніть на кнопку завантажити - и сделай её жёлтой
           </h2>
           {/* <p className={scss.thanksPageDescriptionOrange}>
             Нема листа? Перевірте Вхідні → Промоакції/Спам/Усі листи.
@@ -99,15 +99,15 @@ export default function ThanksPageOnFormDownloadAutoService() {
             інструкціями.
           </p> */}
 
-          <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
+          {/* <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
             Ви зробили перший крок до того, щоб зрозуміти, чому Google-реклама може “зливати” бюджет
             і як цього уникнути. Натисніть на кнопку "завантажити" щоб отримати ваш чек-лист із
             покроковими інструкціями.
-          </p>
+          </p> */}
           <button className={scss.downloadButton} onClick={handleDownload}>
             Завантажити <BsBoxArrowInDown className={scss.iconDownload} />
           </button>
-          <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
+          {/* <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
             💡 Порада:
           </p>
           <p
@@ -119,14 +119,14 @@ export default function ThanksPageOnFormDownloadAutoService() {
             Якщо хочете заощадити час і отримати ще глибший аналіз — замовте безкоштовну
             консультацію від наших експертів. Ми покажемо, де саме ваш акаунт втрачає гроші, і
             підкажемо, як це виправити.
-          </p>
-          <ThanksPageContactForm
+          </p> */}
+          {/* <ThanksPageContactForm
             handleSubmit={handleSubmit}
             formData={formData}
             handleInputChange={handleInputChange}
             isSubmitting={isSubmitting}
             submitMessage={submitMessage}
-          />
+          /> */}
         </div>
       </div>
       <button onClick={handleBack} className={scss.backButton}>
