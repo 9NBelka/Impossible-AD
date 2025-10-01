@@ -16,6 +16,7 @@ export default function ThanksPageOnFormDownloadAutoService() {
     gdprConsent: false,
   });
 
+  const [yellowButton, setYellowButton] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
@@ -76,6 +77,7 @@ export default function ThanksPageOnFormDownloadAutoService() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link); // Clean up
+    setYellowButton(true);
   };
 
   const handleBack = () => {
@@ -88,8 +90,9 @@ export default function ThanksPageOnFormDownloadAutoService() {
         <div className={scss.thanksPageBlock}>
           <img src='/images/imageForThanksPageDownload.png' alt='imageForThanksPageDownload' />
           <h2>
-            <span>🎉</span> Дякуємо! Натисніть на кнопку завантажити - и сделай её жёлтой
+            <span>🎉</span> Дякуємо! Натисніть кнопку завантажити - і зроби її жовтою
           </h2>
+
           {/* <p className={scss.thanksPageDescriptionOrange}>
             Нема листа? Перевірте Вхідні → Промоакції/Спам/Усі листи.
           </p> */}
@@ -98,13 +101,14 @@ export default function ThanksPageOnFormDownloadAutoService() {
             і як цього уникнути. Перевірте вашу пошту — ми надіслали чек-лист із покроковими
             інструкціями.
           </p> */}
-
           {/* <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>
             Ви зробили перший крок до того, щоб зрозуміти, чому Google-реклама може “зливати” бюджет
             і як цього уникнути. Натисніть на кнопку "завантажити" щоб отримати ваш чек-лист із
             покроковими інструкціями.
           </p> */}
-          <button className={scss.downloadButton} onClick={handleDownload}>
+          <button
+            className={clsx(scss.downloadButton, yellowButton && scss.downloadButtonYellow)}
+            onClick={handleDownload}>
             Завантажити <BsBoxArrowInDown className={scss.iconDownload} />
           </button>
           {/* <p className={clsx(scss.thanksPageDescriptionOrange, scss.thanksPageDescription)}>

@@ -160,6 +160,11 @@
     &.submitting {
       background: var(--main-page-color-lightGrey);
     }
+
+    &.downloadButtonYellow {
+      background-color: rgb(248, 203, 47);
+      color: var(--main-page-color-lightGrey);
+    }
   }
 }
 
