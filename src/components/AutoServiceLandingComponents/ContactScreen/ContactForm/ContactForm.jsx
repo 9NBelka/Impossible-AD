@@ -324,7 +324,7 @@ export default function ContactForm() {
             </div>
 
             <div className={scss.blockButtonFlex}>
-              <button type='submit' className={scss.button}>
+              <button type='submit' className={scss.button} id='mainForm'>
                 Відправити заявку <BsArrowRightShort className={scss.buttonIconDownload} />
               </button>
             </div>

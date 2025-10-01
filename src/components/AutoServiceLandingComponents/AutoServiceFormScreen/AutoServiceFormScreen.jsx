@@ -98,7 +98,7 @@ export default function AutoServiceFormScreen() {
                   required
                 />
               </div> */}
-              <button type='submit' className={scss.button}>
+              <button type='submit' className={scss.button} id='downloadPdfButton'>
                 Завантажити
                 <FaRegFilePdf className={scss.buttonIconDownload} />
               </button>

@@ -18,7 +18,10 @@ export default function HeroScreen({ scrollToSection }) {
             <p className={scss.subtitle}>
               <span className={scss.brandTwo}> або повернемо гроші </span>
             </p>
-            <button className={scss.ctaButton} onClick={() => scrollToSection('contacts')}>
+            <button
+              className={scss.ctaButton}
+              onClick={() => scrollToSection('contacts')}
+              id='goToFormButtonOnHero'>
               Згоден <FaArrowRight className={scss.heroArrowIcon} />
             </button>
           </div>

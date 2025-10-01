@@ -50,17 +50,20 @@ export default function Header({
               {info.title}
             </a>
           ))}
-          <a className={scss.linkToPhone} href='tel:+380685504202'>
+          <a className={scss.linkToPhone} href='tel:+380685504202' id='callToPhoneOnHeader'>
             <FiPhoneCall className={scss.iconPhone} /> +380 (68) 550-42-02
           </a>
         </nav>
         <a href='tel:+380685504202'>
-          <div className={scss.iconBlockPhone}>
+          <div className={scss.iconBlockPhone} id='callToPhoneOnHeader'>
             <FiPhoneCall className={scss.iconPhone} />
           </div>
         </a>
         <div className={scss.buttonsBlockRow}>
-          <button className={scss.buttonContactWithMe} onClick={() => scrollToSection('contacts')}>
+          <button
+            className={scss.buttonContactWithMe}
+            onClick={() => scrollToSection('contacts')}
+            id='goToFormButton'>
             Залишити заявку
           </button>
 

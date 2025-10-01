@@ -59,7 +59,10 @@ export default function CostScreen({ scrollToSection }) {
               </div>
             </div>
             <div className={scss.blockTextAndButtonBottomSection}>
-              <button className={scss.buttonBottom} onClick={() => scrollToSection('contacts')}>
+              <button
+                className={scss.buttonBottom}
+                onClick={() => scrollToSection('contacts')}
+                id='goToFormButtonOnCost'>
                 Розпочати зараз
               </button>
             </div>
