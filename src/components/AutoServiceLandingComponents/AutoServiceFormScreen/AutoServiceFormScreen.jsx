@@ -2,7 +2,7 @@
 import scss from './AutoServiceFormScreen.module.scss';
 import { useState } from 'react';
 import clsx from 'clsx';
-import { useNavigate } from 'react-router-dom'; // Добавляем useNavigate
+import { useNavigate } from 'react-router-dom';
 import { FaFileDownload, FaRegFilePdf } from 'react-icons/fa';
 
 export default function AutoServiceFormScreen() {
@@ -10,7 +10,7 @@ export default function AutoServiceFormScreen() {
   const [email, setEmail] = useState('');
   // const [phone, setPhone] = useState('');
   const [formData, setFormData] = useState({ gdprConsent: false });
-  const navigate = useNavigate(); // Инициализируем useNavigate
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, checked } = e.target;

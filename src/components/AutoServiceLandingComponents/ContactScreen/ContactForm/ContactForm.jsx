@@ -9,6 +9,7 @@ import { addContactForm, fetchContactForms } from '../../../../store/slices/cont
 import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../../firebase';
+import { useNavigate } from 'react-router-dom';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export default function ContactForm() {
   const [submitMessage, setSubmitMessage] = useState('');
   const [bookedTimes, setBookedTimes] = useState([]);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   // Fetch contact forms on mount
   useEffect(() => {
@@ -145,7 +147,8 @@ export default function ContactForm() {
       setBookedTimes((prev) => [...prev, new Date(formPayload.dateTime)]);
 
       // Show thank-you message
-      setIsFormSubmitted(true);
+      // setIsFormSubmitted(true);
+      navigate('/thanks-auto-service');
 
       // Clear form
       setName('');
