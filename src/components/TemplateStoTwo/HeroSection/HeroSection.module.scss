@@ -1,0 +1,192 @@
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background: url('images/hero-bg-template.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0.7));
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 55vw;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(0.2vw);
+  border-radius: 1vw;
+  padding: 1vw 1vw;
+  box-shadow: 0 0.2vw 0.3vw rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.title {
+  width: 80%;
+  font-size: 3.6vw;
+  color: #1f2937;
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-lineh-small2);
+}
+
+.titleHighlight {
+  color: #2563eb;
+  font-weight: var(--font-weight-black);
+}
+
+.subtitle {
+  font-size: 1vw;
+  color: #6b7280;
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--font-lineh-small);
+  margin-top: 1vw;
+
+  strong {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+.secondaryText {
+  font-size: 0.85vw;
+  color: #6b7280;
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--font-lineh-small);
+  margin-top: 1vw;
+}
+
+.offerBanner {
+  width: 100%;
+  background: linear-gradient(135deg, #f9851f, #e06b06);
+  border-radius: 0.5vw;
+  padding: 1.5vw;
+  margin-top: 1.25vw;
+
+  & .offerTitle {
+    color: white;
+    font-size: 1.25vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small);
+  }
+
+  & .offerDescription {
+    color: white;
+    font-size: 0.85vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--font-lineh-small);
+    margin-top: 1vw;
+    opacity: 0.9;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5vw;
+
+  & .primaryButton {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #3b82f6, #2563eb);
+    color: white;
+    font-size: 1vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small);
+    padding: 1vw 2vw;
+    border-radius: 0.5vw;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+    gap: 0.75vw;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    & .buttonIcon {
+      width: 1vw;
+      height: 1vw;
+    }
+  }
+}
+
+.locationBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25vw;
+  margin-top: 2rem;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  & .locationIcon {
+    width: 1vw;
+    height: 1vw;
+    color: #6b7280;
+  }
+
+  & .locationText {
+    font-size: 0.85vw;
+    color: #6b7280;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--font-lineh-small);
+    cursor: pointer;
+  }
+}
+
+.scrollUpButtonContainer {
+  position: absolute;
+  bottom: 1vw;
+  right: 1vw;
+
+  & .scrollUpButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #3b82f6, #2563eb);
+    color: white;
+    border-radius: 50%;
+    width: 2.5vw;
+    height: 2.5vw;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    & .scrollUpIcon {
+      width: 1.2vw;
+      height: 1.2vw;
+    }
+  }
+}

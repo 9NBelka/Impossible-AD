@@ -1,0 +1,150 @@
+.servicesSection {
+  padding: 3vw 0;
+  background-color: #f8fafc;
+}
+
+.container {
+  max-width: 55vw;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  & .title {
+    color: #1f2937;
+    font-size: 1.8vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small);
+  }
+
+  & .description {
+    width: 70%;
+    color: #6b7280;
+    font-size: 0.85vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--font-lineh-normal);
+    margin-top: 0.5vw;
+  }
+}
+
+.allCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 3vw;
+  gap: 1.5vw;
+}
+
+.card {
+  background: white;
+  width: 31.5%;
+  border: none;
+  border-radius: 0.5vw;
+  box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform: scale(1);
+  padding: 1vw 1vw;
+
+  &:hover {
+    box-shadow: 0 0.2vw 0.6vw rgba(0, 0, 0, 0.1);
+    transform: scale(1.03);
+  }
+
+  .cardHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    & .iconContainer {
+      width: 3.5vw;
+      height: 3.5vw;
+      background: linear-gradient(to right, #3b82f6, #2563eb);
+      border-radius: 0.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+
+      .card:hover & {
+        transform: scale(1.1);
+      }
+
+      & .cardIcon {
+        width: 1.25vw;
+        height: 1.25vw;
+        color: white;
+      }
+    }
+
+    & .cardTitle {
+      color: #1f2937;
+      font-size: 1vw;
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--font-lineh-normal);
+      margin-top: 0.75vw;
+    }
+  }
+
+  .cardContent {
+    text-align: center;
+    margin-top: 0.5vw;
+
+    & .cardDescription {
+      color: #6b7280;
+      font-size: 0.85vw;
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-normal);
+      line-height: var(--font-lineh-normal);
+    }
+
+    & .price {
+      color: #f97316;
+      font-size: 1.3vw;
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--font-lineh-normal);
+      margin-top: 0.5vw;
+    }
+  }
+}
+
+.footer {
+  text-align: center;
+  margin-top: 3vw;
+
+  & .footerText {
+    color: #6b7280;
+    font-size: 0.85vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--font-lineh-normal);
+  }
+}
+
+.ctaButton {
+  background: none;
+  border: 0;
+  color: #2563eb;
+  font-size: 0.85vw;
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-lineh-normal);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 0.5vw;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: #1e40af;
+    text-decoration-color: #1e40af;
+  }
+}

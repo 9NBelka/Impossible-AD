@@ -18,6 +18,8 @@ import AutoServiceLanding from './pages/AutoServiceLanding/AutoServiceLanding';
 import ThanksPageOnFormDownloadAutoService from './pages/ThanksPageOnFormDownloadAutoService/ThanksPageOnFormDownloadAutoService';
 import ContactForms from './components/DashboardComponents/ContactForms/ContactForms';
 import TemplateSto from './pages/Templates/TemplateSto/TemplateSto';
+import Templates from './pages/Templates/Templates';
+import TemplateStoTwo from './pages/Templates/TemplateStoTwo/TemplateStoTwo';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -118,7 +120,9 @@ export default function App() {
               <Route path='/web-development' element={<WebDevelopment />} />
               <Route path='/business-automation' element={<BusinessAutomation />} />
               <Route path='/auto' element={<AutoServiceLanding />} />
+              <Route path='/templates' element={<Templates />} />
               <Route path='/templateSto' element={<TemplateSto />} />
+              <Route path='/templateStoTwo' element={<TemplateStoTwo />} />
               <Route
                 path='/home'
                 element={
@@ -158,7 +162,6 @@ export default function App() {
                   </PrivateRoute>
                 }
               />
-
               <Route
                 path='/trello-table'
                 element={
