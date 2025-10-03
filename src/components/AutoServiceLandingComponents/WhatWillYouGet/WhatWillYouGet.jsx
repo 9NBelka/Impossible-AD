@@ -28,22 +28,26 @@ export default function WhatWillYouGet({ scrollToSection }) {
       icon: <BsGlobe2 className={scss.cardIcon} />,
       title: 'Новий налаштований сайт для швидкого старту',
       image: '/images/screenshot-heroScreen-example.png',
+      id: 'exampleSite',
     },
     {
       icon: <BsTelephone className={scss.cardIcon} />,
       title: 'Підключимо IP-телефонію до рекламних компаній',
       image: '/images/screen-binotella-table.jpg',
+      id: 'binotellaTable',
     },
     {
       icon: <BsRobot className={scss.cardIcon} />,
       title: 'Підключимо Telegram-бот до сайту',
       image: '/images/screenshot-bot-on-telegram.png',
+      id: 'botOnTelegram',
     },
     {
       icon: <BsFileEarmarkMedical className={scss.cardIcon} />,
       title: 'Щотижневий короткий звіт з результатами',
       image: '/images/excel-table1.jpg',
       imageTwo: '/images/excel-table2.jpg',
+      id: 'excelTable',
     },
   ];
 
@@ -56,7 +60,7 @@ export default function WhatWillYouGet({ scrollToSection }) {
 
         <div className={scss.flexBlock}>
           {problems.map((problem, index) => (
-            <div key={index} className={scss.card}>
+            <div key={index} className={scss.card} id={problem.id}>
               <div className={scss.cardRow}>
                 <div className={scss.cardIconBlock}>{problem.icon}</div>
                 <div className={scss.cartTitleAndDescription}>

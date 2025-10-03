@@ -51,7 +51,7 @@ export default function AutoServiceFormScreen() {
   };
 
   return (
-    <div className={scss.formForDownload}>
+    <div className={scss.formForDownload} id='formOnCheckList'>
       <div className={scss.container}>
         <h2>🎁 Скачати чек-лист</h2>
         <p className={scss.subTitle}>як дзвінок перетворити на заїзд</p>

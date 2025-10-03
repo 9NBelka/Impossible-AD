@@ -27,7 +27,7 @@ export default function WeSpeakWithResults() {
               <LiaAwardSolid className={scss.icon} /> Наші результати
             </h3>
             {/* <p className={scss.caseBlockText}>Зростання кількості клієнтів на 72% за 3 місяці </p> */}
-            <div className={scss.videoWrapper}>
+            <div className={scss.videoWrapper} id='resultsVideo'>
               <video
                 ref={videoRef}
                 className={scss.video}

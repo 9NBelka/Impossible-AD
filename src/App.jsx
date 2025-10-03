@@ -69,10 +69,26 @@ export default function App() {
 
   const isAutoSubdomain = hostname === 'autoservice.impossiblead.com';
 
+  function ScrollToHash() {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+      if (hash) {
+        const targetElement = document.getElementById(hash.replace('#', ''));
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }, [hash]);
+
+    return null;
+  }
+
   return (
     <div>
       <CookieConsent />
       <Suspense fallback={<div className='loading'>Загрузка...</div>}>
+        <ScrollToHash />
         <Routes>
           {isAutoSubdomain ? (
             <>
