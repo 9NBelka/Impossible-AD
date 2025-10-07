@@ -53,20 +53,23 @@ export default function ContactFormsCalendar({ forms }) {
   };
 
   useEffect(() => {
-    // Set initial week dates
+    // Установить начальные даты недели
     const { displayDates } = getWeekDates();
     setWeekDates(displayDates);
 
-    // Optional: Set up interval to check for week change (runs daily)
+    // Настройка интервала для проверки смены недели
     const interval = setInterval(() => {
       const { displayDates } = getWeekDates();
-      if (displayDates[0] !== weekDates[0]) {
-        setWeekDates(displayDates);
-      }
-    }, 24 * 60 * 60 * 1000); // Check once a day
+      setWeekDates((prevWeekDates) => {
+        if (displayDates[0] !== prevWeekDates[0]) {
+          return displayDates;
+        }
+        return prevWeekDates; // Не обновлять, если даты не изменились
+      });
+    }, 24 * 60 * 60 * 1000); // Проверять раз в день
 
     return () => clearInterval(interval);
-  }, [weekDates]);
+  }, []); // Пустой массив зависимостей
 
   useEffect(() => {
     dispatch(fetchAvailableSlots());
