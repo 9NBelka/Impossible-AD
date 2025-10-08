@@ -1,0 +1,338 @@
+.footer {
+  background-color: #1f2937;
+  color: white;
+}
+
+.container {
+  max-width: 70vw;
+  margin: 0 auto;
+  padding: 2vw 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2vw;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+    margin: 0 auto;
+    padding: 2vw 0;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2vw;
+  }
+}
+
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+
+  & .logo {
+    color: #f97316;
+    font-size: 1.5vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-black);
+    line-height: var(--font-lineh-small);
+  }
+
+  & .companyDescription {
+    color: #d1d5db;
+    font-size: 0.75vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-big);
+    margin-top: 1vw;
+  }
+
+  & .socialLinks {
+    display: flex;
+    gap: 1vw;
+    margin-top: 0.5vw;
+
+    & .socialLink {
+      color: #d1d5db;
+      width: 1.25vw;
+      height: 1.25vw;
+      transition: color 0.2s ease;
+
+      & .tiktokIcon {
+        width: 1.25vw;
+        height: 1.25vw;
+      }
+
+      &:hover {
+        color: #f97316; /* brand-orange */
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .mainBlock {
+    width: 100%;
+
+    & .logo {
+      font-size: 3vw;
+    }
+
+    & .companyDescription {
+      font-size: 1.8vw;
+      margin-top: 2vw;
+    }
+
+    & .socialLinks {
+      gap: 1vw;
+      margin-top: 1.5vw;
+
+      & .socialLink {
+        width: 3.75vw;
+        height: 3.75vw;
+
+        & .tiktokIcon {
+          width: 3.75vw;
+          height: 3.75vw;
+        }
+      }
+    }
+  }
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  & .sectionTitle {
+    color: white;
+    font-size: 1.2vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-big);
+  }
+
+  & .serviceList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    padding-left: 0;
+    list-style-type: none;
+    margin: 0;
+    margin-top: 0.5vw;
+
+    & li {
+      & a {
+        color: #d1d5db;
+        font-size: 0.75vw;
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--font-lineh-big);
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #f97316;
+        }
+      }
+    }
+  }
+
+  & .contactList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5vw;
+    gap: 0.5vw;
+
+    & .contactItem {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5vw;
+
+      & .contactIcon {
+        width: 0.75vw;
+        height: 0.75vw;
+      }
+
+      & span {
+        color: #d1d5db;
+        font-size: 0.75vw;
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--font-lineh-big);
+      }
+
+      & .contactLink {
+        color: #d1d5db;
+        font-size: 0.75vw;
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--font-lineh-big);
+
+        &:hover {
+          color: #f97316; /* brand-orange */
+        }
+      }
+    }
+  }
+
+  & .workingHours {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5vw;
+    gap: 0.5vw;
+
+    & .contactItem {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5vw;
+
+      & .contactIcon {
+        width: 0.75vw;
+        height: 0.75vw;
+      }
+
+      & .contactItemTime {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5vw;
+
+        & p {
+          color: #d1d5db;
+          font-size: 0.75vw;
+          font-family: var(--font-Inter);
+          font-weight: var(--font-weight-regular);
+          line-height: var(--font-lineh-big);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .services {
+    & .sectionTitle {
+      font-size: 3vw;
+    }
+
+    & .serviceList {
+      gap: 2vw;
+      margin-top: 2vw;
+
+      & li {
+        & a {
+          font-size: 1.8vw;
+        }
+      }
+    }
+
+    & .contactList {
+      margin-top: 2vw;
+      gap: 1vw;
+
+      & .contactItem {
+        gap: 2vw;
+
+        & .contactIcon {
+          width: 2.5vw;
+          height: 2.5vw;
+        }
+
+        & span {
+          font-size: 1.8vw;
+        }
+
+        & .contactLink {
+          font-size: 1.8vw;
+        }
+      }
+    }
+
+    & .workingHours {
+      margin-top: 2vw;
+      gap: 2vw;
+
+      & .contactItem {
+        gap: 2vw;
+
+        & .contactIcon {
+          width: 2.5vw;
+          height: 2.5vw;
+        }
+
+        & .contactItemTime {
+          gap: 1vw;
+
+          & p {
+            font-size: 1.8vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bottomBar {
+  border-top: 0.1vw solid #374151;
+  margin-top: 2vw;
+  padding-top: 2vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1vw;
+
+  & .copyright {
+    color: #9ca3af;
+    font-size: 0.75vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-big);
+  }
+
+  & .bottomLinks {
+    display: flex;
+    gap: 1.5vw;
+
+    & .bottomLink {
+      color: #9ca3af;
+      font-size: 0.75vw;
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-regular);
+      line-height: var(--font-lineh-big);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #f97316; /* brand-orange */
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .bottomBar {
+    border-top: 0.5vw solid #374151;
+    margin-top: 3vw;
+    padding-top: 3vw;
+    gap: 2vw;
+
+    & .copyright {
+      font-size: 1.8vw;
+    }
+
+    & .bottomLinks {
+      display: flex;
+      gap: 3vw;
+
+      & .bottomLink {
+        font-size: 1.8vw;
+      }
+    }
+  }
+}

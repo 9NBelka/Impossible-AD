@@ -7,6 +7,14 @@
   overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+  .heroSection {
+    min-height: 100%;
+    padding: 5vw 0;
+    padding-top: 13vw;
+  }
+}
+
 .background {
   position: absolute;
   inset: 0;
@@ -29,6 +37,12 @@
   margin: 0 auto;
 }
 
+@media (max-width: 1024px) {
+  .content {
+    max-width: 90vw;
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -41,6 +55,14 @@
   text-align: center;
 }
 
+@media (max-width: 1024px) {
+  .card {
+    backdrop-filter: blur(0.5vw);
+    border-radius: 2vw;
+    padding: 3vw 3vw;
+  }
+}
+
 .title {
   width: 80%;
   font-size: 3.6vw;
@@ -50,9 +72,22 @@
   line-height: var(--font-lineh-small2);
 }
 
+@media (max-width: 1024px) {
+  .title {
+    width: 90%;
+    font-size: 6vw;
+  }
+}
+
 .titleHighlight {
   color: #2563eb;
   font-weight: var(--font-weight-black);
+}
+
+@media (max-width: 1024px) {
+  .titleHighlight {
+    font-size: 7vw;
+  }
 }
 
 .subtitle {
@@ -68,6 +103,15 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .subtitle {
+    width: 75%;
+    font-size: 2.6vw;
+    margin-top: 3vw;
+    line-height: var(--font-lineh-big);
+  }
+}
+
 .secondaryText {
   font-size: 0.85vw;
   color: #6b7280;
@@ -75,6 +119,13 @@
   font-weight: var(--font-weight-normal);
   line-height: var(--font-lineh-small);
   margin-top: 1vw;
+}
+
+@media (max-width: 1024px) {
+  .secondaryText {
+    font-size: 2.6vw;
+    margin-top: 2vw;
+  }
 }
 
 .offerBanner {
@@ -100,6 +151,24 @@
     line-height: var(--font-lineh-small);
     margin-top: 1vw;
     opacity: 0.9;
+  }
+}
+
+@media (max-width: 1024px) {
+  .offerBanner {
+    border-radius: 1vw;
+    padding: 4vw;
+    margin-top: 3vw;
+
+    & .offerTitle {
+      font-size: 2.6vw;
+      line-height: var(--font-lineh-normal);
+    }
+
+    & .offerDescription {
+      font-size: 2vw;
+      margin-top: 2vw;
+    }
   }
 }
 
@@ -136,12 +205,30 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .buttonGroup {
+    margin-top: 3vw;
+
+    & .primaryButton {
+      font-size: 2.6vw;
+      padding: 2.2vw 5vw;
+      border-radius: 1vw;
+      gap: 2vw;
+
+      & .buttonIcon {
+        width: 3vw;
+        height: 3vw;
+      }
+    }
+  }
+}
+
 .locationBlock {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.25vw;
-  margin-top: 2rem;
+  margin-top: 2vw;
   transition: 0.2s ease-in-out;
 
   &:hover {
@@ -164,10 +251,27 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .locationBlock {
+    gap: 0.75vw;
+    margin-top: 3vw;
+
+    & .locationIcon {
+      width: 3vw;
+      height: 3vw;
+    }
+
+    & .locationText {
+      font-size: 2vw;
+    }
+  }
+}
+
 .scrollUpButtonContainer {
-  position: absolute;
+  position: fixed;
   bottom: 1vw;
   right: 1vw;
+  z-index: 10000;
 
   & .scrollUpButton {
     display: flex;
@@ -187,6 +291,23 @@
     & .scrollUpIcon {
       width: 1.2vw;
       height: 1.2vw;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .scrollUpButtonContainer {
+    bottom: 1vw;
+    right: 1vw;
+
+    & .scrollUpButton {
+      width: 6vw;
+      height: 6vw;
+
+      & .scrollUpIcon {
+        width: 3vw;
+        height: 3vw;
+      }
     }
   }
 }

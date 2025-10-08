@@ -1,0 +1,357 @@
+.bookingSection {
+  padding: 3vw 0;
+  background-color: white;
+}
+
+@media (max-width: 1024px) {
+  .bookingSection {
+    padding: 5vw 0;
+  }
+}
+
+.container {
+  max-width: 55vw;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  & .title {
+    color: #1f2937;
+    font-size: 1.8vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small);
+  }
+
+  & .description {
+    width: 70%;
+    color: #6b7280;
+    font-size: 0.85vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--font-lineh-normal);
+    margin-top: 0.5vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    & .title {
+      font-size: 3.6vw;
+    }
+
+    & .description {
+      width: 100%;
+      font-size: 1.8vw;
+      margin-top: 1vw;
+    }
+  }
+}
+
+.cardContainer {
+  max-width: 75%;
+  margin: 0 auto;
+  margin-top: 3vw;
+
+  & .card {
+    border: none;
+    box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.1);
+    border-radius: 0.5vw;
+
+    & .cardHeader {
+      text-align: center;
+      background: #064ee0;
+      color: white;
+      border-top-left-radius: 0.5vw;
+      border-top-right-radius: 0.5vw;
+      padding: 1vw;
+
+      & .cardTitle {
+        color: white;
+        font-size: 1.2vw;
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-bold);
+        line-height: var(--font-lineh-normal);
+      }
+
+      & .cardDescription {
+        color: white;
+        font-size: 0.75vw;
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-normal);
+        line-height: var(--font-lineh-normal);
+        margin-top: 0.25vw;
+      }
+    }
+
+    & .cardContent {
+      padding: 1.5vw 2vw;
+
+      & .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5vw;
+
+        & .formFlex {
+          display: flex;
+          justify-content: space-between;
+          gap: 1.5vw;
+        }
+
+        & .formGroup {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5vw;
+          width: 100%;
+
+          & .label {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 0.5vw;
+            font-size: 0.8vw;
+            font-family: var(--font-Inter);
+            font-weight: var(--font-weight-normal);
+            line-height: var(--font-lineh-normal);
+            margin-top: 0.25vw;
+
+            .labelIcon {
+              width: 0.85vw;
+              height: 0.85vw;
+            }
+          }
+
+          & .input {
+            display: flex;
+            width: 100%;
+            border: 0.15vw solid #e5e7eb;
+            border-radius: 0.35vw;
+            padding: 0.5vw 1vw;
+            font-size: 0.8vw;
+            font-family: var(--font-Inter);
+            font-weight: var(--font-weight-normal);
+            line-height: var(--font-lineh-normal);
+            transition: border-color 0.2s ease;
+
+            &:focus {
+              border-color: #2563eb;
+              outline: none;
+            }
+          }
+
+          & .select {
+            display: flex;
+            width: 100%;
+            border: 0.15vw solid #e5e7eb;
+            border-radius: 0.35vw;
+            padding: 0.5vw 1vw;
+            font-size: 0.8vw;
+            font-family: var(--font-Inter);
+            font-weight: var(--font-weight-normal);
+            line-height: var(--font-lineh-normal);
+            transition: border-color 0.2s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f2937' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75vw center;
+            background-size: 1vw;
+            cursor: pointer;
+
+            &:focus {
+              border-color: #2563eb;
+              outline: none;
+            }
+          }
+        }
+
+        .submitGroup {
+          display: flex;
+          flex-direction: column;
+          gap: 1vw;
+
+          .submitButton {
+            width: 100%;
+            background: #064ee0;
+            color: white;
+            font-size: 1vw;
+            font-family: var(--font-Inter);
+            font-weight: var(--font-weight-normal);
+            line-height: var(--font-lineh-normal);
+            padding: 1vw;
+            border-radius: 0.5vw;
+            transition: opacity 0.2s ease;
+            border: 0;
+            cursor: pointer;
+
+            &:hover {
+              opacity: 0.9;
+            }
+
+            &:disabled {
+              opacity: 0.5;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardContainer {
+    max-width: 100%;
+    margin-top: 3vw;
+
+    & .card {
+      box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.1);
+      border-radius: 1vw;
+
+      & .cardHeader {
+        border-top-left-radius: 1vw;
+        border-top-right-radius: 1vw;
+        padding: 2.5vw;
+
+        & .cardTitle {
+          font-size: 2.5vw;
+        }
+
+        & .cardDescription {
+          font-size: 1.8vw;
+          margin-top: 0.5vw;
+        }
+      }
+
+      & .cardContent {
+        padding: 2vw 3vw;
+
+        & .form {
+          gap: 1.5vw;
+
+          & .formFlex {
+            gap: 1.5vw;
+          }
+
+          & .formGroup {
+            gap: 0.5vw;
+
+            & .label {
+              gap: 1vw;
+              font-size: 1.8vw;
+              margin-top: 0.25vw;
+
+              .labelIcon {
+                width: 1.8vw;
+                height: 1.8vw;
+              }
+            }
+
+            & .input {
+              border: 0.2vw solid #e5e7eb;
+              border-radius: 1vw;
+              padding: 1.5vw 1.5vw;
+              font-size: 1.8vw;
+              margin-top: 0.5vw;
+            }
+
+            & .select {
+              border: 0.2vw solid #e5e7eb;
+              border-radius: 1vw;
+              padding: 1.5vw 1.5vw;
+              font-size: 1.8vw;
+              background-position: right 0.75vw center;
+              background-size: 1vw;
+              margin-top: 0.5vw;
+            }
+          }
+
+          .submitGroup {
+            gap: 1vw;
+
+            .submitButton {
+              font-size: 2vw;
+              padding: 1.75vw;
+              border-radius: 1vw;
+              margin-top: 1vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.successMessage {
+  text-align: left;
+  color: #2563eb;
+  font-size: 1.125rem;
+}
+
+.infoCard {
+  margin-top: 2vw;
+  background-color: #f8fafc;
+  border-radius: 0.75vw;
+  padding: 1vw 1.5vw;
+
+  & .infoHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    color: #1f2937;
+    font-size: 1vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-normal);
+
+    & .infoIcon {
+      width: 1vw;
+      height: 1vw;
+      color: #2563eb;
+    }
+  }
+
+  & .infoText {
+    color: #6b7280;
+    font-size: 0.85vw;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--font-lineh-normal);
+    margin-top: 0.5vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .infoCard {
+    margin-top: 3vw;
+    background-color: #f8fafc;
+    border-radius: 1vw;
+    padding: 2vw 3vw;
+
+    & .infoHeader {
+      gap: 1vw;
+      font-size: 2vw;
+
+      & .infoIcon {
+        width: 2vw;
+        height: 2vw;
+      }
+    }
+
+    & .infoText {
+      font-size: 1.8vw;
+      margin-top: 1vw;
+    }
+  }
+}

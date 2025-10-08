@@ -69,7 +69,7 @@ export default function ContactFormsCalendar({ forms }) {
     }, 24 * 60 * 60 * 1000); // Проверять раз в день
 
     return () => clearInterval(interval);
-  }, []); // Пустой массив зависимостей
+  }, []);
 
   useEffect(() => {
     dispatch(fetchAvailableSlots());

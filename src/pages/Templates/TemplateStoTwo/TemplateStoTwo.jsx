@@ -1,8 +1,12 @@
 import DiagnosticsSection from '../../../components/TemplateStoTwo/DiagnosticsSection/DiagnosticsSection';
+import FeedBacks from '../../../components/TemplateStoTwo/FeedBacks/FeedBacks';
 import Header from '../../../components/TemplateStoTwo/Header/Header';
 import HeroSection from '../../../components/TemplateStoTwo/HeroSection/HeroSection';
 import ServicesSection from '../../../components/TemplateStoTwo/ServicesSection/ServicesSection';
+import MapSection from '../../../components/TemplateStoTwo/MapSection/MapSection';
 import './TemplateStoTwo.module.scss';
+import ContactFormSection from '../../../components/TemplateStoTwo/ContactFormSection/ContactFormSection';
+import Footer from '../../../components/TemplateStoTwo/Footer/Footer';
 
 export default function TemplateStoTwo() {
   const onFooterAndHeaderTextLinksMain = [
@@ -34,6 +38,10 @@ export default function TemplateStoTwo() {
       <HeroSection />
       <ServicesSection />
       <DiagnosticsSection />
+      <FeedBacks />
+      <ContactFormSection />
+      <MapSection />
+      <Footer />
       {/* <TrustedScreen /> */}
       {/* <ServicesB /> */}
       {/* <div className={`chatBot ${isChatOpen ? 'active' : ''}`}>

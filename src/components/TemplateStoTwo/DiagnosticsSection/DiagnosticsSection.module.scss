@@ -3,9 +3,22 @@
   background-color: white;
 }
 
+@media (max-width: 1024px) {
+  .servicesSection {
+    padding: 5vw 0;
+  }
+}
+
 .container {
   max-width: 55vw;
   margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 90vw;
+    margin: 0 auto;
+  }
 }
 
 .header {
@@ -33,6 +46,20 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .header {
+    & .title {
+      font-size: 3.6vw;
+    }
+
+    & .description {
+      width: 100%;
+      font-size: 1.8vw;
+      margin-top: 1vw;
+    }
+  }
+}
+
 .allCards {
   display: flex;
   flex-direction: row;
@@ -40,6 +67,14 @@
   justify-content: space-between;
   margin-top: 3vw;
   gap: 1.5vw;
+}
+
+@media (max-width: 1024px) {
+  .allCards {
+    flex-direction: column;
+    margin-top: 3vw;
+    gap: 2vw;
+  }
 }
 
 .card {
@@ -117,6 +152,56 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .card {
+    width: 100%;
+    border-radius: 0.5vw;
+    box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+    padding: 3vw 2vw;
+
+    &:hover {
+      box-shadow: 0 0.2vw 0.6vw rgba(0, 0, 0, 0.1);
+      transform: scale(1);
+    }
+
+    .cardHeader {
+      & .iconContainer {
+        width: 7.5vw;
+        height: 7.5vw;
+        border-radius: 1vw;
+
+        .card:hover & {
+          transform: scale(1.1);
+        }
+
+        & .cardIcon {
+          width: 3vw;
+          height: 3vw;
+        }
+      }
+
+      & .cardTitle {
+        font-size: 2.5vw;
+        margin-top: 2vw;
+      }
+    }
+
+    .cardContent {
+      margin-top: 2vw;
+
+      & .cardDescription {
+        font-size: 1.8vw;
+      }
+
+      & .price {
+        font-size: 3vw;
+        margin-top: 2vw;
+      }
+    }
+  }
+}
+
 .footer {
   text-align: center;
   margin-top: 3vw;
@@ -127,6 +212,16 @@
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-normal);
     line-height: var(--font-lineh-normal);
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    margin-top: 3vw;
+
+    & .footerText {
+      font-size: 1.8vw;
+    }
   }
 }
 
@@ -146,5 +241,12 @@
   &:hover {
     color: #1e40af;
     text-decoration-color: #1e40af;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ctaButton {
+    font-size: 2vw;
+    margin-top: 1.5vw;
   }
 }
