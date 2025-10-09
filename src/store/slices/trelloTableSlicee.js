@@ -13,7 +13,18 @@ import { db } from '../../firebase';
 
 export const fetchTasks = createAsyncThunk('trelloTable/fetchTasks', async () => {
   const querySnapshot = await getDocs(collection(db, 'tasks'));
-  return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return querySnapshot.docs.map((doc) => {
+    const data = doc.data();
+    return {
+      id: doc.id,
+      ...data,
+      createdAt: data.createdAt
+        ? data.createdAt.toDate
+          ? data.createdAt.toDate().toISOString()
+          : data.createdAt
+        : null,
+    };
+  });
 });
 
 export const fetchUsers = createAsyncThunk('trelloTable/fetchUsers', async () => {
@@ -30,7 +41,12 @@ export const addTask = createAsyncThunk('trelloTable/addTask', async (newTask) =
     createdAt: serverTimestamp(),
   });
   const addedDoc = await getDoc(docRef);
-  return { id: docRef.id, ...addedDoc.data() };
+  const data = addedDoc.data();
+  return {
+    id: docRef.id,
+    ...data,
+    createdAt: data.createdAt ? data.createdAt.toDate().toISOString() : null, // Преобразуем Timestamp в строку ISO
+  };
 });
 
 export const editTask = createAsyncThunk('trelloTable/editTask', async ({ taskId, updates }) => {

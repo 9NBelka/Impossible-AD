@@ -23,10 +23,18 @@ import {
 import TrelloTablePopUp from './TrelloTablePopUp/TrelloTablePopUp';
 
 const columns = [
-  { id: 'todo', title: 'К выполнению', icon: <BsPlusSquareFill /> },
-  { id: 'inprogress', title: 'Делается', icon: <BsQuestionSquareFill /> },
-  { id: 'review', title: 'На проверке', icon: <BsExclamationSquareFill /> },
-  { id: 'done', title: 'Сделано', icon: <BsCheckSquareFill /> },
+  { id: 'todo', title: 'К выполнению', icon: <BsPlusSquareFill className={scss.iconTitle} /> },
+  {
+    id: 'inprogress',
+    title: 'Делается',
+    icon: <BsQuestionSquareFill className={scss.iconTitle} />,
+  },
+  {
+    id: 'review',
+    title: 'На проверке',
+    icon: <BsExclamationSquareFill className={scss.iconTitle} />,
+  },
+  { id: 'done', title: 'Сделано', icon: <BsCheckSquareFill className={scss.iconTitle} /> },
 ];
 
 const priorityOptions = [
@@ -171,13 +179,14 @@ const TrelloTable = () => {
 
   return (
     <div className={scss.trelloTable}>
+      <h2>Contact Forms Table</h2>
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className={scss.board}>
           {columns.map((column) => (
             <div key={column.id} className={scss.boardColumn}>
               <h2 className={scss.boardTitle}>
-                {column.title}
                 {column.icon}
+                {column.title}
               </h2>
               <Droppable droppableId={column.id}>
                 {(provided) => (
@@ -201,23 +210,43 @@ const TrelloTable = () => {
                             )}>
                             <h3 className={scss.cardTitle}>{task.title}</h3>
                             <p className={scss.cardDescription}>{task.description}</p>
-                            <p className={scss.cardName}>
-                              Назначено:{' '}
-                              {users.find((u) => u.id === task.assignedUserId)?.name || 'Никто'}
-                            </p>
-                            <p className={scss.cardPriority}>
-                              Приоритет:{' '}
-                              {priorityOptions.find((p) => p.value === task.priority)?.label ||
-                                'Неизвестно'}
-                            </p>
+                            <div className={scss.nameAndPriorityRow}>
+                              <p className={scss.cardName}>
+                                Назначено:{' '}
+                                {users.find((u) => u.id === task.assignedUserId)?.name || 'Никто'}
+                              </p>
+                              <p className={scss.cardPriority}>
+                                Приоритет:{' '}
+                                <span
+                                  className={clsx(
+                                    task.priority === 'low' && scss.priorityLow,
+                                    task.priority === 'medium' && scss.priorityMedium,
+                                    task.priority === 'high' && scss.priorityHigh,
+                                    task.priority === 'critical' && scss.priorityCritical,
+                                  )}>
+                                  {priorityOptions.find((p) => p.value === task.priority)?.label ||
+                                    'Неизвестно'}
+                                </span>
+                              </p>
+                            </div>
                             <p className={scss.cardDateCreate}>
                               Создано:{' '}
-                              {task.createdAt?.toDate
-                                ? task.createdAt.toDate().toLocaleString()
+                              {task.createdAt
+                                ? new Date(task.createdAt).toLocaleString()
                                 : 'Неизвестно'}
                             </p>
-                            <button onClick={() => handleEdit(task)}>Редактировать</button>
-                            <button onClick={() => handleDelete(task.id)}>Удалить</button>
+                            <div className={scss.buttonFlexRow}>
+                              <button
+                                onClick={() => handleEdit(task)}
+                                className={scss.changeButton}>
+                                Редактировать
+                              </button>
+                              <button
+                                onClick={() => handleDelete(task.id)}
+                                className={scss.deleteButton}>
+                                Удалить
+                              </button>
+                            </div>
                           </div>
                         )}
                       </Draggable>
@@ -228,7 +257,7 @@ const TrelloTable = () => {
               </Droppable>
               <button onClick={() => handleAdd(column.id)} className={scss.buttonAddCard}>
                 <BsPlus className={scss.buttonAddCardIcon} />
-                Добавить задачу
+                добавить задачу
               </button>
             </div>
           ))}
