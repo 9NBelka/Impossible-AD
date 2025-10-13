@@ -59,7 +59,9 @@ const ContactFormSection = () => {
         throw new Error('Telegram Bot Token или Chat ID не настроены в .env');
       }
 
-      const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      // https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage
+
+      const telegramUrl = ``;
 
       const response = await axios.post(telegramUrl, {
         chat_id: TELEGRAM_CHAT_ID,
