@@ -7,6 +7,8 @@ import MapSection from '../../../components/TemplateStoTwo/MapSection/MapSection
 import './TemplateStoTwo.module.scss';
 import ContactFormSection from '../../../components/TemplateStoTwo/ContactFormSection/ContactFormSection';
 import Footer from '../../../components/TemplateStoTwo/Footer/Footer';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function TemplateStoTwo() {
   const onFooterAndHeaderTextLinksMain = [
@@ -16,11 +18,11 @@ export default function TemplateStoTwo() {
     },
     {
       title: 'Діагностика',
-      linkToPage: 'benefits',
+      linkToPage: 'diagnostics',
     },
     {
       title: 'Відгуки',
-      linkToPage: 'cases',
+      linkToPage: 'feedbacks',
     },
     {
       title: 'Запис',
@@ -32,16 +34,32 @@ export default function TemplateStoTwo() {
     },
   ];
 
+  function ScrollToHash() {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+      if (hash) {
+        const targetElement = document.getElementById(hash.replace('#', ''));
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }, [hash]);
+
+    return null;
+  }
+
   return (
     <div>
       <Header onHeaderTextLinks={onFooterAndHeaderTextLinksMain} />
+      <ScrollToHash />
       <HeroSection />
       <ServicesSection />
       <DiagnosticsSection />
       <FeedBacks />
       <ContactFormSection />
       <MapSection />
-      <Footer />
+      <Footer onHeaderTextLinks={onFooterAndHeaderTextLinksMain} />
       {/* <TrustedScreen /> */}
       {/* <ServicesB /> */}
       {/* <div className={`chatBot ${isChatOpen ? 'active' : ''}`}>

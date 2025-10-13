@@ -65,8 +65,9 @@
     }
 
     p {
+      width: 100%;
       font-size: 1.8vw;
-      margin-top: 0.5vw;
+      margin-top: 1vw;
     }
   }
 }
@@ -74,12 +75,12 @@
 @media (max-width: 576px) {
   .header {
     h2 {
-      font-size: 8vw;
+      font-size: 7vw;
     }
 
     p {
       font-size: 3.6vw;
-      margin-top: 1vw;
+      margin-top: 3vw;
     }
   }
 }

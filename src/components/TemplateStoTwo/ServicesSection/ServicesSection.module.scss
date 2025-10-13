@@ -60,6 +60,19 @@
   }
 }
 
+@media (max-width: 576px) {
+  .header {
+    & .title {
+      font-size: 7vw;
+    }
+
+    & .description {
+      font-size: 3.6vw;
+      margin-top: 3vw;
+    }
+  }
+}
+
 .allCards {
   display: flex;
   flex-direction: row;
@@ -74,6 +87,13 @@
     flex-direction: column;
     margin-top: 3vw;
     gap: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .allCards {
+    margin-top: 3vw;
+    gap: 3vw;
   }
 }
 
@@ -202,6 +222,44 @@
   }
 }
 
+@media (max-width: 576px) {
+  .card {
+    border-radius: 3vw;
+    padding: 5vw 2vw;
+
+    .cardHeader {
+      & .iconContainer {
+        width: 12vw;
+        height: 12vw;
+        border-radius: 2vw;
+
+        & .cardIcon {
+          width: 5vw;
+          height: 5vw;
+        }
+      }
+
+      & .cardTitle {
+        font-size: 5vw;
+        margin-top: 3vw;
+      }
+    }
+
+    .cardContent {
+      margin-top: 3vw;
+
+      & .cardDescription {
+        font-size: 3.6vw;
+      }
+
+      & .price {
+        font-size: 5vw;
+        margin-top: 3vw;
+      }
+    }
+  }
+}
+
 .footer {
   text-align: center;
   margin-top: 3vw;
@@ -221,6 +279,16 @@
 
     & .footerText {
       font-size: 1.8vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    margin-top: 5vw;
+
+    & .footerText {
+      font-size: 3.6vw;
     }
   }
 }
@@ -248,5 +316,12 @@
   .ctaButton {
     font-size: 2vw;
     margin-top: 1.5vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .ctaButton {
+    font-size: 4vw;
+    margin-top: 3vw;
   }
 }

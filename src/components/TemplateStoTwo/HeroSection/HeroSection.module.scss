@@ -11,7 +11,14 @@
   .heroSection {
     min-height: 100%;
     padding: 5vw 0;
-    padding-top: 13vw;
+    padding-top: 20vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroSection {
+    padding: 8vw 0;
+    padding-top: 28.5vw;
   }
 }
 
@@ -63,6 +70,12 @@
   }
 }
 
+@media (max-width: 576px) {
+  .card {
+    padding: 5vw 4vw;
+  }
+}
+
 .title {
   width: 80%;
   font-size: 3.6vw;
@@ -79,6 +92,13 @@
   }
 }
 
+@media (max-width: 576px) {
+  .title {
+    width: 100%;
+    font-size: 8.5vw;
+  }
+}
+
 .titleHighlight {
   color: #2563eb;
   font-weight: var(--font-weight-black);
@@ -87,6 +107,12 @@
 @media (max-width: 1024px) {
   .titleHighlight {
     font-size: 7vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .titleHighlight {
+    font-size: 10vw;
   }
 }
 
@@ -112,6 +138,14 @@
   }
 }
 
+@media (max-width: 576px) {
+  .subtitle {
+    width: 95%;
+    font-size: 4vw;
+    margin-top: 4vw;
+  }
+}
+
 .secondaryText {
   font-size: 0.85vw;
   color: #6b7280;
@@ -125,6 +159,15 @@
   .secondaryText {
     font-size: 2.6vw;
     margin-top: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .secondaryText {
+    font-size: 4vw;
+    color: #f9851f;
+    font-weight: var(--font-weight-bold);
+    margin-top: 3vw;
   }
 }
 
@@ -169,6 +212,12 @@
       font-size: 2vw;
       margin-top: 2vw;
     }
+  }
+}
+
+@media (max-width: 576px) {
+  .offerBanner {
+    display: none;
   }
 }
 
@@ -223,6 +272,24 @@
   }
 }
 
+@media (max-width: 576px) {
+  .buttonGroup {
+    margin-top: 5vw;
+
+    & .primaryButton {
+      font-size: 4vw;
+      padding: 3.5vw 6vw;
+      border-radius: 1.5vw;
+      gap: 3vw;
+
+      & .buttonIcon {
+        width: 5vw;
+        height: 5vw;
+      }
+    }
+  }
+}
+
 .locationBlock {
   display: flex;
   align-items: center;
@@ -267,6 +334,22 @@
   }
 }
 
+@media (max-width: 576px) {
+  .locationBlock {
+    gap: 1.5vw;
+    margin-top: 5vw;
+
+    & .locationIcon {
+      width: 4vw;
+      height: 4vw;
+    }
+
+    & .locationText {
+      font-size: 3.6vw;
+    }
+  }
+}
+
 .scrollUpButtonContainer {
   position: fixed;
   bottom: 1vw;
@@ -283,6 +366,7 @@
     width: 2.5vw;
     height: 2.5vw;
     transition: opacity 0.2s ease;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.9;
@@ -307,6 +391,23 @@
       & .scrollUpIcon {
         width: 3vw;
         height: 3vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .scrollUpButtonContainer {
+    bottom: 3vw;
+    right: 3vw;
+
+    & .scrollUpButton {
+      width: 12vw;
+      height: 12vw;
+
+      & .scrollUpIcon {
+        width: 6vw;
+        height: 6vw;
       }
     }
   }

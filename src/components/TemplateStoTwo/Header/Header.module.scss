@@ -30,7 +30,7 @@
 
 @media (max-width: 1024px) {
   .headerInner {
-    padding: 1.5vw 0;
+    padding: 4vw 0;
   }
 }
 
@@ -44,6 +44,7 @@
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-black);
     line-height: var(--font-lineh-small);
+    cursor: pointer;
   }
 }
 
@@ -51,6 +52,14 @@
   .logoContainer {
     & span {
       font-size: 2.6vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .logoContainer {
+    & span {
+      font-size: 6vw;
     }
   }
 }
@@ -128,6 +137,22 @@
   }
 }
 
+@media (max-width: 576px) {
+  .contactContainer {
+    gap: 0;
+
+    & .linkToPhone {
+      font-size: 3.6vw;
+      padding: 0vw 0;
+      gap: 1.5vw;
+
+      & .iconPhone {
+        display: none;
+      }
+    }
+  }
+}
+
 .ctaButton {
   background: #064ee0;
   border: 0;
@@ -170,6 +195,15 @@
   }
 }
 
+@media (max-width: 576px) {
+  .mobileMenuButton {
+    & .icon {
+      width: 5vw;
+      height: 5vw;
+    }
+  }
+}
+
 .mobileNav {
   display: none;
 }
@@ -183,6 +217,12 @@
     display: block;
     padding: 3vw 0;
     border-top: 0.1vw solid #e5e7eb;
+  }
+}
+
+@media (max-width: 576px) {
+  .mobileNav {
+    padding: 5vw 0;
   }
 }
 
@@ -202,6 +242,16 @@
       font-weight: var(--font-weight-normal);
       line-height: var(--font-lineh-small);
       padding: 0;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .mobileNavList {
+    gap: 6vw;
+
+    & .mobileNavLink {
+      font-size: 3.6vw;
     }
   }
 }
@@ -241,5 +291,17 @@
     line-height: var(--font-lineh-small);
     padding: 1.5vw 1vw;
     border-radius: 0.5vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .mobileCtaContainer {
+    padding-top: 6vw;
+  }
+
+  .mobileCtaButton {
+    font-size: 3.6vw;
+    padding: 3vw 1vw;
+    border-radius: 1vw;
   }
 }

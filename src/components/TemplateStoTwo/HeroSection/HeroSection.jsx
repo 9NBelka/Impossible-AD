@@ -46,7 +46,7 @@ const HeroSection = () => {
             <p
               className={styles.locationText}
               onClick={() =>
-                document.getElementById('contactsMap')?.scrollIntoView({ behavior: 'smooth' })
+                document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' })
               }>
               вулиця Пушкіна, 9 Київ, Україна
             </p>

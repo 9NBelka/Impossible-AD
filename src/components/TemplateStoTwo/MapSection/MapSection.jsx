@@ -25,7 +25,7 @@ export default function MapSection() {
               </div>
               <div className={scss.blockTextColumn}>
                 <h3>Адреса</h3>
-                <p>вулиця Вацлава Гавела, 4 (на території БЦ Silver Cetre)</p>
+                <p>вулиця Пушкіна, 4, Київ </p>
               </div>
             </div>
 

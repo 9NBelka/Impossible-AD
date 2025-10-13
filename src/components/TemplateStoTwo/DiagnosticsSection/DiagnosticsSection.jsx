@@ -92,7 +92,7 @@ const DiagnosticsSection = () => {
           <button
             className={styles.ctaButton}
             onClick={() =>
-              document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
+              document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })
             }>
             Замовити діагностику →
           </button>

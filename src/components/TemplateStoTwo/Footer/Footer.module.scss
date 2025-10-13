@@ -3,6 +3,18 @@
   color: white;
 }
 
+@media (max-width: 1024px) {
+  .footer {
+    padding: 3vw 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 8vw 0;
+  }
+}
+
 .container {
   max-width: 70vw;
   margin: 0 auto;
@@ -19,15 +31,17 @@
 @media (max-width: 1024px) {
   .container {
     max-width: 95vw;
-    margin: 0 auto;
-    padding: 2vw 0;
   }
 
   .flex {
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .flex {
+    gap: 6vw;
   }
 }
 
@@ -55,7 +69,7 @@
 
   & .socialLinks {
     display: flex;
-    gap: 1vw;
+    gap: 0.5vw;
     margin-top: 0.5vw;
 
     & .socialLink {
@@ -90,7 +104,7 @@
     }
 
     & .socialLinks {
-      gap: 1vw;
+      gap: 2vw;
       margin-top: 1.5vw;
 
       & .socialLink {
@@ -100,6 +114,34 @@
         & .tiktokIcon {
           width: 3.75vw;
           height: 3.75vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .mainBlock {
+    & .logo {
+      font-size: 6vw;
+    }
+
+    & .companyDescription {
+      font-size: 3.6vw;
+      margin-top: 3vw;
+    }
+
+    & .socialLinks {
+      gap: 3vw;
+      margin-top: 2vw;
+
+      & .socialLink {
+        width: 8vw;
+        height: 8vw;
+
+        & .tiktokIcon {
+          width: 8vw;
+          height: 8vw;
         }
       }
     }
@@ -134,6 +176,7 @@
         font-weight: var(--font-weight-regular);
         line-height: var(--font-lineh-big);
         transition: color 0.2s ease;
+        cursor: pointer;
 
         &:hover {
           color: #f97316;
@@ -278,6 +321,69 @@
   }
 }
 
+@media (max-width: 576px) {
+  .services {
+    & .sectionTitle {
+      font-size: 5.4vw;
+    }
+
+    & .serviceList {
+      gap: 3vw;
+      margin-top: 3vw;
+
+      & li {
+        & a {
+          font-size: 3.6vw;
+        }
+      }
+    }
+
+    & .contactList {
+      margin-top: 3vw;
+      gap: 4vw;
+
+      & .contactItem {
+        gap: 4vw;
+
+        & .contactIcon {
+          width: 5vw;
+          height: 5vw;
+        }
+
+        & span {
+          font-size: 3.6vw;
+        }
+
+        & .contactLink {
+          font-size: 3.6vw;
+        }
+      }
+    }
+
+    & .workingHours {
+      margin-top: 3vw;
+      gap: 4vw;
+
+      & .contactItem {
+        gap: 4vw;
+
+        & .contactIcon {
+          width: 5vw;
+          height: 5vw;
+        }
+
+        & .contactItemTime {
+          gap: 1vw;
+
+          & p {
+            font-size: 3.6vw;
+          }
+        }
+      }
+    }
+  }
+}
+
 .bottomBar {
   border-top: 0.1vw solid #374151;
   margin-top: 2vw;
@@ -332,6 +438,30 @@
 
       & .bottomLink {
         font-size: 1.8vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .bottomBar {
+    display: flex;
+    flex-direction: column;
+    border-top: 1vw solid #374151;
+    margin-top: 5vw;
+    padding-top: 5vw;
+    gap: 3vw;
+
+    & .copyright {
+      font-size: 3.6vw;
+    }
+
+    & .bottomLinks {
+      display: flex;
+      gap: 5vw;
+
+      & .bottomLink {
+        font-size: 3.6vw;
       }
     }
   }

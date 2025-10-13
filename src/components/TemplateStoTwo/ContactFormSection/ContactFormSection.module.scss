@@ -60,6 +60,19 @@
   }
 }
 
+@media (max-width: 576px) {
+  .header {
+    & .title {
+      font-size: 7vw;
+    }
+
+    & .description {
+      font-size: 3.6vw;
+      margin-top: 3vw;
+    }
+  }
+}
+
 .cardContainer {
   max-width: 75%;
   margin: 0 auto;
@@ -271,8 +284,8 @@
               border-radius: 1vw;
               padding: 1.5vw 1.5vw;
               font-size: 1.8vw;
-              background-position: right 0.75vw center;
-              background-size: 1vw;
+              background-position: right 1.5vw center;
+              background-size: 3vw;
               margin-top: 0.5vw;
             }
           }
@@ -285,6 +298,87 @@
               padding: 1.75vw;
               border-radius: 1vw;
               margin-top: 1vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .cardContainer {
+    margin-top: 4vw;
+
+    & .card {
+      box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.1);
+      border-radius: 3vw;
+
+      & .cardHeader {
+        border-top-left-radius: 3vw;
+        border-top-right-radius: 3vw;
+        padding: 4vw;
+
+        & .cardTitle {
+          font-size: 5vw;
+        }
+
+        & .cardDescription {
+          font-size: 3.6vw;
+          margin-top: 1vw;
+        }
+      }
+
+      & .cardContent {
+        padding: 3vw 4vw;
+
+        & .form {
+          gap: 4vw;
+
+          & .formFlex {
+            flex-direction: column;
+            gap: 4vw;
+          }
+
+          & .formGroup {
+            gap: 0.5vw;
+
+            & .label {
+              gap: 2vw;
+              font-size: 3.6vw;
+              margin-top: 0.5vw;
+
+              .labelIcon {
+                display: none;
+              }
+            }
+
+            & .input {
+              border-radius: 2vw;
+              padding: 3vw 3vw;
+              font-size: 3.6vw;
+              margin-top: 1vw;
+            }
+
+            & .select {
+              border: 0.2vw solid #e5e7eb;
+              border-radius: 2vw;
+              padding: 3vw 3vw;
+              font-size: 3.6vw;
+              background-position: right 3.6vw center;
+              background-size: 5vw;
+              margin-top: 1vw;
+            }
+          }
+
+          .submitGroup {
+            gap: 1vw;
+
+            .submitButton {
+              font-size: 4vw;
+              padding: 3vw;
+              border-radius: 2vw;
+              margin-top: 1.5vw;
             }
           }
         }
@@ -352,6 +446,29 @@
     & .infoText {
       font-size: 1.8vw;
       margin-top: 1vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .infoCard {
+    margin-top: 5vw;
+    border-radius: 3vw;
+    padding: 3vw 4vw;
+
+    & .infoHeader {
+      gap: 2.5vw;
+      font-size: 4vw;
+
+      & .infoIcon {
+        width: 5vw;
+        height: 5vw;
+      }
+    }
+
+    & .infoText {
+      font-size: 3.6vw;
+      margin-top: 2vw;
     }
   }
 }

@@ -88,7 +88,7 @@ const ServicesSection = () => {
           <button
             className={styles.ctaButton}
             onClick={() =>
-              document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
+              document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })
             }>
             Записатися на консультацію →
           </button>

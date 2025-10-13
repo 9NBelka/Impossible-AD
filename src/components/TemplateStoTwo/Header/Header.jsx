@@ -28,7 +28,7 @@ const Header = ({ onHeaderTextLinks }) => {
         <div className={styles.headerInner}>
           {/* Logo */}
           <div className={styles.logoContainer}>
-            <a href='/'>
+            <a onClick={() => scrollToSection('hero')}>
               <span>Logo</span>
             </a>
           </div>
@@ -52,7 +52,7 @@ const Header = ({ onHeaderTextLinks }) => {
               <FiPhoneCall className={styles.iconPhone} /> +38 (099) 090-90-90
             </a>
 
-            <button onClick={() => scrollToSection('booking')} className={styles.ctaButton}>
+            <button onClick={() => scrollToSection('contacts')} className={styles.ctaButton}>
               Записатися
             </button>
           </div>
@@ -95,25 +95,25 @@ const Header = ({ onHeaderTextLinks }) => {
               </button>
               <button
                 type='button'
-                onClick={() => scrollToSection('testimonials')}
+                onClick={() => scrollToSection('feedbacks')}
                 className={styles.mobileNavLink}>
                 Відгуки
               </button>
               <button
                 type='button'
-                onClick={() => scrollToSection('booking')}
+                onClick={() => scrollToSection('contacts')}
                 className={styles.mobileNavLink}>
                 Запис
               </button>
               <button
                 type='button'
-                onClick={() => scrollToSection('contacts')}
+                onClick={() => scrollToSection('map')}
                 className={styles.mobileNavLink}>
                 Контакти
               </button>
               <div className={styles.mobileCtaContainer}>
                 <button
-                  onClick={() => scrollToSection('booking')}
+                  onClick={() => scrollToSection('contacts')}
                   className={styles.mobileCtaButton}>
                   Записатися
                 </button>
@@ -122,7 +122,7 @@ const Header = ({ onHeaderTextLinks }) => {
           </div>
         )}
       </div>
-      <div onClick={() => scrollToSection('booking')}>
+      <div onClick={() => scrollToSection('contacts')}>
         <DiscountBlockSToTwo right='right' />
       </div>
     </header>

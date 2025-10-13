@@ -6,6 +6,7 @@
   background: linear-gradient(135deg, #f9851f, #e06b06);
   width: 100%;
   overflow: hidden;
+  cursor: pointer;
 
   & .trustedScreenBlock {
     display: flex;
@@ -31,7 +32,7 @@
     }
 
     & p {
-      font-size: 1.1rem;
+      font-size: 2.4vw;
     }
   }
 }
@@ -45,7 +46,7 @@
     }
 
     & p {
-      font-size: 1.125rem;
+      font-size: 3.6vw;
     }
   }
 }

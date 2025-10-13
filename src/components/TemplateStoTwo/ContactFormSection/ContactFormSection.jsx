@@ -78,7 +78,7 @@ const ContactFormSection = () => {
   };
 
   return (
-    <section id='booking' className={styles.bookingSection}>
+    <section id='contacts' className={styles.bookingSection}>
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>Онлайн-запис</h2>
