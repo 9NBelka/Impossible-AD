@@ -1,0 +1,147 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  // overflow: hidden;
+  background: #202742;
+  padding: 3vw 0;
+  padding-top: 6vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  max-width: 85vw;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contentMaimFlex {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+.contentTwoPhones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 60%;
+}
+
+.title {
+  font-size: 4vw;
+  color: var(--main-page-b-color-white);
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-lineh-small2);
+
+  & .brand {
+    font-size: 5.5vw;
+    line-height: 0.1em;
+  }
+}
+
+.ctaBlock {
+  display: flex;
+  flex-direction: column;
+
+  & .subtitle {
+    display: flex;
+    font-size: 1.2vw;
+    color: var(--main-page-b-color-lightGrey3);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small2);
+    margin-top: 2vw;
+  }
+
+  & .ctaButton {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: var(--main-page-b-color-blue3);
+    border: 0;
+    font-size: 1.2vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small);
+    padding: 1.2vw 1.75vw;
+    padding-right: 4vw;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    transition: 0.3s ease;
+    gap: 1.5vw;
+    margin-top: 2vw;
+
+    & .heroArrowIcon {
+      width: 1.25vw;
+      height: 1.25vw;
+    }
+
+    &:hover {
+      transform: translateY(-0.1vw);
+      box-shadow: 0 0.4vw 1.2vw rgba(30, 83, 207, 0.404);
+    }
+  }
+}
+
+.iconAndTextMainBlock {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5vw;
+
+  & .iconAndTextBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-right: 0.15vw solid #e2ecf5;
+    padding-right: 2vw;
+  }
+
+  & .iconAndTextBlockTwo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1.5vw;
+  }
+
+  & .iconAndTextIcon {
+    display: inline-block;
+    width: 2.5vw;
+    height: 2.5vw;
+    margin-top: 0.75vw;
+  }
+
+  & .textBlockColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25vw;
+
+    & h4 {
+      font-size: 1.65vw;
+      color: var(--main-page-b-color-white);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-black);
+      line-height: var(--font-lineh-small2);
+    }
+
+    & p {
+      font-size: 1vw;
+      color: var(--main-page-b-color-lightGrey3);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-smallStrong);
+      line-height: var(--font-lineh-small2);
+    }
+  }
+}

@@ -1,0 +1,410 @@
+$prime: #ff6e48;
+$ciBlue: #ac4fd7;
+$ciRed: #706eec;
+$ciGreen: #46fcb4;
+$second: #202742;
+
+$width: 39vw;
+$height: 37vw;
+$borderSize: 0.1vw;
+$borderRadius: 100vw;
+
+.card {
+  width: $width;
+  height: $height;
+  position: relative;
+  z-index: 2;
+  border-radius: $borderRadius;
+
+  & .content {
+    width: 100%;
+    height: 100%;
+    background-color: $second;
+    border-radius: $borderRadius - $borderSize;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    width: $width + $borderSize * 2;
+    height: $height + $borderSize * 2;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    border-radius: $borderRadius;
+    background-image: linear-gradient(0deg, $ciRed, $ciBlue);
+    background-size: 100% 200%;
+    background-position: center center;
+    top: -$borderSize;
+    left: -$borderSize;
+    animation: spin 3000ms infinite alternate;
+    opacity: 0.5;
+  }
+
+  &::after {
+    filter: blur(5vw);
+  }
+
+  & .phoneLeftBlock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25vw;
+    height: 100%;
+    z-index: 1;
+    animation: movePhoneLeft 4s ease-in-out infinite;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  & .phoneRightBlock {
+    position: absolute;
+    bottom: -4.6vw;
+    right: 0vw;
+    width: 26vw;
+    height: 100%;
+    z-index: 3;
+    animation: movePhoneRight 4s ease-in-out infinite;
+
+    & img {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    background-position: top center;
+  }
+  100% {
+    background-position: bottom center;
+  }
+}
+
+.neonSpot {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: glow 4s ease-in-out infinite;
+  z-index: 0;
+
+  &.spot1 {
+    width: 10vw;
+    height: 10vw;
+    background: #ac4fd7;
+    box-shadow: 0 0 1vw #ac4fd7, 0 0 3vw #ac4fd7, 0 0 6vw#ac4fd7;
+    top: 50%;
+    left: 25%;
+    animation-delay: 0s;
+    filter: blur(2.5vw);
+  }
+
+  &.spot2 {
+    width: 10vw;
+    height: 10vw;
+    background: #706eec;
+    box-shadow: 0 0 1vw #706eec, 0 0 3vw #706eec, 0 0 6vw #706eec;
+    top: 40%;
+    left: 67%;
+    animation-delay: 1s;
+    filter: blur(2.5vw);
+  }
+
+  &.spot3 {
+    width: 10vw;
+    height: 10vw;
+    background: rgba(3, 171, 255, 0.439);
+    box-shadow: 0 0 1vw rgba(3, 171, 255, 0.439), 0 0 3vw rgba(3, 171, 255, 0.439),
+      0 0 6vw rgba(3, 171, 255, 0.439);
+    top: 15%;
+    left: 32%;
+    animation-delay: 1.5s;
+    filter: blur(2.5vw);
+  }
+}
+
+@keyframes glow {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.6);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes movePhoneLeft {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(0.5vw);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes movePhoneRight {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.5vw);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.priceBlockGlass {
+  position: absolute;
+  top: 23.5%;
+  left: -4%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 1.75vw;
+  border-radius: 1vw;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(0.3vw);
+  -webkit-backdrop-filter: blur(0.3vw);
+  box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 0.08vw;
+    background: linear-gradient(145deg, #c98591, #575979, #666666);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  & .iconAndTextBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.15vw;
+
+    & .backgroundIcon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--main-page-b-color-lightBlue7);
+      padding: 0.3vw 0.3vw;
+      border-radius: 0.35vw;
+
+      & .priceIcon {
+        width: 1vw;
+        height: 1vw;
+        fill: var(--main-page-b-color-white);
+      }
+    }
+
+    & h5 {
+      font-size: 1vw;
+      color: var(--main-page-b-color-white);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-smallStrong);
+      line-height: var(--font-lineh-small2);
+    }
+  }
+
+  & .textDesignPrice {
+    font-size: 0.9vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-small2);
+    margin-top: 1.25vw;
+
+    & span {
+      font-size: 1.5vw;
+      font-weight: var(--font-weight-black);
+    }
+  }
+
+  & .textDesign {
+    font-size: 0.9vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-small2);
+    margin-top: 0.25vw;
+  }
+}
+
+.priceBlockGradient {
+  position: absolute;
+  top: 36%;
+  right: -4.5%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 1.75vw;
+  border-radius: 1vw;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(0.3vw);
+  -webkit-backdrop-filter: blur(0.3vw);
+  box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background: linear-gradient(145deg, #706eec, #ac4fd7);
+
+  & .iconAndTextBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.15vw;
+
+    & .backgroundIcon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fa9f1b;
+      padding: 0.3vw 0.3vw;
+      border-radius: 0.35vw;
+
+      & .priceIcon {
+        width: 1vw;
+        height: 1vw;
+        fill: var(--main-page-b-color-white);
+      }
+    }
+
+    & h5 {
+      font-size: 1vw;
+      color: var(--main-page-b-color-white);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-smallStrong);
+      line-height: var(--font-lineh-small2);
+    }
+  }
+
+  & .textDesignPrice {
+    font-size: 0.9vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-small2);
+    margin-top: 1.25vw;
+
+    & span {
+      font-size: 1.5vw;
+      font-weight: var(--font-weight-black);
+    }
+  }
+
+  & .textDesign {
+    font-size: 0.9vw;
+    color: #ffab62;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-small2);
+    margin-top: 0.25vw;
+  }
+}
+
+.priceBlockGlassGraph {
+  position: absolute;
+  bottom: 5%;
+  left: 7.5%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 1.75vw;
+  border-radius: 1vw;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(0.3vw);
+  -webkit-backdrop-filter: blur(0.3vw);
+  box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 0.08vw;
+    background: linear-gradient(145deg, #c98591, #575979, #666666);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  & .iconAndTextBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.15vw;
+
+    & .backgroundIcon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #2cbf78;
+      padding: 0.3vw 0.3vw;
+      border-radius: 0.35vw;
+
+      & .priceIcon {
+        width: 1vw;
+        height: 1vw;
+        fill: var(--main-page-b-color-white);
+      }
+    }
+
+    & h5 {
+      font-size: 1vw;
+      color: var(--main-page-b-color-white);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-smallStrong);
+      line-height: var(--font-lineh-small2);
+    }
+  }
+
+  & .graphBlockRow {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1vw;
+    margin-top: 0.75vw;
+
+    & .graphBlockColumn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & .graphBlockColumnImage {
+        width: 2.25vw;
+
+        & img {
+          width: 100%;
+        }
+      }
+
+      & .textDesign {
+        font-size: 0.75vw;
+        color: var(--main-page-b-color-white);
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-smallStrong);
+        line-height: var(--font-lineh-small2);
+        margin-top: 0.5vw;
+      }
+    }
+  }
+}

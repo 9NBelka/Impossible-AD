@@ -20,6 +20,7 @@ import ContactForms from './components/DashboardComponents/ContactForms/ContactF
 import TemplateSto from './pages/Templates/TemplateSto/TemplateSto';
 import Templates from './pages/Templates/Templates';
 import TemplateStoTwo from './pages/Templates/TemplateStoTwo/TemplateStoTwo';
+import AutoServiceLandingBlack from './pages/AutoServiceLandingBlack/AutoServiceLandingBlack';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -120,6 +121,8 @@ export default function App() {
               <Route path='/web-development' element={<WebDevelopment />} />
               <Route path='/business-automation' element={<BusinessAutomation />} />
               <Route path='/auto' element={<AutoServiceLanding />} />
+              <Route path='/autoTwo' element={<AutoServiceLandingBlack />} />
+
               <Route path='/templates' element={<Templates />} />
               <Route path='/templateSto' element={<TemplateSto />} />
               <Route path='/templateStoTwo' element={<TemplateStoTwo />} />
