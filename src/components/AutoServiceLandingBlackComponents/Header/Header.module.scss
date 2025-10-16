@@ -8,8 +8,10 @@
   transition: all 0.3s ease;
 
   &.scrolled {
-    background: var(--main-page-b-color-white-opacity98);
-    box-shadow: 0 0.01vw 1vw rgba(0, 0, 0, 0.1);
+    background: #2027429f;
+    backdrop-filter: blur(0.75vw);
+    -webkit-backdrop-filter: blur(0.75vw);
+    box-shadow: 0 0.01vw 1vw rgba(0, 0, 0, 0.15);
 
     & .container {
       padding: 0.6vw 0;

@@ -3,6 +3,8 @@ import Header from '../../components/AutoServiceLandingBlackComponents/Header/He
 import scss from './AutoServiceLandingBlack.module.scss';
 import { useEffect, useState } from 'react';
 import HeroScreen from '../../components/AutoServiceLandingBlackComponents/HeroScreen/HeroScreen';
+import WhyUsScreen from '../../components/AutoServiceLandingBlackComponents/WhyUsScreen/WhyUsScreen';
+import OurServicesScreen from '../../components/AutoServiceLandingBlackComponents/OurServicesScreen/OurServicesScreen';
 
 export default function AutoServiceLandingBlack() {
   const onFooterAndHeaderTextLinksMain = [
@@ -45,7 +47,7 @@ export default function AutoServiceLandingBlack() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 200);
+      setIsScrolled(window.scrollY > 100);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -70,6 +72,8 @@ export default function AutoServiceLandingBlack() {
         isMenuOpen={isMenuOpen}
       />
       <HeroScreen scrollToSection={scrollToSection} />
+      <WhyUsScreen />
+      <OurServicesScreen />
     </div>
   );
 }

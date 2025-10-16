@@ -1,0 +1,83 @@
+.whyUsMain {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #313c66;
+  padding: 4.2vw 0;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  max-width: 85vw;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contentMainWhyUsBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+
+.contentTitleAndButton {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+
+  & .title {
+    font-size: 3.4vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-small2);
+  }
+
+  & .description {
+    display: flex;
+    font-size: 1.1vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-normal);
+    margin-top: 2vw;
+
+    &.nomarg {
+      margin-top: 0;
+    }
+  }
+
+  & .buttonMore {
+    background: transparent;
+    border: 0.1vw solid var(--main-page-b-color-white);
+    font-size: 1vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-small);
+    padding: 1vw 1.5vw;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-top: 2.2vw;
+
+    &:hover {
+      background: var(--main-page-b-color-white);
+      color: #313c66;
+      box-shadow: 0 0.4vw 1.2vw rgba(255, 255, 255, 0.404);
+    }
+  }
+}
+
+.contentBlocksIconsAndTexts {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 55%;
+  gap: 1.5vw;
+}
