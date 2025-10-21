@@ -122,7 +122,7 @@ export default function ContactB() {
               <BsChat className={scss.contactIcon} />
               <div>
                 <p className={scss.contactItemTitleMini}>Telegram / WhatsApp</p>
-                <a href='https://t.me/Impossibleadcom' target='_blank'>
+                <a href='https://t.me/Archerius' target='_blank'>
                   <p className={scss.contactItemTextMini}>@impossiblead</p>
                 </a>
               </div>

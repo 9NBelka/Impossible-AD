@@ -83,7 +83,7 @@ export default function FooterB({ onFooterTextLinks }) {
                   <BsTelephone />
                   +380 (68) 550-42-02
                 </a>
-                <a href='https://t.me/Impossibleadcom' className={scss.contactLink} target='_blank'>
+                <a href='https://t.me/Archerius' className={scss.contactLink} target='_blank'>
                   <BsChat />
                   @Impossibleadcom
                 </a>
@@ -95,7 +95,7 @@ export default function FooterB({ onFooterTextLinks }) {
                   <a href='#' aria-label='Facebook' target='_blank'>
                     <BsFacebook />
                   </a>
-                  <a href='https://t.me/Impossibleadcom' aria-label='Telegram' target='_blank'>
+                  <a href='https://t.me/Archerius' aria-label='Telegram' target='_blank'>
                     <BsTelegram />
                   </a>
                   <a

@@ -1,0 +1,191 @@
+.portalBackground {
+  display: flex;
+  /* background-attachment: fixed; */
+  width: 100%;
+  height: 56.3vw;
+  background: #0a0f24;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  max-width: 85vw;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.portalImagesPortal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  padding: 7vw 0;
+}
+
+.portalTitlesAndSocial {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  // align-items: center;
+
+  span {
+    font-size: 2vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small);
+  }
+
+  strong {
+    color: #0ce7ff;
+    font-weight: var(--font-weight-black);
+  }
+}
+
+.priceBlockGlassMain {
+  display: flex;
+  width: 100%;
+  margin-top: 3vw;
+  z-index: 5;
+}
+
+.priceBlockGlass {
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 1.75vw;
+  border-radius: 1vw;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(0.3vw);
+  -webkit-backdrop-filter: blur(0.3vw);
+  box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 0.08vw;
+    background: linear-gradient(145deg, #c98591, #575979, #666666);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  & .priceBlockGlassBorder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2.5vw;
+  }
+
+  & .priceIcon {
+    width: 2vw;
+    height: 2vw;
+    fill: var(--main-page-b-color-white);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      fill: #0ce7ff;
+    }
+  }
+}
+
+.blockTitle {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vw;
+
+  & p {
+    font-size: 3.6vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small);
+
+    &.titleYour {
+      margin-left: -0.2vw;
+      font-size: 7.68vw;
+    }
+
+    &.titleAD {
+      font-size: 4.6vw;
+    }
+
+    &.titleKosmos {
+      color: #0ce7ff;
+      font-size: 4.25vw;
+    }
+  }
+}
+
+.portalImagePortal {
+  display: flex;
+  position: absolute;
+  top: 0vw;
+  left: 23%;
+  width: 46vw;
+  z-index: 0;
+}
+
+.portalImageRocksOne {
+  display: flex;
+  position: absolute;
+  top: 9%;
+  left: 30%;
+  width: 34vw;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+}
+
+.portalImageRocksTwo {
+  display: flex;
+  position: absolute;
+  top: 0%;
+  left: 0vw;
+  width: 100%;
+  z-index: 3;
+}
+
+.portalImageCosmonaft {
+  display: flex;
+  position: absolute;
+  top: 9vw;
+  left: 36%;
+  width: 24vw;
+  z-index: 2;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 31%;
+  z-index: 5;
+
+  & h3 {
+    font-size: 1.6vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-normal);
+    text-align: center;
+  }
+
+  & p {
+    font-size: 1vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-normal);
+    text-align: center;
+    margin-top: 0.5vw;
+  }
+}

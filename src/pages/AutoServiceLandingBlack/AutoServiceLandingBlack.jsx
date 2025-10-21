@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import HeroScreen from '../../components/AutoServiceLandingBlackComponents/HeroScreen/HeroScreen';
 import WhyUsScreen from '../../components/AutoServiceLandingBlackComponents/WhyUsScreen/WhyUsScreen';
 import OurServicesScreen from '../../components/AutoServiceLandingBlackComponents/OurServicesScreen/OurServicesScreen';
+import PortalContactForm from '../../components/AutoServiceLandingBlackComponents/PortalContactForm/PortalContactForm';
 
 export default function AutoServiceLandingBlack() {
   const onFooterAndHeaderTextLinksMain = [
@@ -74,6 +75,7 @@ export default function AutoServiceLandingBlack() {
       <HeroScreen scrollToSection={scrollToSection} />
       <WhyUsScreen />
       <OurServicesScreen />
+      <PortalContactForm />
     </div>
   );
 }
