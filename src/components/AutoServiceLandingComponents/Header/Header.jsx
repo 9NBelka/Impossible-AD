@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import scss from './Header.module.scss';
 import { BsChevronDown, BsList, BsXLg } from 'react-icons/bs';
 import { FiPhoneCall } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Header({
   onHeaderTextLinks,
@@ -50,15 +51,25 @@ export default function Header({
               {info.title}
             </a>
           ))}
-          <a className={scss.linkToPhone} href='tel:+380685504202' id='callToPhoneOnHeader'>
-            <FiPhoneCall className={scss.iconPhone} /> +380 (68) 550-42-02
+          <a
+            className={scss.linkToPhone}
+            href='https://wa.me/380733291216'
+            id='callToPhoneOnHeader'
+            target='_blank'>
+            <FaWhatsapp className={scss.iconPhone} /> +380 (73) 329-12-16
           </a>
         </nav>
-        <a href='tel:+380685504202'>
+        {/* <a href='tel:+380685504202'>
           <div className={scss.iconBlockPhone} id='callToPhoneOnHeader'>
             <FiPhoneCall className={scss.iconPhone} />
           </div>
+        </a> */}
+        <a href='https://wa.me/380733291216' target='_blank'>
+          <div className={scss.iconBlockPhone} id='callToPhoneOnHeader'>
+            <FaWhatsapp className={scss.iconPhone} />
+          </div>
         </a>
+
         <div className={scss.buttonsBlockRow}>
           <button
             className={scss.buttonContactWithMe}

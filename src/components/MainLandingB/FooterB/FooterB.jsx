@@ -10,6 +10,7 @@ import {
   BsTelephone,
   BsTwitter,
 } from 'react-icons/bs';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function FooterB({ onFooterTextLinks }) {
   const currentYear = new Date().getFullYear();
@@ -79,9 +80,9 @@ export default function FooterB({ onFooterTextLinks }) {
                   <BsEnvelope />
                   impossiblead2025@gmail.com
                 </a>
-                <a href='tel:+380685504202' className={scss.contactLink}>
-                  <BsTelephone />
-                  +380 (68) 550-42-02
+                <a href='https://wa.me/380733291216' className={scss.contactLink} target='_blank'>
+                  <FaWhatsapp />
+                  +380 (73) 329-12-16
                 </a>
                 <a href='https://t.me/Archerius' className={scss.contactLink} target='_blank'>
                   <BsChat />
@@ -92,9 +93,9 @@ export default function FooterB({ onFooterTextLinks }) {
               <div className={scss.social}>
                 <h5>Соціальні мережі</h5>
                 <div className={scss.socialLinks}>
-                  <a href='#' aria-label='Facebook' target='_blank'>
+                  {/* <a href='#' aria-label='Facebook' target='_blank'>
                     <BsFacebook />
-                  </a>
+                  </a> */}
                   <a href='https://t.me/Archerius' aria-label='Telegram' target='_blank'>
                     <BsTelegram />
                   </a>

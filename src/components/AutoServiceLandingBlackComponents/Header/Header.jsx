@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import scss from './Header.module.scss';
 import { FiPhoneCall } from 'react-icons/fi';
 import { BsList, BsReceiptCutoff, BsTelephoneOutboundFill, BsXLg } from 'react-icons/bs';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Header({
   onHeaderTextLinks,
@@ -38,7 +39,7 @@ export default function Header({
     <header className={`${scss.header} ${isScrolled ? scss.scrolled : ''}`}>
       <div className={scss.container}>
         <div className={scss.logo}>
-          <a href='/'>
+          <a onClick={() => scrollToSection('hero')}>
             <span>
               impossible<strong>AD</strong>
             </span>
@@ -52,8 +53,8 @@ export default function Header({
           ))}
         </nav>
 
-        <a href='tel:+380685504202' className={scss.linkToPhone} id='callToPhoneOnHeader'>
-          <BsTelephoneOutboundFill className={scss.iconPhone} /> +380 (68) 550-42-02
+        <a href='https://wa.me/380733291216' className={scss.linkToPhone} id='callToPhoneOnHeader'>
+          <FaWhatsapp className={scss.iconPhone} /> +380 (73) 329-12-16
         </a>
         <div className={scss.buttonsBlockRow}>
           <button

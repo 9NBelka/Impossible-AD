@@ -5,6 +5,7 @@ import { addContactForm } from '../../../store/slices/contactFormSlice';
 import scss from './ContactB.module.scss';
 import { BsChat, BsCheck2, BsClock, BsEnvelope, BsTelephone } from 'react-icons/bs';
 import ContactFormB from './ContactFormB/ContactFormB';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function ContactB() {
   const dispatch = useDispatch();
@@ -110,11 +111,11 @@ export default function ContactB() {
               </div>
             </div>
             <div className={scss.contactItem}>
-              <BsTelephone className={scss.contactIcon} />
+              <FaWhatsapp className={scss.contactIcon} />
               <div>
                 <p className={scss.contactItemTitleMini}>Телефон</p>
-                <a href='tel:+380685504202'>
-                  <p className={scss.contactItemTextMini}>+380 (68) 550-42-02</p>
+                <a href='https://wa.me/380733291216' target='_blank'>
+                  <p className={scss.contactItemTextMini}>+380 (73) 329-12-16</p>
                 </a>
               </div>
             </div>
