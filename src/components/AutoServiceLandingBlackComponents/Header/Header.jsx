@@ -50,9 +50,6 @@ export default function Header({
               {info.title}
             </a>
           ))}
-          {/* <a className={scss.linkToPhone} href='tel:+380685504202' id='callToPhoneOnHeader'>
-            <FiPhoneCall className={scss.iconPhone} /> +380 (68) 550-42-02
-          </a> */}
         </nav>
 
         <a href='tel:+380685504202' className={scss.linkToPhone} id='callToPhoneOnHeader'>

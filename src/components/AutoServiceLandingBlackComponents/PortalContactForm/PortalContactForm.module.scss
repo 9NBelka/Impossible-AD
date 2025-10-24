@@ -1,8 +1,7 @@
 .portalBackground {
   display: flex;
-  /* background-attachment: fixed; */
   width: 100%;
-  height: 56.3vw;
+  height: 45vw;
   background: #0a0f24;
   position: relative;
   overflow: hidden;
@@ -31,10 +30,9 @@
 
 .logo {
   display: flex;
-  // align-items: center;
 
   span {
-    font-size: 2vw;
+    font-size: 1.7vw;
     color: var(--main-page-b-color-white);
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-bold);
@@ -57,7 +55,7 @@
 .priceBlockGlass {
   display: flex;
   flex-direction: column;
-  padding: 1vw 1.75vw;
+  padding: 0.9vw 1.7vw;
   border-radius: 1vw;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(0.3vw);
@@ -82,12 +80,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 2.5vw;
+    gap: 2vw;
   }
 
   & .priceIcon {
-    width: 2vw;
-    height: 2vw;
+    width: 1.5vw;
+    height: 1.5vw;
     fill: var(--main-page-b-color-white);
     cursor: pointer;
     transition: 0.3s ease-in-out;
@@ -104,7 +102,7 @@
   margin-top: 3vw;
 
   & p {
-    font-size: 3.6vw;
+    font-size: 3.4vw;
     color: var(--main-page-b-color-white);
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-bold);
@@ -112,16 +110,16 @@
 
     &.titleYour {
       margin-left: -0.2vw;
-      font-size: 7.68vw;
+      font-size: 7.28vw;
     }
 
     &.titleAD {
-      font-size: 4.6vw;
+      font-size: 4.36vw;
     }
 
     &.titleKosmos {
       color: #0ce7ff;
-      font-size: 4.25vw;
+      font-size: 4vw;
     }
   }
 }
@@ -162,30 +160,4 @@
   left: 36%;
   width: 24vw;
   z-index: 2;
-}
-
-.contactForm {
-  display: flex;
-  flex-direction: column;
-  width: 31%;
-  z-index: 5;
-
-  & h3 {
-    font-size: 1.6vw;
-    color: var(--main-page-b-color-white);
-    font-family: var(--font-Inter);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--font-lineh-normal);
-    text-align: center;
-  }
-
-  & p {
-    font-size: 1vw;
-    color: var(--main-page-b-color-white);
-    font-family: var(--font-Inter);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--font-lineh-normal);
-    text-align: center;
-    margin-top: 0.5vw;
-  }
 }

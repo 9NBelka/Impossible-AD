@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import scss from './PortalContactForm.module.scss';
 import { useEffect, useState } from 'react';
 import { BsFacebook, BsInstagram, BsTelegram } from 'react-icons/bs';
+import ContactForm from './ContactForm/ContactForm';
 
 export default function PortalContactForm() {
   const [move, setMove] = useState({ x: 0, y: 0 });
@@ -99,12 +100,7 @@ export default function PortalContactForm() {
               }}
             />
           </div>
-          <div className={scss.contactForm}>
-            <h3>Ваш сайт має продавати. Давайте створимо його разом 🚀</h3>
-            <p className={scss.description}>
-              Залиште заявку — і протягом 24 год отримаєте перший план рішення для вашого бізнесу.
-            </p>
-          </div>
+          <ContactForm />
         </div>
       </div>
     </div>

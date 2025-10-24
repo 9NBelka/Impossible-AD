@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import ContentPhones from './ContentPhones/ContentPhones';
 import scss from './HeroScreen.module.scss';
 import { BsCheckCircleFill, BsCurrencyExchange, BsGeoAltFill } from 'react-icons/bs';
@@ -59,6 +60,11 @@ export default function HeroScreen({ scrollToSection }) {
                   <p>Маршрутів</p>
                 </div>
               </div>
+            </div>
+            <div className={scss.neonBlockPhone}>
+              <div className={clsx(scss.neonSpot, scss.spot1)}></div>
+              <div className={clsx(scss.neonSpot, scss.spot2)}></div>
+              <div className={clsx(scss.neonSpot, scss.spot3)}></div>
             </div>
           </div>
           <div className={scss.contentTwoPhones}>

@@ -6,6 +6,8 @@ import HeroScreen from '../../components/AutoServiceLandingBlackComponents/HeroS
 import WhyUsScreen from '../../components/AutoServiceLandingBlackComponents/WhyUsScreen/WhyUsScreen';
 import OurServicesScreen from '../../components/AutoServiceLandingBlackComponents/OurServicesScreen/OurServicesScreen';
 import PortalContactForm from '../../components/AutoServiceLandingBlackComponents/PortalContactForm/PortalContactForm';
+import CostScreen from '../../components/AutoServiceLandingBlackComponents/CostScreen/CostScreen';
+import AskedQuestions from '../../components/AutoServiceLandingBlackComponents/AskedQuestions/AskedQuestions';
 
 export default function AutoServiceLandingBlack() {
   const onFooterAndHeaderTextLinksMain = [
@@ -76,6 +78,8 @@ export default function AutoServiceLandingBlack() {
       <WhyUsScreen />
       <OurServicesScreen />
       <PortalContactForm />
+      <CostScreen />
+      <AskedQuestions />
     </div>
   );
 }

@@ -19,6 +19,32 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .header {
+    &.scrolled {
+      box-shadow: 0 0.01vw 1vw rgba(0, 0, 0, 0.1);
+
+      & .container {
+        padding: 3vw 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    &.scrolled {
+      backdrop-filter: blur(1vw);
+      -webkit-backdrop-filter: blur(1vw);
+      box-shadow: 0 0.01vw 1vw rgba(0, 0, 0, 0.2);
+
+      & .container {
+        padding: 4vw 0;
+      }
+    }
+  }
+}
+
 .container {
   width: 100%;
   max-width: 85vw;
@@ -28,6 +54,20 @@
   justify-content: space-between;
   padding: 0.85vw 0;
   transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+    padding: 2.5vw 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 90vw;
+    padding: 5vw 0;
+  }
 }
 
 .linkToPhone {
@@ -53,6 +93,29 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .linkToPhone {
+    font-size: 2vw;
+    gap: 1.75vw;
+
+    & .iconPhone {
+      width: 2vw;
+      height: 2vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .linkToPhone {
+    font-size: 3.6vw;
+    gap: 1.75vw;
+
+    & .iconPhone {
+      display: none;
+    }
+  }
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -68,6 +131,22 @@
   strong {
     color: var(--main-page-b-color-lightBlue);
     font-weight: var(--font-weight-black);
+  }
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    span {
+      font-size: 3vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    span {
+      font-size: 5vw;
+    }
   }
 }
 
@@ -113,60 +192,13 @@
 }
 
 @media (max-width: 1024px) {
-  .header {
-    &.scrolled {
-      box-shadow: 0 0.01vw 1vw rgba(0, 0, 0, 0.1);
-
-      & .container {
-        padding: 2vw 0;
-      }
-    }
-  }
-
-  .container {
-    padding: 2.5vw 0;
-    max-width: 95vw;
-  }
-
-  .logo {
-    span {
-      font-size: 3vw;
-    }
-  }
-
-  .nav {
-    display: flex;
-    gap: 4vw;
-
-    a {
-      font-size: 1.8vw;
-      padding: 0.75vw 0;
-      gap: 1vw;
-
-      &::after {
-        height: 0.25vw;
-      }
-    }
-
-    & .linkToPhone {
-      font-size: 1.8vw;
-      gap: 0;
-
-      & .iconPhone {
-        display: none;
-      }
-    }
-  }
-}
-
-@media (max-width: 1024px) {
   .nav {
     position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
     width: 30vw;
-    background: var(--main-page-b-color-white);
+    background: #313c66;
     flex-direction: column;
     align-items: flex-start;
     padding: 10vw 5vw;
@@ -174,6 +206,7 @@
     transform: translateX(100%);
     transition: transform 0.3s ease;
     box-shadow: -0.1vw 0 1vw rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 
     &.navOpen {
       transform: translateX(0);
@@ -181,7 +214,7 @@
 
     a {
       font-size: 1.8vw;
-      color: var(--auto-page-color-darkGrey);
+      color: var(--main-page-b-color-white);
       font-family: var(--font-Inter);
       font-weight: var(--font-weight-smallStrong);
       line-height: var(--font-lineh-small);
@@ -218,27 +251,6 @@
 }
 
 @media (max-width: 576px) {
-  .header {
-    &.scrolled {
-      box-shadow: 0 0.01vw 1vw rgba(0, 0, 0, 0.1);
-
-      & .container {
-        padding: 3vw 0;
-      }
-    }
-  }
-
-  .container {
-    max-width: 90vw;
-    padding: 5vw 0;
-  }
-
-  .logo {
-    span {
-      font-size: 5vw;
-    }
-  }
-
   .nav {
     height: 100vh;
     width: 50vw;
@@ -252,14 +264,6 @@
 
       &::after {
         height: 0.5vw;
-      }
-    }
-
-    & .linkToPhone {
-      font-size: 3.4vw;
-
-      & .iconPhone {
-        display: none;
       }
     }
   }
@@ -280,17 +284,19 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--main-page-b-color-darkGrey);
+  padding: 0;
 }
 
 @media (max-width: 1024px) {
   .menuToggle {
     display: block;
-    z-index: 1001;
+    z-index: 9999;
 
     & .menuIcon {
       width: 3vw;
       height: 3vw;
+      color: var(--main-page-b-color-white);
+      z-index: 9999;
     }
   }
 }
@@ -298,7 +304,6 @@
 @media (max-width: 576px) {
   .menuToggle {
     display: block;
-    z-index: 1001;
 
     & .menuIcon {
       width: 5vw;
@@ -348,6 +353,12 @@
     font-size: 1.8vw;
     padding: 1.5vw 3vw;
     border-radius: 1vw;
+    gap: 1.75vw;
+
+    & .iconButtonToForm {
+      width: 2vw;
+      height: 2vw;
+    }
 
     &:hover {
       transform: translateY(0vw);

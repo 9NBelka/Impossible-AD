@@ -13,6 +13,26 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .backgroundCard {
+    width: 31%;
+    padding: 2.5vw;
+    border-radius: 1.5vw;
+
+    &:hover {
+      transform: translateY(0vw);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .backgroundCard {
+    width: 100%;
+    padding: 4vw;
+    border-radius: 1.5vw;
+  }
+}
+
 .iconBlock {
   display: flex;
 }
@@ -56,6 +76,30 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .backgroundIcon {
+    padding: 1vw 1vw;
+    border-radius: 1vw;
+
+    & .icon {
+      width: 3vw;
+      height: 3vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .backgroundIcon {
+    padding: 3vw 3vw;
+    border-radius: 1.5vw;
+
+    & .icon {
+      width: 6vw;
+      height: 6vw;
+    }
+  }
+}
+
 .titleCard {
   display: flex;
   font-size: 1vw;
@@ -66,6 +110,20 @@
   margin-top: 1.8vw;
 }
 
+@media (max-width: 1024px) {
+  .titleCard {
+    font-size: 2vw;
+    margin-top: 1.8vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .titleCard {
+    font-size: 4vw;
+    margin-top: 3vw;
+  }
+}
+
 .descriptionCard {
   display: flex;
   font-size: 0.95vw;
@@ -74,4 +132,18 @@
   font-weight: var(--font-weight-regular);
   line-height: var(--font-lineh-normal);
   margin-top: 0.75vw;
+}
+
+@media (max-width: 1024px) {
+  .descriptionCard {
+    font-size: 1.8vw;
+    margin-top: 1vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .descriptionCard {
+    font-size: 3.6vw;
+    margin-top: 3vw;
+  }
 }
