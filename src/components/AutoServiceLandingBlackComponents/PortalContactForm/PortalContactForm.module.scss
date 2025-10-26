@@ -7,11 +7,29 @@
   overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+  .portalBackground {
+    height: 100%;
+  }
+}
+
 .container {
   display: flex;
   max-width: 85vw;
   width: 100%;
   margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 90vw;
+  }
 }
 
 .portalImagesPortal {
@@ -21,6 +39,20 @@
   position: relative;
   width: 100%;
   padding: 7vw 0;
+}
+
+@media (max-width: 1024px) {
+  .portalImagesPortal {
+    padding: 4vw 0;
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .portalImagesPortal {
+    flex-direction: column;
+    padding: 6vw 0;
+  }
 }
 
 .portalTitlesAndSocial {
@@ -45,11 +77,40 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .logo {
+    span {
+      font-size: 3vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    display: none;
+  }
+}
+
 .priceBlockGlassMain {
   display: flex;
   width: 100%;
   margin-top: 3vw;
   z-index: 5;
+}
+
+@media (max-width: 1024px) {
+  .priceBlockGlassMain {
+    display: flex;
+    width: 100%;
+    margin-top: 3vw;
+    z-index: 5;
+  }
+}
+
+@media (max-width: 576px) {
+  .priceBlockGlassMain {
+    display: none;
+  }
 }
 
 .priceBlockGlass {
@@ -96,6 +157,39 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .priceBlockGlass {
+    padding: 1.5vw 2.5vw;
+    border-radius: 1vw;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 0.08vw;
+      background: linear-gradient(145deg, #c98591, #575979, #666666);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    & .priceBlockGlassBorder {
+      gap: 2.5vw;
+
+      & a {
+        display: flex;
+      }
+    }
+
+    & .priceIcon {
+      width: 2.4vw;
+      height: 2.4vw;
+    }
+  }
+}
+
 .blockTitle {
   display: flex;
   flex-direction: column;
@@ -121,6 +215,45 @@
       color: #0ce7ff;
       font-size: 4vw;
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .blockTitle {
+    margin-top: 3vw;
+
+    & p {
+      font-size: 5.6vw;
+      color: var(--main-page-b-color-white);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--font-lineh-small);
+
+      &.titleYour {
+        margin-left: -0.2vw;
+        font-size: 12vw;
+      }
+
+      &.titleAD {
+        font-size: 7.15vw;
+      }
+
+      &.titleKosmos {
+        font-size: 6.6vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .blockTitle {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .allImagePortall {
+    display: none;
   }
 }
 

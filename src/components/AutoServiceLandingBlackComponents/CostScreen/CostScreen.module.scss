@@ -9,11 +9,35 @@
   padding-bottom: 4vw;
 }
 
+@media (max-width: 1024px) {
+  .mainCostScreen {
+    padding: 4vw 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .mainCostScreen {
+    padding: 6vw 0;
+  }
+}
+
 .container {
   display: flex;
   max-width: 85vw;
   width: 100%;
   margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 90vw;
+  }
 }
 
 .contentTitleAndDescription {
@@ -140,6 +164,170 @@
           font-family: var(--font-Inter);
           font-weight: var(--font-weight-regular);
           line-height: var(--font-lineh-normal);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentTitleAndDescription {
+    & .title {
+      font-size: 5vw;
+      letter-spacing: 0.4vw;
+    }
+
+    & .descriptionAndButtonChangeBlock {
+      gap: 2.5vw;
+      margin-top: 2vw;
+
+      & .description {
+        font-size: 1.8vw;
+      }
+
+      & .toggleSwitch {
+        width: 5vw;
+        height: 3vw;
+        border-radius: 1.5vw;
+        padding: 0.5vw;
+
+        & .toggleCircle {
+          width: 2vw;
+          height: 2vw;
+          left: 0.5vw;
+        }
+
+        &:global(.on) {
+          background-color: #323842;
+
+          .toggleCircle {
+            left: calc(100% - 2.5vw);
+          }
+        }
+      }
+
+      & .discountGradientBlock {
+        padding: 1vw 1.5vw;
+        border-radius: 1vw;
+
+        & .textDiscount {
+          font-size: 1.8vw;
+        }
+      }
+    }
+
+    & .priceOnAdsBlock {
+      margin-top: 3vw;
+
+      & h6 {
+        font-size: 2.2vw;
+      }
+
+      & .priceOnAdsDescriptionMain {
+        gap: 2vw;
+        margin-top: 1.5vw;
+
+        & .priceOnAdsDescription {
+          gap: 1.5vw;
+          padding: 1.5vw 1.5vw;
+          border-radius: 1vw;
+
+          &:hover {
+            transform: translateY(0vw);
+          }
+
+          & .blockIcon {
+            display: flex;
+            width: 2vw;
+
+            & img {
+              width: 100%;
+            }
+          }
+
+          & .priceOnAdsDescriptionText {
+            font-size: 1.8vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .contentTitleAndDescription {
+    & .title {
+      font-size: 7vw;
+      letter-spacing: 0.4vw;
+    }
+
+    & .descriptionAndButtonChangeBlock {
+      gap: 4vw;
+      margin-top: 4vw;
+
+      & .description {
+        font-size: 3.6vw;
+      }
+
+      & .toggleSwitch {
+        width: 8vw;
+        height: 5vw;
+        border-radius: 5vw;
+        padding: 1vw;
+
+        & .toggleCircle {
+          width: 3.2vw;
+          height: 3.2vw;
+          left: 1vw;
+        }
+
+        &:global(.on) {
+          background-color: #323842;
+
+          .toggleCircle {
+            left: calc(100% - 4vw);
+          }
+        }
+      }
+
+      & .discountGradientBlock {
+        padding: 1.5vw 2.5vw;
+        border-radius: 1.5vw;
+
+        & .textDiscount {
+          font-size: 3.6vw;
+        }
+      }
+    }
+
+    & .priceOnAdsBlock {
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 6vw;
+      width: 100%;
+
+      & h6 {
+        font-size: 4vw;
+      }
+
+      & .priceOnAdsDescriptionMain {
+        flex-wrap: wrap;
+        gap: 2vw;
+        margin-top: 3vw;
+
+        & .priceOnAdsDescription {
+          gap: 2vw;
+          padding: 2vw 3vw;
+          border-radius: 1.5vw;
+
+          & .blockIcon {
+            display: flex;
+            width: 3vw;
+          }
+
+          & .priceOnAdsDescriptionText {
+            font-size: 3.6vw;
+          }
         }
       }
     }

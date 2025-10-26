@@ -3,6 +3,7 @@ import scss from './PortalContactForm.module.scss';
 import { useEffect, useState } from 'react';
 import { BsFacebook, BsInstagram, BsTelegram } from 'react-icons/bs';
 import ContactForm from './ContactForm/ContactForm';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function PortalContactForm() {
   const [move, setMove] = useState({ x: 0, y: 0 });
@@ -51,14 +52,17 @@ export default function PortalContactForm() {
             <div className={scss.priceBlockGlassMain}>
               <div className={scss.priceBlockGlass}>
                 <div className={scss.priceBlockGlassBorder}>
-                  <a href='#'>
+                  <a href='https://t.me/Archerius' aria-label='Telegram' target='_blank'>
                     <BsTelegram className={scss.priceIcon} />
                   </a>
-                  <a href='#'>
+                  <a
+                    href='https://www.instagram.com/ad_impossible/'
+                    aria-label='Instagram'
+                    target='_blank'>
                     <BsInstagram className={scss.priceIcon} />
                   </a>
-                  <a href='#'>
-                    <BsFacebook className={scss.priceIcon} />
+                  <a href='https://t.me/Archerius' target='_blank'>
+                    <FaWhatsapp className={scss.priceIcon} />
                   </a>
                 </div>
               </div>
@@ -70,7 +74,7 @@ export default function PortalContactForm() {
               <p className={scss.titleKosmos}>У КОСМОС</p>
             </div>
           </div>
-          <div>
+          <div className={scss.allImagePortall}>
             <img
               className={scss.portalImagePortal}
               src='images/portal/backfround-portal-new-portal.webp'

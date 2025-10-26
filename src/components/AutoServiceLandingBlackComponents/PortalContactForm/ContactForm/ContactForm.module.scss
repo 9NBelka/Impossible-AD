@@ -24,6 +24,40 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .contactForm {
+    width: 45%;
+
+    & h3 {
+      display: none;
+      font-size: 3vw;
+    }
+
+    & p {
+      display: none;
+      font-size: 1.8vw;
+      margin-top: 0.5vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .contactForm {
+    width: 100%;
+
+    & h3 {
+      display: flex;
+      font-size: 5vw;
+    }
+
+    & p {
+      display: flex;
+      font-size: 3.6vw;
+      margin-top: 3vw;
+    }
+  }
+}
+
 .formForDownload {
   display: flex;
   flex-direction: column;
@@ -171,6 +205,146 @@
     &:disabled {
       opacity: 0.7;
       cursor: not-allowed;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .formForDownload {
+    margin-top: 0vw;
+
+    & .formMainBlock {
+      gap: 2vw;
+
+      & .formInputsAndCheckoutBlock {
+        gap: 2vw;
+      }
+
+      & .formGroup {
+        width: 100%;
+
+        & .checkboxLabel {
+          gap: 0.75vw;
+          margin-top: 0vw;
+          font-size: 1.8vw;
+
+          & input[type='checkbox'] {
+            width: 3vw;
+            height: 3vw;
+          }
+
+          & .checkmarkText {
+            font-size: 1.8vw;
+
+            & .privacyLink {
+              padding: 0 0.5vw;
+            }
+          }
+        }
+
+        & label {
+          font-size: 1.8vw;
+
+          & .importantText {
+            padding-left: 0.2vw;
+          }
+        }
+
+        & input {
+          padding: 1.3vw 1.5vw;
+          border: 0.05vw solid #85a5c9;
+          border-radius: 1vw;
+          font-size: 1.8vw;
+          margin-top: 0.5vw;
+        }
+      }
+    }
+
+    & .button {
+      padding: 1.3vw 7.6vw;
+      border-radius: 1vw;
+      font-size: 1.8vw;
+      gap: 1vw;
+      margin-top: 0vw;
+
+      & .buttonIconDownload {
+        width: 3vw;
+        height: 3vw;
+      }
+
+      &:hover {
+        transform: translateY(0vw);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .formForDownload {
+    margin-top: 5vw;
+
+    & .formMainBlock {
+      gap: 2vw;
+
+      & .formInputsAndCheckoutBlock {
+        gap: 5vw;
+      }
+
+      & .formGroup {
+        width: 100%;
+
+        & .checkboxLabel {
+          gap: 1.5vw;
+          margin-top: 0vw;
+          font-size: 3.6vw;
+
+          & input[type='checkbox'] {
+            width: 5vw;
+            height: 5vw;
+          }
+
+          & .checkmarkText {
+            font-size: 3.6vw;
+
+            & .privacyLink {
+              padding: 0 1vw;
+            }
+          }
+        }
+
+        & label {
+          font-size: 3.6vw;
+
+          & .importantText {
+            padding-left: 0.5vw;
+          }
+        }
+
+        & input {
+          padding: 3vw 4vw;
+          border: 0.1vw solid #85a5c9;
+          border-radius: 1.5vw;
+          font-size: 3.6vw;
+          margin-top: 1vw;
+        }
+      }
+    }
+
+    & .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 3vw 10vw;
+      border-radius: 1.5vw;
+      font-size: 3.6vw;
+      gap: 2vw;
+      margin-top: 1vw;
+
+      & .buttonIconDownload {
+        width: 6vw;
+        height: 6vw;
+      }
     }
   }
 }

@@ -23,6 +23,14 @@ export default function CostCard({ isOn }) {
       description: 'IP-телефонія з записом дзвінків',
     },
   ];
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <div className={scss.costCard}>
@@ -31,12 +39,7 @@ export default function CostCard({ isOn }) {
           {info.map((info, idx) => (
             <div key={idx} className={scss.pointDescriptionBlock}>
               <div className={scss.blockIcon}>
-                <img
-                  src='/iconOnCostScreenBlack.svg'
-                  alt='iconOnCostScreenBlack'
-                  width='32'
-                  height='32'
-                />
+                <img src='/iconOnCostScreenBlack.svg' alt='iconOnCostScreenBlack' />
               </div>
               <p className={scss.pointDescriptionText}>{info.description}</p>
             </div>
@@ -63,7 +66,9 @@ export default function CostCard({ isOn }) {
         <div className={scss.fourMonthBlock}>
           <p className={scss.fourMonthText}>€349 / з 4 місяця</p>
         </div>
-        <button className={scss.buttonNow}>Розпочати зараз</button>
+        <button className={scss.buttonNow} onClick={() => scrollToSection('contacts')}>
+          Розпочати зараз
+        </button>
       </div>
     </>
   );

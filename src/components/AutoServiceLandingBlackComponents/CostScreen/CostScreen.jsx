@@ -19,7 +19,7 @@ export default function CostScreen() {
   const [isOn, setIsOn] = useState(false);
 
   return (
-    <section className={scss.mainCostScreen}>
+    <section className={scss.mainCostScreen} id='price'>
       <div className={scss.container}>
         <div className={scss.contentTitleAndDescription}>
           <h2 className={scss.title}>Вартість</h2>
@@ -42,12 +42,7 @@ export default function CostScreen() {
               {descriptions.map((text, idx) => (
                 <div key={idx} className={scss.priceOnAdsDescription}>
                   <div className={scss.blockIcon}>
-                    <img
-                      src='/iconOnCostScreenBlack.svg'
-                      alt='iconOnCostScreenBlack'
-                      width='32'
-                      height='32'
-                    />
+                    <img src='/iconOnCostScreenBlack.svg' alt='iconOnCostScreenBlack' />
                   </div>
                   <p className={scss.priceOnAdsDescriptionText}>{text.description}</p>
                 </div>

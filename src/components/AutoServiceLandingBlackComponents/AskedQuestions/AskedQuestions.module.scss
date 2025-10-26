@@ -10,9 +10,36 @@
   padding-bottom: 4vw;
 }
 
+@media (max-width: 1024px) {
+  .askedQuestionsScreen {
+    background-position: center;
+    padding: 4vw 0;
+    padding-bottom: 4vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .askedQuestionsScreen {
+    padding: 6vw 0;
+    padding-bottom: 6vw;
+  }
+}
+
 .container {
   max-width: 85vw;
   margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 90vw;
+  }
 }
 
 .title {
@@ -24,14 +51,39 @@
   line-height: var(--font-lineh-small2);
 }
 
+@media (max-width: 1024px) {
+  .title {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 7vw;
+  }
+}
+
 .accordion {
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-
   gap: 1vw;
   margin-top: 2vw;
+}
+
+@media (max-width: 1024px) {
+  .accordion {
+    gap: 2vw;
+    margin-top: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .accordion {
+    gap: 3vw;
+    margin-top: 4vw;
+  }
 }
 
 .accordionItem {
@@ -62,6 +114,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: left;
     font-size: 0.95vw;
     color: var(--main-page-b-color-white);
     font-family: var(--font-Inter);
@@ -111,6 +164,82 @@
     &.active {
       max-height: 5vw;
       padding-bottom: 1vw;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .accordionItem {
+    width: 90%;
+    border-radius: 1vw;
+    border: 0.1vw solid rgba(226, 226, 226, 0.3);
+    box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
+
+    .accordionButton {
+      font-size: 2vw;
+      padding: 2vw 2vw;
+      border-radius: 1vw;
+
+      & .accordionIcon {
+        width: 2vw;
+        height: 2vw;
+      }
+
+      & span {
+        gap: 1.5vw;
+
+        & .accordionIconAnswer {
+          width: 2vw;
+          height: 2vw;
+        }
+      }
+    }
+
+    .accordionContent {
+      font-size: 1.8vw;
+      padding: 0 2vw;
+
+      &.active {
+        max-height: 20vw;
+        padding-bottom: 1.5vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .accordionItem {
+    width: 100%;
+    border-radius: 1.5vw;
+
+    .accordionButton {
+      font-size: 3.8vw;
+      padding: 3.2vw 4vw;
+      border-radius: 1.5vw;
+
+      & .accordionIcon {
+        width: 3vw;
+        height: 3vw;
+      }
+
+      & span {
+        gap: 3vw;
+
+        & .accordionIconAnswer {
+          width: 3vw;
+          height: 3vw;
+        }
+      }
+    }
+
+    .accordionContent {
+      font-size: 3.6vw;
+      padding: 0 4vw;
+
+      &.active {
+        max-height: 25vw;
+        padding-bottom: 3vw;
+      }
     }
   }
 }

@@ -93,6 +93,9 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
       case 'sto':
         formSource = 'страница СТО';
         break;
+      case 'stoTwo':
+        formSource = 'страница СТО Black';
+        break;
       case 'stoHero':
         formSource = 'страница СТО HeroBlock';
         break;
@@ -105,10 +108,18 @@ export const notifyTelegramOnNewContact = onDocumentCreated(
       `Источник: ${formSource}\n`,
       '',
       `👤 *Имя*: ${newFormData.name || '❌ Не указано'}`,
-      newFormData.source !== 'sto' && newFormData.source !== 'stoHero'
+      newFormData.source !== 'sto' && newFormData.source !== 'stoTwo'
         ? `📧 *Email*: ${newFormData.email || '❌ Не указано'}`
         : null,
       newFormData.source === 'sto'
+        ? `
+🏢 *Город*: ${newFormData.city || '❌ Не указано'}
+🚗 *Название СТО*: ${newFormData.companySTO || '❌ Не указано'}
+🔗 *Сайт*: ${newFormData.site || '❌ Не указано'}
+📞 *Позвонить в*: ${callHimOn || '❌ Не указано'}
+`
+        : null,
+      newFormData.source === 'stoTwo'
         ? `
 🏢 *Город*: ${newFormData.city || '❌ Не указано'}
 🚗 *Название СТО*: ${newFormData.companySTO || '❌ Не указано'}

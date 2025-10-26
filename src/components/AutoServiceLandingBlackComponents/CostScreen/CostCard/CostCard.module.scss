@@ -55,6 +55,51 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .costCard {
+    padding: 3vw;
+    border-radius: 1.5vw;
+    border: 0.1vw solid rgba(226, 226, 226, 0.3);
+    width: 82%;
+    margin-top: 3vw;
+
+    // псевдоэлемент для размытого градиента
+    &::before {
+      filter: blur(0.15vw);
+    }
+
+    &:hover::before {
+      filter: blur(5vw);
+    }
+
+    & h3 {
+      font-size: 4vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .costCard {
+    padding: 4vw;
+    border-radius: 2vw;
+    width: 100%;
+    margin-top: 5vw;
+
+    // псевдоэлемент для размытого градиента
+    &::before {
+      filter: blur(0.15vw);
+    }
+
+    &:hover::before {
+      filter: blur(5vw);
+    }
+
+    & h3 {
+      font-size: 6vw;
+    }
+  }
+}
+
 .pointDescriptionBlocks {
   display: flex;
   flex-direction: row;
@@ -77,6 +122,7 @@
     }
 
     & .blockIcon {
+      display: flex;
       width: 1.05vw;
 
       & img {
@@ -90,6 +136,52 @@
       font-family: var(--font-Inter);
       font-weight: var(--font-weight-regular);
       line-height: var(--font-lineh-normal);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .pointDescriptionBlocks {
+    gap: 2vw;
+    margin-top: 2.5vw;
+
+    .pointDescriptionBlock {
+      gap: 1.5vw;
+      padding: 1.5vw 1.5vw;
+      border-radius: 1vw;
+
+      &:hover {
+        transform: translateY(0vw);
+      }
+
+      & .blockIcon {
+        width: 2vw;
+      }
+
+      & .pointDescriptionText {
+        font-size: 1.8vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .pointDescriptionBlocks {
+    gap: 2vw;
+    margin-top: 4vw;
+
+    .pointDescriptionBlock {
+      gap: 2vw;
+      padding: 2vw 3vw;
+      border-radius: 1.5vw;
+
+      & .blockIcon {
+        width: 3vw;
+      }
+
+      & .pointDescriptionText {
+        font-size: 3.6vw;
+      }
     }
   }
 }
@@ -162,6 +254,90 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .priceBlock {
+    margin-top: 4vw;
+
+    & .priceIcon {
+      width: 2.5vw;
+      height: 2.5vw;
+      margin-top: -0.6vw;
+    }
+
+    & .priceText {
+      font-size: 5vw;
+      line-height: 1em;
+
+      & .discountPrice {
+        padding-right: 1vw;
+
+        & .priceIconOn {
+          width: 2.5vw;
+          height: 2.5vw;
+          margin-bottom: 0.3vw;
+        }
+
+        & span {
+          font-size: 3.6vw;
+          padding-right: 1vw;
+
+          & .priceIconOn {
+            width: 2vw;
+            height: 2vw;
+            margin-bottom: 0.3vw;
+          }
+        }
+      }
+    }
+
+    & .monthText {
+      font-size: 2vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .priceBlock {
+    margin-top: 4vw;
+
+    & .priceIcon {
+      width: 4.5vw;
+      height: 4.5vw;
+      margin-top: -0.6vw;
+    }
+
+    & .priceText {
+      font-size: 10vw;
+      line-height: 0.9em;
+
+      & .discountPrice {
+        padding-right: 1vw;
+
+        & .priceIconOn {
+          width: 5vw;
+          height: 5vw;
+          margin-bottom: 0.3vw;
+        }
+
+        & span {
+          font-size: 7vw;
+          padding-right: 2vw;
+
+          & .priceIconOn {
+            width: 3.5vw;
+            height: 3.5vw;
+            margin-bottom: 0.5vw;
+          }
+        }
+      }
+    }
+
+    & .monthText {
+      font-size: 4vw;
+    }
+  }
+}
+
 .fourMonthBlock {
   margin-top: 1.5vw;
 
@@ -171,6 +347,26 @@
     font-family: var(--font-Inter);
     font-weight: var(--font-weight-regular);
     line-height: var(--font-lineh-small);
+  }
+}
+
+@media (max-width: 1024px) {
+  .fourMonthBlock {
+    margin-top: 2vw;
+
+    & .fourMonthText {
+      font-size: 1.8vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .fourMonthBlock {
+    margin-top: 4vw;
+
+    & .fourMonthText {
+      font-size: 3.6vw;
+    }
   }
 }
 
@@ -191,5 +387,29 @@
 
   &:hover {
     box-shadow: 0 0vw 1.5vw rgba(6, 201, 255, 0.85);
+  }
+}
+
+@media (max-width: 1024px) {
+  .buttonNow {
+    padding: 1.75vw 7vw;
+    border-radius: 1vw;
+    font-size: 1.8vw;
+    box-shadow: 0 0vw 2vw rgba(6, 201, 255, 0.24);
+    margin-top: 2vw;
+
+    &:hover {
+      box-shadow: 0 0vw 0vw rgba(6, 201, 255, 0.85);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .buttonNow {
+    padding: 3vw 10vw;
+    border-radius: 1.5vw;
+    font-size: 3.6vw;
+    box-shadow: 0 0vw 2vw rgba(6, 201, 255, 0.24);
+    margin-top: 4vw;
   }
 }

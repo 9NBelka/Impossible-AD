@@ -5,6 +5,7 @@
   position: relative;
   background-color: #fef7ec;
   height: 100vh;
+  overflow: hidden;
 
   & .backButton {
     display: flex;
@@ -53,8 +54,7 @@
 
 @media (max-width: 576px) {
   .backgroundBlock {
-    height: 100%;
-    padding: 20vw 0;
+    height: 100vh;
 
     & .backButton {
       gap: 1vw;
@@ -180,11 +180,14 @@
 @media (max-width: 1024px) {
   .thanksPageBlock {
     & img {
-      width: 38vw;
+      width: 60vw;
     }
 
     & h2 {
-      font-size: 3.6vw;
+      & .titleBig {
+        font-size: 6vw;
+        line-height: var(--font-lineh-normal);
+      }
     }
 
     & .thanksPageDescriptionOrange {
@@ -219,14 +222,14 @@
 @media (max-width: 576px) {
   .thanksPageBlock {
     & img {
-      width: 75vw;
+      width: 110vw;
     }
 
     & h2 {
-      font-size: 8vw;
+      font-size: 10vw;
 
-      span {
-        display: none;
+      & .titleBig {
+        font-size: 10vw;
       }
     }
 

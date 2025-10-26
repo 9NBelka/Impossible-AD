@@ -1,0 +1,134 @@
+.contact {
+  padding: 2vw 0;
+  background: #0a0f24;
+
+  & .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 65vw;
+    margin: 0 auto;
+  }
+
+  & .contactMainTitle {
+    text-align: center;
+    font-size: 1.8vw;
+    // color: var(--main-page-color-blue);
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    line-height: var(--font-lineh-normal);
+    font-weight: var(--font-weight-bold);
+  }
+
+  & .contactContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2vw;
+  }
+
+  & .contactInfo {
+    display: flex;
+    flex-direction: column;
+    width: 27%;
+    & h3 {
+      font-size: 1vw;
+      color: var(--main-page-b-color-white);
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-normal);
+      font-weight: var(--font-weight-bold);
+    }
+
+    & .contactItem {
+      // background: var(--main-page-b-color-white);
+      background-color: rgb(32, 39, 66);
+      display: flex;
+      flex-direction: row;
+      margin-top: 1vw;
+      border-radius: 0.5vw;
+      padding: 0.75vw;
+      gap: 0.75vw;
+      // border: 0.1vw solid #e2e8f0;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        // background: #f8fafc;
+        background: var(--main-page-color-blue);
+        transform: translateY(-0.1vw);
+      }
+
+      & .contactIcon {
+        width: 1vw;
+        height: 1vw;
+        // color: var(--main-page-color-lightBlue);
+        color: var(--main-page-b-color-white);
+        opacity: 0.7;
+      }
+
+      & .contactItemTitleMini {
+        font-size: 0.65vw;
+        // color: var(--main-page-color-darkGrey);
+        color: var(--main-page-b-color-white);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-bold);
+        opacity: 0.9;
+      }
+
+      & .contactItemTextMini {
+        font-size: 0.6vw;
+        // color: #64748b;
+        color: var(--main-page-b-color-white);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-regular);
+        margin-top: 0.25vw;
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact {
+    padding: 4vw 0;
+
+    & .container {
+      max-width: 80vw;
+    }
+
+    & .contactMainTitle {
+      font-size: 3vw;
+    }
+
+    & .contactContent {
+      align-items: center;
+      flex-direction: column;
+      margin-top: 0vw;
+    }
+
+    & .contactInfo {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .contact {
+    padding: 5vw 0;
+
+    & .container {
+      max-width: 87vw;
+    }
+
+    & .contactMainTitle {
+      font-size: 4.6vw;
+    }
+
+    & .contactContent {
+      flex-direction: column;
+    }
+  }
+}

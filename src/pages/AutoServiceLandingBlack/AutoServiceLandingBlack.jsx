@@ -8,20 +8,22 @@ import OurServicesScreen from '../../components/AutoServiceLandingBlackComponent
 import PortalContactForm from '../../components/AutoServiceLandingBlackComponents/PortalContactForm/PortalContactForm';
 import CostScreen from '../../components/AutoServiceLandingBlackComponents/CostScreen/CostScreen';
 import AskedQuestions from '../../components/AutoServiceLandingBlackComponents/AskedQuestions/AskedQuestions';
+import Footer from '../../components/AutoServiceLandingBlackComponents/Footer/Footer';
+import ContactFormScreen from '../../components/AutoServiceLandingBlackComponents/ContactFormScreen/ContactFormScreen';
 
 export default function AutoServiceLandingBlack() {
   const onFooterAndHeaderTextLinksMain = [
-    {
-      title: 'Які результати?',
-      linkToPage: 'results',
-    },
+    // {
+    //   title: 'Які результати?',
+    //   linkToPage: 'results',
+    // },
     {
       title: 'Чому саме ми?',
-      linkToPage: 'whatwillyouget',
+      linkToPage: 'whyus',
     },
     {
-      title: 'Чому зараз?',
-      linkToPage: 'solutions',
+      title: 'Послуги',
+      linkToPage: 'ourservices',
     },
     {
       title: 'Ціна',
@@ -80,6 +82,8 @@ export default function AutoServiceLandingBlack() {
       <PortalContactForm />
       <CostScreen />
       <AskedQuestions />
+      <ContactFormScreen />
+      <Footer onFooterTextLinks={onFooterAndHeaderTextLinksMain} />
     </div>
   );
 }
