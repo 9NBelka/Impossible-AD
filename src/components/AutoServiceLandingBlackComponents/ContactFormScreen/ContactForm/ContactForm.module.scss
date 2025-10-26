@@ -591,6 +591,22 @@
   pointer-events: none; // иконка не перекрывает клик
 }
 
+@media (max-width: 1024px) {
+  .calendarIcon {
+    right: 1.5vw;
+    width: 2vw;
+    height: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .calendarIcon {
+    right: 3vw;
+    width: 3vw;
+    height: 3vw;
+  }
+}
+
 .formAfterMain {
   display: flex;
   flex-direction: column;
