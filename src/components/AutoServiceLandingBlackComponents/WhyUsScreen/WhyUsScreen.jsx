@@ -3,6 +3,12 @@ import CardsWhyUs from './CardsWhyUs/CardsWhyUs';
 import scss from './WhyUsScreen.module.scss';
 
 export default function WhyUsScreen() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className={scss.whyUsMain} id='whyus'>
       <div className={scss.container}>
@@ -17,7 +23,9 @@ export default function WhyUsScreen() {
               Це означає: ви отримуєте якісну рекламу за стандартами Google
             </p>
             <div>
-              <button className={scss.buttonMore}>Дізнатись більше</button>
+              <button className={scss.buttonMore} onClick={() => scrollToSection('contacts')}>
+                Дізнатись більше
+              </button>
             </div>
           </div>
           <div className={scss.contentBlocksIconsAndTexts}>
