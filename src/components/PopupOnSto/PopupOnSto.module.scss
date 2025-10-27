@@ -1,0 +1,45 @@
+.popupOverlaySto {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContentSto {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 0.1vw solid var(--main-page-b-color-lightGrey2);
+  border-radius: 0.5vw;
+  padding: 1.5vw 1.5vw;
+  position: relative;
+  max-width: 30vw;
+  width: 100%;
+  box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.2);
+}
+
+.popupCloseSto {
+  position: absolute;
+  top: 10%;
+  right: 2%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  & .popupCloseStoIcon {
+    width: 1vw;
+    height: 1vw;
+    fill: #000;
+  }
+}
+
+.popupCloseSto:hover {
+  color: #000;
+}

@@ -5,7 +5,7 @@ import { BsCheckCircleFill, BsCurrencyExchange, BsGeoAltFill } from 'react-icons
 
 export default function HeroScreen({ scrollToSection }) {
   return (
-    <section className={scss.hero} id='hero'>
+    <section className={scss.hero} id='hero' onClick={() => scrollToSection('contacts')}>
       <div className={scss.container}>
         <div className={scss.contentMaimFlex}>
           <div className={scss.content}>

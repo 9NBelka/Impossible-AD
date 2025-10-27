@@ -13,6 +13,7 @@ import AutoServiceFormScreen from '../../components/AutoServiceLandingComponents
 import FooterB from '../../components/MainLandingB/FooterB/FooterB';
 import './AutoServiceLanding.scss';
 import LiveChatForAuto from '../../components/LiveChatForAuto/LiveChatForAuto';
+import PopupOnSto from '../../components/PopupOnSto/PopupOnSto';
 
 export default function AutoServiceLanding() {
   const onFooterAndHeaderTextLinksMain = [
@@ -92,6 +93,7 @@ export default function AutoServiceLanding() {
       <ContactScreen />
 
       <FooterB onFooterTextLinks={onFooterAndHeaderTextLinksMain} />
+      {/* <PopupOnSto /> */}
     </div>
   );
 }

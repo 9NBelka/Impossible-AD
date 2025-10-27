@@ -5,6 +5,7 @@
     var(--main-page-b-color-blue1),
     var(--main-page-b-color-lightBlue2)
   );
+  position: relative;
 
   & .container {
     display: flex;
@@ -25,12 +26,44 @@
     font-weight: var(--font-weight-bold);
   }
 
+  & .bottomTextDiscountBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.8vw 0;
+    background: var(--main-page-b-color-white);
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 11.5%;
+
+    & .bottomTextBlock {
+      display: flex;
+      padding: 0vw 3vw;
+      overflow: hidden;
+
+      & .bottomText {
+        text-align: center;
+        font-size: 1vw;
+        color: var(--auto-page-orange);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-small);
+        font-weight: var(--font-weight-bold);
+        background: linear-gradient(45deg, #467dd9, #bd32da);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-transform: uppercase;
+      }
+    }
+  }
+
   & .contactContent {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 2vw;
+    margin-top: 6vw;
   }
 
   & .contactInfo {
@@ -108,10 +141,23 @@
       font-size: 3vw;
     }
 
+    & .bottomTextDiscountBlock {
+      padding: 1.7vw 0;
+      top: 9.5%;
+
+      & .bottomTextBlock {
+        padding: 0vw 3vw;
+
+        & .bottomText {
+          font-size: 2.5vw;
+        }
+      }
+    }
+
     & .contactContent {
       align-items: center;
       flex-direction: column;
-      margin-top: 0vw;
+      margin-top: 9.5vw;
     }
 
     & .contactInfo {
@@ -132,8 +178,22 @@
       font-size: 4.6vw;
     }
 
+    & .bottomTextDiscountBlock {
+      padding: 2.5vw 0;
+      top: 7%;
+
+      & .bottomTextBlock {
+        padding: 0vw 4vw;
+
+        & .bottomText {
+          font-size: 4vw;
+        }
+      }
+    }
+
     & .contactContent {
       flex-direction: column;
+      margin-top: 13vw;
     }
   }
 }

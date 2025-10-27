@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Marquee from 'react-fast-marquee';
 
 import scss from './ContactScreen.module.scss';
 import { BsChat, BsCheck2, BsClock, BsEnvelope, BsTelephone } from 'react-icons/bs';
@@ -8,7 +9,7 @@ import { addClient } from '../../../store/slices/clientsSlice';
 import { addContactForm } from '../../../store/slices/contactFormSlice';
 import { FaWhatsapp } from 'react-icons/fa';
 
-export default function ContactScreen() {
+export default function ContactScreen({ right }) {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: '',
@@ -90,10 +91,29 @@ export default function ContactScreen() {
     }
   };
 
+  const textDiscount = {
+    texts: [
+      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
+      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
+      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
+      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
+      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
+    ],
+  };
+
   return (
     <section className={scss.contact}>
       <div className={scss.container}>
         <h2 className={scss.contactMainTitle}>Хочу клієнтів</h2>
+        <div className={scss.bottomTextDiscountBlock}>
+          <Marquee direction={right} speed={50} gradient={false}>
+            {textDiscount.texts.map((text, index) => (
+              <div className={scss.bottomTextBlock} key={index}>
+                <h3 className={scss.bottomText}>{text}</h3>
+              </div>
+            ))}
+          </Marquee>
+        </div>
 
         <div className={scss.contactContent}>
           <div className={scss.contactInfo}>

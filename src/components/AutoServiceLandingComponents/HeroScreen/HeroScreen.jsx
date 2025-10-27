@@ -4,7 +4,7 @@ import scss from './HeroScreen.module.scss';
 export default function HeroScreen({ scrollToSection }) {
   //tf просто 100
   return (
-    <section className={scss.hero} id='hero'>
+    <section className={scss.hero} id='hero' onClick={() => scrollToSection('contacts')}>
       <div className={scss.container}>
         <div className={scss.content}>
           <h1 className={scss.title}>

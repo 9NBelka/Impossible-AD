@@ -1,6 +1,7 @@
 .contact {
   padding: 2vw 0;
   background: #0a0f24;
+  position: relative;
 
   & .container {
     display: flex;
@@ -14,11 +15,42 @@
   & .contactMainTitle {
     text-align: center;
     font-size: 1.8vw;
-    // color: var(--main-page-color-blue);
     color: var(--main-page-b-color-white);
     font-family: var(--font-Inter);
     line-height: var(--font-lineh-normal);
     font-weight: var(--font-weight-bold);
+  }
+
+  & .bottomTextDiscountBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.8vw 0;
+    background: rgb(32, 39, 66);
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 11.5%;
+
+    & .bottomTextBlock {
+      display: flex;
+      padding: 0vw 3vw;
+      overflow: hidden;
+
+      & .bottomText {
+        text-align: center;
+        font-size: 1vw;
+        color: var(--auto-page-orange);
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-small);
+        font-weight: var(--font-weight-bold);
+        background: linear-gradient(45deg, #467dd9, #bd32da);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-transform: uppercase;
+      }
+    }
   }
 
   & .contactContent {
@@ -26,7 +58,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 2vw;
+    margin-top: 6vw;
   }
 
   & .contactInfo {
@@ -42,7 +74,6 @@
     }
 
     & .contactItem {
-      // background: var(--main-page-b-color-white);
       background-color: rgb(32, 39, 66);
       display: flex;
       flex-direction: row;
@@ -50,11 +81,9 @@
       border-radius: 0.5vw;
       padding: 0.75vw;
       gap: 0.75vw;
-      // border: 0.1vw solid #e2e8f0;
       transition: 0.3s ease-in-out;
 
       &:hover {
-        // background: #f8fafc;
         background: var(--main-page-color-blue);
         transform: translateY(-0.1vw);
       }
@@ -103,10 +132,23 @@
       font-size: 3vw;
     }
 
+    & .bottomTextDiscountBlock {
+      padding: 1.7vw 0;
+      top: 9.5%;
+
+      & .bottomTextBlock {
+        padding: 0vw 3vw;
+
+        & .bottomText {
+          font-size: 2.5vw;
+        }
+      }
+    }
+
     & .contactContent {
       align-items: center;
       flex-direction: column;
-      margin-top: 0vw;
+      margin-top: 9.5vw;
     }
 
     & .contactInfo {
@@ -127,8 +169,22 @@
       font-size: 4.6vw;
     }
 
+    & .bottomTextDiscountBlock {
+      padding: 2.5vw 0;
+      top: 7%;
+
+      & .bottomTextBlock {
+        padding: 0vw 4vw;
+
+        & .bottomText {
+          font-size: 4vw;
+        }
+      }
+    }
+
     & .contactContent {
       flex-direction: column;
+      margin-top: 13vw;
     }
   }
 }
