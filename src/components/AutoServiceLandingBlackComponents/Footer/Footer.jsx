@@ -53,16 +53,24 @@ export default function Footer({ onFooterTextLinks }) {
               <h4>Послуги</h4>
               <ul>
                 <li>
-                  <a href='/google-ads-audit'>Google Ads</a>
+                  <a href='https://impossiblead.com/google-ads-audit' target='_blank'>
+                    Google Ads
+                  </a>
                 </li>
                 <li>
-                  <a href='/web-development'>Веб-розробка</a>
+                  <a href='https://impossiblead.com/web-development' target='_blank'>
+                    Веб-розробка
+                  </a>
                 </li>
                 <li>
-                  <a href='/business-automation'>Бізнес-автоматизація</a>
+                  <a href='https://impossiblead.com/business-automation' target='_blank'>
+                    Бізнес-автоматизація
+                  </a>
                 </li>
                 <li>
-                  <a href='/google-ads'>Аудит реклами</a>
+                  <a href='https://impossiblead.com/google-ads' target='_blank'>
+                    Аудит реклами
+                  </a>
                 </li>
                 {/* <li>
                   <a href='/google-ads-audit'>Аудит сайту</a>
