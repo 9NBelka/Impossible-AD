@@ -96,7 +96,8 @@ export default function App() {
           {isAutoSubdomain ? (
             <>
               <Route path='/' element={<AutoServiceLanding />} />
-              <Route path='/templateSto' element={<TemplateSto />} />
+              {/* <Route path='/templateSto' element={<TemplateSto />} /> */}
+              <Route path='/autoblack' element={<AutoServiceLandingBlack />} />
               <Route
                 path='/thanks-auto-service'
                 element={<ThanksPageOnFormDownloadAutoService />}
@@ -121,8 +122,7 @@ export default function App() {
               <Route path='/web-development' element={<WebDevelopment />} />
               <Route path='/business-automation' element={<BusinessAutomation />} />
               <Route path='/auto' element={<AutoServiceLanding />} />
-              <Route path='/autoTwo' element={<AutoServiceLandingBlack />} />
-
+              <Route path='/autoblack' element={<AutoServiceLandingBlack />} />
               <Route path='/templates' element={<Templates />} />
               <Route path='/templateSto' element={<TemplateSto />} />
               <Route path='/templateStoTwo' element={<TemplateStoTwo />} />
