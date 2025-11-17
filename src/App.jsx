@@ -114,7 +114,7 @@ export default function App() {
             </>
           ) : (
             <>
-              {/* <Route path='/d' element={<FireAutoLanding />} /> */}
+              <Route path='/d' element={<FireAutoLanding />} />
               <Route path='/' element={<MainLandingB />} />
               <Route path='/login' element={<LoginForm />} />
               <Route path='/register' element={<RegisterForm />} />
