@@ -52,8 +52,8 @@ const ContactFormSection = () => {
       ⚙️ Послуга: ${formData.service || 'Не вказано'}
     `;
 
-      const TELEGRAM_BOT_TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN_FIREAUTO;
-      const TELEGRAM_CHAT_ID = import.meta.env.TELEGRAM_CHAT_ID_FIREAUTO;
+      const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN_FIREAUTO;
+      const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID_FIREAUTO;
 
       if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
         throw new Error('Telegram Bot Token или Chat ID не настроены в .env');
@@ -61,7 +61,7 @@ const ContactFormSection = () => {
 
       // https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage
 
-      const telegramUrl = ``;
+      const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
       const response = await axios.post(telegramUrl, {
         chat_id: TELEGRAM_CHAT_ID,
