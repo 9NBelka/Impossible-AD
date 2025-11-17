@@ -36,6 +36,8 @@ export default function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   const hostname = window.location.hostname;
+  const isAutoSubdomain = hostname === 'autoservice.impossiblead.com';
+  const isFireAuto = hostname === 'fireauto.impossiblead.com';
 
   useEffect(() => {
     dispatch(checkAuthState());
@@ -70,8 +72,6 @@ export default function App() {
     return <div className='error'>Ошибка: {error}</div>;
   }
 
-  const isAutoSubdomain = hostname === 'autoservice.impossiblead.com';
-
   function ScrollToHash() {
     const { hash } = useLocation();
 
@@ -93,7 +93,13 @@ export default function App() {
       <Suspense fallback={<div className='loading'>Загрузка...</div>}>
         <ScrollToHash />
         <Routes>
-          {isAutoSubdomain ? (
+          {isFireAuto ? (
+            <>
+              <Route path='/' element={<AutoServiceLanding />} />
+              {/* <Route path='/' element={<FireAutoLanding />} /> */}
+              <Route path='*' element={<NotFoundPage />} />
+            </>
+          ) : isAutoSubdomain ? (
             <>
               <Route path='/' element={<AutoServiceLanding />} />
               {/* <Route path='/templateSto' element={<TemplateSto />} /> */}
