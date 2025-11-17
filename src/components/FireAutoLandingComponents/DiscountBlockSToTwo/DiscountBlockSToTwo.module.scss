@@ -1,0 +1,52 @@
+.discountBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.25vw 0;
+  background: linear-gradient(135deg, #f9851f, #e06b06);
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+
+  & .trustedScreenBlock {
+    display: flex;
+    padding: 0vw 3vw;
+    overflow: hidden;
+  }
+
+  & p {
+    font-size: 0.85vw;
+    color: var(--color-white);
+    font-family: var(--font-Inter);
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 1024px) {
+  .discountBlock {
+    display: flex;
+    padding: 1vw 0;
+
+    & .trustedScreenBlock {
+      padding: 0vw 3vw;
+    }
+
+    & p {
+      font-size: 2.4vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .discountBlock {
+    padding: 1.75vw 0;
+
+    & .trustedScreenBlock {
+      padding: 0vw 5vw;
+    }
+
+    & p {
+      font-size: 3.6vw;
+    }
+  }
+}

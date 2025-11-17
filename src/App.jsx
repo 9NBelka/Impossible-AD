@@ -21,6 +21,7 @@ import TemplateSto from './pages/Templates/TemplateSto/TemplateSto';
 import Templates from './pages/Templates/Templates';
 import TemplateStoTwo from './pages/Templates/TemplateStoTwo/TemplateStoTwo';
 import AutoServiceLandingBlack from './pages/AutoServiceLandingBlack/AutoServiceLandingBlack';
+import FireAutoLanding from './pages/FireAutoLanding/FireAutoLanding';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -95,8 +96,7 @@ export default function App() {
         <Routes>
           {isFireAuto ? (
             <>
-              <Route path='/' element={<AutoServiceLanding />} />
-              {/* <Route path='/' element={<FireAutoLanding />} /> */}
+              <Route path='/' element={<FireAutoLanding />} />
               <Route path='*' element={<NotFoundPage />} />
             </>
           ) : isAutoSubdomain ? (
@@ -114,6 +114,7 @@ export default function App() {
             </>
           ) : (
             <>
+              {/* <Route path='/d' element={<FireAutoLanding />} /> */}
               <Route path='/' element={<MainLandingB />} />
               <Route path='/login' element={<LoginForm />} />
               <Route path='/register' element={<RegisterForm />} />
