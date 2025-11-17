@@ -52,8 +52,8 @@ const ContactFormSection = () => {
       ⚙️ Послуга: ${formData.service || 'Не вказано'}
     `;
 
-      const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-      const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+      const TELEGRAM_BOT_TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN_FIREAUTO;
+      const TELEGRAM_CHAT_ID = import.meta.env.TELEGRAM_CHAT_ID_FIREAUTO;
 
       if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
         throw new Error('Telegram Bot Token или Chat ID не настроены в .env');
