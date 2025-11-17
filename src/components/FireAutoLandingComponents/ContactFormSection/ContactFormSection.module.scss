@@ -390,7 +390,24 @@
 .successMessage {
   text-align: left;
   color: #2563eb;
-  font-size: 1.125rem;
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-lineh-normal);
+  font-size: 1vw;
+}
+
+@media (max-width: 1024px) {
+  .successMessage {
+    margin-top: 1vw;
+    font-size: 1.8vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .successMessage {
+    margin-top: 2vw;
+    font-size: 3.6vw;
+  }
 }
 
 .infoCard {
