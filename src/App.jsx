@@ -22,6 +22,7 @@ import Templates from './pages/Templates/Templates';
 import TemplateStoTwo from './pages/Templates/TemplateStoTwo/TemplateStoTwo';
 import AutoServiceLandingBlack from './pages/AutoServiceLandingBlack/AutoServiceLandingBlack';
 import FireAutoLanding from './pages/FireAutoLanding/FireAutoLanding';
+import useAnalytics from './hooks/useAnalytics';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -39,6 +40,36 @@ export default function App() {
   const hostname = window.location.hostname;
   const isAutoSubdomain = hostname === 'autoservice.impossiblead.com';
   const isFireAuto = hostname === 'fireauto.impossiblead.com';
+
+  // Выбираем Google Analytics ID по домену
+
+  let analytics = {
+    gtagId: null,
+    adsId: null,
+    gtmId: null,
+  };
+
+  if (isFireAuto) {
+    analytics = {
+      gtagId: 'G-FIREAUTO-ID',
+      adsId: 'AW-FIREAUTO-ID',
+      gtmId: 'GTM-FIREAUTO',
+    };
+  } else if (isAutoSubdomain) {
+    analytics = {
+      gtagId: 'G-71KMDRDGDB',
+      adsId: 'AW-17620991857',
+      gtmId: 'GTM-5RHT9JN4',
+    };
+  } else {
+    analytics = {
+      gtagId: 'G-71KMDRDGDB',
+      adsId: 'AW-17620991857',
+      gtmId: 'GTM-5RHT9JN4',
+    };
+  }
+
+  useAnalytics(analytics);
 
   useEffect(() => {
     dispatch(checkAuthState());
