@@ -79,43 +79,59 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 3vw;
-  gap: 1.5vw;
 }
 
 @media (max-width: 1024px) {
   .allCards {
     flex-direction: column;
     margin-top: 3vw;
-    gap: 2vw;
   }
 }
 
 @media (max-width: 576px) {
   .allCards {
     margin-top: 3vw;
-    gap: 3vw;
   }
 }
 
 .card {
   background: white;
-  width: 31.5%;
+  width: 100%;
+  height: auto;
   border: none;
   border-radius: 0.5vw;
-  box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  transform: scale(1);
-  padding: 1vw 1.5vw;
-
-  &:hover {
-    box-shadow: 0 0.2vw 0.6vw rgba(0, 0, 0, 0.1);
-    transform: scale(1.015);
-  }
+  box-shadow: 0 0.1vw 1vw rgba(0, 0, 0, 0.1);
+  border: 0.1vw solid rgba(0, 0, 0, 0.2);
+  padding: 1.5vw 1.5vw;
 
   .cardContent {
     display: flex;
+    height: auto;
     flex-direction: column;
     align-items: flex-start;
+
+    & .quoteWrapper {
+      max-height: 7vw;
+      overflow-y: auto;
+      padding-right: 1vw;
+
+      &::-webkit-scrollbar {
+        width: 0.25vw;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 1vw;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.4);
+      }
+    }
 
     & .quote {
       display: flex;
@@ -172,7 +188,7 @@
 
 @media (max-width: 1024px) {
   .card {
-    width: 100%;
+    width: 90%;
     border-radius: 1vw;
     box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.1);
     transform: scale(1);
@@ -184,6 +200,20 @@
     }
 
     .cardContent {
+      & .quoteWrapper {
+        max-height: 25vw;
+        padding-right: 1.5vw;
+
+        &::-webkit-scrollbar {
+          width: 0.5vw;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 1vw;
+        }
+      }
+
       & .quote {
         font-size: 2vw;
       }
@@ -215,11 +245,22 @@
 
 @media (max-width: 576px) {
   .card {
+    display: flex;
+    height: auto;
     box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.1);
     border-radius: 3vw;
     padding: 5vw 4vw;
 
     .cardContent {
+      & .quoteWrapper {
+        max-height: 40vw;
+        padding-right: 2vw;
+
+        &::-webkit-scrollbar {
+          width: 1vw;
+        }
+      }
+
       & .quote {
         font-size: 3.6vw;
       }
@@ -319,4 +360,128 @@
       }
     }
   }
+}
+
+// === Слайдер ===
+.sliderWrapper {
+  position: relative;
+  margin-top: 3vw;
+  // overflow: hidden;
+}
+
+.slider {
+  height: auto;
+  overflow: hidden;
+  border-radius: 0.75vw;
+}
+
+.sliderTrack {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.sliderItem {
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  height: 100%;
+  padding: 0 2vw; // відступи зліва і справа (між карточками при перемиканні)
+  box-sizing: border-box;
+}
+
+// Кнопки
+.sliderBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 0.2vw 0.8vw rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  & .iconArrow {
+    width: 1.5vw;
+    height: 1.5vw;
+  }
+
+  &:first-of-type {
+    left: -2vw;
+  }
+
+  &:last-of-type {
+    right: -2vw;
+  }
+}
+
+// Мобілка
+@media (max-width: 1024px) {
+  .sliderBtn {
+    width: 7vw;
+    height: 7vw;
+    font-size: 4vw;
+
+    &:hover {
+      transform: translateY(-50%) scale(1);
+    }
+
+    & .iconArrow {
+      width: 3vw;
+      height: 3vw;
+    }
+
+    &:first-of-type {
+      left: -1vw;
+    }
+    &:last-of-type {
+      right: -1vw;
+    }
+  }
+
+  .sliderItem {
+    padding: 0 4vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .sliderBtn {
+    width: 12vw;
+    height: 12vw;
+
+    & .iconArrow {
+      width: 5vw;
+      height: 5vw;
+    }
+
+    &:first-of-type {
+      left: -2vw;
+    }
+    &:last-of-type {
+      right: -2vw;
+    }
+  }
+
+  .sliderItem {
+    padding: 0 6vw;
+  }
+}
+
+// Видаляємо старі стилі .allCards (більше не потрібні)
+.allCards {
+  display: none; // або просто видали цей блок
 }
