@@ -51,9 +51,9 @@ export default function App() {
 
   if (isFireAuto) {
     analytics = {
-      gtagId: 'G-FIREAUTO-ID',
+      gtagId: 'G-J63LPTKLY5',
       adsId: 'AW-FIREAUTO-ID',
-      gtmId: 'GTM-FIREAUTO',
+      gtmId: 'GTM-K92X7PSC',
     };
   } else if (isAutoSubdomain) {
     analytics = {
