@@ -60,7 +60,7 @@ const diagnostics = [
     title: 'Візуальний огляд двигуна',
     description: 'Зовнішня діагностика стану двигуна і навісного обладнання',
     price: 'від 500 грн',
-    idCard: 'visual-engine-diagnostics ',
+    idCard: 'visual-engine-diagnostics',
   },
   {
     icon: <LuWrench className={styles.cardIcon} />,

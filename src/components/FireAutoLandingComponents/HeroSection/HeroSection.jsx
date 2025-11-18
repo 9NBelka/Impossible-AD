@@ -26,7 +26,11 @@ const HeroSection = () => {
           <p className={styles.secondaryText}>Потрібен ремонт авто, дзвони нам!</p>
 
           {/* Special Offer Banner */}
-          <div className={styles.offerBanner}>
+          <div
+            className={styles.offerBanner}
+            onClick={() =>
+              document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })
+            }>
             <h2 className={styles.offerTitle}>
               🔥 -15% на перший візит для нових клієнтів до кінця місяця!
             </h2>
@@ -35,9 +39,14 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className={styles.buttonGroup}>
-            <a href='tel:+380733312299' className={styles.primaryButton}>
-              <MdOutlinePhoneInTalk className={styles.buttonIcon} />
+          <div
+            className={styles.buttonGroup}
+            onClick={() =>
+              document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })
+            }>
+            {/* <a href='tel:+380733312299' className={styles.primaryButton}></a> */}
+            <a href='#' className={styles.primaryButton}>
+              {/* <MdOutlinePhoneInTalk className={styles.buttonIcon} /> */}
               Записатися зараз
             </a>
           </div>
