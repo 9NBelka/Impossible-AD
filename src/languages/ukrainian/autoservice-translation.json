@@ -1,0 +1,12 @@
+{
+  "header": {
+    "results": "Які результати?",
+    "whatwillyouget": "Чому саме ми?",
+    "solutions": "Чому зараз?",
+    "price": "Ціна",
+    "contacts": "Контакти"
+  },
+  "hero": {
+    "welcome": "Welcome to our platform"
+  }
+}

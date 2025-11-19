@@ -1,3 +1,11 @@
+@media (min-width: 2024px) {
+  .heroSection {
+    min-height: 100vh;
+    padding: 5vw 0;
+    padding-top: 8vw;
+  }
+}
+
 .heroSection {
   position: relative;
   min-height: 100vh;
@@ -5,6 +13,14 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+@media (max-width: 1780px) {
+  .heroSection {
+    min-height: 100%;
+    padding: 5vw 0;
+    padding-top: 10vw;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -242,6 +258,7 @@
     transition: opacity 0.2s ease;
     text-decoration: none;
     gap: 0.75vw;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.9;

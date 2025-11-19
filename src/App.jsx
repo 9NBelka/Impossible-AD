@@ -16,6 +16,7 @@ import GoogleAdsAudit from './pages/GoogleAdsAudit/GoogleAdsAudit';
 import CookieConsent from './components/CookieConsent/CookieConsent';
 import AutoServiceLanding from './pages/AutoServiceLanding/AutoServiceLanding';
 import ThanksPageOnFormDownloadAutoService from './pages/ThanksPageOnFormDownloadAutoService/ThanksPageOnFormDownloadAutoService';
+import ThanksPageOnFormFireAuto from './pages/ThanksPageOnFormFireAuto/ThanksPageOnFormFireAuto';
 import ContactForms from './components/DashboardComponents/ContactForms/ContactForms';
 import TemplateSto from './pages/Templates/TemplateSto/TemplateSto';
 import Templates from './pages/Templates/Templates';
@@ -52,7 +53,7 @@ export default function App() {
   if (isFireAuto) {
     analytics = {
       gtagId: 'G-J63LPTKLY5',
-      adsId: 'AW-FIREAUTO-ID',
+      adsId: 'GT-55VSTDNM',
       gtmId: 'GTM-K92X7PSC',
     };
   } else if (isAutoSubdomain) {
@@ -129,6 +130,7 @@ export default function App() {
             <>
               <Route path='/' element={<FireAutoLanding />} />
               <Route path='*' element={<NotFoundPage />} />
+              <Route path='/thanks-fireauto' element={<ThanksPageOnFormFireAuto />} />
             </>
           ) : isAutoSubdomain ? (
             <>

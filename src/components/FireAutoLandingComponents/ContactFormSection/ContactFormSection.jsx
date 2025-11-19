@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaClock, FaPhone, FaUser } from 'react-icons/fa';
 import axios from 'axios';
 import styles from './ContactFormSection.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const services = [
   'Діагностика автомобіля',
@@ -32,6 +33,7 @@ const ContactFormSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -59,8 +61,6 @@ const ContactFormSection = () => {
         throw new Error('Telegram Bot Token или Chat ID не настроены в .env');
       }
 
-      // https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage
-
       const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
       const response = await axios.post(telegramUrl, {
@@ -69,7 +69,7 @@ const ContactFormSection = () => {
         parse_mode: 'Markdown',
       });
 
-      setSuccessMessage("Дякуємо, що відправили заявку! Ми зв'яжемося з вами найближчим часом.");
+      navigate('/thanks-auto-service');
       setFormData({ name: '', phone: '', car: '', service: '' });
     } catch (error) {
       console.error('Помилка відправки даних:', error);
@@ -123,9 +123,24 @@ const ContactFormSection = () => {
                     <input
                       id='phone'
                       type='tel'
-                      placeholder='+380 (XX) XXX-XX-XX'
+                      placeholder='+380XXXXXXXXX'
                       value={formData.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      onChange={(e) => {
+                        let raw = e.target.value;
+
+                        // убираем ВСЁ, кроме цифр и +
+                        raw = raw.replace(/[^0-9+]/g, '');
+
+                        // только один + в начале
+                        if (raw.includes('+')) {
+                          raw = '+' + raw.replace(/\+/g, '').replace(/[^0-9]/g, '');
+                        }
+
+                        // ограничение по длине (например: +380XXXXXXXXX = 13 символов)
+                        if (raw.length > 13) return;
+
+                        handleInputChange('phone', raw);
+                      }}
                       required
                       className={styles.input}
                     />
@@ -169,11 +184,11 @@ const ContactFormSection = () => {
                   <button type='submit' className={styles.submitButton} disabled={isSubmitting}>
                     {isSubmitting ? 'Відправка...' : 'Записатися'}
                   </button>
-                  {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
+                  {/* {successMessage && <p className={styles.successMessage}>{successMessage}</p>} */}
                 </div>
               </form>
 
-              <div className={styles.infoCard}>
+              {/* <div className={styles.infoCard}>
                 <div className={styles.infoHeader}>
                   <FaClock className={styles.infoIcon} />
                   Що далі?
@@ -182,7 +197,7 @@ const ContactFormSection = () => {
                   Після отримання заявки наш менеджер зв'яжемося з вами протягом 15 хвилин для
                   підтвердження запису та уточнення деталей.
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -1,82 +1,82 @@
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import scss from './ThanksPageOnFormDownloadAutoService.module.scss';
-import { useState } from 'react';
-import { addContactForm } from '../../store/slices/contactFormSlice';
-import { useDispatch } from 'react-redux';
-import ThanksPageContactForm from './ThanksPageContactForm/ThanksPageContactForm';
+// import { useState } from 'react';
+// import { addContactForm } from '../../store/slices/contactFormSlice';
+// import { useDispatch } from 'react-redux';
+// import ThanksPageContactForm from './ThanksPageContactForm/ThanksPageContactForm';
 import { BsArrowLeftShort, BsBoxArrowInDown } from 'react-icons/bs';
 
 export default function ThanksPageOnFormDownloadAutoService() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    gdprConsent: false,
-  });
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  //   gdprConsent: false,
+  // });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
+  // const handleInputChange = (e) => {
+  //   const { name, value, type, checked } = e.target;
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [name]: type === 'checkbox' ? checked : value,
+  //   }));
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!formData.gdprConsent) {
-      setSubmitMessage('Будь ласка, ухваліть політику конфіденційності для продовження.');
-      return;
-    }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!formData.gdprConsent) {
+  //     setSubmitMessage('Будь ласка, ухваліть політику конфіденційності для продовження.');
+  //     return;
+  //   }
 
-    setIsSubmitting(true);
-    setSubmitMessage('');
+  //   setIsSubmitting(true);
+  //   setSubmitMessage('');
 
-    try {
-      const dateCreate = new Date().toISOString();
-      const contactFormData = {
-        dateCreate,
-        email: formData.email,
-        name: formData.name,
-        phone: formData.phone,
-        source: 'thanks-sto',
-        status: 'В обработке',
-        plan: 'Чек-лист СТО PDF',
-      };
+  //   try {
+  //     const dateCreate = new Date().toISOString();
+  //     const contactFormData = {
+  //       dateCreate,
+  //       email: formData.email,
+  //       name: formData.name,
+  //       phone: formData.phone,
+  //       source: 'thanks-sto',
+  //       status: 'В обработке',
+  //       plan: 'Чек-лист СТО PDF',
+  //     };
 
-      // Dispatch to add to 'contactform' collection
-      await dispatch(addContactForm(contactFormData)).unwrap();
+  //     // Dispatch to add to 'contactform' collection
+  //     await dispatch(addContactForm(contactFormData)).unwrap();
 
-      setSubmitMessage('Дякуємо! Ми зв`яжемося з вами протягом 24 годин.');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        gdprConsent: false,
-      });
-    } catch (error) {
-      setSubmitMessage('Помилка при надсиланні форми. Будь ласка, спробуйте пізніше.');
-      console.error('Form submission error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //     setSubmitMessage('Дякуємо! Ми зв`яжемося з вами протягом 24 годин.');
+  //     setFormData({
+  //       name: '',
+  //       email: '',
+  //       phone: '',
+  //       gdprConsent: false,
+  //     });
+  //   } catch (error) {
+  //     setSubmitMessage('Помилка при надсиланні форми. Будь ласка, спробуйте пізніше.');
+  //     console.error('Form submission error:', error);
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   // Function to handle PDF download
-  const handleDownload = () => {
-    const pdfUrl = '/CheckListSto.pdf'; // Path to the PDF in the public folder
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = 'CheckListSto.pdf'; // Name of the file when downloaded
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link); // Clean up
-  };
+  // const handleDownload = () => {
+  //   const pdfUrl = '/CheckListSto.pdf'; // Path to the PDF in the public folder
+  //   const link = document.createElement('a');
+  //   link.href = pdfUrl;
+  //   link.download = 'CheckListSto.pdf'; // Name of the file when downloaded
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link); // Clean up
+  // };
 
   const handleBack = () => {
     window.history.back();
