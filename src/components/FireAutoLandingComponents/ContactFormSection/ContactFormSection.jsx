@@ -69,7 +69,7 @@ const ContactFormSection = () => {
         parse_mode: 'Markdown',
       });
 
-      navigate('/thanks-auto-service');
+      navigate('/thanks-fireauto');
       setFormData({ name: '', phone: '', car: '', service: '' });
     } catch (error) {
       console.error('Помилка відправки даних:', error);

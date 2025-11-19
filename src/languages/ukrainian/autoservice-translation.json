@@ -7,6 +7,12 @@
     "contacts": "Контакти"
   },
   "hero": {
-    "welcome": "Welcome to our platform"
+    "title": {
+      "wordBeforeSto": "від",
+      "brand": "100",
+      "subtitleMain": "клієнтів у місяць"
+    },
+    "subtitle": "або повернемо гроші",
+    "ctaButton": "Згоден"
   }
 }
