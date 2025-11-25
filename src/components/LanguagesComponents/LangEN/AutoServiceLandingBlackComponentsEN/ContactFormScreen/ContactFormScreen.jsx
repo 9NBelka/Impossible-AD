@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Marquee from 'react-fast-marquee';
 
-import scss from './ContactScreen.module.scss';
+import scss from './ContactFormScreen.module.scss';
 import { BsChat, BsCheck2, BsClock, BsEnvelope, BsTelephone } from 'react-icons/bs';
 import ContactForm from './ContactForm/ContactForm';
 
 import { FaWhatsapp } from 'react-icons/fa';
-import { addClient } from '../../../store/slices/clientsSlice';
-import { addContactForm } from '../../../store/slices/contactFormSlice';
+import { addContactForm } from '../../../../../store/slices/contactFormSlice';
+import { addClient } from '../../../../../store/slices/clientsSlice';
 
-export default function ContactScreen({ right }) {
+export default function ContactFormScreen({ right }) {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: '',
@@ -36,7 +36,7 @@ export default function ContactScreen({ right }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.gdprConsent) {
-      setSubmitMessage('Будь ласка, ухваліть політику конфіденційності для продовження.');
+      setSubmitMessage('Please accept the Privacy Policy to continue.');
       return;
     }
 
@@ -74,7 +74,7 @@ export default function ContactScreen({ right }) {
       // Dispatch to add to 'contactform' collection
       await dispatch(addContactForm(contactFormData)).unwrap();
 
-      setSubmitMessage('Дякуємо! Ми зв`яжемося з вами протягом 24 годин.');
+      setSubmitMessage('Thank you! We will contact you within 24 hours.');
       setFormData({
         name: '',
         email: '',
@@ -85,7 +85,7 @@ export default function ContactScreen({ right }) {
         gdprConsent: false,
       });
     } catch (error) {
-      setSubmitMessage('Помилка при надсиланні форми. Будь ласка, спробуйте пізніше.');
+      setSubmitMessage('Error submitting the form. Please try again later.');
       console.error('Form submission error:', error);
     } finally {
       setIsSubmitting(false);
@@ -94,18 +94,18 @@ export default function ContactScreen({ right }) {
 
   const textDiscount = {
     texts: [
-      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
-      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
-      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
-      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
-      'залишайте заявку зараз та заощаджуйте 300 євро на послугах (за три місяці)',
+      'Submit your request now and save €300 on services (over three months)',
+      'Submit your request now and save €300 on services (over three months)',
+      'Submit your request now and save €300 on services (over three months)',
+      'Submit your request now and save €300 on services (over three months)',
+      'Submit your request now and save €300 on services (over three months)',
     ],
   };
 
   return (
     <section className={scss.contact}>
       <div className={scss.container}>
-        <h2 className={scss.contactMainTitle}>Хочу клієнтів</h2>
+        <h2 className={scss.contactMainTitle}>I want customers</h2>
         <div className={scss.bottomTextDiscountBlock}>
           <Marquee direction={right} speed={50} gradient={false}>
             {textDiscount.texts.map((text, index) => (
@@ -118,7 +118,7 @@ export default function ContactScreen({ right }) {
 
         <div className={scss.contactContent}>
           <div className={scss.contactInfo}>
-            <h3>Контактна інформація</h3>
+            <h3>Contact Information</h3>
             <div className={scss.contactItem}>
               <BsEnvelope className={scss.contactIcon} />
               <div>
@@ -131,7 +131,7 @@ export default function ContactScreen({ right }) {
             <div className={scss.contactItem}>
               <FaWhatsapp className={scss.contactIcon} />
               <div>
-                <p className={scss.contactItemTitleMini}>Телефон</p>
+                <p className={scss.contactItemTitleMini}>Phone</p>
                 <a href='https://wa.me/380733291216'>
                   <p className={scss.contactItemTextMini}>+380 (73) 329-12-16</p>
                 </a>
@@ -149,8 +149,8 @@ export default function ContactScreen({ right }) {
             <div className={scss.contactItem}>
               <BsClock className={scss.contactIcon} />
               <div>
-                <p className={scss.contactItemTitleMini}>Графік роботи</p>
-                <p className={scss.contactItemTextMini}>Пн–Сб, 9:00–18:00 (GMT+2)</p>
+                <p className={scss.contactItemTitleMini}>Working Hours</p>
+                <p className={scss.contactItemTextMini}>Mon–Sat, 9:00–18:00 (GMT+2)</p>
               </div>
             </div>
           </div>

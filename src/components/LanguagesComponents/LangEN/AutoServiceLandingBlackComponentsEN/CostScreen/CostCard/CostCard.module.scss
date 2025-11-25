@@ -1,0 +1,415 @@
+.costCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5vw;
+  border-radius: 1.2vw;
+  overflow: hidden;
+  border: 0.05vw solid rgba(226, 226, 226, 0.3);
+  width: 45%;
+  margin-top: 2.25vw;
+
+  // псевдоэлемент для размытого градиента
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      125deg,
+      rgba(52, 94, 124, 0.5),
+      rgb(22, 23, 29, 0.2),
+      rgb(24, 25, 32, 0.2),
+      rgb(115, 70, 111, 0.5)
+    );
+    filter: blur(0.15vw);
+    opacity: 1;
+    z-index: 0;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+
+  // чтобы контент был поверх
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  // эффект при наведении
+  &:hover::before {
+    filter: blur(5vw);
+    opacity: 0.9;
+  }
+
+  & h3 {
+    font-size: 2.6vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-small2);
+    letter-spacing: 0.2vw;
+    background: linear-gradient(135deg, #a0f3cf, #61bbf0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@media (max-width: 1024px) {
+  .costCard {
+    padding: 3vw;
+    border-radius: 1.5vw;
+    border: 0.1vw solid rgba(226, 226, 226, 0.3);
+    width: 82%;
+    margin-top: 3vw;
+
+    // псевдоэлемент для размытого градиента
+    &::before {
+      filter: blur(0.15vw);
+    }
+
+    &:hover::before {
+      filter: blur(5vw);
+    }
+
+    & h3 {
+      font-size: 4vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .costCard {
+    padding: 4vw;
+    border-radius: 2vw;
+    width: 100%;
+    margin-top: 5vw;
+
+    // псевдоэлемент для размытого градиента
+    &::before {
+      filter: blur(0.15vw);
+    }
+
+    &:hover::before {
+      filter: blur(5vw);
+    }
+
+    & h3 {
+      font-size: 6vw;
+    }
+  }
+}
+
+.pointDescriptionBlocks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1vw;
+  margin-top: 1.5vw;
+
+  .pointDescriptionBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.65vw;
+    padding: 0.65vw 0.75vw;
+    border-radius: 0.5vw;
+    background: linear-gradient(145deg, rgba(43, 53, 61, 1), rgba(35, 40, 51, 1));
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-0.1vw);
+    }
+
+    & .blockIcon {
+      display: flex;
+      width: 1.05vw;
+
+      & img {
+        width: 100%;
+      }
+    }
+
+    & .pointDescriptionText {
+      font-size: 0.9vw;
+      color: rgba(218, 218, 218, 1);
+      font-family: var(--font-Inter);
+      font-weight: var(--font-weight-regular);
+      line-height: var(--font-lineh-normal);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .pointDescriptionBlocks {
+    gap: 2vw;
+    margin-top: 2.5vw;
+
+    .pointDescriptionBlock {
+      gap: 1.5vw;
+      padding: 1.5vw 1.5vw;
+      border-radius: 1vw;
+
+      &:hover {
+        transform: translateY(0vw);
+      }
+
+      & .blockIcon {
+        width: 2vw;
+      }
+
+      & .pointDescriptionText {
+        font-size: 1.8vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .pointDescriptionBlocks {
+    gap: 2vw;
+    margin-top: 4vw;
+
+    .pointDescriptionBlock {
+      gap: 2vw;
+      padding: 2vw 3vw;
+      border-radius: 1.5vw;
+
+      & .blockIcon {
+        width: 3vw;
+      }
+
+      & .pointDescriptionText {
+        font-size: 3.6vw;
+      }
+    }
+  }
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2vw;
+
+  & .priceIcon {
+    display: flex;
+    align-items: flex-start;
+    width: 1.3vw;
+    height: 1.3vw;
+    fill: rgba(218, 218, 218, 1);
+    margin-top: -0.6vw;
+  }
+
+  & .priceText {
+    display: flex;
+    flex-direction: row;
+    font-size: 3.25vw;
+    color: rgba(218, 218, 218, 1);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: 0.75em;
+
+    & .discountPrice {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      padding-right: 0.75vw;
+
+      & .priceIconOn {
+        display: flex;
+        align-items: flex-end;
+        width: 1.3vw;
+        height: 1.3vw;
+        fill: rgba(218, 218, 218, 1);
+        margin-top: 0vw;
+      }
+
+      & span {
+        display: flex;
+        align-items: flex-end;
+        font-size: 2vw;
+        text-decoration: line-through;
+        line-height: var(--font-lineh-small);
+        color: rgba(102, 103, 119, 1);
+        padding-right: 0.75vw;
+
+        & .priceIconOn {
+          width: 1vw;
+          height: 1vw;
+          fill: rgba(102, 103, 119, 1);
+          margin-bottom: 0.2vw;
+        }
+      }
+    }
+  }
+
+  & .monthText {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1vw;
+    color: rgba(102, 103, 119, 1);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-small);
+  }
+}
+
+@media (max-width: 1024px) {
+  .priceBlock {
+    margin-top: 4vw;
+
+    & .priceIcon {
+      width: 2.5vw;
+      height: 2.5vw;
+      margin-top: -0.6vw;
+    }
+
+    & .priceText {
+      font-size: 5vw;
+      line-height: 1em;
+
+      & .discountPrice {
+        padding-right: 1vw;
+
+        & .priceIconOn {
+          width: 2.5vw;
+          height: 2.5vw;
+          margin-bottom: 0.3vw;
+        }
+
+        & span {
+          font-size: 3.6vw;
+          padding-right: 1vw;
+
+          & .priceIconOn {
+            width: 2vw;
+            height: 2vw;
+            margin-bottom: 0.3vw;
+          }
+        }
+      }
+    }
+
+    & .monthText {
+      font-size: 2vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .priceBlock {
+    margin-top: 4vw;
+
+    & .priceIcon {
+      width: 4.5vw;
+      height: 4.5vw;
+      margin-top: -0.6vw;
+    }
+
+    & .priceText {
+      font-size: 10vw;
+      line-height: 0.9em;
+
+      & .discountPrice {
+        padding-right: 1vw;
+
+        & .priceIconOn {
+          width: 5vw;
+          height: 5vw;
+          margin-bottom: 0.3vw;
+        }
+
+        & span {
+          font-size: 7vw;
+          padding-right: 2vw;
+
+          & .priceIconOn {
+            width: 3.5vw;
+            height: 3.5vw;
+            margin-bottom: 0.5vw;
+          }
+        }
+      }
+    }
+
+    & .monthText {
+      font-size: 4vw;
+    }
+  }
+}
+
+.fourMonthBlock {
+  margin-top: 1.5vw;
+
+  & .fourMonthText {
+    font-size: 0.95vw;
+    color: rgba(102, 103, 119, 1);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-small);
+  }
+}
+
+@media (max-width: 1024px) {
+  .fourMonthBlock {
+    margin-top: 2vw;
+
+    & .fourMonthText {
+      font-size: 1.8vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .fourMonthBlock {
+    margin-top: 4vw;
+
+    & .fourMonthText {
+      font-size: 3.6vw;
+    }
+  }
+}
+
+.buttonNow {
+  background: linear-gradient(145deg, rgba(154, 245, 190, 1), rgba(83, 180, 243, 1));
+  border: none;
+  padding: 0.85vw 4.9vw;
+  border-radius: 0.6vw;
+  font-size: 1vw;
+  color: rgba(21, 24, 32, 1);
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-lineh-small2);
+  box-shadow: 0 0vw 1.5vw rgba(6, 201, 255, 0.24);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 2vw;
+
+  &:hover {
+    box-shadow: 0 0vw 1.5vw rgba(6, 201, 255, 0.85);
+  }
+}
+
+@media (max-width: 1024px) {
+  .buttonNow {
+    padding: 1.75vw 7vw;
+    border-radius: 1vw;
+    font-size: 1.8vw;
+    box-shadow: 0 0vw 2vw rgba(6, 201, 255, 0.24);
+    margin-top: 2vw;
+
+    &:hover {
+      box-shadow: 0 0vw 0vw rgba(6, 201, 255, 0.85);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .buttonNow {
+    padding: 3vw 10vw;
+    border-radius: 1.5vw;
+    font-size: 3.6vw;
+    box-shadow: 0 0vw 2vw rgba(6, 201, 255, 0.24);
+    margin-top: 4vw;
+  }
+}

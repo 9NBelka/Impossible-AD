@@ -5,12 +5,11 @@ import { BsArrowRightShort, BsCalendar } from 'react-icons/bs';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import scss from './ContactForm.module.scss';
-import { addContactForm, fetchContactForms } from '../../../../store/slices/contactFormSlice'; // Added fetchContactForms import
-
+import { addContactForm, fetchContactForms } from '../../../../../../store/slices/contactFormSlice';
+import { fetchAvailableSlots } from '../../../../../../store/slices/calendarSlice';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../../../firebase';
+import { db } from '../../../../../../firebase';
 import { useNavigate } from 'react-router-dom';
-import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -102,18 +101,18 @@ export default function ContactForm() {
 
     // Validate required fields
     if (!name.trim() || !city.trim() || !phone.trim() || !selectedDate) {
-      setSubmitMessage('Будь ласка, заповніть усі обов’язкові поля');
+      setSubmitMessage('Please fill in all required fields');
       return;
     }
 
     // Validate phone
     if (!validatePhone(phone)) {
-      setSubmitMessage('Введіть правильний номер телефону (наприклад: 380123456789)');
+      setSubmitMessage('Enter a valid phone number (example: 380123456789)');
       return;
     }
 
     if (!formData.gdprConsent) {
-      setSubmitMessage('Будь ласка, погодьтеся з політикою конфіденційності');
+      setSubmitMessage('Please agree to the Privacy Policy');
       return;
     }
 
@@ -124,7 +123,7 @@ export default function ContactForm() {
       site,
       city,
       plan: 'СТО',
-      source: 'sto',
+      source: 'stoTwo',
       dateCreate: new Date().toISOString(),
       dateTime: selectedDate.toISOString(),
       status: 'В обработке',
@@ -138,7 +137,7 @@ export default function ContactForm() {
       );
       const querySnapshot = await getDocs(q);
       if (!querySnapshot.empty) {
-        setSubmitMessage('Цей час вже зайнятий. Оберіть інший.');
+        setSubmitMessage('This time slot is already booked. Please choose another one.');
         return;
       }
 
@@ -161,7 +160,7 @@ export default function ContactForm() {
       setFormData({ gdprConsent: false });
     } catch (error) {
       console.error('Form submission error:', error);
-      setSubmitMessage('Помилка при відправці заявки. Спробуйте ще раз.');
+      setSubmitMessage('Error sending your request. Please try again.');
     }
   };
 
@@ -172,7 +171,7 @@ export default function ContactForm() {
         value={value}
         readOnly
         className={scss.input}
-        placeholder='Оберіть дату та час'
+        placeholder='Select a date and time'
       />
       <BsCalendar className={scss.calendarIcon} />
     </div>
@@ -180,7 +179,7 @@ export default function ContactForm() {
 
   // Show loading if contact forms are loading
   if (contactFormStatus === 'loading') {
-    return <div>Завантаження доступних часів...</div>;
+    return <div>Loading available time slots...</div>;
   }
 
   return (
@@ -188,11 +187,11 @@ export default function ContactForm() {
       {!isFormSubmitted ? (
         <div className={scss.formInputsAndCheckoutBlock}>
           <form className={scss.formInputsAndCheckout} onSubmit={handleSubmit}>
-            <p>Якісно заповнені вами поля дають найкращий результат</p>
+            <p>Accurately completed fields help us achieve the best results</p>
 
             <div className={scss.formGroup}>
               <label>
-                Ім'я <span className={scss.importantText}>*</span>
+                Name <span className={scss.importantText}>*</span>
               </label>
               <input
                 type='text'
@@ -206,7 +205,7 @@ export default function ContactForm() {
 
             <div className={scss.formGroup}>
               <label>
-                Телефон <span className={scss.importantText}>*</span>
+                Phone <span className={scss.importantText}>*</span>
               </label>
               <input
                 type='tel'
@@ -221,7 +220,7 @@ export default function ContactForm() {
 
             <div className={scss.formGroup}>
               <label>
-                Місто <span className={scss.importantText}>*</span>
+                City <span className={scss.importantText}>*</span>
               </label>
               <input
                 type='text'
@@ -234,7 +233,7 @@ export default function ContactForm() {
             </div>
 
             <div className={scss.formGroup}>
-              <label>Назва СТО</label>
+              <label>Shop Name</label>
               <input
                 type='text'
                 name='companySTO'
@@ -245,7 +244,7 @@ export default function ContactForm() {
             </div>
 
             <div className={scss.formGroup}>
-              <label>Ваш сайт (якщо маєте)</label>
+              <label>Your website (if available)</label>
               <input
                 type='text'
                 name='site'
@@ -257,7 +256,7 @@ export default function ContactForm() {
 
             <div className={scss.formGroup}>
               <label>
-                Дата та час дзвінка <span className={scss.importantText}>*</span>
+                Call date and time <span className={scss.importantText}>*</span>
               </label>
               <DatePicker
                 selected={selectedDate}
@@ -315,13 +314,13 @@ export default function ContactForm() {
                 />
                 <span className={scss.checkmark}></span>
                 <span className={scss.checkmarkText}>
-                  Я згоден на обробку моїх персональних даних відповідно до
+                  I agree to the processing of my personal data in accordance with the
                   <a
                     href='/privacy-policy'
                     className={scss.privacyLink}
                     target='_blank'
                     rel='noreferrer'>
-                    Політики конфіденційності
+                    Privacy Policy
                   </a>
                 </span>
               </label>
@@ -329,7 +328,7 @@ export default function ContactForm() {
 
             <div className={scss.blockButtonFlex}>
               <button type='submit' className={scss.button} id='mainForm'>
-                Відправити заявку <BsArrowRightShort className={scss.buttonIconDownload} />
+                Send Request <BsArrowRightShort className={scss.buttonIconDownload} />
               </button>
             </div>
 
@@ -349,13 +348,13 @@ export default function ContactForm() {
           <div className={scss.formAfterBlockForImage}>
             <img src='/images/Email-send.png' alt='email-send' />
           </div>
-          <h4>Дякуємо за вашу заявку!</h4>
-          <p>Ми зв’яжемося з вами найближчим часом для підтвердження.</p>
+          <h4>Thank you for your request!</h4>
+          <p>We will contact you shortly to confirm.</p>
           <a
             className={scss.linkForInstagram}
             href='https://www.instagram.com/ad_impossible/'
             target='_blank'>
-            Закулісся та корисні поради у нашому Instagram
+            Behind the scenes and useful tips on our Instagram
           </a>
         </div>
       )}

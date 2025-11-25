@@ -1,0 +1,250 @@
+.ourServicesMain {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #202742;
+  padding: 7vw 0;
+  padding-top: 11vw;
+  z-index: 0;
+}
+
+@media (max-width: 1024px) {
+  .ourServicesMain {
+    padding: 4vw 0;
+    padding-top: 4vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .ourServicesMain {
+    padding: 6vw 0;
+    padding-top: 6vw;
+  }
+}
+
+.container {
+  display: flex;
+  max-width: 85vw;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 95vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 90vw;
+  }
+}
+
+.contentMainServicesBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5vw;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .contentMainServicesBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    position: relative;
+  }
+}
+
+.contentTitleAndDescription {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+
+  & .title {
+    font-size: 3.4vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-smallStrong);
+    line-height: var(--font-lineh-small2);
+  }
+
+  & .description {
+    display: flex;
+    font-size: 1.1vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-normal);
+    margin-top: 1.5vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentTitleAndDescription {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    & .title {
+      font-size: 5vw;
+    }
+
+    & .description {
+      text-align: center;
+      font-size: 1.8vw;
+      margin-top: 2vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .contentTitleAndDescription {
+    & .title {
+      font-size: 7vw;
+    }
+
+    & .description {
+      font-size: 3.6vw;
+      margin-top: 5vw;
+    }
+  }
+}
+
+.contentCar {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .contentCar {
+    display: none;
+  }
+}
+
+.listBlock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5vw;
+  margin-top: 3.5vw;
+
+  & .iconAndTextBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 48%;
+    gap: 1vw;
+
+    & .iconBlock {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & .iconList {
+        width: 1.5vw;
+        height: 1.5vw;
+        fill: #03bf8e;
+        border-radius: 50%;
+      }
+    }
+
+    & .textBlockColumn {
+      display: flex;
+      flex-direction: column;
+
+      & .listTitle {
+        font-size: 1.1vw;
+        color: var(--main-page-b-color-white);
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-smallStrong);
+        line-height: var(--font-lineh-normal);
+      }
+
+      & .listDescription {
+        font-size: 1.1vw;
+        color: var(--main-page-b-color-white);
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-regular);
+        line-height: var(--font-lineh-normal);
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .listBlock {
+    justify-content: center;
+    gap: 3vw;
+    margin-top: 3vw;
+
+    & .iconAndTextBlock {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      width: 46%;
+      gap: 1.5vw;
+
+      & .iconBlock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .iconList {
+          width: 2.5vw;
+          height: 2.5vw;
+        }
+      }
+
+      & .textBlockColumn {
+        display: flex;
+        flex-direction: column;
+
+        & .listTitle {
+          font-size: 1.8vw;
+        }
+
+        & .listDescription {
+          font-size: 1.8vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .listBlock {
+    gap: 5vw;
+    margin-top: 6vw;
+
+    & .iconAndTextBlock {
+      width: 100%;
+      gap: 3vw;
+
+      & .iconBlock {
+        & .iconList {
+          width: 4vw;
+          height: 4vw;
+        }
+      }
+
+      & .textBlockColumn {
+        display: flex;
+        flex-direction: column;
+
+        & .listTitle {
+          font-size: 3.6vw;
+        }
+
+        & .listDescription {
+          font-size: 3.6vw;
+        }
+      }
+    }
+  }
+}

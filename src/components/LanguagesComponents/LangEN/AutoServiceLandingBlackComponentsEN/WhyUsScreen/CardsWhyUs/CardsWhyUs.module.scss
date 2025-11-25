@@ -1,0 +1,149 @@
+.backgroundCard {
+  display: flex;
+  flex-direction: column;
+  background: #3c4669;
+  width: 31%;
+  padding: 1.5vw;
+  border-radius: 1vw;
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-0.25vw);
+  }
+}
+
+@media (max-width: 1024px) {
+  .backgroundCard {
+    width: 31%;
+    padding: 2.5vw;
+    border-radius: 1.5vw;
+
+    &:hover {
+      transform: translateY(0vw);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .backgroundCard {
+    width: 100%;
+    padding: 4vw;
+    border-radius: 1.5vw;
+  }
+}
+
+.iconBlock {
+  display: flex;
+}
+
+.backgroundIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1858a9;
+  padding: 0.5vw 0.5vw;
+  border-radius: 0.5vw;
+
+  & .icon {
+    width: 1.15vw;
+    height: 1.15vw;
+    fill: var(--main-page-b-color-white);
+
+    &.redIcon {
+      fill: #ec2b35;
+    }
+  }
+
+  &.backgroundIconBrown {
+    background: #6b5454;
+  }
+
+  &.backgroundIconLightBlue {
+    background: #08809c;
+  }
+
+  &.backgroundIconGreen {
+    background: #3d7d2e;
+  }
+
+  &.backgroundIconPink {
+    background: #b564b1;
+  }
+
+  &.backgroundIconOrange {
+    background: #b15400;
+  }
+}
+
+@media (max-width: 1024px) {
+  .backgroundIcon {
+    padding: 1vw 1vw;
+    border-radius: 1vw;
+
+    & .icon {
+      width: 3vw;
+      height: 3vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .backgroundIcon {
+    padding: 3vw 3vw;
+    border-radius: 1.5vw;
+
+    & .icon {
+      width: 6vw;
+      height: 6vw;
+    }
+  }
+}
+
+.titleCard {
+  display: flex;
+  font-size: 1vw;
+  color: var(--main-page-b-color-white);
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--font-lineh-normal);
+  margin-top: 1.8vw;
+}
+
+@media (max-width: 1024px) {
+  .titleCard {
+    font-size: 2vw;
+    margin-top: 1.8vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .titleCard {
+    font-size: 4vw;
+    margin-top: 3vw;
+  }
+}
+
+.descriptionCard {
+  display: flex;
+  font-size: 0.95vw;
+  color: var(--main-page-b-color-lightGrey4);
+  font-family: var(--font-Inter);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-lineh-normal);
+  margin-top: 0.75vw;
+}
+
+@media (max-width: 1024px) {
+  .descriptionCard {
+    font-size: 1.8vw;
+    margin-top: 1vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .descriptionCard {
+    font-size: 3.6vw;
+    margin-top: 3vw;
+  }
+}

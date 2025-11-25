@@ -1,0 +1,664 @@
+.formWidth {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.formMainBlock {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  // background-color: rgba(0, 0, 0, 0.212);
+  background: linear-gradient(135deg, var(--auto-page-lightBlue), var(--auto-page-lightBlue2));
+  padding: 1.5vw;
+  padding-top: 0.5vw;
+  border-radius: 0.8vw;
+  box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
+
+  & .formInputsAndCheckoutBlock {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // box-shadow: 0 0.2vw 1vw rgba(0, 0, 0, 0.08);
+    // border: 0.1vw solid #e5e8eb;
+    margin-top: 0vw;
+
+    border-radius: 0.5vw;
+
+    & .formInputsAndCheckout {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1vw;
+      margin-top: 1vw;
+
+      & h3 {
+        font-size: 1.1vw;
+        color: var(--main-page-b-color-white);
+        font-family: var(--font-Inter);
+        font-weight: var(--font-weight-bold);
+        line-height: var(--font-lineh-small2);
+      }
+    }
+  }
+
+  & .formGroup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &.checkboxGroup {
+      flex-direction: row;
+      justify-content: center;
+
+      & .checkboxLabel {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.25vw;
+        margin-top: 1.5vw;
+        cursor: pointer;
+        font-size: 0.6vw;
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-regular);
+
+        & input[type='checkbox'] {
+          width: 0.7vw;
+          height: 0.7vw;
+          margin: 0;
+          cursor: pointer;
+        }
+
+        & .checkmarkText {
+          font-size: 0.6vw;
+          color: var(--main-page-color-white);
+          font-family: var(--font-Inter);
+          line-height: var(--font-lineh-normal);
+          font-weight: var(--font-weight-regular);
+
+          & .privacyLink {
+            color: var(--main-page-color-white);
+            text-decoration: underline;
+            padding: 0 0.25vw;
+          }
+        }
+      }
+    }
+
+    & label {
+      display: flex;
+      font-size: 0.65vw;
+      color: var(--main-page-color-white);
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-normal);
+      font-weight: var(--font-weight-regular);
+
+      & .importantText {
+        color: var(--color-red);
+        padding-left: 0.2vw;
+      }
+    }
+
+    & input {
+      display: flex;
+      width: 100%;
+      padding: 0.7vw 0.7vw;
+      border: 0.05vw solid var(--main-page-color-light-lightGrey);
+      border-radius: 0.6vw;
+      font-size: 0.65vw;
+      font-family: var(--font-Inter);
+      line-height: var(--font-lineh-normal);
+      font-weight: var(--font-weight-regular);
+      transition: all 0.3s ease;
+      margin-top: 0.25vw;
+
+      &:focus {
+        outline: none;
+        border-color: var(--main-page-color-lightBlue);
+        box-shadow: 0 0 0 0.05vw rgba(59, 130, 246, 0.1);
+      }
+    }
+  }
+}
+
+.blockButtonFlex {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5vw;
+
+  & .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: var(--main-page-color-white);
+    border: none;
+    padding: 0.7vw 2vw;
+    border-radius: 0.6vw;
+    font-size: 0.85vw;
+    color: #52535f;
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small2);
+    box-shadow: 0 0.2vw 0.75vw rgba(59, 130, 246, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 0.5vw;
+
+    & .buttonIconDownload {
+      width: 1.1vw;
+      height: 1.1vw;
+      color: #52535f;
+    }
+
+    &:hover {
+      transform: translateY(-0.1vw);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .formMainBlock {
+    width: 100%;
+    gap: 0vw;
+    border-radius: 1.5vw;
+    padding: 4vw 4vw;
+    padding-top: 0;
+
+    & .formInputsAndCheckoutBlock {
+      width: 100%;
+      margin-top: 0vw;
+      border-radius: 1vw;
+
+      & .formInputsAndCheckout {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3vw;
+        margin-top: 4vw;
+
+        & h3 {
+          font-size: 3vw;
+        }
+      }
+    }
+
+    & .formGroup {
+      &.checkboxGroup {
+        & .checkboxLabel {
+          align-items: center;
+          gap: 0.75vw;
+          margin-top: 3vw;
+          font-size: 1.8vw;
+          text-align: left;
+
+          & input[type='checkbox'] {
+            width: 1.7vw;
+            height: 1.7vw;
+          }
+
+          & .checkmarkText {
+            font-size: 1.8vw;
+            line-height: var(--font-lineh-normal);
+
+            & .privacyLink {
+              padding: 0 0.75vw;
+            }
+          }
+        }
+      }
+
+      & label {
+        font-size: 1.8vw;
+
+        & .importantText {
+          padding-left: 0.5vw;
+        }
+      }
+
+      & input {
+        padding: 1.25vw 1.5vw;
+        border-radius: 1vw;
+        font-size: 1.8vw;
+        margin-top: 0.25vw;
+      }
+    }
+  }
+
+  .blockButtonFlex {
+    margin-top: 3vw;
+    .button {
+      padding: 1.5vw 3vw;
+      border-radius: 1vw;
+      font-size: 1.8vw;
+      box-shadow: 0 0.2vw 0.75vw rgba(59, 130, 246, 0.3);
+      gap: 1.2vw;
+
+      & .buttonIconDownload {
+        width: 2vw;
+        height: 2vw;
+      }
+
+      &:hover {
+        transform: translateY(0vw);
+        box-shadow: 0 0vw 0vw rgba(59, 130, 246, 0.4);
+      }
+
+      &:hover:not(:disabled) {
+        transform: translateY(0vw);
+        box-shadow: 0 0vw 0vw rgba(59, 130, 246, 0.3);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .formMainBlock {
+    border-radius: 3vw;
+    padding: 7vw 6vw;
+    padding-top: 1vw;
+
+    & .formInputsAndCheckoutBlock {
+      width: 100%;
+      margin-top: 0vw;
+      align-items: center;
+      border-radius: 3vw;
+
+      & .formInputsAndCheckout {
+        width: 100%;
+        flex-direction: column;
+        gap: 4vw;
+        margin-top: 5vw;
+
+        & h3 {
+          font-size: 5vw;
+        }
+      }
+    }
+
+    & .formGroup {
+      width: 100%;
+
+      &.checkboxGroup {
+        & .checkboxLabel {
+          align-items: flex-start;
+          gap: 1vw;
+          margin-top: 5vw;
+          font-size: 3.6vw;
+          text-align: left;
+
+          & input[type='checkbox'] {
+            width: 3vw;
+            height: 3vw;
+          }
+
+          & .checkmarkText {
+            font-size: 3.6vw;
+
+            & .privacyLink {
+              padding: 0 1vw;
+            }
+          }
+        }
+      }
+
+      & label {
+        font-size: 3.6vw;
+
+        & .importantText {
+          padding-left: 1vw;
+        }
+      }
+
+      & input {
+        padding: 2vw 3vw;
+        border-radius: 1.5vw;
+        font-size: 3.6vw;
+        margin-top: 0.75vw;
+      }
+    }
+  }
+
+  .blockButtonFlex {
+    .button {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 3vw 3vw;
+      border-radius: 1.5vw;
+      font-size: 3.6vw;
+      box-shadow: 0 0.2vw 0.75vw rgba(59, 130, 246, 0.3);
+      margin-top: 3vw;
+      gap: 2vw;
+
+      & .buttonIconDownload {
+        width: 5vw;
+        height: 5vw;
+      }
+    }
+  }
+}
+
+.submitMessage {
+  text-align: center;
+  margin-top: 1vw;
+  font-size: 0.7vw;
+  font-family: var(--font-Inter);
+  line-height: var(--font-lineh-normal);
+  font-weight: var(--font-weight-regular);
+
+  &.success {
+    color: var(--main-page-b-color-white);
+  }
+
+  &.error {
+    color: #991b1b;
+  }
+}
+
+@media (max-width: 1024px) {
+  .submitMessage {
+    margin-top: 3vw;
+    font-size: 1.7vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .submitMessage {
+    margin-top: 8vw;
+    font-size: 3.6vw;
+  }
+}
+
+.datePickerWrapper {
+  width: 100%;
+
+  & .react-datepicker-wrapper {
+    width: 100%;
+  }
+
+  & .freeTime {
+    background-color: #fff;
+    color: #000;
+  }
+
+  & .unavailableTime {
+    background-color: #e0e0e0;
+    color: #888;
+  }
+
+  & .bookedTime {
+    background-color: #b0b0b0;
+    color: #666;
+  }
+
+  & .react-datepicker__input-container input {
+    width: 100%;
+    padding: 0.7vw 0.7vw;
+    border: 0.05vw solid var(--main-page-color-light-lightGrey);
+    border-radius: 0.6vw;
+    font-size: 0.65vw;
+    font-family: var(--font-Inter);
+    line-height: var(--font-lineh-normal);
+    font-weight: var(--font-weight-regular);
+    color: var(--main-page-color-white);
+    background: transparent;
+    transition: all 0.3s ease;
+    margin-top: 0.25vw;
+
+    &:focus {
+      outline: none;
+      border-color: var(--main-page-color-lightBlue);
+      box-shadow: 0 0 0 0.05vw rgba(59, 130, 246, 0.1);
+    }
+
+    &::placeholder {
+      color: var(--main-page-color-lightGrey);
+    }
+  }
+
+  & .react-datepicker {
+    font-family: var(--font-Inter);
+    font-size: 0.65vw;
+    background: linear-gradient(135deg, var(--auto-page-lightBlue), var(--auto-page-lightBlue2));
+    border: 0.05vw solid var(--main-page-color-light-lightGrey);
+    border-radius: 0.6vw;
+    color: var(--main-page-color-white);
+    box-shadow: 0 0.4vw 1vw rgba(0, 0, 0, 0.15);
+  }
+
+  & .react-datepicker__header {
+    background: transparent;
+    border-bottom: none;
+    padding: 0.5vw;
+  }
+
+  & .react-datepicker__day-name,
+  & .react-datepicker__day,
+  & .react-datepicker__time-name {
+    color: var(--main-page-color-white);
+  }
+
+  & .react-datepicker__day--selected,
+  & .react-datepicker__day--keyboard-selected {
+    background: var(--main-page-color-lightBlue);
+    color: var(--main-page-color-white);
+    border-radius: 50%;
+  }
+
+  & .react-datepicker__time-container {
+    background: transparent;
+    width: 100%;
+  }
+
+  & .react-datepicker__time-list {
+    background: transparent;
+    color: var(--main-page-color-white);
+    padding: 0.5vw;
+  }
+
+  & .react-datepicker__time-list-item {
+    color: var(--main-page-color-white);
+    font-size: 0.65vw;
+    padding: 0.3vw 0.5vw;
+
+    &:hover,
+    &.react-datepicker__time-list-item--selected {
+      background: var(--main-page-color-lightBlue);
+      border-radius: 0.3vw;
+    }
+  }
+
+  // Стили для занятых временных слотов
+  & .bookedTime {
+    color: #ff0000 !important; // Красный цвет для занятых слотов
+    background: rgba(255, 0, 0, 0.2) !important; // Легкий красный фон
+    pointer-events: none; // Отключаем взаимодействие с занятыми слотами
+    text-decoration: line-through; // Зачеркнутый текст для занятых слотов
+  }
+}
+
+@media (max-width: 1024px) {
+  .datePickerWrapper {
+    & .react-datepicker__input-container input {
+      padding: 1.25vw 1.5vw;
+      border-radius: 1vw;
+      font-size: 1.8vw;
+      margin-top: 0.25vw;
+    }
+
+    & .react-datepicker {
+      font-size: 1.8vw;
+      border-radius: 1vw;
+    }
+
+    & .react-datepicker__time-list-item {
+      font-size: 1.8vw;
+      padding: 0.7vw 1vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .datePickerWrapper {
+    & .react-datepicker__input-container input {
+      padding: 2vw 3vw;
+      border-radius: 1.5vw;
+      font-size: 3.6vw;
+      margin-top: 0.75vw;
+    }
+
+    & .react-datepicker {
+      font-size: 3.6vw;
+      border-radius: 1.5vw;
+    }
+
+    & .react-datepicker__time-list-item {
+      font-size: 3.6vw;
+      padding: 1vw 1.5vw;
+    }
+  }
+}
+
+.customDateInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.customDateInput input {
+  width: 100%;
+  cursor: pointer; // курсор-указатель
+}
+
+.calendarIcon {
+  position: absolute;
+  right: 1vw;
+  width: 0.75vw;
+  height: 0.75vw;
+
+  color: #666;
+  pointer-events: none; // иконка не перекрывает клик
+}
+
+.formAfterMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  & .formAfterBlockForImage {
+    display: flex;
+    width: 7vw;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  & h4 {
+    font-size: 1.2vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    line-height: var(--font-lineh-small);
+    font-weight: var(--font-weight-smallStrong);
+    margin-top: 1vw;
+  }
+
+  & p {
+    text-align: center;
+    font-size: 0.85vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-big);
+    margin-top: 0.75vw;
+  }
+
+  & .linkForInstagram {
+    font-size: 0.75vw;
+    background: var(--auto-page-orange);
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-small);
+    padding: 0.65vw 1vw;
+    border-radius: 0.3vw;
+    margin-top: 1vw;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .formAfterMain {
+    padding-top: 4vw;
+
+    & .formAfterBlockForImage {
+      display: flex;
+      width: 15vw;
+    }
+
+    & h4 {
+      font-size: 2.4vw;
+      margin-top: 2vw;
+    }
+
+    & p {
+      font-size: 1.8vw;
+      margin-top: 1vw;
+    }
+
+    & .linkForInstagram {
+      font-size: 1.75vw;
+      padding: 1.5vw 3vw;
+      border-radius: 1vw;
+      margin-top: 2vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .formAfterMain {
+    padding-top: 7vw;
+
+    & .formAfterBlockForImage {
+      display: flex;
+      width: 30vw;
+    }
+
+    & h4 {
+      font-size: 4vw;
+      margin-top: 5vw;
+    }
+
+    & p {
+      text-align: center;
+      font-size: 3.6vw;
+      margin-top: 2vw;
+      line-height: var(--font-lineh-normal);
+    }
+
+    & .linkForInstagram {
+      text-align: center;
+      font-size: 3.6vw;
+      padding: 2vw 3vw;
+      border-radius: 2vw;
+      margin-top: 5vw;
+      line-height: var(--font-lineh-normal);
+    }
+  }
+}

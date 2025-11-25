@@ -6,11 +6,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import scss from './ContactForm.module.scss';
 import { addContactForm, fetchContactForms } from '../../../../store/slices/contactFormSlice'; // Added fetchContactForms import
-
+import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../../firebase';
 import { useNavigate } from 'react-router-dom';
-import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
 
 export default function ContactForm() {
   const dispatch = useDispatch();

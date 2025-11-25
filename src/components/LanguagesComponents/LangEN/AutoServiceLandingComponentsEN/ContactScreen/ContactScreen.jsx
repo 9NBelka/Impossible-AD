@@ -5,10 +5,9 @@ import Marquee from 'react-fast-marquee';
 import scss from './ContactScreen.module.scss';
 import { BsChat, BsCheck2, BsClock, BsEnvelope, BsTelephone } from 'react-icons/bs';
 import ContactForm from './ContactForm/ContactForm';
-
-import { FaWhatsapp } from 'react-icons/fa';
 import { addClient } from '../../../store/slices/clientsSlice';
 import { addContactForm } from '../../../store/slices/contactFormSlice';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function ContactScreen({ right }) {
   const dispatch = useDispatch();

@@ -1,0 +1,350 @@
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 31%;
+  z-index: 5;
+
+  & h3 {
+    font-size: 1.6vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-normal);
+    text-align: center;
+  }
+
+  & p {
+    font-size: 1vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--font-lineh-normal);
+    text-align: center;
+    margin-top: 0.5vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contactForm {
+    width: 45%;
+
+    & h3 {
+      display: none;
+      font-size: 3vw;
+    }
+
+    & p {
+      display: none;
+      font-size: 1.8vw;
+      margin-top: 0.5vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .contactForm {
+    width: 100%;
+
+    & h3 {
+      display: flex;
+      font-size: 5vw;
+    }
+
+    & p {
+      display: flex;
+      font-size: 3.6vw;
+      margin-top: 3vw;
+    }
+  }
+}
+
+.formForDownload {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  margin-top: 1vw;
+
+  & .formMainBlock {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+
+    & .formInputsAndCheckoutBlock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 0.75vw;
+    }
+
+    & .formGroup {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+
+      & .checkboxLabel {
+        display: flex;
+        flex-direction: row;
+        gap: 0.3vw;
+        margin-top: 0.5vw;
+        cursor: pointer;
+        font-size: 0.7vw;
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-regular);
+
+        & input[type='checkbox'] {
+          width: 0.7vw;
+          height: 0.7vw;
+          margin: 0;
+          cursor: pointer;
+        }
+
+        & .checkmarkText {
+          text-align: left;
+          font-size: 0.7vw;
+          color: #e7f1ff;
+          font-family: var(--font-Inter);
+          line-height: var(--font-lineh-normal);
+          font-weight: var(--font-weight-regular);
+
+          & .privacyLink {
+            color: #d9e7ff;
+            text-decoration: underline;
+            padding: 0 0.25vw;
+          }
+        }
+      }
+
+      & label {
+        display: flex;
+        font-size: 0.85vw;
+        color: #717fa3e5;
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-regular);
+
+        & .importantText {
+          color: var(--color-red);
+          padding-left: 0.2vw;
+        }
+      }
+
+      & input {
+        display: flex;
+        width: 100%;
+        padding: 0.85vw 0.85vw;
+        border: 0.05vw solid #85a5c9;
+        border-radius: 0.6vw;
+        font-size: 0.85vw;
+        color: #85a5c9;
+        font-family: var(--font-Inter);
+        line-height: var(--font-lineh-normal);
+        font-weight: var(--font-weight-regular);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(0.3vw);
+        -webkit-backdrop-filter: blur(0.3vw);
+        transition: all 0.3s ease;
+        margin-top: 0.25vw;
+
+        &::placeholder {
+          color: #85a5c9;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: #0ce7ff;
+          box-shadow: 0 0 0 0.05vw rgba(59, 130, 246, 0.1);
+
+          &::placeholder {
+            color: transparent;
+          }
+        }
+
+        &.inputError {
+          border-color: red;
+        }
+      }
+    }
+  }
+
+  & .button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    background: #0ce7ff;
+    border: none;
+    padding: 0.85vw 4.9vw;
+    border-radius: 0.6vw;
+    font-size: 1vw;
+    color: var(--main-page-b-color-white);
+    font-family: var(--font-Inter);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--font-lineh-small2);
+    box-shadow: 0 0vw 1.5vw #0ce7ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 0.5vw;
+    margin-top: 0.5vw;
+
+    & .buttonIconDownload {
+      width: 1.1vw;
+      height: 1.1vw;
+      color: var(--main-page-b-color-white);
+    }
+
+    &:hover {
+      transform: translateY(-0.1vw);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .formForDownload {
+    margin-top: 0vw;
+
+    & .formMainBlock {
+      gap: 2vw;
+
+      & .formInputsAndCheckoutBlock {
+        gap: 2vw;
+      }
+
+      & .formGroup {
+        width: 100%;
+
+        & .checkboxLabel {
+          gap: 0.75vw;
+          margin-top: 0vw;
+          font-size: 1.8vw;
+
+          & input[type='checkbox'] {
+            width: 3vw;
+            height: 3vw;
+          }
+
+          & .checkmarkText {
+            font-size: 1.8vw;
+
+            & .privacyLink {
+              padding: 0 0.5vw;
+            }
+          }
+        }
+
+        & label {
+          font-size: 1.8vw;
+
+          & .importantText {
+            padding-left: 0.2vw;
+          }
+        }
+
+        & input {
+          padding: 1.3vw 1.5vw;
+          border: 0.05vw solid #85a5c9;
+          border-radius: 1vw;
+          font-size: 1.8vw;
+          margin-top: 0.5vw;
+        }
+      }
+    }
+
+    & .button {
+      padding: 1.3vw 7.6vw;
+      border-radius: 1vw;
+      font-size: 1.8vw;
+      gap: 1vw;
+      margin-top: 0vw;
+
+      & .buttonIconDownload {
+        width: 3vw;
+        height: 3vw;
+      }
+
+      &:hover {
+        transform: translateY(0vw);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .formForDownload {
+    margin-top: 5vw;
+
+    & .formMainBlock {
+      gap: 2vw;
+
+      & .formInputsAndCheckoutBlock {
+        gap: 5vw;
+      }
+
+      & .formGroup {
+        width: 100%;
+
+        & .checkboxLabel {
+          gap: 1.5vw;
+          margin-top: 0vw;
+          font-size: 3.6vw;
+
+          & input[type='checkbox'] {
+            width: 5vw;
+            height: 5vw;
+          }
+
+          & .checkmarkText {
+            font-size: 3.6vw;
+
+            & .privacyLink {
+              padding: 0 1vw;
+            }
+          }
+        }
+
+        & label {
+          font-size: 3.6vw;
+
+          & .importantText {
+            padding-left: 0.5vw;
+          }
+        }
+
+        & input {
+          padding: 3vw 4vw;
+          border: 0.1vw solid #85a5c9;
+          border-radius: 1.5vw;
+          font-size: 3.6vw;
+          margin-top: 1vw;
+        }
+      }
+    }
+
+    & .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 3vw 10vw;
+      border-radius: 1.5vw;
+      font-size: 3.6vw;
+      gap: 2vw;
+      margin-top: 1vw;
+
+      & .buttonIconDownload {
+        width: 6vw;
+        height: 6vw;
+      }
+    }
+  }
+}

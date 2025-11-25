@@ -4,26 +4,44 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase';
 import { clearUser, setError, checkAuthState } from './store/slices/authSlice';
-import { useEffect, Suspense, lazy } from 'react'; // Объединяем импорты React
+import { useEffect, Suspense, lazy } from 'react';
+
+// IMPOSSIBLEAD MAIN
 import MainLandingB from './pages/MainLandingB/MainLandingB';
+
+// IMPOSSIBLEAD ThanksPage
 import ThanksPageOnFormDownload from './pages/ThanksPageOnFormDownload/ThanksPageOnFormDownload';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+
+// IMPOSSIBLEAD Another Pages
 import GoogleAds from './pages/GoogleAds/GoogleAds';
 import WebDevelopment from './pages/WebDevelopment/WebDevelopment';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import BusinessAutomation from './pages/BusinessAutomation/BusinessAutomation';
 import GoogleAdsAudit from './pages/GoogleAdsAudit/GoogleAdsAudit';
-import CookieConsent from './components/CookieConsent/CookieConsent';
+
+// AutoService MAIN
 import AutoServiceLanding from './pages/AutoServiceLanding/AutoServiceLanding';
+import AutoServiceLandingBlack from './pages/AutoServiceLandingBlack/AutoServiceLandingBlack';
+
+//ANOTHER LANGUAGES
+import AutoServiceLandingEN from './pages/Languages/LangEN/AutoServiceLandingEN/AutoServiceLandingEN';
+import AutoServiceLandingBlackEN from './pages/Languages/LangEN/AutoServiceLandingBlackEN/AutoServiceLandingBlackEN';
+
+// ThanksPages
 import ThanksPageOnFormDownloadAutoService from './pages/ThanksPageOnFormDownloadAutoService/ThanksPageOnFormDownloadAutoService';
 import ThanksPageOnFormFireAuto from './pages/ThanksPageOnFormFireAuto/ThanksPageOnFormFireAuto';
+
 import ContactForms from './components/DashboardComponents/ContactForms/ContactForms';
+
+import FireAutoLanding from './pages/FireAutoLanding/FireAutoLanding';
+
+//ANOTHERS
+import CookieConsent from './components/CookieConsent/CookieConsent';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import useAnalytics from './hooks/useAnalytics';
 import TemplateSto from './pages/Templates/TemplateSto/TemplateSto';
 import Templates from './pages/Templates/Templates';
 import TemplateStoTwo from './pages/Templates/TemplateStoTwo/TemplateStoTwo';
-import AutoServiceLandingBlack from './pages/AutoServiceLandingBlack/AutoServiceLandingBlack';
-import FireAutoLanding from './pages/FireAutoLanding/FireAutoLanding';
-import useAnalytics from './hooks/useAnalytics';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -171,7 +189,7 @@ export default function App() {
             </>
           ) : (
             <>
-              <Route path='/d' element={<FireAutoLanding />} />
+              {/* <Route path='/d' element={<FireAutoLanding />} /> */}
               <Route path='/' element={<MainLandingB />} />
               <Route path='/login' element={<LoginForm />} />
               <Route path='/register' element={<RegisterForm />} />
@@ -186,10 +204,13 @@ export default function App() {
               <Route path='/web-development' element={<WebDevelopment />} />
               <Route path='/business-automation' element={<BusinessAutomation />} />
               <Route path='/auto' element={<AutoServiceLanding />} />
+              {/* <Route path='/auto/en' element={<AutoServiceLandingEN />} /> */}
               <Route path='/autoblack' element={<AutoServiceLandingBlack />} />
-              <Route path='/templates' element={<Templates />} />
+              {/* <Route path='/autoblack/en' element={<AutoServiceLandingBlackEN />} /> */}
+
+              {/* <Route path='/templates' element={<Templates />} />
               <Route path='/templateSto' element={<TemplateSto />} />
-              <Route path='/templateStoTwo' element={<TemplateStoTwo />} />
+              <Route path='/templateStoTwo' element={<TemplateStoTwo />} /> */}
               <Route
                 path='/home'
                 element={

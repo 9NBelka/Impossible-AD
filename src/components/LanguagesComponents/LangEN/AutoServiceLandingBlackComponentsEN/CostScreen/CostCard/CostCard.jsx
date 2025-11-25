@@ -5,22 +5,22 @@ import { FaEuroSign } from 'react-icons/fa';
 export default function CostCard({ isOn }) {
   const info = [
     {
-      description: '300 нових клієнтів за 3 місяці',
+      description: '300 new clients in 3 months',
     },
     {
-      description: 'Telegram-бот для заявок',
+      description: 'A Telegram bot for handling inquiries',
     },
     {
-      description: 'Ціна дзвінка - не дорожче 200 грн.',
+      description: 'Call cost — no more than 200 UAH.',
     },
     {
-      description: 'Щотижневий звіт',
+      description: 'Weekly report"',
     },
     {
-      description: 'Робочий сайт для вашого СТО',
+      description: 'A fully functioning website for your auto repair shop',
     },
     {
-      description: 'IP-телефонія з записом дзвінків',
+      description: 'IP telephony with call recording',
     },
   ];
 
@@ -34,7 +34,7 @@ export default function CostCard({ isOn }) {
   return (
     <>
       <div className={scss.costCard}>
-        <h3>У пакеті</h3>
+        <h3>Included in the package</h3>
         <div className={scss.pointDescriptionBlocks}>
           {info.map((info, idx) => (
             <div key={idx} className={scss.pointDescriptionBlock}>
@@ -61,13 +61,13 @@ export default function CostCard({ isOn }) {
               </div>
             )}
           </h5>
-          <p className={scss.monthText}>{!isOn ? '/ місяць' : 'за 3 місяця'}</p>
+          <p className={scss.monthText}>{!isOn ? '/ month' : 'for 3 months'}</p>
         </div>
         <div className={scss.fourMonthBlock}>
-          <p className={scss.fourMonthText}>€349 / з 4 місяця</p>
+          <p className={scss.fourMonthText}>€349 / from the 4th month</p>
         </div>
         <button className={scss.buttonNow} onClick={() => scrollToSection('contacts')}>
-          Розпочати зараз
+          Start Now
         </button>
       </div>
     </>

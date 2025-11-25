@@ -19,32 +19,32 @@ export default function CardsWhyUs() {
   const cards = [
     {
       icon: <FcGlobe className={scss.icon} />,
-      title: 'Лендінг',
-      description: 'Новий налаштований сайт для швидкого старту',
+      title: 'Landing Page',
+      description: 'A newly configured website for a quick launch',
       id: 'exampleSite',
     },
     {
       icon: <FcMultipleSmartphones className={clsx(scss.icon, scss.redIcon)} />,
-      title: 'Телефонія',
-      description: 'Підключимо IP-телефонію до рекламних кампаній',
+      title: 'Telephony',
+      description: 'We connect IP telephony to your advertising campaigns',
       id: 'binotellaTable',
     },
     {
       icon: <FcAndroidOs className={scss.icon} />,
-      title: 'Бот',
-      description: 'Підключимо Telegram-бот до сайту',
+      title: 'Bot',
+      description: 'We connect a Telegram bot to your website',
       id: 'botOnTelegram',
     },
     {
       icon: <FcStatistics className={scss.icon} />,
-      title: 'Звітність',
-      description: 'Щотижневий короткий звіт з результатами',
+      title: 'Reporting',
+      description: 'A short weekly performance report',
       id: 'excelTable',
     },
     {
       icon: <FcComboChart className={scss.icon} />,
-      title: 'Аналітика',
-      description: 'Відстежуємо ефективність реклами в реальному часі',
+      title: 'Analytics',
+      description: 'We track advertising performance in real time',
       id: 'excelTable',
     },
     // {
