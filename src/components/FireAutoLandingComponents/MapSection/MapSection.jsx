@@ -35,18 +35,8 @@ export default function MapSection() {
               </div>
               <div>
                 <h3>Телефони</h3>
-                <a
-                  href='tel:+380733312299'
-                  class='hover:text-brand-blue transition-colors binct-phone-number-4'
-                  data-binct-original='2'>
-                  +380 73 331 22 99
-                </a>
-                <a
-                  href='tel:+380933312299'
-                  class='hover:text-brand-blue transition-colors binct-phone-number-4'
-                  data-binct-original='2'>
-                  +380 93 331 22 99
-                </a>
+                <a href='tel:+380733312299'>+380 73 331 22 99</a>
+                <a href='tel:+380933312299'>+380 93 331 22 99</a>
               </div>
             </div>
             <div className={scss.textsBlockAndIcon}>
