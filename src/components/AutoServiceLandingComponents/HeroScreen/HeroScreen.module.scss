@@ -94,7 +94,6 @@
         font-family: var(--font-Inter);
         font-weight: var(--font-weight-bold);
         line-height: var(--font-lineh-big);
-        width: 85%;
 
         & .brandTwo {
           color: var(--auto-page-orange);
@@ -112,7 +111,7 @@
           var(--auto-page-lightBlue2)
         );
         border: none;
-        padding: 0.6vw 4vw;
+        padding: 0.6vw 2vw;
         font-size: 1vw;
         color: var(--main-page-b-color-white);
         font-family: var(--font-Inter);

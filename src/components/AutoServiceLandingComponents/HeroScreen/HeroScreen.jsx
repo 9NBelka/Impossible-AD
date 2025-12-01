@@ -22,7 +22,7 @@ export default function HeroScreen({ scrollToSection }) {
               className={scss.ctaButton}
               onClick={() => scrollToSection('contacts')}
               id='goToFormButtonOnHero'>
-              Згоден <FaArrowRight className={scss.heroArrowIcon} />
+              Залишити заявку <FaArrowRight className={scss.heroArrowIcon} />
             </button>
           </div>
         </div>
