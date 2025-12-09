@@ -1,0 +1,87 @@
+.voice {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5vw;
+  background: #2f3242;
+  padding: 0.5vw 0.5vw;
+  border-radius: 1vw;
+  overflow: hidden;
+  user-select: none;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #363949;
+  }
+}
+
+// Заполняющийся прогресс (серый фон)
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 1vw;
+  pointer-events: none;
+  transition: width 0.1s linear;
+  z-index: 1;
+}
+
+.playBtn {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  width: 1.75vw;
+  height: 1.75vw;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  .playPauseIcon {
+    width: 0.75vw;
+    height: 0.75vw;
+    color: #2f3242;
+  }
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  height: 2vw;
+
+  & .iconWave {
+    width: 3vw;
+    height: 2vw;
+  }
+}
+
+.timer {
+  width: 3vw;
+  position: relative;
+  z-index: 2;
+  font-size: 0.5vw;
+  font-weight: 500;
+  color: #aaa;
+  white-space: nowrap;
+
+  .current {
+    color: #fff;
+  }
+  .separator {
+    color: #666;
+  }
+  .total {
+    color: #777;
+  }
+}

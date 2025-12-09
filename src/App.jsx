@@ -42,6 +42,7 @@ import useAnalytics from './hooks/useAnalytics';
 import TemplateSto from './pages/Templates/TemplateSto/TemplateSto';
 import Templates from './pages/Templates/Templates';
 import TemplateStoTwo from './pages/Templates/TemplateStoTwo/TemplateStoTwo';
+import ChatImpossibleAD from './components/ChatImpossibleAD/ChatImpossibleAD';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -204,6 +205,7 @@ export default function App() {
               <Route path='/web-development' element={<WebDevelopment />} />
               <Route path='/business-automation' element={<BusinessAutomation />} />
               <Route path='/auto' element={<AutoServiceLanding />} />
+              <Route path='/chat-test' element={<ChatImpossibleAD />} />
               {/* <Route path='/auto/en' element={<AutoServiceLandingEN />} /> */}
               <Route path='/autoblack' element={<AutoServiceLandingBlack />} />
               {/* <Route path='/autoblack/en' element={<AutoServiceLandingBlackEN />} /> */}
