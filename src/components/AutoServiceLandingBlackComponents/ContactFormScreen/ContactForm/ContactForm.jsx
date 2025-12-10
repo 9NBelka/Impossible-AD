@@ -1,9 +1,12 @@
 import React, { useState, useEffect, forwardRef } from 'react';
+import { useMemo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { BsArrowRightShort, BsCalendar } from 'react-icons/bs';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { registerLocale } from 'react-datepicker';
+import uk from 'date-fns/locale/uk';
 import scss from './ContactForm.module.scss';
 import { addContactForm, fetchContactForms } from '../../../../store/slices/contactFormSlice'; // Added fetchContactForms import
 import { fetchAvailableSlots } from '../../../../store/slices/calendarSlice';
@@ -14,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 export default function ContactForm() {
   const dispatch = useDispatch();
   const { availableSlots } = useSelector((state) => state.calendar);
-  const { forms, status: contactFormStatus } = useSelector((state) => state.contactForm); // Added status for loading check
+  const { forms, status: contactFormStatus } = useSelector((state) => state.contactForm);
 
   const [name, setName] = useState('');
   const [companySTO, setCompanySTO] = useState('');
@@ -27,6 +30,7 @@ export default function ContactForm() {
   const [bookedTimes, setBookedTimes] = useState([]);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const navigate = useNavigate();
+  registerLocale('uk', uk);
 
   // Fetch contact forms on mount
   useEffect(() => {
@@ -65,34 +69,93 @@ export default function ContactForm() {
     return phoneRegex.test(phone);
   };
 
-  // Filter dates to only show days with available slots (weekday-based, since slots are recurring)
-  const filterDate = (date) => {
-    const day = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-    return availableSlots?.slots?.some((slot) => slot.day === day) ?? false;
+  const getFirstAvailableTimeForDate = useCallback(
+    (date) => {
+      if (!date || !availableSlots?.slots?.length) return null;
+
+      const dayName = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+
+      // Находим все доступные слоты на этот день недели
+      const daySlots = availableSlots.slots
+        .filter((slot) => slot.day === dayName)
+        .sort((a, b) => a.hour - b.hour || a.minute - b.minute); // сортируем по времени
+
+      if (daySlots.length === 0) return null;
+
+      for (const slot of daySlots) {
+        const candidate = new Date(date);
+        candidate.setHours(slot.hour, slot.minute, 0, 0);
+
+        // Проверяем, не забронирован ли этот слот
+        const isBooked = bookedTimes.some(
+          (booked) =>
+            booked.getFullYear() === candidate.getFullYear() &&
+            booked.getMonth() === candidate.getMonth() &&
+            booked.getDate() === candidate.getDate() &&
+            booked.getHours() === slot.hour &&
+            booked.getMinutes() === slot.minute,
+        );
+
+        if (!isBooked) {
+          return candidate;
+        }
+      }
+
+      return null; // все слоты на этот день забронированы
+    },
+    [availableSlots?.slots, bookedTimes],
+  );
+
+  const handleDateChange = (date) => {
+    if (!date) {
+      setSelectedDate(null);
+      return;
+    }
+
+    // При смене ДАТЫ — ищем первое свободное время
+    const firstAvailable = getFirstAvailableTimeForDate(date);
+
+    // Если есть свободное время — ставим его, иначе — просто дату (чтобы можно было открыть список)
+    setSelectedDate(firstAvailable || new Date(date.setHours(12, 0, 0, 0))); // 12:00 как fallback
   };
 
-  // Filter times to only show available and non-booked slots
-  const filterTimes = (time) => {
-    const slotHour = time.getHours();
-    const slotMinute = time.getMinutes();
-    const slotDay = time.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+  const handleTimeChange = (newDateTime) => {
+    // При смене ВРЕМЕНИ — просто берём как есть (оно уже отфильтровано!)
+    setSelectedDate(newDateTime);
+  };
 
-    const isAvailable =
-      availableSlots?.slots?.some(
-        (slot) => slot.day === slotDay && slot.hour === slotHour && slot.minute === slotMinute,
-      ) ?? false;
+  const filterTime = useCallback(
+    (time) => {
+      const hour = time.getHours();
+      const minute = time.getMinutes();
+      const dayName = time.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
 
-    const isBooked =
-      bookedTimes?.some(
+      // 1. Должен быть в доступных слотах
+      const isInAvailableSlots = availableSlots?.slots?.some(
+        (slot) => slot.day === dayName && slot.hour === hour && slot.minute === minute,
+      );
+
+      if (!isInAvailableSlots) return false;
+
+      // 2. Не должен быть забронирован
+      const isBooked = bookedTimes.some(
         (booked) =>
           booked.getFullYear() === time.getFullYear() &&
           booked.getMonth() === time.getMonth() &&
           booked.getDate() === time.getDate() &&
-          booked.getHours() === slotHour &&
-          booked.getMinutes() === slotMinute,
-      ) ?? false;
+          booked.getHours() === hour &&
+          booked.getMinutes() === minute,
+      );
 
-    return isAvailable && !isBooked;
+      return !isBooked;
+    },
+    [availableSlots?.slots, bookedTimes],
+  );
+
+  // Filter dates to only show days with available slots (weekday-based, since slots are recurring)
+  const filterDate = (date) => {
+    const day = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+    return availableSlots?.slots?.some((slot) => slot.day === day) ?? false;
   };
 
   const handleSubmit = async (e) => {
@@ -259,47 +322,26 @@ export default function ContactForm() {
                 Дата та час дзвінка <span className={scss.importantText}>*</span>
               </label>
               <DatePicker
+                locale='uk'
                 selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
+                onChange={(date) => {
+                  if (!selectedDate || date.getDate() !== selectedDate.getDate()) {
+                    const firstAvailable = getFirstAvailableTimeForDate(date);
+                    setSelectedDate(firstAvailable || date);
+                  } else {
+                    setSelectedDate(date);
+                  }
+                }}
                 showTimeSelect
                 timeFormat='HH:mm'
                 timeIntervals={15}
                 dateFormat='dd/MM/yyyy HH:mm'
-                wrapperClassName={scss.datePickerWrapper}
-                minDate={new Date()}
-                filterTime={filterTimes}
+                filterTime={filterTime}
                 filterDate={filterDate}
-                timeClassName={(time) => {
-                  const slotHour = time.getHours();
-                  const slotMinute = time.getMinutes();
-                  const slotDay = time
-                    .toLocaleDateString('en-US', { weekday: 'long' })
-                    .toLowerCase();
-
-                  const isAvailable =
-                    availableSlots?.slots?.some(
-                      (slot) =>
-                        slot.day === slotDay &&
-                        slot.hour === slotHour &&
-                        slot.minute === slotMinute,
-                    ) ?? false;
-
-                  const isBooked =
-                    bookedTimes?.some(
-                      (booked) =>
-                        booked.getFullYear() === time.getFullYear() &&
-                        booked.getMonth() === time.getMonth() &&
-                        booked.getDate() === time.getDate() &&
-                        booked.getHours() === slotHour &&
-                        booked.getMinutes() === slotMinute,
-                    ) ?? false;
-
-                  if (isBooked) return scss.bookedTime; // Booked times gray/unselectable
-                  if (!isAvailable) return scss.unavailableTime;
-                  return scss.freeTime;
-                }}
+                minDate={new Date()}
                 customInput={<CustomDateInput />}
-                required
+                placeholderText='Оберіть дату та час'
+                wrapperClassName={scss.datePickerWrapper}
               />
             </div>
 
