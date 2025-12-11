@@ -205,7 +205,7 @@ export default function App() {
               <Route path='/web-development' element={<WebDevelopment />} />
               <Route path='/business-automation' element={<BusinessAutomation />} />
               <Route path='/auto' element={<AutoServiceLanding />} />
-              <Route path='/chat-test' element={<ChatImpossibleAD />} />
+              {/* <Route path='/chat-test' element={<ChatImpossibleAD />} /> */}
               {/* <Route path='/auto/en' element={<AutoServiceLandingEN />} /> */}
               <Route path='/autoblack' element={<AutoServiceLandingBlack />} />
               {/* <Route path='/autoblack/en' element={<AutoServiceLandingBlackEN />} /> */}

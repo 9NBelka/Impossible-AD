@@ -107,14 +107,14 @@ export default function ChatWindow({ onClose }) {
 
   useEffect(() => {
     if (latestAudioBlob) {
-      // create message for recorded audio
+      // создаем голосовое сообщение
       const reader = new FileReader();
       reader.onload = () => {
         const base64 = reader.result.split(',')[1];
         const msg = {
           id: 'a_' + Date.now(),
           type: 'audio',
-          content: base64, // base64
+          content: base64,
           mime: 'audio/webm',
           timestamp: Date.now(),
           direction: 'outgoing',

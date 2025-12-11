@@ -15,7 +15,6 @@ export default function ChatModal({ anchorRect, onClose }) {
     return () => document.removeEventListener('mousedown', handleClick);
   }, [onClose]);
 
-  // calculate position: above the button if possible
   const style = {};
   const width = 340;
   const height = 440;
