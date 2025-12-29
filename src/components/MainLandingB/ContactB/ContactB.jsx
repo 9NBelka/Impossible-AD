@@ -105,8 +105,8 @@ export default function ContactB() {
               <BsEnvelope className={scss.contactIcon} />
               <div>
                 <p className={scss.contactItemTitleMini}>Email</p>
-                <a href='mailto:impossiblead2025@gmail.com' className={scss.contactLink}>
-                  <p className={scss.contactItemTextMini}>impossiblead2025@gmail.com</p>
+                <a href='mailto:mpdart2013@gmail.com' className={scss.contactLink}>
+                  <p className={scss.contactItemTextMini}>mpdart2013@gmail.com</p>
                 </a>
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function ContactB() {
               <div>
                 <p className={scss.contactItemTitleMini}>Telegram / WhatsApp</p>
                 <a href='https://t.me/Archerius' target='_blank'>
-                  <p className={scss.contactItemTextMini}>@impossiblead</p>
+                  <p className={scss.contactItemTextMini}>@Archerius</p>
                 </a>
               </div>
             </div>

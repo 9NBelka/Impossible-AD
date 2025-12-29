@@ -106,7 +106,7 @@ export default function Contact() {
               <BsEnvelope className={scss.contactIcon} />
               <div>
                 <p className={scss.contactItemTitleMini}>Email</p>
-                <p className={scss.contactItemTextMini}>hello@impossiblead.com</p>
+                <p className={scss.contactItemTextMini}>mpdart2013@gmail.com</p>
               </div>
             </div>
             <div className={scss.contactItem}>
@@ -120,7 +120,7 @@ export default function Contact() {
               <BsChat className={scss.contactIcon} />
               <div>
                 <p className={scss.contactItemTitleMini}>Telegram / WhatsApp</p>
-                <p className={scss.contactItemTextMini}>@impossiblead</p>
+                <p className={scss.contactItemTextMini}>@Archerius</p>
               </div>
             </div>
             <div className={scss.contactItem}>

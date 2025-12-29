@@ -73,12 +73,9 @@ export default function FooterB({ onFooterTextLinks }) {
             <div className={scss.contactSection}>
               <h4>Контакти</h4>
               <div className={scss.contactList}>
-                <a
-                  href='mailto:impossiblead2025@gmail.com'
-                  className={scss.contactLink}
-                  target='_blank'>
+                <a href='mailto:mpdart2013@gmail.com' className={scss.contactLink} target='_blank'>
                   <BsEnvelope />
-                  impossiblead2025@gmail.com
+                  mpdart2013@gmail.com
                 </a>
                 <a href='https://wa.me/380733291216' className={scss.contactLink} target='_blank'>
                   <FaWhatsapp />
@@ -86,7 +83,7 @@ export default function FooterB({ onFooterTextLinks }) {
                 </a>
                 <a href='https://t.me/Archerius' className={scss.contactLink} target='_blank'>
                   <BsChat />
-                  @Impossibleadcom
+                  @Archerius
                 </a>
               </div>
 
