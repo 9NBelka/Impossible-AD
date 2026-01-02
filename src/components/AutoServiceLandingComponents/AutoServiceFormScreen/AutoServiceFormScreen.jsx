@@ -22,7 +22,7 @@ export default function AutoServiceFormScreen() {
     const data = { name, email };
 
     try {
-      const response = await fetch('https://workflow.crmmech.com/webhook-test/ADdownloadPDF', {
+      const response = await fetch('https://workflow.crmmech.com/webhook/ADdownloadPDF', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
