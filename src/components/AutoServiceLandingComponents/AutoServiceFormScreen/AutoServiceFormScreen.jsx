@@ -25,9 +25,9 @@ export default function AutoServiceFormScreen() {
       const response = await fetch('https://workflow.crmmech.com/webhook-test/ADdownloadPDF', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(data),
+        body: data,
       });
 
       if (!response.ok) {
