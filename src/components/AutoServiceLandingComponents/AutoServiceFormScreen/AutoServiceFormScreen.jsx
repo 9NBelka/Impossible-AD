@@ -22,7 +22,7 @@ export default function AutoServiceFormScreen() {
     const data = { name, email };
 
     try {
-      const response = await fetch('https://hook.eu2.make.com/d1ylv3c1bgtgog8tn970gyv7jidg8iw9', {
+      const response = await fetch('https://workflow.crmmech.com/webhook-test/ADdownloadPDF', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
