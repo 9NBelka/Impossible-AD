@@ -60,6 +60,7 @@ export default function App() {
   const hostname = window.location.hostname;
   const isAutoSubdomain = hostname === 'autoservice.impossiblead.com';
   const isFireAuto = hostname === 'fireauto.impossiblead.com';
+  const isCherkasy = hostname === 'cherkasy.impossiblead.com';
 
   // Выбираем Google Analytics ID по домену
 
@@ -174,6 +175,10 @@ export default function App() {
               <Route path='/' element={<FireAutoLanding />} />
               <Route path='*' element={<NotFoundPage />} />
               <Route path='/thanks-fireauto' element={<ThanksPageOnFormFireAuto />} />
+            </>
+          ) : isCherkasy ? (
+            <>
+              <Route path='/' element={<AutoServiceLanding />} />
             </>
           ) : isAutoSubdomain ? (
             <>
