@@ -30,6 +30,7 @@ import AutoServiceLandingBlackEN from './pages/Languages/LangEN/AutoServiceLandi
 // ThanksPages
 import ThanksPageOnFormDownloadAutoService from './pages/ThanksPageOnFormDownloadAutoService/ThanksPageOnFormDownloadAutoService';
 import ThanksPageOnFormFireAuto from './pages/ThanksPageOnFormFireAuto/ThanksPageOnFormFireAuto';
+import ThanksPageOnFormCherkasy from './pages/ThanksPageOnFormCherkasy/ThanksPageOnFormCherkasy';
 
 import ContactForms from './components/DashboardComponents/ContactForms/ContactForms';
 
@@ -43,6 +44,7 @@ import TemplateSto from './pages/Templates/TemplateSto/TemplateSto';
 import Templates from './pages/Templates/Templates';
 import TemplateStoTwo from './pages/Templates/TemplateStoTwo/TemplateStoTwo';
 import ChatImpossibleAD from './components/ChatImpossibleAD/ChatImpossibleAD';
+import CherkasyLanding from './pages/CherkasyLanding/CherkasyLanding';
 
 const MainLandingA = lazy(() => import('./pages/MainLandingA/MainLandingA'));
 const LoginForm = lazy(() => import('./pages/Login/Login'));
@@ -178,7 +180,9 @@ export default function App() {
             </>
           ) : isCherkasy ? (
             <>
-              <Route path='/' element={<AutoServiceLanding />} />
+              <Route path='/' element={<CherkasyLanding />} />
+              <Route path='*' element={<NotFoundPage />} />
+              <Route path='/thanks-cherkasy' element={<ThanksPageOnFormCherkasy />} />
             </>
           ) : isAutoSubdomain ? (
             <>
