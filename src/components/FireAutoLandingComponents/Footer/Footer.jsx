@@ -5,6 +5,7 @@ import { BsInstagram, BsTelegram } from 'react-icons/bs';
 
 const Footer = ({ onHeaderTextLinks }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const currentYear = new Date().getFullYear();
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -101,7 +102,9 @@ const Footer = ({ onHeaderTextLinks }) => {
 
         {/* Bottom Bar */}
         <div className={styles.bottomBar}>
-          <p className={styles.copyright}>© 2025 Fire Автосервіс. Всі права захищені.</p>
+          <p className={styles.copyright}>
+            &copy; {currentYear} Fire Автосервіс. Всі права захищені.
+          </p>
           <div className={styles.bottomLinks}>
             <a href='#' className={styles.bottomLink}>
               Політика конфіденційності
