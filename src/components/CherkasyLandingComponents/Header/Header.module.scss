@@ -10,8 +10,8 @@
 .container {
   max-width: 70vw;
   margin: 0 auto;
-  // padding: 0.85vw 0;
-  padding: 0vw 0;
+  padding: 0.85vw 0;
+  // padding: 0vw 0;
 }
 
 @media (max-width: 1024px) {
@@ -31,8 +31,8 @@
 
 @media (max-width: 1024px) {
   .headerInner {
-    // padding: 4vw 0;
-    padding: 0vw 0;
+    padding: 4vw 0;
+    // padding: 0vw 0;
   }
 }
 
@@ -51,7 +51,7 @@
 
   & a {
     display: flex;
-    width: 5vw;
+    width: 7vw;
   }
 
   & img {

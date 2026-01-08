@@ -9,12 +9,12 @@ export default function MapSection() {
       <div className={scss.container}>
         <div className={scss.header}>
           <h2>Контакти та розташування</h2>
-          <p>Знайдіть нас у зручному місці в центрі Києва</p>
+          <p>Знайдіть нас у зручному місці Черкасах</p>
         </div>
         <div className={scss.mapAndTextBlocks}>
           <div className={scss.mapBlock}>
             <iframe
-              src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1271.6551616919164!2d30.476107!3d50.398054!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c9ab36078da9%3A0xbb5a762a3dee4c4!2sFire%20Auto%20Service!5e0!3m2!1sru!2sua!4v1763390899917!5m2!1sru!2sua'
+              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.181513268216!2d32.039502299999995!3d49.4243823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d14b351921e0f9%3A0x4891c492b069b76b!2z0KHQotCeIEF2dG9BdG1vc2ZlcmE!5e0!3m2!1sru!2sua!4v1767884155802!5m2!1sru!2sua'
               allowfullscreen=''
               loading='lazy'></iframe>
           </div>
@@ -25,7 +25,7 @@ export default function MapSection() {
               </div>
               <div className={scss.blockTextColumn}>
                 <h3>Адреса</h3>
-                <p>м. Київ, вул. Охтирська, 8</p>
+                <p>м. Черкаси, вул. Луценко, 6</p>
               </div>
             </div>
 
@@ -34,9 +34,9 @@ export default function MapSection() {
                 <FiPhoneCall className={scss.icon} />
               </div>
               <div>
-                <h3>Телефони</h3>
-                <a href='tel:+380733312299'>+380 73 331 22 99</a>
-                <a href='tel:+380933312299'>+380 93 331 22 99</a>
+                <h3>Телефон</h3>
+                <a href='tel:+380673341749'>+380 67 334 17 49</a>
+                {/* <a href='tel:+380933312299'>+380 93 331 22 99</a> */}
               </div>
             </div>
             <div className={scss.textsBlockAndIcon}>

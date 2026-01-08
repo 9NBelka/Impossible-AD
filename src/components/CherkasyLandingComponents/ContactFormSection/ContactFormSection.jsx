@@ -6,22 +6,20 @@ import { useNavigate } from 'react-router-dom';
 
 const services = [
   'Діагностика автомобіля',
-  'Діагностика перед покупкою',
+  'Комп`ютерна діагностика',
   'Планове ТО',
-  'Підбір запчастин',
-  'Ремонт ходової',
-  'Ремонт двигуна',
-  'Ремонт гальмівної системи',
-  'Ремонт рульової групи',
-  // 'Ремонт трансмісійної групи',
   'Ремонт паливної системи',
-  'Реставрація та ремонт турбін',
-  'Ремонт коробки передач та зчеплення',
-  'Заміна мастил, фільтрів роботизованих КПП',
-  'Заміна мастил, фільтрів DSG та Power Shift',
-  'Шиномонтаж та балансування',
-  'Заміна витратних матеріалів та компонентів',
-  'Детейлінг',
+  'Ремонт КПП',
+  'Ремонт зчеплення',
+  'Ремонт кермового керування',
+  'Ремонт гальмівної системи',
+  'Ремонт підвіски',
+  'Шиномонтаж',
+  'Ремонт двигуна',
+  'Ремонт електрики',
+  'Ремонт дизельних двигунів',
+  'Щось інше',
+  // 'Детейлінг',
 ];
 
 const ContactFormSection = () => {
@@ -54,8 +52,8 @@ const ContactFormSection = () => {
       ⚙️ Послуга: ${formData.service || 'Не вказано'}
     `;
 
-      const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN_FIREAUTO;
-      const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID_FIREAUTO;
+      const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN_AVTOATMOSFERA;
+      const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID_AVTOATMOSFERA;
 
       if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
         throw new Error('Telegram Bot Token или Chat ID не настроены в .env');
@@ -69,7 +67,7 @@ const ContactFormSection = () => {
         parse_mode: 'Markdown',
       });
 
-      navigate('/thanks-fireauto');
+      navigate('/thanks-cherkasy');
       setFormData({ name: '', phone: '', car: '', service: '' });
     } catch (error) {
       console.error('Помилка відправки даних:', error);

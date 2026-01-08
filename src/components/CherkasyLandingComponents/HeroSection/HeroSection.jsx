@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className={styles.content}>
         <div className={styles.card}>
           <h1 className={styles.title}>
-            <span className={styles.titleHighlight}>FireAuto</span> – ваш надійний автосервіс у
+            <span className={styles.titleHighlight}>АвтоАтмосфера</span> – ваш надійний автосервіс у
             Місті
           </h1>
 
@@ -58,7 +58,7 @@ const HeroSection = () => {
               onClick={() =>
                 document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' })
               }>
-              м. Київ, вул. Охтирська, 8
+              м. Черкаси, вул. Луценко, 6
             </p>
           </div>
         </div>

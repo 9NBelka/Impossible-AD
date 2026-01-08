@@ -1,9 +1,10 @@
 import { FaMapMarkerAlt, FaPhone, FaClock, FaEnvelope } from 'react-icons/fa';
 import styles from './Footer.module.scss';
 import { useState } from 'react';
-import { BsInstagram, BsTelegram } from 'react-icons/bs';
+import { BsInstagram, BsTiktok, BsYoutube } from 'react-icons/bs';
 
 const Footer = ({ onHeaderTextLinks }) => {
+  const currentYear = new Date().getFullYear();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId) => {
@@ -17,23 +18,33 @@ const Footer = ({ onHeaderTextLinks }) => {
         <div className={styles.flex}>
           {/* Company Info */}
           <div className={styles.mainBlock}>
-            <div className={styles.logo}>🔥 FireAuto 🔥 </div>
+            <div className={styles.logo}>
+              <a onClick={() => scrollToSection('hero')}>
+                <img src='./images/avtosferaLogo_white.png'></img>
+              </a>
+            </div>
             <p className={styles.companyDescription}>
               Ваш надійний автосервіс у Місто. Обслуговування авто будь-якої марки з гарантією 12
               місяців.
             </p>
             <div className={styles.socialLinks}>
               <a
-                href='https://t.me/fire_auto_service'
+                href='https://www.tiktok.com/@avtoatmosfera.com?lang=ru-RU'
                 className={styles.socialLink}
                 target='_blank'>
-                <BsTelegram className={styles.tiktokIcon} />
+                <BsTiktok className={styles.tiktokIcon} />
               </a>
               <a
-                href='https://www.instagram.com/fire_auto_service/'
+                href='https://www.instagram.com/avtoatmosfera_com/'
                 className={styles.socialLink}
                 target='_blank'>
                 <BsInstagram className={styles.tiktokIcon} />
+              </a>
+              <a
+                href='https://www.youtube.com/channel/UCZANjQxcAYbz2CuIDQrZlrQ/featured'
+                className={styles.socialLink}
+                target='_blank'>
+                <BsYoutube className={styles.tiktokIcon} />
               </a>
             </div>
           </div>
@@ -60,24 +71,24 @@ const Footer = ({ onHeaderTextLinks }) => {
             <div className={styles.contactList}>
               <div className={styles.contactItem}>
                 <FaMapMarkerAlt className={styles.contactIcon} />
-                <span>м. Київ, вул. Охтирська, 8</span>
+                <span>м. Черкаси, вул. Луценко, 6</span>
               </div>
               <div className={styles.contactItem}>
                 <FaPhone className={styles.contactIcon} />
-                <a href='tel:+380733312299' className={styles.contactLink}>
-                  +380 73 331 22 99
+                <a href='tel:+380673341749' className={styles.contactLink}>
+                  +380 67 334 17 49
                 </a>
               </div>
-              <div className={styles.contactItem}>
+              {/* <div className={styles.contactItem}>
                 <FaPhone className={styles.contactIcon} />
                 <a href='tel:+380933312299' className={styles.contactLink}>
                   +380 93 331 22 99
                 </a>
-              </div>
+              </div> */}
               <div className={styles.contactItem}>
                 <FaEnvelope className={styles.contactIcon} />
-                <a href='mailto:fireautoservice@gmail.com' className={styles.contactLink}>
-                  fireautoservice@gmail.com
+                <a href='mailto:avtoatmosfera2@gmail.com' className={styles.contactLink}>
+                  avtoatmosfera2@gmail.com
                 </a>
               </div>
             </div>
@@ -101,7 +112,9 @@ const Footer = ({ onHeaderTextLinks }) => {
 
         {/* Bottom Bar */}
         <div className={styles.bottomBar}>
-          <p className={styles.copyright}>© 2025 Fire Автосервіс. Всі права захищені.</p>
+          <p className={styles.copyright}>
+            &copy; {currentYear} СТО АвтоАтмосфера. Всі права захищені.
+          </p>
           <div className={styles.bottomLinks}>
             <a href='#' className={styles.bottomLink}>
               Політика конфіденційності

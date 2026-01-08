@@ -18,7 +18,7 @@ const Header = ({ onHeaderTextLinks }) => {
 
   const handlePhoneKeyDown = (e) => {
     if (e.key === 'Enter') {
-      window.location.href = 'tel:+380733312299';
+      window.location.href = 'tel:+380673341749';
     }
   };
 
@@ -29,7 +29,7 @@ const Header = ({ onHeaderTextLinks }) => {
           {/* Logo */}
           <div className={styles.logoContainer}>
             <a onClick={() => scrollToSection('hero')}>
-              <img src='./images/fireAutoLogo.png'></img>
+              <img src='./images/avtosferaLogo.png'></img>
             </a>
           </div>
 
@@ -49,12 +49,12 @@ const Header = ({ onHeaderTextLinks }) => {
           {/* Contact Info & CTA */}
           <div className={styles.contactContainer}>
             <div className={styles.twoPhonesBlock}>
-              <a className={styles.linkToPhone} href='tel:+380733312299'>
-                <FiPhoneCall className={styles.iconPhone} /> +380 73 331 22 99
+              <a className={styles.linkToPhone} href='tel:+380673341749'>
+                <FiPhoneCall className={styles.iconPhone} /> +380 67 334 17 49
               </a>
-              <a className={styles.linkToPhone} href='tel:+380933312299'>
+              {/* <a className={styles.linkToPhone} href='tel:+380933312299'>
                 <FiPhoneCall className={styles.iconPhone} /> +380 93 331 22 99
-              </a>
+              </a> */}
             </div>
 
             <button onClick={() => scrollToSection('contacts')} className={styles.ctaButton}>
