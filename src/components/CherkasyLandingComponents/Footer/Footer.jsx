@@ -24,7 +24,7 @@ const Footer = ({ onHeaderTextLinks }) => {
               </a>
             </div>
             <p className={styles.companyDescription}>
-              Ваш надійний автосервіс у Місто. Обслуговування авто будь-якої марки з гарантією 12
+              Ваш надійний автосервіс у Черкасах. Обслуговування авто будь-якої марки з гарантією 6
               місяців.
             </p>
             <div className={styles.socialLinks}>
@@ -101,7 +101,7 @@ const Footer = ({ onHeaderTextLinks }) => {
               <div className={styles.contactItem}>
                 <FaClock className={styles.contactIcon} />
                 <div className={styles.contactItemTime}>
-                  <p>Пн-Пт: 09:00 - 19:00</p>
+                  <p>Пн-Пт: 09:00 - 18:00</p>
                   <p>Сб: 09:00 - 15:00</p>
                   <p>Нд: вихідний</p>
                 </div>
@@ -116,7 +116,7 @@ const Footer = ({ onHeaderTextLinks }) => {
             &copy; {currentYear} СТО АвтоАтмосфера. Всі права захищені.
           </p>
           <div className={styles.bottomLinks}>
-            <a href='#' className={styles.bottomLink}>
+            <a href='/privacy-policy' className={styles.bottomLink}>
               Політика конфіденційності
             </a>
             <a href='#' className={styles.bottomLink}>

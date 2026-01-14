@@ -28,7 +28,7 @@ const Header = ({ onHeaderTextLinks }) => {
         <div className={styles.headerInner}>
           {/* Logo */}
           <div className={styles.logoContainer}>
-            <a onClick={() => scrollToSection('hero')}>
+            <a onClick={() => scrollToSection('hero')} className={styles.blockImageLogo}>
               <img src='./images/avtosferaLogo.png'></img>
             </a>
           </div>

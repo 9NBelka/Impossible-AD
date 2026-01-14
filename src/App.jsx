@@ -183,6 +183,7 @@ export default function App() {
               <Route path='/' element={<CherkasyLanding />} />
               <Route path='*' element={<NotFoundPage />} />
               <Route path='/thanks-cherkasy' element={<ThanksPageOnFormCherkasy />} />
+              <Route path='/privacy-policy' element={<PrivacyPolicy />} />
             </>
           ) : isAutoSubdomain ? (
             <>
@@ -200,8 +201,9 @@ export default function App() {
           ) : (
             <>
               {/* <Route path='/d' element={<FireAutoLanding />} /> */}
-              <Route path='/' element={<MainLandingB />} />
               {/* <Route path='/' element={<CherkasyLanding />} /> */}
+              <Route path='/' element={<MainLandingB />} />
+
               <Route path='/login' element={<LoginForm />} />
               <Route path='/register' element={<RegisterForm />} />
               <Route path='/thanks' element={<ThanksPageOnFormDownload />} />

@@ -16,8 +16,8 @@ const HeroSection = () => {
       <div className={styles.content}>
         <div className={styles.card}>
           <h1 className={styles.title}>
-            <span className={styles.titleHighlight}>АвтоАтмосфера</span> – ваш надійний автосервіс у
-            Місті
+            <span className={styles.titleHighlight}>АвтоАтмосфера</span> <br />
+            ваш надійний автосервіс
           </h1>
 
           <p className={styles.subtitle}>
