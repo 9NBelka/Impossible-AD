@@ -96,7 +96,7 @@ export default function PrivacyPolicy() {
                 support@yourdomain.com
               </a>
             </li>
-            <li>Телефон: +380 123 456 789</li>
+            <li>Телефон: +380734516972</li>
           </ul>
         </div>
       </div>

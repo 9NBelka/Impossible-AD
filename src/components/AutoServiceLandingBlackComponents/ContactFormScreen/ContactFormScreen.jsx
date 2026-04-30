@@ -131,8 +131,8 @@ export default function ContactFormScreen({ right }) {
               <FaWhatsapp className={scss.contactIcon} />
               <div>
                 <p className={scss.contactItemTitleMini}>Телефон</p>
-                <a href='https://wa.me/380733291216'>
-                  <p className={scss.contactItemTextMini}>+380 (73) 329-12-16</p>
+                <a href='tel:+380734516972'>
+                  <p className={scss.contactItemTextMini}>+380 (73) 451-69-72</p>
                 </a>
               </div>
             </div>

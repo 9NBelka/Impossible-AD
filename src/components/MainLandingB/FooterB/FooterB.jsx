@@ -77,9 +77,9 @@ export default function FooterB({ onFooterTextLinks }) {
                   <BsEnvelope />
                   mpdart2013@gmail.com
                 </a>
-                <a href='https://wa.me/380733291216' className={scss.contactLink} target='_blank'>
+                <a href='https://wa.me/380734516972' className={scss.contactLink} target='_blank'>
                   <FaWhatsapp />
-                  +380 (73) 329-12-16
+                  +380 (73) 451-69-72
                 </a>
                 <a href='https://t.me/Archerius' className={scss.contactLink} target='_blank'>
                   <BsChat />

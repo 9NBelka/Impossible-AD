@@ -53,8 +53,8 @@ export default function Header({
           ))}
         </nav>
 
-        <a href='https://wa.me/380733291216' className={scss.linkToPhone} id='callToPhoneOnHeader'>
-          <FaWhatsapp className={scss.iconPhone} /> +380 (73) 329-12-16
+        <a href='tel:+380734516972' className={scss.linkToPhone} id='callToPhoneOnHeader'>
+          <FaWhatsapp className={scss.iconPhone} /> +380 (73) 451-69-72
         </a>
         <div className={scss.buttonsBlockRow}>
           <button
